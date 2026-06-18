@@ -146,14 +146,27 @@ else
     commit -m "chore(daily): refresh run $NEW_RUN_ID ($TS)" >/dev/null || \
     echo "[4/5] ⚠️ git commit failed"
   # Push: try with credential-helper-based auth first (works in interactive
-  # sessions with cached PAT); fall back to env-var-embedded token.
+  # sessions with cached PAT); fall back to env-var-embedded token. We check
+  # the captured output for the success marker `-> master` instead of relying
+  # on exit code, because `git push | tail` always returns tail's exit 0.
   PUSH_OK=0
-  if git push origin master 2>&1 | tail -3; then
-    PUSH_OK=1
-  elif [[ -n "${GH_TOKEN:-}" ]]; then
-    git push "https://x-access-token:${GH_TOKEN}@github.com/kinglongleee-ui/wc-predict-2026.git" master 2>&1 | tail -3 || true
+  PUSH_OUT=""
+  if PUSH_OUT=$(git push origin master 2>&1 | tail -3); then
+    if grep -qE '->\s*master' <<<"$PUSH_OUT"; then
+      PUSH_OK=1
+    fi
+  fi
+  if [[ "$PUSH_OK" -eq 0 && -n "${GH_TOKEN:-}" ]]; then
+    PUSH_OUT=$(git push "https://x-access-token:${GH_TOKEN}@github.com/kinglongleee-ui/wc-predict-2026.git" master 2>&1 | tail -3) || true
+    if grep -qE '->\s*master' <<<"$PUSH_OUT"; then
+      PUSH_OK=1
+    fi
+  fi
+  if [[ "$PUSH_OK" -eq 1 ]]; then
+    echo "[4/5] ✓ git push succeeded"
   else
     echo "[4/5] ⚠️ git push failed (no GH_TOKEN and no cached credential)"
+    [[ -n "$PUSH_OUT" ]] && echo "[4/5]   last output: $PUSH_OUT"
   fi
 fi
 
