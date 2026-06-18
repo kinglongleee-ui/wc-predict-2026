@@ -1,9 +1,10 @@
-import { getLatestRound3Run, getRound2Run, formatPct, teamFlag, normalizeChampion } from "@/lib/data";
+import { getLatestRound3Run, getSecondLatestRound3Run, getRound2Run, formatPct, teamFlag, normalizeChampion } from "@/lib/data";
 import { ProbabilityBar, ProbabilityBadge } from "@/components/ProbabilityBar";
 import Link from "next/link";
 
 export default function HomePage() {
   const r3 = getLatestRound3Run();
+  const prev = getSecondLatestRound3Run();
   const r2 = getRound2Run();
   if (!r3) {
     return (
@@ -77,29 +78,44 @@ export default function HomePage() {
       )}
 
       {/* Multi-round drift */}
-      {r2 && (
+      {(r2 || prev) && (
         <section className="rounded-xl border border-purple-200 dark:border-purple-900/40 bg-purple-50/50 dark:bg-purple-950/20 p-5">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-xl font-bold">🔄 多轮预测漂移 (第 2 轮 → 第 3 轮)</h2>
+            <h2 className="text-xl font-bold">🔄 多轮预测漂移 (上一轮 → 最新一轮)</h2>
             <Link href="/simulations" className="text-sm text-purple-600 dark:text-purple-400 hover:underline">
               查看详情 →
             </Link>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <div className="text-xs text-gray-500 uppercase">第 2 轮 (run_a18431af48fd)</div>
-              <div className="text-2xl font-bold">
-                {teamFlag(r2.final.champion || "")} {r2.final.champion}{" "}
-                <span className="text-base font-mono text-gray-500">
-                  {formatPct(r2.final.confidence || 0)}
-                </span>
+            {prev ? (
+              <div>
+                <div className="text-xs text-gray-500 uppercase">上一轮 ({prev.run_id})</div>
+                <div className="text-2xl font-bold">
+                  {teamFlag(normalizeChampion(prev.final.champion))} {normalizeChampion(prev.final.champion)}{" "}
+                  <span className="text-base font-mono text-gray-500">
+                    {formatPct(prev.final.confidence || 0)}
+                  </span>
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  {prev.final.matchup}
+                </div>
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
-                {r2.final.matchup}
+            ) : r2 ? (
+              <div>
+                <div className="text-xs text-gray-500 uppercase">第 2 轮 (run_a18431af48fd)</div>
+                <div className="text-2xl font-bold">
+                  {teamFlag(r2.final.champion || "")} {r2.final.champion}{" "}
+                  <span className="text-base font-mono text-gray-500">
+                    {formatPct(r2.final.confidence || 0)}
+                  </span>
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  {r2.final.matchup}
+                </div>
               </div>
-            </div>
+            ) : null}
             <div>
-              <div className="text-xs text-gray-500 uppercase">第 3 轮 (run_b37f734df790)</div>
+              <div className="text-xs text-gray-500 uppercase">最新 ({r3.run_id})</div>
               <div className="text-2xl font-bold">
                 {teamFlag(finalChampion)} {finalChampion}{" "}
                 <span className="text-base font-mono text-emerald-600">
@@ -111,11 +127,18 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="mt-3 text-sm">
-            冠军从 <span className="font-semibold">阿根廷 22%</span> 漂移到{" "}
-            <span className="font-semibold text-emerald-600">{finalChampion} {formatPct(finalConf)}</span>。
-            第 3 轮引入"阿根廷 QF 被法国点球淘汰"剧情, 决赛对手换成西班牙。
-          </div>
+          {prev ? (
+            <div className="mt-3 text-sm">
+              上一轮冠军是 <span className="font-semibold">{normalizeChampion(prev.final.champion)} {formatPct(prev.final.confidence || 0)}</span>,
+              本轮更新到 <span className="font-semibold text-emerald-600">{finalChampion} {formatPct(finalConf)}</span>。
+            </div>
+          ) : (
+            <div className="mt-3 text-sm">
+              冠军从 <span className="font-semibold">阿根廷 22%</span> 漂移到{" "}
+              <span className="font-semibold text-emerald-600">{finalChampion} {formatPct(finalConf)}</span>。
+              第 3 轮引入"阿根廷 QF 被法国点球淘汰"剧情, 决赛对手换成西班牙。
+            </div>
+          )}
         </section>
       )}
 

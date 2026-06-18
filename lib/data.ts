@@ -28,12 +28,29 @@ export function loadRun(runId: string): RunData | null {
 }
 
 export function getLatestRound3Run(): RunData | null {
-  // Round 3 is the canonical detailed report (run_b37f734df790 was the latest)
-  return loadRun("run_b37f734df790");
+  // Round 3 is the canonical detailed report. Cron updates this daily; we
+  // pick the most recently created run whose id is NOT the pinned Round 2
+  // baseline (run_a18431af48fd) and whose file is large enough to be a full
+  // Round 3 (>20 KB; Round 2's parsed JSON is ~13 KB).
+  const all = listRuns().filter(
+    (r) => r.run_id !== "run_a18431af48fd" && r.final && r.groups,
+  );
+  if (all.length === 0) return null;
+  // listRuns sorts by created_at desc; the first is the freshest
+  return all[0];
 }
 
 export function getRound2Run(): RunData | null {
   return loadRun("run_a18431af48fd");
+}
+
+export function getSecondLatestRound3Run(): RunData | null {
+  // Used by /simulations to show "previous round" for drift comparison.
+  const all = listRuns().filter(
+    (r) => r.run_id !== "run_a18431af48fd" && r.final && r.groups,
+  );
+  if (all.length < 2) return null;
+  return all[1];
 }
 
 export function listGroupLetters(): string[] {
