@@ -28,21 +28,6 @@ export default function ReportPage({ params }: Props) {
         </div>
       </div>
 
-      <div className="rounded-xl border border-amber-300 dark:border-amber-900/50 bg-amber-50 dark:bg-amber-950/20 p-4 text-sm">
-        <div className="font-semibold text-amber-800 dark:text-amber-300 mb-1">
-          ⚠️ 内容说明
-        </div>
-        <p className="text-amber-700 dark:text-amber-400 leading-relaxed">
-          本报告原文由 MiroFish 多智能体以英文输出 (16KB markdown)。
-          下方展示英文原文, 摘要/中文要点见{" "}
-          <Link href="/" className="underline hover:text-amber-900 dark:hover:text-amber-200">
-            首页
-          </Link>
-          。
-          如需中文全文翻译请单独提出 (#93.1)。
-        </p>
-      </div>
-
       <article className="prose dark:prose-invert max-w-none rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 p-6">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
           {run.report_markdown}

@@ -9,6 +9,10 @@
 #   VERCEL_SCOPE   — Vercel team scope (default: interline)
 #   SKIP_MIROFISH  — set to 1 to skip the simulation step (parse + deploy only)
 #   SKIP_DEPLOY    — set to 1 to skip the Vercel deploy step
+#   MINIMAX_API_KEY — required for translate_narrative.py --api mode (translates
+#                     MiroFish's English narrative to Chinese). Without it,
+#                     the script falls back to --dict (only covers the 2 pinned
+#                     runs; new runs will keep English narrative).
 #
 # Outputs to stdout are markdown-friendly so the cc-connect cron summary reads
 # cleanly in the chat.
@@ -126,6 +130,27 @@ fi
 # Always re-parse round 2 baseline (cheap, idempotent)
 "$PYTHON" scripts/parse-round2.py run_a18431af48fd "$MF/uploads/runs/run_a18431af48fd" >/dev/null || true
 
+# ---------- Step 2.5: translate narrative fields (verdict.prediction / key_dynamics /
+# signals / upset_risks / best_thirds / final.tiers / final.combined_text / report_markdown)
+# These are MiroFish LLM English outputs; UI is zero-English so we must translate them.
+# Two modes:
+#   --api    : calls MiniMax M3 API (needs MINIMAX_API_KEY in env / tokens file)
+#   --dict   : uses built-in CN dictionary (only for the 2 known pinned runs)
+# We default to --api (cron future runs); --dict is a fallback if no API key set.
+echo "[2.5/5] translate narrative fields to Chinese..."
+if [[ -n "${MINIMAX_API_KEY:-}" ]]; then
+  if MINIMAX_API_KEY="$MINIMAX_API_KEY" "$PYTHON" scripts/translate_narrative.py --api "$NEW_RUN_ID" 2>&1 | tail -5; then
+    echo "[2.5/5] ✓ narrative translated (api mode)"
+  else
+    echo "[2.5/5] ⚠️ api translate failed, falling back to dict mode for known runs"
+    "$PYTHON" scripts/translate_narrative.py --dict 2>&1 | tail -5 || true
+  fi
+else
+  # No API key — try the built-in dict (covers the 2 pinned runs only)
+  "$PYTHON" scripts/translate_narrative.py --dict 2>&1 | tail -5 || true
+  echo "[2.5/5] (no MINIMAX_API_KEY — dict mode; new runs may keep English narrative)"
+fi
+
 # ---------- Step 3: local build sanity check ----------
 echo "[3/5] next build (sanity check)..."
 if npm run build 2>&1 | tail -40; then
@@ -138,7 +163,7 @@ fi
 
 # ---------- Step 4: git commit + push ----------
 echo "[4/5] git commit + push..."
-git add data/runs/ lib/data.ts app/page.tsx app/simulations/page.tsx scripts/daily-update.sh 2>/dev/null || true
+git add data/runs/ lib/data.ts app/page.tsx app/simulations/page.tsx app/report/\[id\]/page.tsx scripts/daily-update.sh scripts/translate_narrative.py 2>/dev/null || true
 if git diff --cached --quiet; then
   echo "[4/5] no changes to commit"
 else

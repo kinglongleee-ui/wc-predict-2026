@@ -4,14 +4,14 @@
   "round": 2,
   "format": "inline-list",
   "verdict": {
-    "prediction": "Argentina wins the 2026 FIFA World Cup (22% champion probability), defeating France 2-1 in 90 minutes in the final, with Brazil (18%) and England (12%) as the next most likely champions in a tournament where the top 7 teams cluster tightly.",
+    "prediction": "阿根廷夺得 2026 世界杯冠军 (概率 22%), 决赛常规 90 分钟 2-1 击败法国; 巴西 (18%) 与英格兰 (12%) 为其次热门, 前 7 强概率紧密聚集, 整体竞争极度开放。",
     "confidence": 0.22,
     "key_dynamics": [
-      "Argentina favored via easiest projected path (Group J) and Messi's farewell narrative, despite only 22% title probability indicating high parity",
-      "France positioned as primary challenger (19%) with Mbappé projected for 5+ goals and deep knockout run",
-      "Top-heavy competitive landscape: Argentina, France, Brazil, England, and Spain collectively hold 82% of title probability",
-      "Host nations (USA, Canada, Mexico) all projected to advance from groups but with low championship odds (USA 2%)",
-      "Final likely tight and decisive late: 39% in 90 min, 31% in extra time, 30% on penalties"
+      "阿根廷凭 J 组最易出线路径 + 梅西告别叙事被看好, 但仅 22% 冠军概率反映竞争极度开放",
+      "法国定位头号挑战者 (19%), 姆巴佩预计进 5+ 球并深入淘汰赛",
+      "强强高度集中: 阿、法、巴、英、西五国合计占 82% 冠军概率",
+      "三大东道主 (美、加、墨) 均预计小组出线, 但夺冠概率低 (美国仅 2%)",
+      "决赛预计胶着, 末段决出: 常规 39%, 加时 31%, 点球 30%"
     ],
     "signals": [
       {
