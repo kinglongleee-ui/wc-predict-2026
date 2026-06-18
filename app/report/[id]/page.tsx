@@ -20,7 +20,7 @@ export default function ReportPage({ params }: Props) {
             {run.run_id}
           </span>
           <span className="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800">
-            Round {run.round ?? 3}
+            第 {run.round ?? 3} 轮
           </span>
           <span className="px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 font-mono">
             置信度 {((run.verdict.confidence || 0) * 100).toFixed(0)}%

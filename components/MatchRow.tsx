@@ -10,13 +10,13 @@ export function MatchRow({ match }: Props) {
     <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4 bg-white dark:bg-gray-950">
       <div className="flex items-center justify-between mb-2">
         <div className="text-xs uppercase tracking-wide text-gray-500">
-          {match.stage} · MD{match.matchday}
+          {match.stage} · 比赛日 {match.matchday}
         </div>
         {score.raw && (
           <div className="text-sm font-mono font-semibold px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800">
             最可能比分: {teamFlag(match.team_a)} {score.home}-{score.away} {teamFlag(match.team_b)}
-            {score.aet && <span className="text-orange-600 dark:text-orange-400 ml-1">AET</span>}
-            {score.pens && <span className="text-purple-600 dark:text-purple-400 ml-1">PEN</span>}
+            {score.aet && <span className="text-orange-600 dark:text-orange-400 ml-1">加时</span>}
+            {score.pens && <span className="text-purple-600 dark:text-purple-400 ml-1">点球</span>}
           </div>
         )}
       </div>

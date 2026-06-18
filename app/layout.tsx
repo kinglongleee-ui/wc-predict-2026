@@ -3,8 +3,8 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "2026 FIFA World Cup Prediction · MiroFish",
-  description: "Multi-agent social simulation predicting the 2026 FIFA World Cup knockout bracket.",
+  title: "2026 FIFA 世界杯预测 · MiroFish 多智能体模拟",
+  description: "MiroFish 多智能体社交模拟预测 2026 FIFA 世界杯淘汰赛阶段。",
 };
 
 export default function RootLayout({
@@ -38,10 +38,10 @@ export default function RootLayout({
               <a href="https://github.com/666ghj/MiroFish" className="underline hover:text-emerald-600">
                 MiroFish
               </a>{" "}
-              multi-agent social simulation
+              多智能体社交模拟
             </span>
             <span>
-              数据: run_b37f734df790 (Round 3) + run_a18431af48fd (Round 2) · 2026-06-18
+              数据: run_b37f734df790 (第 3 轮) + run_a18431af48fd (第 2 轮) · 2026-06-18
             </span>
           </div>
         </footer>

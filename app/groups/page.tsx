@@ -11,7 +11,7 @@ export default function GroupsOverviewPage() {
         <Link href="/" className="text-sm text-emerald-600 hover:underline">← 返回首页</Link>
         <h1 className="text-3xl font-bold mt-2">⚽ 12 个小组 (A-L)</h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1">
-          64 场小组赛预测 · MD2 + MD3 (MD1 已结束)
+          64 场小组赛预测 · 第 2 + 第 3 比赛日 (第 1 比赛日已结束)
         </p>
       </div>
 

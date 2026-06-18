@@ -70,7 +70,7 @@ export default function GroupDetailPage({ params }: Props) {
 
       {/* Matches */}
       <section>
-        <h2 className="text-2xl font-bold mb-3">⚽ 全部比赛 (MD2 + MD3)</h2>
+        <h2 className="text-2xl font-bold mb-3">⚽ 全部比赛 (第 2 + 第 3 比赛日)</h2>
         <div className="space-y-3">
           {g.matches.map((m, i) => (
             <MatchRow key={i} match={m} />

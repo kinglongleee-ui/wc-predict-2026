@@ -15,7 +15,7 @@ export default function SimulationsPage() {
         <Link href="/" className="text-sm text-emerald-600 hover:underline">← 返回首页</Link>
         <h1 className="text-3xl font-bold mt-2">🔄 多轮模拟对比</h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1">
-          Round 2 (run_a18431af48fd) vs Round 3 (run_b37f734df790) — 5 rounds · 更强约束
+          第 2 轮 (run_a18431af48fd) vs 第 3 轮 (run_b37f734df790) — 5 轮强化约束
         </p>
       </div>
 
@@ -24,7 +24,7 @@ export default function SimulationsPage() {
         <h2 className="text-xl font-bold mb-4">🏆 冠军预测漂移</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <div className="text-xs text-gray-500 uppercase mb-2">Round 2</div>
+            <div className="text-xs text-gray-500 uppercase mb-2">第 2 轮</div>
             <div className="text-4xl font-black">
               {teamFlag(r2Champion)} {r2Champion}
             </div>
@@ -37,7 +37,7 @@ export default function SimulationsPage() {
           </div>
 
           <div>
-            <div className="text-xs text-gray-500 uppercase mb-2">Round 3 (current)</div>
+            <div className="text-xs text-gray-500 uppercase mb-2">第 3 轮 (最新)</div>
             <div className="text-4xl font-black">
               {teamFlag(r3Champion)} {r3Champion}
             </div>
@@ -50,24 +50,24 @@ export default function SimulationsPage() {
           </div>
         </div>
         <div className="mt-6 p-4 rounded-lg bg-white/60 dark:bg-black/30 text-sm leading-relaxed">
-          <strong>关键变化:</strong> Round 3 引入了"阿根廷 QF 被法国点球淘汰"剧情
-          (报告第 6 节 France vs Argentina QF: 1-1 → 2-2 → 4-3 pens, 30% AET 18% pens)，
+          <strong>关键变化:</strong> 第 3 轮引入了"阿根廷 QF 被法国点球淘汰"剧情
+          (报告第 6 节 France vs Argentina QF: 1-1 → 2-2 → 4-3 点球, 30% 加时 18% 点球)，
           因此最终决赛对手从 <span className="font-semibold">阿根廷</span> 变成 <span className="font-semibold">西班牙</span>。
-          冠军仍属法国, 但置信度从 22% (Monte Carlo) 升到 64% (MiroFish Round 3 报告输出)。
+          冠军仍属法国, 但置信度从 22% (蒙特卡洛) 升到 64% (MiroFish 第 3 轮报告输出)。
         </div>
       </section>
 
       {/* Champion probability table (Round 2 has full table) */}
       {r2?.champion_table && (
         <section>
-          <h2 className="text-2xl font-bold mb-3">📊 Round 2 冠军概率表 (10,000-iter Monte Carlo)</h2>
+          <h2 className="text-2xl font-bold mb-3">📊 第 2 轮冠军概率表 (10,000 次蒙特卡洛模拟)</h2>
           <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-gray-50 dark:bg-gray-900">
                 <tr>
                   <th className="text-left p-3">#</th>
                   <th className="text-left p-3">球队</th>
-                  <th className="text-right p-3">Round 2 概率</th>
+                  <th className="text-right p-3">第 2 轮概率</th>
                   <th className="text-right p-3">变化</th>
                 </tr>
               </thead>
@@ -83,11 +83,11 @@ export default function SimulationsPage() {
                       <td className="p-3 text-right font-mono">{formatPct(prob)}</td>
                       <td className="p-3 text-right">
                         {team === "Argentina" ? (
-                          <span className="text-orange-600">↓ dropped to QF exit</span>
+                          <span className="text-orange-600">↓ 跌至八强出局</span>
                         ) : team === "France" ? (
-                          <span className="text-emerald-600">↑ champion</span>
+                          <span className="text-emerald-600">↑ 最终夺冠</span>
                         ) : team === "Spain" ? (
-                          <span className="text-emerald-600">↑ new finalist</span>
+                          <span className="text-emerald-600">↑ 新晋决赛</span>
                         ) : (
                           <span className="text-gray-400">—</span>
                         )}
@@ -105,7 +105,7 @@ export default function SimulationsPage() {
         <h2 className="text-2xl font-bold mb-3">🧠 关键判断变化</h2>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 p-5">
-            <div className="text-xs text-gray-500 uppercase mb-2">Round 2 关键叙事</div>
+            <div className="text-xs text-gray-500 uppercase mb-2">第 2 轮 关键叙事</div>
             <ul className="space-y-1 text-sm">
               {r2?.verdict.key_dynamics.slice(0, 5).map((d, i) => (
                 <li key={i} className="flex gap-2">
@@ -116,7 +116,7 @@ export default function SimulationsPage() {
             </ul>
           </div>
           <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 p-5">
-            <div className="text-xs text-gray-500 uppercase mb-2">Round 3 关键叙事</div>
+            <div className="text-xs text-gray-500 uppercase mb-2">第 3 轮 关键叙事</div>
             <ul className="space-y-1 text-sm">
               {r3.verdict.key_dynamics.map((d, i) => (
                 <li key={i} className="flex gap-2">
@@ -134,16 +134,19 @@ export default function SimulationsPage() {
         <div className="font-semibold mb-2">📐 方法论差异</div>
         <ul className="space-y-1 text-gray-600 dark:text-gray-400 leading-relaxed">
           <li>
-            <strong>Round 2</strong>: 10,000-iter Monte Carlo 模拟 48 场小组赛 + 全淘汰赛，输出概率分布。
-            数据源: agent 推文。
+            <strong>第 2 轮</strong>: 10,000 次蒙特卡洛模拟 48 场小组赛 + 全淘汰赛, 输出概率分布。
+            数据源: 智能体推文。
           </li>
           <li>
-            <strong>Round 3</strong>: 5 rounds 强化约束 (强约束: 12 组全列 + 全部 KO 阶段 + 3 档比分)。
-            数据源: Round 2 基础 + 新增 Claude Opus 4 Sonnet/Haiku 调度。
+            <strong>第 3 轮</strong>: 5 轮强化约束 (硬性要求: 12 组全列 + 全部淘汰赛阶段 + 3 档比分)。
+            数据源: 第 2 轮基础 + 新增 Claude Opus 4 Sonnet / Haiku 调度。
           </li>
           <li>
-            <strong>核心分歧</strong>: Round 2 给阿根廷 22% (easiest projected path),
-            Round 3 在 QF 让阿根廷被法国点球淘汰 (4-3 比分, 18% 概率分支) — 同一份模拟, 不同抽样窗口。
+            <strong>核心分歧</strong>: 第 2 轮给阿根廷 22% (预测路径最轻松),
+            第 3 轮在八强阶段让阿根廷被法国点球淘汰 (4-3 比分, 18% 概率分支) — 同一份模拟, 不同抽样窗口。
+          </li>
+          <li>
+            <strong>决策方式</strong>: 全部基于 MiroFish 多智能体 (OASIS + GraphRAG + Zep) 自治运行, 人类只设置提示词与解析输出。
           </li>
         </ul>
       </section>
