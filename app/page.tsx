@@ -1,4 +1,4 @@
-import { getLatestRound3Run, getRound2Run, formatPct, teamFlag } from "@/lib/data";
+import { getLatestRound3Run, getRound2Run, formatPct, teamFlag, normalizeChampion } from "@/lib/data";
 import { ProbabilityBar, ProbabilityBadge } from "@/components/ProbabilityBar";
 import Link from "next/link";
 
@@ -14,7 +14,7 @@ export default function HomePage() {
   }
 
   const { verdict, final, upset_risks, groups } = r3;
-  const finalChampion = final.champion?.replace(" — confidence " + (final.confidence ? formatPct(final.confidence) : ""), "").trim() || "—";
+  const finalChampion = normalizeChampion(final.champion);
   const finalConf = final.confidence || verdict.confidence;
 
   return (

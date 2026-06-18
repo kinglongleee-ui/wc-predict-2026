@@ -44,21 +44,42 @@ export function formatPct(n: number, digits = 0): string {
   return `${(n * 100).toFixed(digits)}%`;
 }
 
+const FLAG_MAP: Record<string, string> = {
+  "Mexico": "🇲🇽", "South Korea": "🇰🇷", "Czech Republic": "🇨🇿", "South Africa": "🇿🇦",
+  "Switzerland": "🇨🇭", "Qatar": "🇶🇦", "Bosnia": "🇧🇦", "Bosnia & Herzegovina": "🇧🇦", "Canada": "🇨🇦",
+  "Brazil": "🇧🇷", "Morocco": "🇲🇦", "Scotland": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "Haiti": "🇭🇹",
+  "USA": "🇺🇸", "Paraguay": "🇵🇾", "Australia": "🇦🇺", "Turkey": "🇹🇷",
+  "Germany": "🇩🇪", "Ecuador": "🇪🇨", "Ivory Coast": "🇨🇮", "Curaçao": "🇨🇼",
+  "Netherlands": "🇳🇱", "Sweden": "🇸🇪", "Japan": "🇯🇵", "Tunisia": "🇹🇳",
+  "Belgium": "🇧🇪", "Iran": "🇮🇷", "Egypt": "🇪🇬", "New Zealand": "🇳🇿",
+  "Spain": "🇪🇸", "Uruguay": "🇺🇾", "Saudi Arabia": "🇸🇦", "Cape Verde": "🇨🇻",
+  "France": "🇫🇷", "Norway": "🇳🇴", "Senegal": "🇸🇳", "Iraq": "🇮🇶",
+  "Argentina": "🇦🇷", "Algeria": "🇩🇿", "Austria": "🇦🇹", "Jordan": "🇯🇴",
+  "Portugal": "🇵🇹", "Colombia": "🇨🇴", "DR Congo": "🇨🇩", "Uzbekistan": "🇺🇿",
+  "England": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Croatia": "🇭🇷", "Ghana": "🇬🇭", "Panama": "🇵🇦",
+};
+
+// Build a lowercase index for case-insensitive lookups
+const FLAG_INDEX = Object.entries(FLAG_MAP).map(([k, v]) => [k.toLowerCase(), v] as [string, string]);
+
 export function teamFlag(team: string): string {
-  // Approximate country code → emoji flag (most common WC teams)
-  const map: Record<string, string> = {
-    "Mexico": "🇲🇽", "South Korea": "🇰🇷", "Czech Republic": "🇨🇿", "South Africa": "🇿🇦",
-    "Switzerland": "🇨🇭", "Qatar": "🇶🇦", "Bosnia": "🇧🇦", "Bosnia & Herzegovina": "🇧🇦", "Canada": "🇨🇦",
-    "Brazil": "🇧🇷", "Morocco": "🇲🇦", "Scotland": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "Haiti": "🇭🇹",
-    "USA": "🇺🇸", "Paraguay": "🇵🇾", "Australia": "🇦🇺", "Turkey": "🇹🇷",
-    "Germany": "🇩🇪", "Ecuador": "🇪🇨", "Ivory Coast": "🇨🇮", "Curaçao": "🇨🇼",
-    "Netherlands": "🇳🇱", "Sweden": "🇸🇪", "Japan": "🇯🇵", "Tunisia": "🇹🇳",
-    "Belgium": "🇧🇪", "Iran": "🇮🇷", "Egypt": "🇪🇬", "New Zealand": "🇳🇿",
-    "Spain": "🇪🇸", "Uruguay": "🇺🇾", "Saudi Arabia": "🇸🇦", "Cape Verde": "🇨🇻",
-    "France": "🇫🇷", "Norway": "🇳🇴", "Senegal": "🇸🇳", "Iraq": "🇮🇶",
-    "Argentina": "🇦🇷", "Algeria": "🇩🇿", "Austria": "🇦🇹", "Jordan": "🇯🇴",
-    "Portugal": "🇵🇹", "Colombia": "🇨🇴", "DR Congo": "🇨🇩", "Uzbekistan": "🇺🇿",
-    "England": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Croatia": "🇭🇷", "Ghana": "🇬🇭", "Panama": "🇵🇦",
-  };
-  return map[team] || "🏳️";
+  const key = team.trim();
+  if (FLAG_MAP[key]) return FLAG_MAP[key];
+  const lower = key.toLowerCase();
+  for (const [k, v] of FLAG_INDEX) {
+    if (k === lower) return v;
+  }
+  return "🏳️";
+}
+
+// Normalize a "champion" string like "FRANCE — confidence 64%." into "France"
+export function normalizeChampion(raw: string | null | undefined): string {
+  if (!raw) return "—";
+  return raw
+    .replace(/\s*—\s*confidence.*$/i, "")
+    .replace(/[.。,，]+$/, "")
+    .trim()
+    .split(" ")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+    .join(" ");
 }

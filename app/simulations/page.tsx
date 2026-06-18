@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { getLatestRound3Run, getRound2Run, formatPct, teamFlag } from "@/lib/data";
+import { getLatestRound3Run, getRound2Run, formatPct, teamFlag, normalizeChampion } from "@/lib/data";
 
 export default function SimulationsPage() {
   const r3 = getLatestRound3Run();
   const r2 = getRound2Run();
   if (!r3) return <div>数据未找到</div>;
 
-  const r3Champion = r3.final.champion?.replace(/\s*—\s*confidence.*$/, "").trim() || "—";
+  const r3Champion = normalizeChampion(r3.final.champion);
   const r2Champion = r2?.final.champion || "—";
 
   return (
