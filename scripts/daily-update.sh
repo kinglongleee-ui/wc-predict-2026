@@ -151,14 +151,18 @@ else
   # on exit code, because `git push | tail` always returns tail's exit 0.
   PUSH_OK=0
   PUSH_OUT=""
+  # `ugrep` (system default on this box) parses tokens after `-qE` as options
+  # if they start with `-`, so we use `-e` with the pattern AND `--` to
+  # terminate option parsing. Pattern matches git's success line: `master -> master`.
+  PUSH_RE='->[[:space:]]*master'
   if PUSH_OUT=$(git push origin master 2>&1 | tail -3); then
-    if printf '%s\n' "$PUSH_OUT" | grep -qE '->[[:space:]]*master'; then
+    if printf '%s\n' "$PUSH_OUT" | grep -qE -e "$PUSH_RE" -- ; then
       PUSH_OK=1
     fi
   fi
   if [[ "$PUSH_OK" -eq 0 && -n "${GH_TOKEN:-}" ]]; then
     PUSH_OUT=$(git push "https://x-access-token:${GH_TOKEN}@github.com/kinglongleee-ui/wc-predict-2026.git" master 2>&1 | tail -3) || true
-    if printf '%s\n' "$PUSH_OUT" | grep -qE '->[[:space:]]*master'; then
+    if printf '%s\n' "$PUSH_OUT" | grep -qE -e "$PUSH_RE" -- ; then
       PUSH_OK=1
     fi
   fi
