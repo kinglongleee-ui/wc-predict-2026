@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getLatestRound3Run, teamFlag, teamNameZh } from "@/lib/data";
+import { getLatestRound3Run, teamFlag, teamNameZh, tierLabelZh } from "@/lib/data";
 import type { BracketMatch } from "@/lib/types";
 
 // 首页用的缩水版对阵树:
@@ -199,6 +199,18 @@ export function BracketMini() {
           <span className="inline-block w-3 h-3 rounded border border-orange-400 bg-orange-50/50" />
           平局走加时/点球
         </span>
+        <span className="flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded border-l-4 border-l-emerald-500 border-gray-300 bg-white" />
+          上半区
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded border-l-4 border-l-orange-500 border-gray-300 bg-white" />
+          下半区
+        </span>
+        <span className="flex items-center gap-1.5">
+          🔮
+          MiroFish 预测比分 (跟真实比分在小组赛 PlayedVsPredicted 块对比)
+        </span>
       </div>
 
       {/* 树状图主体 — 缩略版 */}
@@ -236,17 +248,17 @@ export function BracketMini() {
             ))}
           </svg>
 
-          {/* R32 上半 (col 0) — 8 行, 每行一对 */}
+          {/* R32 上半 (col 0) — 8 行, 每行一对 (emerald 左边条标识上半区) */}
           {r32Top.map((m, k) => {
             const h = CARD_H;
             const y = rowY(0, k) - h / 2;
-            return <MiniR32Card key={`r32t-${k}`} match={m} x={colX(0)} y={y} width={CARD_W} height={h} label={`上半 #${k + 1}`} />;
+            return <MiniR32Card key={`r32t-${k}`} match={m} x={colX(0)} y={y} width={CARD_W} height={h} label={`上半 #${k + 1}`} zone="top" />;
           })}
-          {/* R32 下半 (col 1) */}
+          {/* R32 下半 (col 1) (orange 左边条标识下半区) */}
           {r32Bot.map((m, k) => {
             const h = CARD_H;
             const y = rowY(1, k) - h / 2;
-            return <MiniR32Card key={`r32b-${k}`} match={m} x={colX(1)} y={y} width={CARD_W} height={h} label={`下半 #${k + 1}`} />;
+            return <MiniR32Card key={`r32b-${k}`} match={m} x={colX(1)} y={y} width={CARD_W} height={h} label={`下半 #${k + 1}`} zone="bot" />;
           })}
 
           {/* R16 (col 2) — 8 场 */}
@@ -270,16 +282,22 @@ export function BracketMini() {
             return <MiniCard key={`sf-${k}`} match={m} x={colX(4)} y={y} width={CARD_W} height={h} />;
           })}
 
-          {/* Final (col 5) — 单卡 + 冠军徽章 */}
+          {/* Final (col 5) — 单卡 + 冠军徽章 + 预测比分 + 三档概率 */}
           <MiniFinalCard
             x={colX(5) - 10}
-            y={finalY - 70}
+            y={finalY - 85}
             width={FINAL_COL_W}
             teamA={finalA}
             teamB={finalB}
-            score={r3.final.tiers?.find((t) => t.tier === 1)?.label || "决赛"}
+            score={
+              // 1. 优先从 combined_text 抽 "X-Y (AET, X-Y pens)" 格式
+              (r3.final.combined_text?.match(/\d+[-–]\d+(?:\s*\(AET[^)]*(?:\d+[-–]\d+\s*pens)?\))?/)?.[0]) ||
+              r3.final.tiers?.find((t) => t.tier === 1)?.label ||
+              "决赛"
+            }
             champion={championName}
             confidence={championConf}
+            tiers={r3.final.tiers}
           />
         </div>
       </div>
@@ -315,7 +333,9 @@ export function BracketMini() {
       </div>
 
       <p className="text-xs text-gray-500 mt-3">
-        缩水版: 上半区 + 下半区各 8 场 R32 → 16 强 → 1/4 → 半决赛 → 决赛的胜方汇聚路径 ·
+        缩水版: 上半区 16 队 + 下半区 16 队 R32 → 16 强 → 1/4 → 半决赛 → 决赛的胜方汇聚路径 ·
+        每张卡片底部 <span className="font-mono">🔮 预测 X-Y</span> 是 MiroFish 最可能比分
+        (跟小组赛"已比赛 vs 预测"块的"真实比分"不同) ·
         点击右上角"查看完整对阵"进 /bracket 看 R32 全部 16 场细节
       </p>
     </section>
@@ -333,6 +353,7 @@ function MiniR32Card({
   height,
   label,
   showProb = true,
+  zone,
 }: {
   match: BracketMatch;
   x: number;
@@ -341,14 +362,22 @@ function MiniR32Card({
   height: number;
   label: string;
   showProb?: boolean;
+  zone?: "top" | "bot"; // 上半/下半区 — 给卡左边条颜色
 }) {
   const aWins = match.winner === "a";
   const bWins = match.winner === "b";
   const isDraw = match.winner === null;
 
+  const accentBar =
+    zone === "top"
+      ? "border-l-4 border-l-emerald-500"
+      : zone === "bot"
+      ? "border-l-4 border-l-orange-500"
+      : "";
+
   return (
     <div
-      className={`absolute rounded border ${
+      className={`absolute rounded border ${accentBar} ${
         isDraw
           ? "border-orange-300 dark:border-orange-700 bg-orange-50/40 dark:bg-orange-950/20"
           : "border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-950"
@@ -395,12 +424,18 @@ function MiniR32Card({
           </span>
         )}
       </div>
+      {/* 预测比分 footer — 跟 PlayedVsPredicted 一致标 🔮 预测 */}
+      {match.score && (
+        <div className="absolute -bottom-2 right-1 px-1.5 text-[9px] font-mono bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 rounded shadow-sm">
+          🔮 预测 {match.score}
+        </div>
+      )}
     </div>
   );
 }
 
 // ---------------------------------------------------------------------------
-// MiniCard — R16 / QF / SF 紧凑卡 (一行两队 + 概率)
+// MiniCard — R16 / QF / SF 紧凑卡 (一行两队 + 概率 + 预测比分)
 // ---------------------------------------------------------------------------
 function MiniCard({
   match,
@@ -418,6 +453,11 @@ function MiniCard({
   const aWins = match.winner === "a";
   const bWins = match.winner === "b";
   const isDraw = match.winner === null;
+
+  // 角标: 加时 (AET) 或 点球 (PSO) — 用 aet_pct / pen_pct 数值大小判断
+  let overtimeTag: string | null = null;
+  if (match.aet_pct != null && match.aet_pct >= 0.15) overtimeTag = `加时${Math.round(match.aet_pct * 100)}%`;
+  else if (match.pen_pct != null && match.pen_pct >= 0.08) overtimeTag = `点球${Math.round(match.pen_pct * 100)}%`;
 
   return (
     <div
@@ -460,12 +500,21 @@ function MiniCard({
           {Math.round(match.team_b_win * 100)}%
         </span>
       </div>
+      {/* 预测比分 footer — 飘在卡外底部 */}
+      {match.score && (
+        <div className="absolute -bottom-2 right-1 px-1.5 text-[9px] font-mono bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 rounded shadow-sm flex items-center gap-1">
+          <span>🔮 预测 {match.score}</span>
+          {overtimeTag && (
+            <span className="text-orange-600 dark:text-orange-400">{overtimeTag}</span>
+          )}
+        </div>
+      )}
     </div>
   );
 }
 
 // ---------------------------------------------------------------------------
-// MiniFinalCard — 决赛卡 + 冠军
+// MiniFinalCard — 决赛卡 + 冠军 + 预测比分 + 三档概率
 // ---------------------------------------------------------------------------
 function MiniFinalCard({
   x,
@@ -476,6 +525,7 @@ function MiniFinalCard({
   score,
   champion,
   confidence,
+  tiers,
 }: {
   x: number;
   y: number;
@@ -485,11 +535,12 @@ function MiniFinalCard({
   score: string;
   champion: string;
   confidence: number;
+  tiers?: { tier: number; label: string; probability: number | null; content: string }[];
 }) {
   return (
     <div
       className="absolute rounded-xl border-2 border-emerald-500/40 bg-gradient-to-br from-emerald-50 via-white to-yellow-50 dark:from-emerald-950/30 dark:via-black dark:to-yellow-950/20 shadow-md"
-      style={{ left: x, top: y, width, height: 140 }}
+      style={{ left: x, top: y, width, height: 155 }}
     >
       <div className="px-2 py-1 text-[10px] uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-bold border-b border-emerald-500/30">
         🏆 决赛
@@ -506,6 +557,30 @@ function MiniFinalCard({
           <span>{teamNameZh(teamB)}</span>
         </div>
       </div>
+      {/* 预测比分 footer — 飘出卡底 */}
+      <div className="absolute -bottom-2 right-1 px-1.5 text-[9px] font-mono bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 rounded shadow-sm flex items-center gap-1">
+        🔮 预测 {score}
+      </div>
+      {/* 三档比分概率 — 在冠军徽章之上挤一行 */}
+      {tiers && tiers.length > 0 && (
+        <div className="px-2 pt-1 flex flex-wrap gap-1 text-[9px] font-mono text-gray-600 dark:text-gray-400">
+          {tiers.map((t) => (
+            <span
+              key={t.tier}
+              className={`px-1 rounded ${
+                t.tier === 1
+                  ? "bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300"
+                  : t.tier === 2
+                  ? "bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300"
+                  : "bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300"
+              }`}
+              title={t.content}
+            >
+              {tierLabelZh(t.label)} {t.probability !== null ? `${Math.round(t.probability * 100)}%` : "—"}
+            </span>
+          ))}
+        </div>
+      )}
       <div className="px-2 py-1.5 flex flex-col items-center gap-0.5 bg-yellow-100/50 dark:bg-yellow-900/20 rounded-b-lg">
         <span className="text-[9px] text-gray-600 dark:text-gray-400 uppercase tracking-wider">冠军</span>
         <span className="text-sm font-black bg-gradient-to-r from-emerald-600 to-yellow-600 bg-clip-text text-transparent">
