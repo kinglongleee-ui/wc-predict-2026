@@ -24,6 +24,7 @@ import re
 import sys
 from datetime import datetime
 from pathlib import Path
+from typing import Optional
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data" / "runs"
@@ -286,6 +287,143 @@ def parse_upset_risks(md_text: str) -> list:
     return risks
 
 
+def _strip_group_pos(raw: str) -> str:
+    """Strip 'Mexico (1A)' → 'Mexico'. Tolerant of leading **bold** markers."""
+    s = raw.strip().strip("*").strip()
+    m = re.match(r"([^(]+?)\s*\(\d+[A-L](?:-\w+)?\)", s)
+    return m.group(1).strip() if m else s
+
+
+def _winner_from_pct(a: str, b: str, d: str) -> Optional[str]:
+    """Pick winner from '48%' / '26%' / '26%' strings.
+    Returns 'a', 'b', or None when draw is highest (match goes to AET/pen).
+    """
+    a_val = parse_pct(a)
+    b_val = parse_pct(b)
+    d_val = parse_pct(d)
+    if a_val > b_val and a_val > d_val:
+        return "a"
+    if b_val > a_val and b_val > d_val:
+        return "b"
+    return None
+
+
+def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> list:
+    """Parse a knockout bracket table starting at section_start (after the heading).
+
+    with_index=True  → R32 format: | # | Matchup | A% | D% | B% | Score |
+    with_index=False → R16/QF/SF format: | Matchup | A% | D% | B% | Score | AET% | Pen% |
+    """
+    next_section = re.search(r"\n##\s", md_text[section_start:])
+    section_end = section_start + next_section.start() if next_section else len(md_text)
+    section_text = md_text[section_start:section_end]
+
+    matches = []
+
+    if with_index:
+        for row in re.finditer(
+            r"\|\s*(\d+)\s*\|\s*([^|]+?)\s+vs\s+([^|]+?)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*([^|]+?)\s*\|",
+            section_text,
+        ):
+            idx, team_a_raw, team_b_raw, a_pct, d_pct, b_pct, score = row.groups()
+            matches.append({
+                "bracket_idx": int(idx) - 1,  # 0-based for tree indexing
+                "team_a": _strip_group_pos(team_a_raw),
+                "team_b": _strip_group_pos(team_b_raw),
+                "team_a_win": parse_pct(a_pct),
+                "draw": parse_pct(d_pct),
+                "team_b_win": parse_pct(b_pct),
+                "score": score.strip(),
+                "aet_pct": None,
+                "pen_pct": None,
+                "winner": _winner_from_pct(a_pct, b_pct, d_pct),
+            })
+    else:
+        for row in re.finditer(
+            r"\|\s*([^|]+?)\s+vs\s+([^|]+?)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*([^|]+?)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|",
+            section_text,
+        ):
+            team_a, team_b, a_pct, d_pct, b_pct, score, aet_pct, pen_pct = row.groups()
+            matches.append({
+                "team_a": team_a.strip().strip("*"),
+                "team_b": team_b.strip().strip("*"),
+                "team_a_win": parse_pct(a_pct),
+                "draw": parse_pct(d_pct),
+                "team_b_win": parse_pct(b_pct),
+                "score": score.strip(),
+                "aet_pct": parse_pct(aet_pct),
+                "pen_pct": parse_pct(pen_pct),
+                "winner": _winner_from_pct(a_pct, b_pct, d_pct),
+            })
+
+    return matches
+
+
+def _parse_third_place(md_text: str, sf_start: int) -> Optional[dict]:
+    """Parse '**3rd-place playoff:** Germany 1-2 England (AET, ...)' from SF section."""
+    next_section = re.search(r"\n##\s", md_text[sf_start:])
+    section_end = sf_start + next_section.start() if next_section else len(md_text)
+    section_text = md_text[sf_start:section_end]
+
+    m = re.search(r"\*\*3rd-place\s+playoff:\*\*\s*([^\n]+)", section_text)
+    if not m:
+        return None
+
+    text = m.group(1).strip()
+    # Format: "Germany 1-2 England (AET, 88' winner by Bellingham)"
+    score_match = re.match(r"(.+?)\s+(\d+[-:]\d+)\s+(.+?)(?:\s*\(.*\))?$", text)
+    if score_match:
+        team_a, score, team_b = score_match.groups()
+        return {
+            "team_a": team_a.strip(),
+            "team_b": team_b.strip(),
+            "score": score.strip(),
+            "raw": text,
+            "aet": "AET" in text.upper(),
+        }
+    return {"raw": text}
+
+
+def parse_bracket(md_text: str) -> dict:
+    """Extract the full knockout bracket (R32, R16, QF, SF, 3rd-place) from report.md.
+
+    The Final itself is parsed separately by parse_final() and stored under
+    `final` at the top level, so the bracket dict does NOT include it.
+    Index pairing is left to the frontend (R16[i] parents = R32[2i], R32[2i+1]).
+    """
+    result = {"r32": [], "r16": [], "qf": [], "sf": [], "third_place": None}
+
+    # R32: ## 3. Round of 32 — 16 Matchups
+    r32_head = re.search(r"##\s*3\.\s*Round\s+of\s+32[^\n]*", md_text)
+    if r32_head:
+        result["r32"] = _parse_bracket_table(md_text, r32_head.end(), with_index=True)
+
+    # R16: ## 4. Round of 16
+    r16_head = re.search(r"##\s*4\.\s*Round\s+of\s+16[^\n]*", md_text)
+    if r16_head:
+        result["r16"] = _parse_bracket_table(md_text, r16_head.end(), with_index=False)
+        # Tag bracket_idx so frontend can pair parents
+        for i, m in enumerate(result["r16"]):
+            m["bracket_idx"] = i
+
+    # QF: ## 5. Quarterfinals
+    qf_head = re.search(r"##\s*5\.\s*Quarterfinals[^\n]*", md_text)
+    if qf_head:
+        result["qf"] = _parse_bracket_table(md_text, qf_head.end(), with_index=False)
+        for i, m in enumerate(result["qf"]):
+            m["bracket_idx"] = i
+
+    # SF: ## 6. Semifinals
+    sf_head = re.search(r"##\s*6\.\s*Semifinals[^\n]*", md_text)
+    if sf_head:
+        result["sf"] = _parse_bracket_table(md_text, sf_head.end(), with_index=False)
+        for i, m in enumerate(result["sf"]):
+            m["bracket_idx"] = i
+        result["third_place"] = _parse_third_place(md_text, sf_head.end())
+
+    return result
+
+
 def parse_final(md_text: str) -> dict:
     """Parse '## N. Final — TeamA vs TeamB'. Supports R3 (Tier lines) and R4 (sub-sections)."""
     # Find ANY ## N. Final heading
@@ -429,6 +567,7 @@ def parse_run(run_id: str, run_dir: Path) -> dict:
         },
         "groups": groups,
         "best_thirds": parse_best_thirds(report_md),
+        "bracket": parse_bracket(report_md),
         "final": final,
         "upset_risks": parse_upset_risks(report_md),
         "report_markdown": report_md,

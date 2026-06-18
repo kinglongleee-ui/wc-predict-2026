@@ -36,6 +36,9 @@ export default function HomePage() {
           <Link href="#groups" className="px-3 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-900/60">
             ⚽ 直接看 12 组 →
           </Link>
+          <Link href="/bracket" className="px-3 py-1.5 rounded-full bg-pink-100 dark:bg-pink-900/40 text-pink-700 dark:text-pink-300 hover:bg-pink-200 dark:hover:bg-pink-900/60">
+            🌳 树状图 →
+          </Link>
           <Link href="#upset" className="px-3 py-1.5 rounded-full bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 hover:bg-orange-200 dark:hover:bg-orange-900/60">
             ⚠️ 看冷门风险 →
           </Link>

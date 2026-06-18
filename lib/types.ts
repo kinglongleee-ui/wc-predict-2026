@@ -100,10 +100,40 @@ export type RunData = {
   summary?: Summary;
   groups: Record<string, Group>;
   best_thirds: BestThird[];
+  bracket?: Bracket;
   final: Final;
   upset_risks: UpsetRisk[];
   report_markdown: string;
   champion_table?: Record<string, number>;
   round?: number;
   format?: string;
+};
+
+export type BracketMatch = {
+  bracket_idx?: number;       // 0-based position within the round
+  team_a: string;
+  team_b: string;
+  team_a_win: number;
+  draw: number;
+  team_b_win: number;
+  score: string;
+  aet_pct: number | null;
+  pen_pct: number | null;
+  winner: "a" | "b" | null;
+};
+
+export type ThirdPlace = {
+  team_a: string;
+  team_b: string;
+  score: string;
+  raw: string;
+  aet: boolean;
+} | null;
+
+export type Bracket = {
+  r32: BracketMatch[];
+  r16: BracketMatch[];
+  qf: BracketMatch[];
+  sf: BracketMatch[];
+  third_place: ThirdPlace;
 };
