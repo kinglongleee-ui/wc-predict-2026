@@ -17,6 +17,29 @@ set -uo pipefail
 # Note: NOT `set -e` — we want to handle each step's failure explicitly so the
 # summary at the end is useful.
 
+# ---------- Load tokens (if env file exists) ----------
+# Tokens file: ~/.wc-predict-tokens.env  (chmod 600, owner-only).
+# Sourcing here means cron context (no TTY, no shell rc) still gets GH_TOKEN
+# and VERCEL_TOKEN. If the file is absent, we fall back to whatever the
+# ambient shell provides (e.g. interactive sessions with cached creds).
+TOKENS_FILE="${WC_PREDICT_TOKENS_FILE:-$HOME/.wc-predict-tokens.env}"
+if [[ -f "$TOKENS_FILE" ]]; then
+  # Validate perms — refuse to source a world/group-readable file to avoid
+  # leaking secrets to other local users.
+  TOKENS_PERMS=$(stat -c "%a" "$TOKENS_FILE")
+  if [[ "$TOKENS_PERMS" != "600" && "$TOKENS_PERMS" != "400" ]]; then
+    echo "[boot] ⚠️  $TOKENS_FILE has perms $TOKENS_PERMS, expected 600/400 — refusing to source" >&2
+  else
+    set -a
+    # shellcheck disable=SC1090
+    source "$TOKENS_FILE"
+    set +a
+    echo "[boot] loaded tokens from $TOKENS_FILE (GH_TOKEN=${GH_TOKEN:+set}, VERCEL_TOKEN=${VERCEL_TOKEN:+set})"
+  fi
+else
+  echo "[boot] no $TOKENS_FILE — relying on ambient env"
+fi
+
 WCP=/home/king/wc-predict
 MF=/home/king/mirofish-cli
 LOG_DIR=$WCP/logs
