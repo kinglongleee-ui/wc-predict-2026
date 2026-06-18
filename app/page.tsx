@@ -1,6 +1,7 @@
 import { getLatestRound3Run, getSecondLatestRound3Run, getRound2Run, formatPct, teamFlag, teamNameZh, normalizeChampion, stageZh, directionZh, matchupZh, tierLabelZh, loadRealResults, buildPlayedIndex, predictOutcome, playedKeyForMatch } from "@/lib/data";
 import { ProbabilityBar, ProbabilityBadge } from "@/components/ProbabilityBar";
 import { PlayedVsPredicted } from "@/components/PlayedVsPredicted";
+import { BracketMini } from "@/components/BracketMini";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -142,6 +143,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* 淘汰赛对阵树 — 缩水版 (上半 R32 + 下半 R32 + R16 + QF + SF + Final) */}
+      <BracketMini />
 
       {/* Signals — 数据依据 */}
       <section>
