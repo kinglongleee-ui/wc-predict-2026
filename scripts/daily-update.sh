@@ -120,8 +120,18 @@ if git diff --cached --quiet; then
   echo "[4/5] no changes to commit"
 else
   git -c user.email=wc-predict@local -c user.name="wc-predict cron" \
-    commit -m "chore(daily): refresh run $NEW_RUN_ID ($TS)" >/dev/null && \
-    git push origin master 2>&1 | tail -5 || echo "[4/5] ⚠️ git push failed (offline?)"
+    commit -m "chore(daily): refresh run $NEW_RUN_ID ($TS)" >/dev/null || \
+    echo "[4/5] ⚠️ git commit failed"
+  # Push: try with credential-helper-based auth first (works in interactive
+  # sessions with cached PAT); fall back to env-var-embedded token.
+  PUSH_OK=0
+  if git push origin master 2>&1 | tail -3; then
+    PUSH_OK=1
+  elif [[ -n "${GH_TOKEN:-}" ]]; then
+    git push "https://x-access-token:${GH_TOKEN}@github.com/kinglongleee-ui/wc-predict-2026.git" master 2>&1 | tail -3 || true
+  else
+    echo "[4/5] ⚠️ git push failed (no GH_TOKEN and no cached credential)"
+  fi
 fi
 
 # ---------- Step 5: Vercel deploy ----------
@@ -143,3 +153,18 @@ echo "===== daily-update finished at $(date -u +%Y%m%dT%H%M%SZ) ====="
 echo "RUN_ID=$NEW_RUN_ID"
 echo "DEPLOY_URL=$DEPLOY_URL"
 echo "LOG=$LOG_FILE"
+
+# ---------- Status file (cc-connect cron reads this) ----------
+STATUS_FILE=/tmp/daily-update-status.json
+cat > "$STATUS_FILE" <<EOF
+{
+  "ts": "$TS",
+  "finished_at": "$(date -u +%Y%m%dT%H%M%SZ)",
+  "run_id": "$NEW_RUN_ID",
+  "deploy_url": "$DEPLOY_URL",
+  "log": "$LOG_FILE",
+  "mirofish_skipped": "${SKIP_MIROFISH:-0}",
+  "deploy_skipped": "${SKIP_DEPLOY:-0}"
+}
+EOF
+echo "STATUS=$STATUS_FILE"
