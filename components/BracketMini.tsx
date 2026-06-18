@@ -343,6 +343,29 @@ export function BracketMini() {
 }
 
 // ---------------------------------------------------------------------------
+// 预测比分显示 — 三档: 1) match.score 有 → "X-Y"  2) 无 score → 用胜方 + 概率% 推
+// ---------------------------------------------------------------------------
+function predictionLabel(match: BracketMatch): string {
+  if (match.score && match.score.trim() !== "") return match.score;
+  // fallback: 胜方队名 + 置信度
+  const winnerName =
+    match.winner === "a"
+      ? teamNameZh(match.team_a)
+      : match.winner === "b"
+      ? teamNameZh(match.team_b)
+      : null;
+  if (winnerName) {
+    const winnerProb = match.winner === "a" ? match.team_a_win : match.team_b_win;
+    return `${winnerName} 胜 ${Math.round(winnerProb * 100)}%`;
+  }
+  // 都没就显示最高概率方
+  if (match.team_a_win >= match.team_b_win) {
+    return `${teamNameZh(match.team_a)} ${Math.round(match.team_a_win * 100)}%`;
+  }
+  return `${teamNameZh(match.team_b)} ${Math.round(match.team_b_win * 100)}%`;
+}
+
+// ---------------------------------------------------------------------------
 // MiniR32Card — R32 紧凑卡 (上半/下半区单场)
 // ---------------------------------------------------------------------------
 function MiniR32Card({
@@ -424,12 +447,10 @@ function MiniR32Card({
           </span>
         )}
       </div>
-      {/* 预测比分 footer — 跟 PlayedVsPredicted 一致标 🔮 预测 */}
-      {match.score && (
-        <div className="absolute -bottom-2 right-1 px-1.5 text-[9px] font-mono bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 rounded shadow-sm">
-          🔮 预测 {match.score}
-        </div>
-      )}
+      {/* 预测比分 footer — 用 predictionLabel fallback */}
+      <div className="absolute -bottom-2 right-1 px-1.5 text-[9px] font-mono bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 rounded shadow-sm whitespace-nowrap">
+        🔮 {predictionLabel(match)}
+      </div>
     </div>
   );
 }
@@ -500,15 +521,13 @@ function MiniCard({
           {Math.round(match.team_b_win * 100)}%
         </span>
       </div>
-      {/* 预测比分 footer — 飘在卡外底部 */}
-      {match.score && (
-        <div className="absolute -bottom-2 right-1 px-1.5 text-[9px] font-mono bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 rounded shadow-sm flex items-center gap-1">
-          <span>🔮 预测 {match.score}</span>
-          {overtimeTag && (
-            <span className="text-orange-600 dark:text-orange-400">{overtimeTag}</span>
-          )}
-        </div>
-      )}
+      {/* 预测比分 footer — 飘在卡外底部 (用 predictionLabel fallback) */}
+      <div className="absolute -bottom-2 right-1 px-1.5 text-[9px] font-mono bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 rounded shadow-sm flex items-center gap-1 whitespace-nowrap">
+        <span>🔮 {predictionLabel(match)}</span>
+        {overtimeTag && (
+          <span className="text-orange-600 dark:text-orange-400">{overtimeTag}</span>
+        )}
+      </div>
     </div>
   );
 }
@@ -558,8 +577,8 @@ function MiniFinalCard({
         </div>
       </div>
       {/* 预测比分 footer — 飘出卡底 */}
-      <div className="absolute -bottom-2 right-1 px-1.5 text-[9px] font-mono bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 rounded shadow-sm flex items-center gap-1">
-        🔮 预测 {score}
+      <div className="absolute -bottom-2 right-1 px-1.5 text-[9px] font-mono bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 rounded shadow-sm flex items-center gap-1 whitespace-nowrap">
+        🔮 {score}
       </div>
       {/* 三档比分概率 — 在冠军徽章之上挤一行 */}
       {tiers && tiers.length > 0 && (
