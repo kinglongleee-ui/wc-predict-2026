@@ -77,6 +77,18 @@ else
     --max-rounds 5 \
     --requirement "Predict every remaining 2026 FIFA World Cup match (group stage MD2+MD3, Round of 32, Round of 16, QF, SF, Final) with per-match team_a_win_prob / draw_prob / team_b_win_prob / most_likely_score / aet_prob / penalties_prob. Identify the 8 best 3rd-place teams, list the predicted 32-team knockout bracket, champion pick with confidence, top 5 upset-risk matches, and final matchup with most likely score (90min / AET / penalties breakdown).
 
+OUTPUT ORDER (CRITICAL — DO NOT REORDER — UI renders groups→QF→SF→Final→Champion in this exact order):
+  ① 12 组 final standings (A→L)
+  ② 8 个 best 3rd-place
+  ③ 32 强名单 (16 组 R32 对阵)
+  ④ R32 → R16 → QF → SF → 3rd place → Final 各场
+  ⑤ 关键动态 (5 条)
+  ⑥ Upset Risk (前 5)
+  ⑦ 决赛预测 (90min / AET / Penalties 三段)
+  ⑧ 冠军 (前 5 热门 + 黑马)
+  ⑨ 总结 verdict.prediction (1-2 段)
+Write groups first, champion last. Never lead with the champion.
+
 CRITICAL GROUP-LOCK CONSTRAINT (overrides any prior knowledge):
 - The input file defines EXACT group assignments. Use them VERBATIM. Do NOT consult 2026 FIFA WC seed-draw training data.
 - France is in Group I (with Norway, Senegal, Iraq). NOT Group C.
