@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getLatestRound3Run, teamFlag } from "@/lib/data";
+import { getLatestRound3Run, teamFlag, teamNameZh, stageZh } from "@/lib/data";
 import { MatchRow } from "@/components/MatchRow";
 
 type Props = { params: { letter: string } };
@@ -18,12 +18,12 @@ export default function GroupDetailPage({ params }: Props) {
           ← 全部小组
         </Link>
         <h1 className="text-3xl font-bold mt-2">
-          Group {params.letter}
+          {params.letter} 组
         </h1>
         <div className="flex flex-wrap gap-2 mt-2 text-lg">
           {g.teams.map((t) => (
             <span key={t} className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800">
-              {teamFlag(t)} {t}
+              {teamFlag(t)} {teamNameZh(t)}
             </span>
           ))}
         </div>
@@ -54,7 +54,7 @@ export default function GroupDetailPage({ params }: Props) {
                 >
                   <td className="p-3 font-mono text-gray-500">{i + 1}</td>
                   <td className="p-3">
-                    {teamFlag(s.team)} {s.team}
+                    {teamFlag(s.team)} {teamNameZh(s.team)}
                   </td>
                   <td className="p-3 text-right font-mono font-semibold">{s.points}</td>
                   <td className="p-3 text-xs text-gray-500">{s.note || "—"}</td>

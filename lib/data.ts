@@ -100,3 +100,95 @@ export function normalizeChampion(raw: string | null | undefined): string {
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
     .join(" ");
 }
+
+// ---------------------------------------------------------------------------
+// 全站零英文: 球队 / 阶段 / 信号方向 / 冠军档位的中文映射
+// ---------------------------------------------------------------------------
+
+const TEAM_ZH: Record<string, string> = {
+  // 全称
+  "Mexico": "墨西哥", "South Korea": "韩国", "Czech Republic": "捷克", "South Africa": "南非",
+  "Switzerland": "瑞士", "Qatar": "卡塔尔", "Bosnia": "波黑", "Bosnia & Herzegovina": "波黑",
+  "Canada": "加拿大", "Brazil": "巴西", "Morocco": "摩洛哥", "Scotland": "苏格兰", "Haiti": "海地",
+  "USA": "美国", "Paraguay": "巴拉圭", "Australia": "澳大利亚", "Turkey": "土耳其",
+  "Germany": "德国", "Ecuador": "厄瓜多尔", "Ivory Coast": "科特迪瓦", "Curaçao": "库拉索",
+  "Netherlands": "荷兰", "Sweden": "瑞典", "Japan": "日本", "Tunisia": "突尼斯",
+  "Belgium": "比利时", "Iran": "伊朗", "Egypt": "埃及", "New Zealand": "新西兰",
+  "Spain": "西班牙", "Uruguay": "乌拉圭", "Saudi Arabia": "沙特", "Cape Verde": "佛得角",
+  "France": "法国", "Norway": "挪威", "Senegal": "塞内加尔", "Iraq": "伊拉克",
+  "Argentina": "阿根廷", "Algeria": "阿尔及利亚", "Austria": "奥地利", "Jordan": "约旦",
+  "Portugal": "葡萄牙", "Colombia": "哥伦比亚", "DR Congo": "刚果(金)", "Uzbekistan": "乌兹别克斯坦",
+  "England": "英格兰", "Croatia": "克罗地亚", "Ghana": "加纳", "Panama": "巴拿马",
+  // 三字代码 (MiroFish 在 upset/match 里也用)
+  "ARG": "阿根廷", "BEL": "比利时", "BRA": "巴西", "CIV": "科特迪瓦",
+  "ENG": "英格兰", "FRA": "法国", "GER": "德国", "MEX": "墨西哥",
+  "NED": "荷兰", "POR": "葡萄牙", "SUI": "瑞士", "URU": "乌拉圭",
+};
+
+export function teamNameZh(raw: string | null | undefined): string {
+  if (!raw) return "—";
+  const trimmed = raw.trim();
+  if (TEAM_ZH[trimmed]) return TEAM_ZH[trimmed];
+  // 容错: 大小写不敏感
+  for (const [k, v] of Object.entries(TEAM_ZH)) {
+    if (k.toLowerCase() === trimmed.toLowerCase()) return v;
+  }
+  return trimmed; // 找不到就原样返回 (避免静默丢数据)
+}
+
+const DIRECTION_ZH: Record<string, string> = {
+  positive: "利好",
+  negative: "利空",
+  mixed: "混合",
+};
+
+export function directionZh(d: string | null | undefined): string {
+  if (!d) return "—";
+  return DIRECTION_ZH[d] || d;
+}
+
+export function stageZh(stage: string | null | undefined): string {
+  if (!stage) return "—";
+  const s = stage.trim();
+  // 形如 "Group A" → "A 组"
+  const groupMatch = s.match(/^Group\s+([A-L])$/i);
+  if (groupMatch) return `${groupMatch[1].toUpperCase()} 组`;
+  if (/^group$/i.test(s)) return "小组赛";
+  const map: Record<string, string> = {
+    "R16": "16 强赛",
+    "Round of 16": "16 强赛",
+    "QF": "1/4 决赛",
+    "Quarterfinal": "1/4 决赛",
+    "Quarter-final": "1/4 决赛",
+    "SF": "半决赛",
+    "Semifinal": "半决赛",
+    "Semi-final": "半决赛",
+    "Final": "决赛",
+  };
+  return map[s] || map[s.toUpperCase()] || s;
+}
+
+const TIER_LABEL_ZH: Record<string, string> = {
+  "90 minutes result": "常规 90 分钟",
+  "90 min": "常规 90 分钟",
+  "After Extra Time": "加时赛",
+  "Extra Time": "加时赛",
+  "AET": "加时赛",
+  "Penalties": "点球大战",
+  "On Penalties": "点球大战",
+  "PSO": "点球大战",
+};
+
+export function tierLabelZh(label: string | null | undefined): string {
+  if (!label) return "—";
+  return TIER_LABEL_ZH[label] || TIER_LABEL_ZH[label.trim()] || label;
+}
+
+// 把 "France vs Spain" 渲染成 "法国 对 西班牙"
+export function matchupZh(matchup: string | null | undefined): string {
+  if (!matchup) return "—";
+  return matchup
+    .split(/\s+vs\s+|\s+v\s+/i)
+    .map((t) => teamNameZh(t.trim()))
+    .join(" 对 ");
+}

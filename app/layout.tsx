@@ -4,8 +4,8 @@ import { getLatestRound3Run, getRound2Run } from "@/lib/data";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "2026 FIFA 世界杯预测 · MiroFish 多智能体模拟",
-  description: "MiroFish 多智能体社交模拟预测 2026 FIFA 世界杯淘汰赛阶段。",
+  title: "2026 世界杯预测 · MiroFish 多智能体模拟",
+  description: "MiroFish 多智能体社交模拟预测 2026 世界杯淘汰赛阶段。",
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
         <header className="border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-black sticky top-0 z-50">
           <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
             <Link href="/" className="text-lg font-bold tracking-tight">
-              🏆 <span className="bg-gradient-to-r from-emerald-600 to-orange-500 bg-clip-text text-transparent">WC 2026 预测站</span>
+              🏆 <span className="bg-gradient-to-r from-emerald-600 to-orange-500 bg-clip-text text-transparent">2026 世界杯预测站</span>
             </Link>
             <nav className="flex gap-4 text-sm">
               <Link href="/" className="hover:text-emerald-600">概览</Link>

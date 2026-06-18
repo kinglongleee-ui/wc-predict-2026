@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getLatestRound3Run, getSecondLatestRound3Run, getRound2Run, formatPct, teamFlag, normalizeChampion } from "@/lib/data";
+import { getLatestRound3Run, getSecondLatestRound3Run, getRound2Run, formatPct, teamFlag, teamNameZh, normalizeChampion, matchupZh } from "@/lib/data";
 
 export default function SimulationsPage() {
   const r3 = getLatestRound3Run();
@@ -26,7 +26,7 @@ export default function SimulationsPage() {
         <Link href="/" className="text-sm text-emerald-600 hover:underline">← 返回首页</Link>
         <h1 className="text-3xl font-bold mt-2">🔄 多轮模拟对比</h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1">
-          {compareLabel ? `${compareLabel} vs 最新 (${r3.run_id})` : `最新 (${r3.run_id})`} — MiroFish 多智能体自治模拟
+          {compareLabel ? `${compareLabel} 对比 最新 (${r3.run_id})` : `最新 (${r3.run_id})`} — MiroFish 多智能体自治模拟
         </p>
       </div>
 
@@ -38,35 +38,35 @@ export default function SimulationsPage() {
             <div>
               <div className="text-xs text-gray-500 uppercase mb-2">{compareLabel}</div>
               <div className="text-4xl font-black">
-                {teamFlag(compareChampion)} {compareChampion}
+                {teamFlag(compareChampion)} {teamNameZh(compareChampion)}
               </div>
               <div className="text-2xl font-mono text-gray-600 dark:text-gray-400 mt-1">
                 {formatPct(compareRun?.final.confidence || 0)}
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                {compareRun?.final.matchup}
+                {matchupZh(compareRun?.final.matchup)}
               </div>
             </div>
 
             <div>
               <div className="text-xs text-gray-500 uppercase mb-2">最新 ({r3.run_id})</div>
               <div className="text-4xl font-black">
-                {teamFlag(r3Champion)} {r3Champion}
+                {teamFlag(r3Champion)} {teamNameZh(r3Champion)}
               </div>
               <div className="text-2xl font-mono text-emerald-600 dark:text-emerald-400 mt-1">
                 {formatPct(r3.final.confidence || 0)}
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                {r3.final.matchup}
+                {matchupZh(r3.final.matchup)}
               </div>
             </div>
           </div>
           <div className="mt-6 p-4 rounded-lg bg-white/60 dark:bg-black/30 text-sm leading-relaxed">
             <strong>关键变化:</strong>{" "}
-            上一轮冠军是 <span className="font-semibold">{compareChampion}</span>
-            {compareRun?.final.matchup ? <> (决赛对阵: {compareRun.final.matchup})</> : null},
-            本轮更新为 <span className="font-semibold">{r3Champion}</span>
-            (决赛对阵: {r3.final.matchup || "—"})。
+            上一轮冠军是 <span className="font-semibold">{teamNameZh(compareChampion)}</span>
+            {compareRun?.final.matchup ? <> (决赛对阵: {matchupZh(compareRun.final.matchup)})</> : null},
+            本轮更新为 <span className="font-semibold">{teamNameZh(r3Champion)}</span>
+            (决赛对阵: {matchupZh(r3.final.matchup) || "—"})。
           </div>
         </section>
       )}
@@ -92,7 +92,7 @@ export default function SimulationsPage() {
                     <tr key={team} className="border-t border-gray-100 dark:border-gray-900">
                       <td className="p-3 font-mono text-gray-500">{i + 1}</td>
                       <td className="p-3 font-semibold">
-                        {teamFlag(team)} {team}
+                        {teamFlag(team)} {teamNameZh(team)}
                       </td>
                       <td className="p-3 text-right font-mono">{formatPct(prob)}</td>
                       <td className="p-3 text-right">

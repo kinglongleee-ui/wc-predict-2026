@@ -1,4 +1,4 @@
-import { getLatestRound3Run, getSecondLatestRound3Run, getRound2Run, formatPct, teamFlag, normalizeChampion } from "@/lib/data";
+import { getLatestRound3Run, getSecondLatestRound3Run, getRound2Run, formatPct, teamFlag, teamNameZh, normalizeChampion, stageZh, directionZh, matchupZh, tierLabelZh } from "@/lib/data";
 import { ProbabilityBar, ProbabilityBadge } from "@/components/ProbabilityBar";
 import Link from "next/link";
 
@@ -23,13 +23,13 @@ export default function HomePage() {
       {/* Champion Hero */}
       <section className="rounded-2xl border-2 border-emerald-500/30 bg-gradient-to-br from-emerald-50 via-white to-orange-50 dark:from-emerald-950/30 dark:via-black dark:to-orange-950/20 p-6 md:p-10">
         <div className="text-xs uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-2">
-          🏆 2026 FIFA 世界杯 · 冠军预测
+          🏆 2026 世界杯 · 冠军预测
         </div>
         <h1 className="text-4xl md:text-6xl font-black tracking-tight">
-          {teamFlag(finalChampion)} <span className="bg-gradient-to-r from-emerald-600 to-orange-500 bg-clip-text text-transparent">{finalChampion}</span>
+          {teamFlag(finalChampion)} <span className="bg-gradient-to-r from-emerald-600 to-orange-500 bg-clip-text text-transparent">{teamNameZh(finalChampion)}</span>
         </h1>
         <div className="mt-2 text-2xl font-semibold text-gray-700 dark:text-gray-300">
-          {final.matchup || "vs —"}
+          {matchupZh(final.matchup)}
         </div>
         <div className="mt-4 flex flex-wrap gap-2 items-center text-sm">
           <span className="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 font-mono font-semibold">
@@ -57,9 +57,9 @@ export default function HomePage() {
             {final.tiers.map((t) => (
               <div key={t.tier} className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 p-5">
                 <div className="text-xs uppercase tracking-wider text-gray-500 mb-1">
-                  Tier {t.tier}
+                  第 {t.tier} 档
                 </div>
-                <div className="font-semibold text-lg mb-2">{t.label}</div>
+                <div className="font-semibold text-lg mb-2">{tierLabelZh(t.label)}</div>
                 <div className="text-3xl font-black text-emerald-600 dark:text-emerald-400 font-mono">
                   {t.probability !== null ? formatPct(t.probability) : "—"}
                 </div>
@@ -91,52 +91,52 @@ export default function HomePage() {
               <div>
                 <div className="text-xs text-gray-500 uppercase">上一轮 ({prev.run_id})</div>
                 <div className="text-2xl font-bold">
-                  {teamFlag(normalizeChampion(prev.final.champion))} {normalizeChampion(prev.final.champion)}{" "}
+                  {teamFlag(normalizeChampion(prev.final.champion))} {teamNameZh(normalizeChampion(prev.final.champion))}{" "}
                   <span className="text-base font-mono text-gray-500">
                     {formatPct(prev.final.confidence || 0)}
                   </span>
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {prev.final.matchup}
+                  {matchupZh(prev.final.matchup)}
                 </div>
               </div>
             ) : r2 ? (
               <div>
                 <div className="text-xs text-gray-500 uppercase">第 2 轮 ({r2.run_id})</div>
                 <div className="text-2xl font-bold">
-                  {teamFlag(r2.final.champion || "")} {r2.final.champion}{" "}
+                  {teamFlag(r2.final.champion || "")} {teamNameZh(r2.final.champion || "")}{" "}
                   <span className="text-base font-mono text-gray-500">
                     {formatPct(r2.final.confidence || 0)}
                   </span>
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {r2.final.matchup}
+                  {matchupZh(r2.final.matchup)}
                 </div>
               </div>
             ) : null}
             <div>
               <div className="text-xs text-gray-500 uppercase">最新 ({r3.run_id})</div>
               <div className="text-2xl font-bold">
-                {teamFlag(finalChampion)} {finalChampion}{" "}
+                {teamFlag(finalChampion)} {teamNameZh(finalChampion)}{" "}
                 <span className="text-base font-mono text-emerald-600">
                   {formatPct(finalConf)}
                 </span>
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                {final.matchup}
+                {matchupZh(final.matchup)}
               </div>
             </div>
           </div>
           {prev ? (
             <div className="mt-3 text-sm">
-              上一轮冠军是 <span className="font-semibold">{normalizeChampion(prev.final.champion)} {formatPct(prev.final.confidence || 0)}</span>,
-              本轮更新到 <span className="font-semibold text-emerald-600">{finalChampion} {formatPct(finalConf)}</span>。
+              上一轮冠军是 <span className="font-semibold">{teamNameZh(normalizeChampion(prev.final.champion))} {formatPct(prev.final.confidence || 0)}</span>,
+              本轮更新到 <span className="font-semibold text-emerald-600">{teamNameZh(finalChampion)} {formatPct(finalConf)}</span>。
             </div>
           ) : r2 ? (
             <div className="mt-3 text-sm">
-              冠军从第 2 轮 (蒙特卡洛) 的 <span className="font-semibold">{r2.final.champion || "—"} {formatPct(r2.final.confidence || 0)}</span> 漂移到
-              第 3 轮 (多智能体) 的 <span className="font-semibold text-emerald-600">{finalChampion} {formatPct(finalConf)}</span>。
-              决赛对阵: {r2.final.matchup} → {final.matchup}。
+              冠军从第 2 轮 (蒙特卡洛) 的 <span className="font-semibold">{teamNameZh(r2.final.champion || "")} {formatPct(r2.final.confidence || 0)}</span> 漂移到
+              第 3 轮 (多智能体) 的 <span className="font-semibold text-emerald-600">{teamNameZh(finalChampion)} {formatPct(finalConf)}</span>。
+              决赛对阵: {matchupZh(r2.final.matchup)} → {matchupZh(final.matchup)}。
             </div>
           ) : null}
         </section>
@@ -177,7 +177,7 @@ export default function HomePage() {
               <div className="flex-1">
                 <div className="font-semibold">{u.match}</div>
                 <div className="text-xs text-gray-500">
-                  {u.stage} · {u.rationale}
+                  {stageZh(u.stage)} · {u.rationale}
                 </div>
               </div>
               <ProbabilityBadge prob={u.upset_probability} variant="loss" />
@@ -204,12 +204,12 @@ export default function HomePage() {
                 className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 p-3 hover:border-emerald-500 transition-colors"
               >
                 <div className="flex items-center justify-between mb-1">
-                  <div className="text-lg font-bold">Group {g.letter}</div>
+                  <div className="text-lg font-bold">{g.letter} 组</div>
                   <div className="text-xs text-gray-500">{g.teams.length} 队</div>
                 </div>
                 {top && (
                   <div className="text-xs text-gray-600 dark:text-gray-400">
-                    头名预测: {teamFlag(top.team)} <span className="font-semibold">{top.team}</span> · {top.points} 分
+                    头名预测: {teamFlag(top.team)} <span className="font-semibold">{teamNameZh(top.team)}</span> · {top.points} 分
                   </div>
                 )}
                 <div className="mt-2 flex -space-x-1">
@@ -244,7 +244,7 @@ export default function HomePage() {
                       : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
                   }`}
                 >
-                  {s.direction} · {formatPct(s.strength, 0)}
+                  {directionZh(s.direction)} · {formatPct(s.strength, 0)}
                 </span>
               </div>
               <p className="text-sm leading-relaxed">{s.signal}</p>
