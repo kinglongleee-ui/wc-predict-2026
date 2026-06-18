@@ -1,0 +1,43 @@
+{
+  "fetched_at": "2026-06-18T10:29:58Z",
+  "source": "Wikipedia wikitext action=parse (12 Group_A-L pages)",
+  "match_count": 4,
+  "matches": [
+    {
+      "group": "B",
+      "team_a": "Qatar",
+      "score_a": 1,
+      "team_b": "Switzerland",
+      "score_b": 1,
+      "date": null,
+      "source_wiki_page": "2026_FIFA_World_Cup_Group_B"
+    },
+    {
+      "group": "D",
+      "team_a": "Australia",
+      "score_a": 2,
+      "team_b": "Turkey",
+      "score_b": 0,
+      "date": null,
+      "source_wiki_page": "2026_FIFA_World_Cup_Group_D"
+    },
+    {
+      "group": "I",
+      "team_a": "France",
+      "score_a": 3,
+      "team_b": "Senegal",
+      "score_b": 1,
+      "date": null,
+      "source_wiki_page": "2026_FIFA_World_Cup_Group_I"
+    },
+    {
+      "group": "L",
+      "team_a": "Ghana",
+      "score_a": 1,
+      "team_b": "Panama",
+      "score_b": 0,
+      "date": null,
+      "source_wiki_page": "2026_FIFA_World_Cup_Group_L"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
-import { getLatestRound3Run, getSecondLatestRound3Run, getRound2Run, formatPct, teamFlag, teamNameZh, normalizeChampion, stageZh, directionZh, matchupZh, tierLabelZh } from "@/lib/data";
+import { getLatestRound3Run, getSecondLatestRound3Run, getRound2Run, formatPct, teamFlag, teamNameZh, normalizeChampion, stageZh, directionZh, matchupZh, tierLabelZh, loadRealResults, buildPlayedIndex, predictOutcome, playedKeyForMatch } from "@/lib/data";
 import { ProbabilityBar, ProbabilityBadge } from "@/components/ProbabilityBar";
+import { PlayedVsPredicted } from "@/components/PlayedVsPredicted";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -47,6 +48,9 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* 已比赛 vs 预测对比 (小组赛已开打的场次) */}
+      <PlayedVsPredicted />
 
       {/* 12 Groups at a glance — 现在是最显眼的 */}
       <section id="groups">

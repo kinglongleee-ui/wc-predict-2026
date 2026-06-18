@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getLatestRound3Run, teamFlag, teamNameZh, stageZh } from "@/lib/data";
+import { getLatestRound3Run, teamFlag, teamNameZh, stageZh, loadRealResults, buildPlayedIndex, playedKeyForMatch } from "@/lib/data";
 import { MatchRow } from "@/components/MatchRow";
 
 type Props = { params: { letter: string } };
@@ -10,6 +10,9 @@ export default function GroupDetailPage({ params }: Props) {
   if (!r3) return <div>数据未找到</div>;
   const g = r3.groups[params.letter];
   if (!g) notFound();
+
+  const real = loadRealResults();
+  const playedIdx = buildPlayedIndex(real);
 
   return (
     <div className="space-y-6">
@@ -71,10 +74,17 @@ export default function GroupDetailPage({ params }: Props) {
       {/* Matches */}
       <section>
         <h2 className="text-2xl font-bold mb-3">⚽ 全部比赛 (第 2 + 第 3 比赛日)</h2>
+        {real && real.matches.some((rm) => rm.group === params.letter) && (
+          <div className="mb-3 rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 px-3 py-2 text-xs text-amber-900 dark:text-amber-200 leading-relaxed">
+            <span className="font-bold">⚠️ 真实比分来源 Wikipedia 用户编辑</span> — 非 FIFA 官方数据,可能存在错填或延迟。预测仅供学习参考。
+          </div>
+        )}
         <div className="space-y-3">
-          {g.matches.map((m, i) => (
-            <MatchRow key={i} match={m} />
-          ))}
+          {g.matches.map((m, i) => {
+            const key = playedKeyForMatch(params.letter, m.team_a, m.team_b);
+            const played = playedIdx.get(key) || null;
+            return <MatchRow key={i} match={m} played={played} />;
+          })}
         </div>
       </section>
     </div>

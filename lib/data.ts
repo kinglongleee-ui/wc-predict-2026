@@ -6,6 +6,77 @@ import path from "path";
 import type { RunData } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data", "runs");
+const REAL_DIR = path.join(process.cwd(), "data", "real");
+
+export type RealMatch = {
+  group: string;
+  team_a: string;
+  score_a: number;
+  team_b: string;
+  score_b: number;
+  date: string | null;
+  source_wiki_page: string;
+};
+
+export type RealResults = {
+  fetched_at: string;
+  source: string;
+  match_count: number;
+  matches: RealMatch[];
+} | null;
+
+export function loadRealResults(): RealResults {
+  const fp = path.join(REAL_DIR, "wc_2026_results.json");
+  if (!fs.existsSync(fp)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(fp, "utf-8")) as RealResults;
+  } catch {
+    return null;
+  }
+}
+
+// Build a lookup key from (group, team_a, team_b) regardless of who is home/away.
+// Used by /bracket and /groups to colour matches that have already been played.
+export type PlayedKey = string; // "{group}|{team_a_canonical}|{team_b_canonical}"
+function canon(t: string): string {
+  return t.trim().toLowerCase();
+}
+export function playedKeyForMatch(group: string, team_a: string, team_b: string): PlayedKey {
+  const a = canon(team_a);
+  const b = canon(team_b);
+  // 用 (sorted pair) 让 home/away 顺序无关
+  return `${group}|${[a, b].sort().join("|")}`;
+}
+export function buildPlayedIndex(real: RealResults): Map<PlayedKey, RealMatch> {
+  const m = new Map<PlayedKey, RealMatch>();
+  if (!real) return m;
+  for (const r of real.matches) {
+    const key = playedKeyForMatch(r.group, r.team_a, r.team_b);
+    m.set(key, r);
+  }
+  return m;
+}
+
+// 判断模拟里的预测结果是否跟真实结果"对得上" (是否预测对了胜平负)
+export type MatchPrediction = {
+  team_a_win: number;
+  draw: number;
+  team_b_win: number;
+};
+export function predictOutcome(p: MatchPrediction): "a" | "draw" | "b" {
+  const arr = [
+    { k: "a" as const, v: p.team_a_win },
+    { k: "draw" as const, v: p.draw },
+    { k: "b" as const, v: p.team_b_win },
+  ];
+  arr.sort((x, y) => y.v - x.v);
+  return arr[0].k;
+}
+export function realOutcome(r: RealMatch): "a" | "draw" | "b" {
+  if (r.score_a > r.score_b) return "a";
+  if (r.score_a < r.score_b) return "b";
+  return "draw";
+}
 
 export function listRuns(): RunData[] {
   if (!fs.existsSync(DATA_DIR)) return [];
