@@ -24,7 +24,7 @@ export function MatchRow({ match }: Props) {
         <div className="text-right font-semibold">
           {teamFlag(match.team_a)} {match.team_a}
         </div>
-        <div className="text-gray-400 text-sm">vs</div>
+        <div className="text-gray-400 text-sm">对</div>
         <div className="text-left font-semibold">
           {match.team_b} {teamFlag(match.team_b)}
         </div>

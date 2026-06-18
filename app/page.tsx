@@ -102,7 +102,7 @@ export default function HomePage() {
               </div>
             ) : r2 ? (
               <div>
-                <div className="text-xs text-gray-500 uppercase">第 2 轮 (run_a18431af48fd)</div>
+                <div className="text-xs text-gray-500 uppercase">第 2 轮 ({r2.run_id})</div>
                 <div className="text-2xl font-bold">
                   {teamFlag(r2.final.champion || "")} {r2.final.champion}{" "}
                   <span className="text-base font-mono text-gray-500">
@@ -132,13 +132,13 @@ export default function HomePage() {
               上一轮冠军是 <span className="font-semibold">{normalizeChampion(prev.final.champion)} {formatPct(prev.final.confidence || 0)}</span>,
               本轮更新到 <span className="font-semibold text-emerald-600">{finalChampion} {formatPct(finalConf)}</span>。
             </div>
-          ) : (
+          ) : r2 ? (
             <div className="mt-3 text-sm">
-              冠军从 <span className="font-semibold">阿根廷 22%</span> 漂移到{" "}
-              <span className="font-semibold text-emerald-600">{finalChampion} {formatPct(finalConf)}</span>。
-              第 3 轮引入"阿根廷 QF 被法国点球淘汰"剧情, 决赛对手换成西班牙。
+              冠军从第 2 轮 (蒙特卡洛) 的 <span className="font-semibold">{r2.final.champion || "—"} {formatPct(r2.final.confidence || 0)}</span> 漂移到
+              第 3 轮 (多智能体) 的 <span className="font-semibold text-emerald-600">{finalChampion} {formatPct(finalConf)}</span>。
+              决赛对阵: {r2.final.matchup} → {final.matchup}。
             </div>
-          )}
+          ) : null}
         </section>
       )}
 
@@ -209,7 +209,7 @@ export default function HomePage() {
                 </div>
                 {top && (
                   <div className="text-xs text-gray-600 dark:text-gray-400">
-                    头名预测: {teamFlag(top.team)} <span className="font-semibold">{top.team}</span> · {top.points} pts
+                    头名预测: {teamFlag(top.team)} <span className="font-semibold">{top.team}</span> · {top.points} 分
                   </div>
                 )}
                 <div className="mt-2 flex -space-x-1">

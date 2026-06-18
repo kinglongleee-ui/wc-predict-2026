@@ -54,7 +54,7 @@ export default function GroupsOverviewPage() {
                       </span>
                       {teamFlag(s.team)} {s.team}
                     </span>
-                    <span className="font-mono text-xs">{s.points} pts</span>
+                    <span className="font-mono text-xs">{s.points} 分</span>
                   </div>
                 ))}
               </div>

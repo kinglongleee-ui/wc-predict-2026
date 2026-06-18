@@ -14,7 +14,7 @@ export default function SimulationsPage() {
   const compareLabel = prev
     ? `上一轮 (${prev.run_id})`
     : r2
-    ? `第 2 轮 (run_a18431af48fd)`
+    ? `第 2 轮 (${r2.run_id})`
     : null;
   const compareChampion = prev
     ? normalizeChampion(prev.final.champion)
