@@ -152,13 +152,13 @@ else
   PUSH_OK=0
   PUSH_OUT=""
   if PUSH_OUT=$(git push origin master 2>&1 | tail -3); then
-    if grep -qE '->\s*master' <<<"$PUSH_OUT"; then
+    if printf '%s\n' "$PUSH_OUT" | grep -qE '->[[:space:]]*master'; then
       PUSH_OK=1
     fi
   fi
   if [[ "$PUSH_OK" -eq 0 && -n "${GH_TOKEN:-}" ]]; then
     PUSH_OUT=$(git push "https://x-access-token:${GH_TOKEN}@github.com/kinglongleee-ui/wc-predict-2026.git" master 2>&1 | tail -3) || true
-    if grep -qE '->\s*master' <<<"$PUSH_OUT"; then
+    if printf '%s\n' "$PUSH_OUT" | grep -qE '->[[:space:]]*master'; then
       PUSH_OK=1
     fi
   fi
