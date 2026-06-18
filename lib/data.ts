@@ -103,12 +103,20 @@ export function getLatestRound3Run(): RunData | null {
   // pick the most recently created run whose id is NOT the pinned Round 2
   // baseline (run_a18431af48fd) and whose file is large enough to be a full
   // Round 3 (>20 KB; Round 2's parsed JSON is ~13 KB).
+  //
+  // IMPORTANT: prefer runs whose `bracket` field is populated (= parse-report.py
+  // successfully extracted the R32 table). Newer runs whose report.md uses a
+  // Chinese heading variant ("## 4. 32 强赛") may parse without a bracket —
+  // we fall back to the latest run WITH bracket so the tree / BracketMini
+  // pages still render. See scripts/parse-report.py for the regex TODO.
   const all = listRuns().filter(
     (r) => r.run_id !== "run_a18431af48fd" && r.final && r.groups,
   );
   if (all.length === 0) return null;
-  // listRuns sorts by created_at desc; the first is the freshest
-  return all[0];
+  const withBracket = all.find(
+    (r) => r.bracket && r.bracket.r32 && r.bracket.r32.length >= 16,
+  );
+  return withBracket || all[0];
 }
 
 export function getRound2Run(): RunData | null {
