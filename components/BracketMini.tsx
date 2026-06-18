@@ -12,12 +12,12 @@ import type { BracketMatch } from "@/lib/types";
 //  - /bracket: 全 16 场 R32 完整细节, 大屏横向滚动
 //  - 这里: 8 行"区域冠军"聚合显示, 让首页一眼看全路径
 
-const COL_W = 140;       // 每列宽
-const COL_GAP = 28;      // 列间隙
-const ROW_H = 56;        // 行高 (留 12px 间隙)
-const CARD_W = 130;
-const CARD_H = 44;       // 紧凑卡
-const FINAL_COL_W = 160;
+const COL_W = 180;       // 每列宽
+const COL_GAP = 32;      // 列间隙 (给连线留呼吸)
+const ROW_H = 60;        // 行高 (CARD_H=48, 留 12px 间隙)
+const CARD_W = 180;      // 跟 /bracket (200) 接近, 留 20px 给概率%
+const CARD_H = 48;       // 紧凑卡 (两行 22px + padding)
+const FINAL_COL_W = 200; // 决赛列加宽给冠军徽章
 
 const ROUND_LABELS = ["32 强 (上半区)", "32 强 (下半区)", "16 强", "1/4 决赛", "半决赛", "决赛"];
 
@@ -108,10 +108,10 @@ export function BracketMini() {
     const midY = (topY + botY) / 2;
     const x = colX(0) + CARD_W;
     const childX = colX(2);
-    lines.push({ x1: x, y1: topY, x2: x + 6, y2: topY, key: `top-t-${k}` });
-    lines.push({ x1: x + 6, y1: topY, x2: x + 6, y2: botY, key: `vbar-t-${k}` });
-    lines.push({ x1: x + 6, y1: botY, x2: x, y2: botY, key: `bot-t-${k}` });
-    lines.push({ x1: childX, y1: midY, x2: x + 6, y2: midY, key: `hchild-t-${k}` });
+    lines.push({ x1: x, y1: topY, x2: x + 8, y2: topY, key: `top-t-${k}` });
+    lines.push({ x1: x + 8, y1: topY, x2: x + 8, y2: botY, key: `vbar-t-${k}` });
+    lines.push({ x1: x + 8, y1: botY, x2: x, y2: botY, key: `bot-t-${k}` });
+    lines.push({ x1: childX, y1: midY, x2: x + 8, y2: midY, key: `hchild-t-${k}` });
   }
 
   // R32 下半 (col 1) → R16 (col 2)
@@ -121,10 +121,10 @@ export function BracketMini() {
     const midY = (topY + botY) / 2;
     const x = colX(1) + CARD_W;
     const childX = colX(2);
-    lines.push({ x1: x, y1: topY, x2: x + 6, y2: topY, key: `top-b-${k}` });
-    lines.push({ x1: x + 6, y1: topY, x2: x + 6, y2: botY, key: `vbar-b-${k}` });
-    lines.push({ x1: x + 6, y1: botY, x2: x, y2: botY, key: `bot-b-${k}` });
-    lines.push({ x1: childX, y1: midY, x2: x + 6, y2: midY, key: `hchild-b-${k}` });
+    lines.push({ x1: x, y1: topY, x2: x + 8, y2: topY, key: `top-b-${k}` });
+    lines.push({ x1: x + 8, y1: topY, x2: x + 8, y2: botY, key: `vbar-b-${k}` });
+    lines.push({ x1: x + 8, y1: botY, x2: x, y2: botY, key: `bot-b-${k}` });
+    lines.push({ x1: childX, y1: midY, x2: x + 8, y2: midY, key: `hchild-b-${k}` });
   }
 
   // R16 (col 2) → QF (col 3)
@@ -134,10 +134,10 @@ export function BracketMini() {
     const midY = (topY + botY) / 2;
     const x = colX(2) + CARD_W;
     const childX = colX(3);
-    lines.push({ x1: x, y1: topY, x2: x + 6, y2: topY, key: `r16-top-${k}` });
-    lines.push({ x1: x + 6, y1: topY, x2: x + 6, y2: botY, key: `r16-vbar-${k}` });
-    lines.push({ x1: x + 6, y1: botY, x2: x, y2: botY, key: `r16-bot-${k}` });
-    lines.push({ x1: childX, y1: midY, x2: x + 6, y2: midY, key: `r16-hchild-${k}` });
+    lines.push({ x1: x, y1: topY, x2: x + 8, y2: topY, key: `r16-top-${k}` });
+    lines.push({ x1: x + 8, y1: topY, x2: x + 8, y2: botY, key: `r16-vbar-${k}` });
+    lines.push({ x1: x + 8, y1: botY, x2: x, y2: botY, key: `r16-bot-${k}` });
+    lines.push({ x1: childX, y1: midY, x2: x + 8, y2: midY, key: `r16-hchild-${k}` });
   }
 
   // QF (col 3) → SF (col 4)
@@ -147,10 +147,10 @@ export function BracketMini() {
     const midY = (topY + botY) / 2;
     const x = colX(3) + CARD_W;
     const childX = colX(4);
-    lines.push({ x1: x, y1: topY, x2: x + 6, y2: topY, key: `qf-top-${k}` });
-    lines.push({ x1: x + 6, y1: topY, x2: x + 6, y2: botY, key: `qf-vbar-${k}` });
-    lines.push({ x1: x + 6, y1: botY, x2: x, y2: botY, key: `qf-bot-${k}` });
-    lines.push({ x1: childX, y1: midY, x2: x + 6, y2: midY, key: `qf-hchild-${k}` });
+    lines.push({ x1: x, y1: topY, x2: x + 8, y2: topY, key: `qf-top-${k}` });
+    lines.push({ x1: x + 8, y1: topY, x2: x + 8, y2: botY, key: `qf-vbar-${k}` });
+    lines.push({ x1: x + 8, y1: botY, x2: x, y2: botY, key: `qf-bot-${k}` });
+    lines.push({ x1: childX, y1: midY, x2: x + 8, y2: midY, key: `qf-hchild-${k}` });
   }
 
   // SF (col 4) → Final (col 5)
@@ -159,10 +159,10 @@ export function BracketMini() {
     const botY = sfY(1);
     const x = colX(4) + CARD_W;
     const childX = colX(5);
-    lines.push({ x1: x, y1: topY, x2: x + 6, y2: topY, key: `sf-top` });
-    lines.push({ x1: x + 6, y1: topY, x2: x + 6, y2: botY, key: `sf-vbar` });
-    lines.push({ x1: x + 6, y1: botY, x2: x, y2: botY, key: `sf-bot` });
-    lines.push({ x1: childX, y1: finalY, x2: x + 6, y2: finalY, key: `sf-hfinal` });
+    lines.push({ x1: x, y1: topY, x2: x + 8, y2: topY, key: `sf-top` });
+    lines.push({ x1: x + 8, y1: topY, x2: x + 8, y2: botY, key: `sf-vbar` });
+    lines.push({ x1: x + 8, y1: botY, x2: x, y2: botY, key: `sf-bot` });
+    lines.push({ x1: childX, y1: finalY, x2: x + 8, y2: finalY, key: `sf-hfinal` });
   }
 
   const championName = r3.final.champion || finalA;
@@ -208,7 +208,7 @@ export function BracketMini() {
           {ROUND_LABELS.map((label, ci) => (
             <div
               key={label}
-              className="absolute top-2 text-[10px] font-bold uppercase tracking-wider text-gray-500 text-center"
+              className="absolute top-2 text-xs font-bold uppercase tracking-wider text-gray-500 text-center"
               style={{
                 left: ci === 5 ? colX(5) - 10 : colX(ci),
                 width: ci === 5 ? FINAL_COL_W : CARD_W,
@@ -315,7 +315,7 @@ export function BracketMini() {
       </div>
 
       <p className="text-xs text-gray-500 mt-3">
-        缩水版: R32 单场不展开, 只画两半区 16 场 → 16 强 → 1/4 → 半决赛 → 决赛的胜方汇聚路径 ·
+        缩水版: 上半区 + 下半区各 8 场 R32 → 16 强 → 1/4 → 半决赛 → 决赛的胜方汇聚路径 ·
         点击右上角"查看完整对阵"进 /bracket 看 R32 全部 16 场细节
       </p>
     </section>
@@ -332,6 +332,7 @@ function MiniR32Card({
   width,
   height,
   label,
+  showProb = true,
 }: {
   match: BracketMatch;
   x: number;
@@ -339,6 +340,7 @@ function MiniR32Card({
   width: number;
   height: number;
   label: string;
+  showProb?: boolean;
 }) {
   const aWins = match.winner === "a";
   const bWins = match.winner === "b";
@@ -357,23 +359,41 @@ function MiniR32Card({
       <div className="absolute -top-2 left-1 px-1 text-[8px] font-mono text-gray-400 bg-white dark:bg-gray-950">
         {label}
       </div>
-      <div className="flex items-center justify-between px-1.5 h-[18px]">
+      <div className="flex items-center justify-between px-2 h-[22px]">
         <span
-          className={`text-[10px] truncate ${
+          className={`text-xs truncate ${
             aWins ? "font-bold text-emerald-700 dark:text-emerald-400" : bWins ? "text-gray-400" : ""
           }`}
         >
           {teamFlag(match.team_a)} {teamNameZh(match.team_a)}
         </span>
+        {showProb && (
+          <span
+            className={`text-[10px] font-mono shrink-0 ml-1 ${
+              aWins ? "text-emerald-600 dark:text-emerald-400 font-bold" : "text-gray-500"
+            }`}
+          >
+            {Math.round(match.team_a_win * 100)}%
+          </span>
+        )}
       </div>
-      <div className="flex items-center justify-between px-1.5 h-[18px] border-t border-gray-100 dark:border-gray-800">
+      <div className="flex items-center justify-between px-2 h-[22px] border-t border-gray-100 dark:border-gray-800">
         <span
-          className={`text-[10px] truncate ${
+          className={`text-xs truncate ${
             bWins ? "font-bold text-emerald-700 dark:text-emerald-400" : aWins ? "text-gray-400" : ""
           }`}
         >
           {teamFlag(match.team_b)} {teamNameZh(match.team_b)}
         </span>
+        {showProb && (
+          <span
+            className={`text-[10px] font-mono shrink-0 ml-1 ${
+              bWins ? "text-emerald-600 dark:text-emerald-400 font-bold" : "text-gray-500"
+            }`}
+          >
+            {Math.round(match.team_b_win * 100)}%
+          </span>
+        )}
       </div>
     </div>
   );
@@ -408,32 +428,32 @@ function MiniCard({
       }`}
       style={{ left: x, top: y, width, height }}
     >
-      <div className="flex items-center justify-between px-1.5 h-[20px]">
+      <div className="flex items-center justify-between px-2 h-[22px]">
         <span
-          className={`text-[11px] truncate ${
+          className={`text-xs truncate ${
             aWins ? "font-bold text-emerald-700 dark:text-emerald-400" : bWins ? "text-gray-400" : ""
           }`}
         >
           {teamFlag(match.team_a)} {teamNameZh(match.team_a)}
         </span>
         <span
-          className={`text-[9px] font-mono shrink-0 ${
+          className={`text-[10px] font-mono shrink-0 ml-1 ${
             aWins ? "text-emerald-600 dark:text-emerald-400 font-bold" : "text-gray-500"
           }`}
         >
           {Math.round(match.team_a_win * 100)}%
         </span>
       </div>
-      <div className="flex items-center justify-between px-1.5 h-[20px] border-t border-gray-100 dark:border-gray-800">
+      <div className="flex items-center justify-between px-2 h-[22px] border-t border-gray-100 dark:border-gray-800">
         <span
-          className={`text-[11px] truncate ${
+          className={`text-xs truncate ${
             bWins ? "font-bold text-emerald-700 dark:text-emerald-400" : aWins ? "text-gray-400" : ""
           }`}
         >
           {teamFlag(match.team_b)} {teamNameZh(match.team_b)}
         </span>
         <span
-          className={`text-[9px] font-mono shrink-0 ${
+          className={`text-[10px] font-mono shrink-0 ml-1 ${
             bWins ? "text-emerald-600 dark:text-emerald-400 font-bold" : "text-gray-500"
           }`}
         >
