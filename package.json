@@ -1,0 +1,30 @@
+{
+  "name": "wc-predict",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "parse": "python3 scripts/parse-report.py run_b37f734df790 ~/mirofish-cli/uploads/runs/run_b37f734df790/ && python3 scripts/parse-round2.py run_a18431af48fd ~/mirofish-cli/uploads/runs/run_a18431af48fd/"
+  },
+  "dependencies": {
+    "next": "14.2.18",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.13.3",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/node": "^22.9.0",
+    "tailwindcss": "^3.4.14",
+    "postcss": "^8.4.49",
+    "autoprefixer": "^10.4.20"
+  }
+}

@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Prose tweaks for markdown */
+.prose h1 { @apply text-3xl font-bold mb-4 mt-8; }
+.prose h2 { @apply text-2xl font-bold mb-3 mt-6 border-b pb-2 border-gray-200 dark:border-gray-800; }
+.prose h3 { @apply text-xl font-semibold mb-2 mt-4; }
+.prose p { @apply mb-3 leading-relaxed; }
+.prose ul { @apply list-disc pl-6 mb-3; }
+.prose ol { @apply list-decimal pl-6 mb-3; }
+.prose li { @apply mb-1; }
+.prose strong { @apply font-semibold; }
+.prose em { @apply italic; }
+.prose code { @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm; }
+.prose pre { @apply bg-gray-100 dark:bg-gray-800 p-3 rounded overflow-x-auto mb-3; }
+.prose blockquote { @apply border-l-4 border-gray-300 dark:border-gray-700 pl-4 italic my-3; }
+.prose table { @apply w-full border-collapse mb-4; }
+.prose th, .prose td { @apply border border-gray-200 dark:border-gray-800 px-3 py-2 text-left; }
+.prose th { @apply bg-gray-50 dark:bg-gray-900 font-semibold; }
