@@ -494,6 +494,123 @@ def apply_dict_translation_r2(data: dict) -> bool:
 
 
 # ---------------------------------------------------------------------------
+# Round 4 内置中文翻译 (run_d7c8d02bf376, 2026-06-18)
+# ---------------------------------------------------------------------------
+
+R4_TRANSLATIONS: dict[str, Any] = {
+    "verdict.prediction": (
+        "阿根廷在 2026 世界杯决赛通过点球大战 1-1 (加时) 击败法国; "
+        "卫冕冠军从险路突围, 而法国则从死亡之组 (I 组) 0-2 负挪威开局后, "
+        "以最佳第 3 名身份一路过关斩将杀入决赛。"
+    ),
+    "verdict.key_dynamics": [
+        "死亡之组 (I 组) 重塑淘汰赛对阵: 法国 MD1 不敌挪威, 被迫以最佳第 3 名身份晋级, 后续淘汰赛难度陡增",
+        "东道主 (美国、加拿大、墨西哥) 凭借主场优势锁定头名; 美国靠净胜球力压澳大利亚获得有利 R32 种子",
+        "巴西在安切洛蒂治下进攻体系全面升级, 小组赛拿满 9 分, 但每场都丢球的防线短板为淘汰赛埋雷",
+        "B / E / G / H 组 4 分拥挤, 净胜球决胜把波黑、厄瓜多尔、埃及、沙特/乌拉圭送入最佳第 3 名争夺",
+        "日本和韩国超出传统预期, 凭借技术质量和把握机会能力分别在 F 组、A 组拿下第 2 名",
+    ],
+    "verdict.signals": [
+        "阿根廷作为卫冕冠军韧性凸显, 全程淘汰赛一鼓作气, 加冕第三颗星",
+        "法国 MD1 0-2 负挪威造成连锁负面种子效应, 但姆巴佩的进攻依然是精英级别",
+        "巴西防线每场都丢 1+ 球, 是淘汰赛阶段的重大隐患",
+        "东道主优势 (美、加、墨均锁头名) 在胶着比赛中提供可量化的额外加成",
+        "B / E / G / H 组多个小组靠净胜球决出第 3-4 名, 反映 3-4 名区段竞争极度均衡",
+    ],
+    "upset_risks": [
+        "塞内加尔 (2I) 对 克罗地亚 (2L): 55% 冷门概率 — \"塞内加尔身体素质压制老迈 Modric 中场\", 身体优势压倒克罗地亚的赛事 DNA",
+        "美国 (1D) 对 日本 (3F): 50% 冷门概率 — \"东道主主场氛围 + 日本技术流反击\", 日本的反击速度针对美国的高位防线",
+        "比利时 (1G) 对 厄瓜多尔 (3E): 48% 冷门概率 — \"高原+湿热双重适应考验欧洲红魔老将\", 比赛地海拔和湿度利好厄瓜多尔",
+        "西班牙 (1H) 对 摩洛哥 (2C): 46% 冷门概率 — \"摩洛哥上届 4 强心理优势 + 西班牙后…\", 2022 半决赛的伤疤未愈",
+        "墨西哥 (1A) 对 法国 (3I): 44% 冷门概率 — 法国作为受伤的最佳第 3 名对阵主场气氛狂热的东道主, 姆巴佩的冷场可能延续",
+    ],
+    "best_thirds": [
+        "伤愈归来的豪门 + 姆巴佩",
+        "FIFA 官方确认晋级",
+        "FIFA 官方确认晋级",
+        "FIFA 官方确认晋级",
+        "FIFA 官方确认晋级",
+        "FIFA 官方确认晋级",
+        "FIFA 官方确认晋级",
+        "非洲黑马 — 出线名额",
+    ],
+    "final.tiers": [
+        "常规 90 分钟内分出胜负 (58%)",
+        "进入加时赛 (120 分钟) (26%)",
+        "进入点球大战 (16%)",
+    ],
+    "final.combined_text": (
+        "**阿根廷捧起 2026 世界杯, 决赛 1-1 (加时, 4-3 点球) — 58% 决赛情景下夺冠。** "
+        "在所有可能的世界杯冠军走势中, 阿根廷凭借 22% 的边际概率领跑, "
+        "巴西 19%, 英格兰 16%, 法国 13%, 德国 9%。"
+    ),
+}
+
+
+def apply_dict_translation_r4(data: dict) -> bool:
+    """应用 Round 4 内置中文翻译。Returns True if any field was changed."""
+    changed = False
+    t = R4_TRANSLATIONS
+
+    if data["verdict"]["prediction"] != t["verdict.prediction"]:
+        data["verdict"]["prediction"] = t["verdict.prediction"]
+        changed = True
+
+    if data["verdict"]["key_dynamics"] != t["verdict.key_dynamics"]:
+        data["verdict"]["key_dynamics"] = t["verdict.key_dynamics"]
+        changed = True
+
+    new_signals = []
+    for i, sig in enumerate(data["verdict"]["signals"]):
+        if i < len(t["verdict.signals"]):
+            new_signals.append({
+                **sig,
+                "signal": t["verdict.signals"][i],
+            })
+        else:
+            new_signals.append(sig)
+    if data["verdict"]["signals"] != new_signals:
+        data["verdict"]["signals"] = new_signals
+        changed = True
+
+    new_upsets = []
+    for i, u in enumerate(data["upset_risks"]):
+        if i < len(t["upset_risks"]):
+            new_upsets.append({**u, "rationale": t["upset_risks"][i]})
+        else:
+            new_upsets.append(u)
+    if data["upset_risks"] != new_upsets:
+        data["upset_risks"] = new_upsets
+        changed = True
+
+    new_bt = []
+    for i, bt in enumerate(data.get("best_thirds", [])):
+        if i < len(t["best_thirds"]):
+            new_bt.append({**bt, "reason": t["best_thirds"][i]})
+        else:
+            new_bt.append(bt)
+    if data.get("best_thirds") != new_bt:
+        data["best_thirds"] = new_bt
+        changed = True
+
+    new_tiers = []
+    for i, tier in enumerate(data["final"]["tiers"]):
+        if i < len(t["final.tiers"]):
+            new_tiers.append({**tier, "content": t["final.tiers"][i]})
+        else:
+            new_tiers.append(tier)
+    if data["final"]["tiers"] != new_tiers:
+        data["final"]["tiers"] = new_tiers
+        changed = True
+
+    if data["final"].get("combined_text") != t["final.combined_text"]:
+        data["final"]["combined_text"] = t["final.combined_text"]
+        changed = True
+
+    return changed
+
+
+# ---------------------------------------------------------------------------
 # API 模式 (cron 用)
 # ---------------------------------------------------------------------------
 
@@ -630,14 +747,16 @@ def main() -> int:
 
     if args.dict:
         targets = []
-        for fname in ("run_b37f734df790.json", "run_a18431af48fd.json"):
+        for fname in ("run_d7c8d02bf376.json", "run_b37f734df790.json", "run_a18431af48fd.json"):
             p = DATA_DIR / fname
             if p.exists():
                 targets.append(p)
         changed_total = 0
         for p in targets:
             data = json.loads(p.read_text())
-            if "b37f734df790" in p.name:
+            if "d7c8d02bf376" in p.name:
+                changed = apply_dict_translation_r4(data)
+            elif "b37f734df790" in p.name:
                 changed = apply_dict_translation_r3(data)
             elif "a18431af48fd" in p.name:
                 changed = apply_dict_translation_r2(data)
