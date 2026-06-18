@@ -3,11 +3,13 @@ import { getLatestRound3Run } from "@/lib/data";
 import type { BracketMatch } from "@/lib/types";
 
 // 一列宽度 + 一行高度 + SVG 总尺寸。所有匹配卡几何参数在这里集中调整。
+// 关键: ROW_H 必须 ≥ CARD_H + 间隙, 否则相邻卡片上下重叠。
 const COL_W = 220;        // 单列宽度
 const COL_GAP = 36;       // 列间隙 (留给连线)
-const ROW_H = 44;         // R32 中每行间距
+const ROW_H = 52;         // R32 中每行间距 (留 12px 间隙, 不重叠)
 const CARD_W = 200;
-const CARD_H = 60;
+const CARD_H = 40;        // R32 紧凑卡 (只装队名 + 概率, 无比分行)
+const CARD_H_FULL = 60;   // R16/QF/SF 完整卡 (含比分/AET 行)
 const FINAL_COL_W = 240;  // 决赛列稍宽,放冠军大卡
 
 // 5 列: R32 → R16 → QF → SF → Final
@@ -72,6 +74,11 @@ export default function BracketPage() {
     const lY = cardY(colIdx - 1, l);
     const rY = cardY(colIdx - 1, r);
     return (lY + rY) / 2;
+  }
+
+  // R16/QF/SF 卡片实际高度 = CARD_H_FULL
+  function cardHeight(colIdx: number): number {
+    return colIdx === 0 ? CARD_H : CARD_H_FULL;
   }
 
   function cardX(colIdx: number): number {
@@ -226,7 +233,8 @@ export default function BracketPage() {
           {/* 卡片层 */}
           {cols.map((col, ci) =>
             col.map((m, k) => {
-              const y = cardY(ci, k) - CARD_H / 2;
+              const h = cardHeight(ci);
+              const y = cardY(ci, k) - h / 2;
               const x = cardX(ci);
               return (
                 <MatchCard
@@ -235,15 +243,16 @@ export default function BracketPage() {
                   x={x}
                   y={y}
                   compact={ci < 3}
+                  height={h}
                 />
               );
             }),
           )}
 
-          {/* 决赛大卡 + 冠军 */}
+          {/* 决赛大卡 + 冠军 (放在 SF 中点) */}
           <FinalChampionCard
             x={cardX(4)}
-            y={cardY(3, 0) - 90}
+            y={(cardY(3, 0) + cardY(3, 1)) / 2 - 90}
             finalCol={finalCol}
             champion={championName}
             confidence={r3.final.confidence || 0.22}
@@ -320,11 +329,13 @@ function MatchCard({
   x,
   y,
   compact,
+  height,
 }: {
   match: BracketMatch;
   x: number;
   y: number;
   compact: boolean;
+  height: number;
 }) {
   const isDraw = match.winner === null;
   const aWins = match.winner === "a";
@@ -341,11 +352,11 @@ function MatchCard({
         left: x,
         top: y,
         width: CARD_W,
-        height: CARD_H,
+        height: height,
       }}
     >
       {/* Team A 行 */}
-      <div className="flex items-center justify-between px-2 h-[28px]">
+      <div className="flex items-center justify-between px-2 h-[20px]">
         <div
           className={`flex items-center gap-1 text-sm truncate ${
             aWins ? "font-bold text-emerald-700 dark:text-emerald-400" : bWins ? "text-gray-400" : ""
@@ -363,7 +374,7 @@ function MatchCard({
         </span>
       </div>
       {/* Team B 行 */}
-      <div className="flex items-center justify-between px-2 h-[28px] border-t border-gray-100 dark:border-gray-800">
+      <div className="flex items-center justify-between px-2 h-[20px] border-t border-gray-100 dark:border-gray-800">
         <div
           className={`flex items-center gap-1 text-sm truncate ${
             bWins ? "font-bold text-emerald-700 dark:text-emerald-400" : aWins ? "text-gray-400" : ""
@@ -382,8 +393,8 @@ function MatchCard({
       </div>
       {/* 比分 + AET/PEN 行 (compact=false 时显示) */}
       {!compact && (
-        <div className="px-2 text-[10px] text-gray-500 flex justify-between items-center h-[4px]">
-          <span className="font-mono">
+        <div className="px-2 text-[10px] text-gray-500 flex justify-between items-center h-[16px] mt-0.5">
+          <span className="font-mono truncate">
             {match.score}
             {isDraw && match.aet_pct ? ` · 加时 ${Math.round(match.aet_pct * 100)}%` : ""}
           </span>
