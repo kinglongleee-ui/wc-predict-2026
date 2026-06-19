@@ -22,38 +22,101 @@ function normalizeTeam(t: string): string {
   return CODE_TO_TEAM[trimmed] || trimmed; // 三字→全称; 全称→原样
 }
 
-// FIFA WC 2026 小组赛日程 (2026-06-19 从 ESPN scoreboard API 拉的真实赛程
-// https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260628):
-// 12 组各 3 个比赛日 (MD1/MD2/MD3), 取每组 MD2/MD3 的"首场"日期作为代表。
-// MD2 通常跨 2 天 (例如 A 组 6/18 + 6/19), MD3 也跨 2 天; 用首场日期排序足够。
-const GROUP_MD_DATES: Record<string, Record<number, string>> = {
-  // A: MD1=6/11-12, MD2=6/18-19, MD3=6/25
-  A: { 2: "2026-06-18", 3: "2026-06-25" },
-  // B: MD1=6/12-13, MD2=6/18, MD3=6/24
-  B: { 2: "2026-06-18", 3: "2026-06-24" },
-  // C: MD1=6/13-14, MD2=6/19(SCO-MAR)+6/20(BRA-HAI), MD3=6/24
-  C: { 2: "2026-06-19", 3: "2026-06-24" },
-  // D: MD1=6/13-14, MD2=6/19(USA-AUS)+6/20(TUR-PAR), MD3=6/26
-  D: { 2: "2026-06-19", 3: "2026-06-26" },
-  // E: MD1=6/14, MD2=6/20(GER-CIV)+6/21(ECU-CUW), MD3=6/25
-  E: { 2: "2026-06-20", 3: "2026-06-25" },
-  // F: MD1=6/14-15, MD2=6/20(NED-SWE)+6/21(TUN-JPN), MD3=6/25
-  F: { 2: "2026-06-20", 3: "2026-06-25" },
-  // G: MD1=6/15-16, MD2=6/21(BEL-IRN)+6/22(NZL-EGY), MD3=6/27
-  G: { 2: "2026-06-21", 3: "2026-06-27" },
-  // H: MD1=6/15, MD2=6/21(ESP-KSA, URU-CPV), MD3=6/27
-  H: { 2: "2026-06-21", 3: "2026-06-27" },
-  // I: MD1=6/16, MD2=6/22(FRA-IRQ)+6/23(NOR-SEN), MD3=6/26
-  I: { 2: "2026-06-22", 3: "2026-06-26" },
-  // J: MD1=6/17, MD2=6/22(ARG-AUT)+6/23(JOR-ALG), MD3=6/28
-  J: { 2: "2026-06-22", 3: "2026-06-28" },
-  // K: MD1=6/17-18, MD2=6/23(POR-UZB)+6/24(COL-COD), MD3=6/27
-  K: { 2: "2026-06-23", 3: "2026-06-27" },
-  // L: MD1=6/17, MD2=6/23(ENG-GHA, PAN-CRO), MD3=6/27
-  L: { 2: "2026-06-23", 3: "2026-06-27" },
+// FIFA WC 2026 真实赛程 — ESPN scoreboard API 抓的 72 场 (12 组 × 6 场/组), 2026-06-19
+// 端点: https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260628
+// key 格式: "<组字母>|<sorted team A|team B>" (MiroFish 全称, ESPN "Czechia" 已统一为 MiroFish "Czech Republic")
+// value: { date: "YYYY-MM-DD", time_utc: "HH:MM" } (ESPN 原始 ISO 时间戳已转 UTC)
+// 之前用 GROUP_MD_DATES 只存"该组该比赛日首场日期"近似, 但 MD2/MD3 跨 2 天 (A MD2 = 6/18 + 6/19),
+// 导致 1/2 MD 比赛日期错位 1 天。改用 per-matchup 精确查表。
+const ESPN_MATCH_SCHEDULE: Record<string, { date: string; time_utc: string }> = {
+  "A|Czech Republic|Mexico": { date: "2026-06-25", time_utc: "01:00" },
+  "A|Czech Republic|South Africa": { date: "2026-06-18", time_utc: "16:00" },
+  "A|Czech Republic|South Korea": { date: "2026-06-12", time_utc: "02:00" },
+  "A|Mexico|South Africa": { date: "2026-06-11", time_utc: "19:00" },
+  "A|Mexico|South Korea": { date: "2026-06-19", time_utc: "01:00" },
+  "A|South Africa|South Korea": { date: "2026-06-25", time_utc: "01:00" },
+  "B|Bosnia|Canada": { date: "2026-06-12", time_utc: "19:00" },
+  "B|Bosnia|Qatar": { date: "2026-06-24", time_utc: "19:00" },
+  "B|Bosnia|Switzerland": { date: "2026-06-18", time_utc: "19:00" },
+  "B|Canada|Qatar": { date: "2026-06-18", time_utc: "22:00" },
+  "B|Canada|Switzerland": { date: "2026-06-24", time_utc: "19:00" },
+  "B|Qatar|Switzerland": { date: "2026-06-13", time_utc: "19:00" },
+  "C|Brazil|Haiti": { date: "2026-06-20", time_utc: "00:30" },
+  "C|Brazil|Morocco": { date: "2026-06-13", time_utc: "22:00" },
+  "C|Brazil|Scotland": { date: "2026-06-24", time_utc: "22:00" },
+  "C|Haiti|Morocco": { date: "2026-06-24", time_utc: "22:00" },
+  "C|Haiti|Scotland": { date: "2026-06-14", time_utc: "01:00" },
+  "C|Morocco|Scotland": { date: "2026-06-19", time_utc: "22:00" },
+  "D|Australia|Paraguay": { date: "2026-06-26", time_utc: "02:00" },
+  "D|Australia|Turkey": { date: "2026-06-14", time_utc: "04:00" },
+  "D|Australia|USA": { date: "2026-06-19", time_utc: "19:00" },
+  "D|Paraguay|Turkey": { date: "2026-06-20", time_utc: "03:00" },
+  "D|Paraguay|USA": { date: "2026-06-13", time_utc: "01:00" },
+  "D|Turkey|USA": { date: "2026-06-26", time_utc: "02:00" },
+  "E|Curaçao|Ecuador": { date: "2026-06-21", time_utc: "00:00" },
+  "E|Curaçao|Germany": { date: "2026-06-14", time_utc: "17:00" },
+  "E|Curaçao|Ivory Coast": { date: "2026-06-25", time_utc: "20:00" },
+  "E|Ecuador|Germany": { date: "2026-06-25", time_utc: "20:00" },
+  "E|Ecuador|Ivory Coast": { date: "2026-06-14", time_utc: "23:00" },
+  "E|Germany|Ivory Coast": { date: "2026-06-20", time_utc: "20:00" },
+  "F|Japan|Netherlands": { date: "2026-06-14", time_utc: "20:00" },
+  "F|Japan|Sweden": { date: "2026-06-25", time_utc: "23:00" },
+  "F|Japan|Tunisia": { date: "2026-06-21", time_utc: "04:00" },
+  "F|Netherlands|Sweden": { date: "2026-06-20", time_utc: "17:00" },
+  "F|Netherlands|Tunisia": { date: "2026-06-25", time_utc: "23:00" },
+  "F|Sweden|Tunisia": { date: "2026-06-15", time_utc: "02:00" },
+  "G|Belgium|Egypt": { date: "2026-06-15", time_utc: "19:00" },
+  "G|Belgium|Iran": { date: "2026-06-21", time_utc: "19:00" },
+  "G|Belgium|New Zealand": { date: "2026-06-27", time_utc: "03:00" },
+  "G|Egypt|Iran": { date: "2026-06-27", time_utc: "03:00" },
+  "G|Egypt|New Zealand": { date: "2026-06-22", time_utc: "01:00" },
+  "G|Iran|New Zealand": { date: "2026-06-16", time_utc: "01:00" },
+  "H|Cape Verde|Saudi Arabia": { date: "2026-06-27", time_utc: "00:00" },
+  "H|Cape Verde|Spain": { date: "2026-06-15", time_utc: "16:00" },
+  "H|Cape Verde|Uruguay": { date: "2026-06-21", time_utc: "22:00" },
+  "H|Saudi Arabia|Spain": { date: "2026-06-21", time_utc: "16:00" },
+  "H|Saudi Arabia|Uruguay": { date: "2026-06-15", time_utc: "22:00" },
+  "H|Spain|Uruguay": { date: "2026-06-27", time_utc: "00:00" },
+  "I|France|Iraq": { date: "2026-06-22", time_utc: "21:00" },
+  "I|France|Norway": { date: "2026-06-26", time_utc: "19:00" },
+  "I|France|Senegal": { date: "2026-06-16", time_utc: "19:00" },
+  "I|Iraq|Norway": { date: "2026-06-16", time_utc: "22:00" },
+  "I|Iraq|Senegal": { date: "2026-06-26", time_utc: "19:00" },
+  "I|Norway|Senegal": { date: "2026-06-23", time_utc: "00:00" },
+  "J|Algeria|Argentina": { date: "2026-06-17", time_utc: "01:00" },
+  "J|Algeria|Austria": { date: "2026-06-28", time_utc: "02:00" },
+  "J|Algeria|Jordan": { date: "2026-06-23", time_utc: "03:00" },
+  "J|Argentina|Austria": { date: "2026-06-22", time_utc: "17:00" },
+  "J|Argentina|Jordan": { date: "2026-06-28", time_utc: "02:00" },
+  "J|Austria|Jordan": { date: "2026-06-17", time_utc: "04:00" },
+  "K|Colombia|DR Congo": { date: "2026-06-24", time_utc: "02:00" },
+  "K|Colombia|Portugal": { date: "2026-06-27", time_utc: "23:30" },
+  "K|Colombia|Uzbekistan": { date: "2026-06-18", time_utc: "02:00" },
+  "K|DR Congo|Portugal": { date: "2026-06-17", time_utc: "17:00" },
+  "K|DR Congo|Uzbekistan": { date: "2026-06-27", time_utc: "23:30" },
+  "K|Portugal|Uzbekistan": { date: "2026-06-23", time_utc: "17:00" },
+  "L|Croatia|England": { date: "2026-06-17", time_utc: "20:00" },
+  "L|Croatia|Ghana": { date: "2026-06-27", time_utc: "21:00" },
+  "L|Croatia|Panama": { date: "2026-06-23", time_utc: "23:00" },
+  "L|England|Ghana": { date: "2026-06-23", time_utc: "20:00" },
+  "L|England|Panama": { date: "2026-06-27", time_utc: "21:00" },
+  "L|Ghana|Panama": { date: "2026-06-17", time_utc: "23:00" },
 };
+function lookupMatchDate(group: string, teamA: string, teamB: string): { date: string; time_utc: string } | null {
+  const a = normalizeTeam(teamA);
+  const b = normalizeTeam(teamB);
+  const key = `${group}|${[a, b].sort().join("|")}`;
+  return ESPN_MATCH_SCHEDULE[key] ?? null;
+}
+// 兜底: 查不到精确表时, 取该组 MD 内所有比赛的"最早日期"作为近似
 function approxMatchDate(group: string, matchday: number): string {
-  return GROUP_MD_DATES[group]?.[matchday] ?? "2026-07-01";
+  const all = Object.entries(ESPN_MATCH_SCHEDULE)
+    .filter(([k]) => k.startsWith(`${group}|`))
+    .map(([, v]) => v.date)
+    .sort();
+  // 简化: 同一 group 内, MD 越大日期越晚; 这里按位置估算 (12 组都没填第 4 场)
+  if (all.length === 0) return "2026-07-01";
+  return all[Math.min(matchday - 1, all.length - 1)] ?? all[0];
 }
 
 // 把 MiroFish groups.X.matches[] 和 data/real/wc_2026_results.json 配对, 渲染
@@ -158,14 +221,16 @@ export function PlayedVsPredicted() {
   if (rows.length === 0) return null;
 
   // 排序 + 拆 section:
-  //   - 即将开赛: MiroFish 模拟但 ESPN 还没出结果 (从前到后按 FIFA 赛程日期)
+  //   - 即将开赛: MiroFish 模拟但 ESPN 还没出结果 (按 ESPN 真实开球时间升序, 最早的在前)
   //   - 已比赛: real 数据里有这场 (按真实比赛日期 asc)
   type UpcomingRow = {
     group: string;
     team_a: string;
     team_b: string;
     matchday: number;
-    approx_date: string;
+    approx_date: string;     // "YYYY-MM-DD" (查表精确, 不再近似)
+    time_utc: string;        // "HH:MM" (ESPN 原始 UTC 开球时间)
+    sort_key: string;        // "YYYY-MM-DD HH:MM" 用于排序
     pred_score: string;
     mirofish_conf: number;
     top_3?: { home: number; away: number; prob: number; pct?: number }[];
@@ -180,6 +245,15 @@ export function PlayedVsPredicted() {
       return [a, b].sort().join("|");
     }),
   );
+  // MiroFish R4 把 MD2/MD3 的 matchup 顺序写反了 (A 组: MiroFish 标 MD2 的 2 场
+  // 实际在 6/25 = 真实 MD3, 标 MD3 的 2 场在 6/18-19 = 真实 MD2). 用查到的真实日期反推 MD.
+  // 真实 MD 边界 (ESPN): MD1=6/11-17, MD2=6/18-23, MD3=6/24-28
+  function realMDFromDate(date: string): number {
+    if (date < "2026-06-18") return 1;
+    if (date < "2026-06-24") return 2;
+    return 3;
+  }
+
   const upcomingRows: UpcomingRow[] = [];
   for (const [gLetter, g] of Object.entries(r3.groups)) {
     for (const m of g.matches) {
@@ -187,13 +261,20 @@ export function PlayedVsPredicted() {
       const b = normalizeTeam(m.team_b);
       const key = [a, b].sort().join("|");
       if (realKeys.has(key)) continue; // 已比赛 → 跳过
+      // 精确查表 (per-matchup), 查不到 fallback 近似 (同组同 MD 内最早日期)
+      const sched = lookupMatchDate(gLetter, m.team_a, m.team_b);
+      const date = sched?.date ?? approxMatchDate(gLetter, m.matchday);
+      const time_utc = sched?.time_utc ?? "—";
+      const real_md = realMDFromDate(date);
       const top1 = m.top_3_scores?.[0];
       upcomingRows.push({
         group: gLetter,
         team_a: m.team_a,
         team_b: m.team_b,
-        matchday: m.matchday,
-        approx_date: approxMatchDate(gLetter, m.matchday),
+        matchday: real_md,                // 用真实 MD, 不用 MiroFish 错位的
+        approx_date: date,
+        time_utc,
+        sort_key: `${date} ${time_utc}`,
         pred_score: top1
           ? `${top1.home}-${top1.away}`
           : `${m.most_likely_score.home ?? "—"}-${m.most_likely_score.away ?? "—"}`,
@@ -204,7 +285,7 @@ export function PlayedVsPredicted() {
   }
   upcomingRows.sort(
     (a, b) =>
-      a.approx_date.localeCompare(b.approx_date) ||
+      a.sort_key.localeCompare(b.sort_key) ||
       a.matchday - b.matchday ||
       a.group.localeCompare(b.group),
   );
@@ -276,7 +357,13 @@ export function PlayedVsPredicted() {
               🗓 即将开赛 ({upcomingRows.length} 场)
             </h3>
             <span className="text-[10px] text-gray-500">
-              按 FIFA 赛程日期排序 · 明天 ({upcomingRows.find((r) => r.approx_date >= new Date().toISOString().slice(0, 10))?.approx_date ?? "—"}) 起
+              按 ESPN 真实开球时间 (UTC) 排序 · 下一场: {(() => {
+                const today = new Date().toISOString().slice(0, 10);
+                const next = upcomingRows.find((r) => r.sort_key >= `${today} 00:00`) ?? upcomingRows[0];
+                if (!next) return "—";
+                const md = next.matchday;
+                return `${next.approx_date.slice(5)} ${next.time_utc} (MD${md})`;
+              })()}
             </span>
           </div>
           <div className="grid md:grid-cols-2 gap-2">
@@ -288,7 +375,7 @@ export function PlayedVsPredicted() {
                   key={`up-${r.group}-${a}-${b}`}
                   href={`/groups/${r.group}`}
                   className="rounded-lg border border-blue-300 dark:border-blue-800 bg-blue-50/40 dark:bg-blue-950/20 p-3 flex items-center gap-3 hover:shadow-md transition-shadow"
-                  title={`MiroFish 预测 ${r.pred_score} · 比赛日 ${r.matchday} · 置信度 ${formatPct(r.mirofish_conf, 0)}`}
+                  title={`MiroFish 预测 ${r.pred_score} · ${r.approx_date} ${r.time_utc} UTC · 比赛日 ${r.matchday} · 置信度 ${formatPct(r.mirofish_conf, 0)}`}
                 >
                   <div className="shrink-0 text-center">
                     <div className="text-2xl font-black font-mono leading-none text-blue-700 dark:text-blue-300">
@@ -299,6 +386,9 @@ export function PlayedVsPredicted() {
                     </div>
                     <div className="text-[9px] text-gray-500 mt-0.5 font-mono">
                       {r.approx_date.slice(5)}
+                    </div>
+                    <div className="text-[8px] text-gray-400 font-mono">
+                      {r.time_utc} UTC
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
