@@ -108,6 +108,38 @@ function lookupMatchDate(group: string, teamA: string, teamB: string): { date: s
   const key = `${group}|${[a, b].sort().join("|")}`;
   return ESPN_MATCH_SCHEDULE[key] ?? null;
 }
+
+// UTC 转中国时区 (UTC+8, 北京时间)。加 8 小时后跨过当天 0 点则日期 +1。
+function toCst(date: string, time_utc: string): { date: string; time: string } {
+  if (!date || !time_utc || time_utc === "—") return { date, time: time_utc || "—" };
+  const m = time_utc.match(/^(\d{1,2}):(\d{2})$/);
+  if (!m) return { date, time: time_utc };
+  const total = Number(m[1]) * 60 + Number(m[2]) + 8 * 60;
+  const dayShift = Math.floor(total / (24 * 60));
+  const rem = total - dayShift * 24 * 60;
+  const hh = Math.floor(rem / 60);
+  const mm = rem % 60;
+  const d = new Date(date + "T00:00:00Z");
+  d.setUTCDate(d.getUTCDate() + dayShift);
+  return {
+    date: d.toISOString().slice(0, 10),
+    time: `${String(hh).padStart(2, "0")}:${String(mm).padStart(2, "0")}`,
+  };
+}
+// ISO 时间串 (含 Z 后缀) 转中国时区 "MM-DD HH:MM 北京时间"
+function isoToCstLabel(iso: string): string {
+  if (!iso) return "—";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  // 直接用浏览器本地时区 — 用户默认浏览器时区; 但中国用户群优先, 加 8h 兜底
+  const utcMs = d.getTime();
+  const cst = new Date(utcMs + 8 * 60 * 60 * 1000);
+  const mo = String(cst.getUTCMonth() + 1).padStart(2, "0");
+  const dd = String(cst.getUTCDate()).padStart(2, "0");
+  const hh = String(cst.getUTCHours()).padStart(2, "0");
+  const mm = String(cst.getUTCMinutes()).padStart(2, "0");
+  return `${mo}-${dd} ${hh}:${mm} 北京时间`;
+}
 // 兜底: 查不到精确表时, 取该组 MD 内所有比赛的"最早日期"作为近似
 function approxMatchDate(group: string, matchday: number): string {
   const all = Object.entries(ESPN_MATCH_SCHEDULE)
@@ -228,9 +260,12 @@ export function PlayedVsPredicted() {
     team_a: string;
     team_b: string;
     matchday: number;
-    approx_date: string;     // "YYYY-MM-DD" (查表精确, 不再近似)
+    approx_date: string;     // "YYYY-MM-DD" (查表精确, ESPN UTC 日期, 不再近似)
     time_utc: string;        // "HH:MM" (ESPN 原始 UTC 开球时间)
-    sort_key: string;        // "YYYY-MM-DD HH:MM" 用于排序
+    sort_key: string;        // "YYYY-MM-DD HH:MM" UTC, 保留供调试
+    cst_date: string;        // "YYYY-MM-DD" 中国时区日期 (跨天则 +1)
+    cst_time: string;        // "HH:MM" 中国时区时间
+    cst_sort_key: string;    // "YYYY-MM-DD HH:MM" 中国时区, 用于排序 + "今日"比较
     pred_score: string;
     mirofish_conf: number;
     top_3?: { home: number; away: number; prob: number; pct?: number }[];
@@ -266,6 +301,7 @@ export function PlayedVsPredicted() {
       const date = sched?.date ?? approxMatchDate(gLetter, m.matchday);
       const time_utc = sched?.time_utc ?? "—";
       const real_md = realMDFromDate(date);
+      const cst = toCst(date, time_utc);
       const top1 = m.top_3_scores?.[0];
       upcomingRows.push({
         group: gLetter,
@@ -275,6 +311,9 @@ export function PlayedVsPredicted() {
         approx_date: date,
         time_utc,
         sort_key: `${date} ${time_utc}`,
+        cst_date: cst.date,
+        cst_time: cst.time,
+        cst_sort_key: `${cst.date} ${cst.time}`,
         pred_score: top1
           ? `${top1.home}-${top1.away}`
           : `${m.most_likely_score.home ?? "—"}-${m.most_likely_score.away ?? "—"}`,
@@ -285,7 +324,7 @@ export function PlayedVsPredicted() {
   }
   upcomingRows.sort(
     (a, b) =>
-      a.sort_key.localeCompare(b.sort_key) ||
+      a.cst_sort_key.localeCompare(b.cst_sort_key) ||
       a.matchday - b.matchday ||
       a.group.localeCompare(b.group),
   );
@@ -345,7 +384,7 @@ export function PlayedVsPredicted() {
           </h2>
         </div>
         <div className="text-xs text-gray-500">
-          抓取时间: {real.fetched_at} (UTC)
+          抓取时间: {isoToCstLabel(real.fetched_at)}
         </div>
       </div>
 
@@ -357,12 +396,15 @@ export function PlayedVsPredicted() {
               🗓 即将开赛 ({upcomingRows.length} 场)
             </h3>
             <span className="text-[10px] text-gray-500">
-              按 ESPN 真实开球时间 (UTC) 排序 · 下一场: {(() => {
-                const today = new Date().toISOString().slice(0, 10);
-                const next = upcomingRows.find((r) => r.sort_key >= `${today} 00:00`) ?? upcomingRows[0];
+              按 ESPN 真实开球时间 (北京时间) 排序 · 下一场: {(() => {
+                // "今日" 用中国时区日期, 避免 UTC→CST 跨天后误判
+                const nowUtcMs = Date.now();
+                const cstMs = nowUtcMs + 8 * 60 * 60 * 1000;
+                const todayCst = new Date(cstMs).toISOString().slice(0, 10);
+                const next = upcomingRows.find((r) => r.cst_sort_key >= `${todayCst} 00:00`) ?? upcomingRows[0];
                 if (!next) return "—";
                 const md = next.matchday;
-                return `${next.approx_date.slice(5)} ${next.time_utc} (MD${md})`;
+                return `${next.cst_date.slice(5)} ${next.cst_time} (MD${md})`;
               })()}
             </span>
           </div>
@@ -375,7 +417,7 @@ export function PlayedVsPredicted() {
                   key={`up-${r.group}-${a}-${b}`}
                   href={`/groups/${r.group}`}
                   className="rounded-lg border border-blue-300 dark:border-blue-800 bg-blue-50/40 dark:bg-blue-950/20 p-3 flex items-center gap-3 hover:shadow-md transition-shadow"
-                  title={`MiroFish 预测 ${r.pred_score} · ${r.approx_date} ${r.time_utc} UTC · 比赛日 ${r.matchday} · 置信度 ${formatPct(r.mirofish_conf, 0)}`}
+                  title={`MiroFish 预测 ${r.pred_score} · ${r.cst_date} ${r.cst_time} 北京时间 · 比赛日 ${r.matchday} · 置信度 ${formatPct(r.mirofish_conf, 0)}`}
                 >
                   <div className="shrink-0 text-center">
                     <div className="text-2xl font-black font-mono leading-none text-blue-700 dark:text-blue-300">
@@ -385,10 +427,10 @@ export function PlayedVsPredicted() {
                       MD{r.matchday}
                     </div>
                     <div className="text-[9px] text-gray-500 mt-0.5 font-mono">
-                      {r.approx_date.slice(5)}
+                      {r.cst_date.slice(5)}
                     </div>
                     <div className="text-[8px] text-gray-400 font-mono">
-                      {r.time_utc} UTC
+                      {r.cst_time}
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
