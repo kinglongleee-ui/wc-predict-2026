@@ -77,6 +77,26 @@ else
     --max-rounds 5 \
     --requirement "Predict every remaining 2026 FIFA World Cup match (group stage MD2+MD3, Round of 32, Round of 16, QF, SF, Final) with per-match team_a_win_prob / draw_prob / team_b_win_prob / most_likely_score / aet_prob / penalties_prob. Identify the 8 best 3rd-place teams, list the predicted 32-team knockout bracket, champion pick with confidence, top 5 upset-risk matches, and final matchup with most likely score (90min / AET / penalties breakdown).
 
+ROUND OF 32 PAIRINGS — FIFA OFFICIAL (Match 73-88, MUST USE EXACTLY, DO NOT REORDER OR REASSIGN):
+- Match 73: Runner-up A vs Runner-up B
+- Match 74: Winner E vs Best 3rd (A/B/C/D/F)
+- Match 75: Winner F vs Runner-up C
+- Match 76: Winner C vs Runner-up F
+- Match 77: Winner I vs Best 3rd (C/D/F/G/H)
+- Match 78: Runner-up E vs Runner-up I
+- Match 79: Winner A vs Best 3rd (C/E/F/H/I)
+- Match 80: Winner L vs Best 3rd (E/H/I/J/K)
+- Match 81: Winner D vs Best 3rd (B/E/F/I/J)
+- Match 82: Winner G vs Best 3rd (A/E/H/I/J)
+- Match 83: Runner-up K vs Runner-up L
+- Match 84: Winner H vs Runner-up J
+- Match 85: Winner B vs Best 3rd (E/F/G/I/J)
+- Match 86: Winner J vs Runner-up H
+- Match 87: Winner K vs Best 3rd (D/E/I/J/L)
+- Match 88: Runner-up D vs Runner-up G
+
+8 best 3rd-place teams must be DISTINCT (no duplicates) and each must satisfy the parens in the matches they fill. Write R32 16 场 in Match 73 → 88 ascending order.
+
 OUTPUT ORDER (CRITICAL — DO NOT REORDER — UI renders groups→QF→SF→Final→Champion in this exact order):
   ① 12 组 final standings (A→L)
   ② 8 个 best 3rd-place

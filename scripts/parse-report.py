@@ -374,7 +374,7 @@ def _strip_group_pos(raw: str) -> str:
     return name
 
 
-def _parse_team_with_seed(raw: str) -> tuple[str, Optional[str], Optional[int]]:
+def _parse_team_with_seed(raw: str):
     """Parse 'Mexico (1A)' / 'Mexico (A1)' / '**Mexico (1A)**' → ('Mexico', 'A', 1).
 
     Returns (team_name, group_letter, seed_rank).
@@ -544,6 +544,85 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
             m["bracket_idx"] = i
 
     return matches
+
+
+# ---------------------------------------------------------------------------
+# 134 兜底: 按 FIFA 真实 Match 73-88 规则生成 R32 配对
+# 不信 MiroFish 的配对 (历史 R3/R4 都跑错过), 用 standings + best_thirds 强制按
+# 官方规则算。来源: Wikipedia "2026 FIFA World Cup knockout stage"。
+# ---------------------------------------------------------------------------
+# (match_num, slot1_kind, slot1_arg, slot2_kind, slot2_arg)
+# kind ∈ {"winner", "runner_up", "best3"}; best3 的 arg 是 allowed group letters tuple
+REAL_R32_RULES = [
+    (73, "runner_up", "A", "runner_up", "B"),
+    (74, "winner",    "E", "best3", ("A","B","C","D","F")),
+    (75, "winner",    "F", "runner_up", "C"),
+    (76, "winner",    "C", "runner_up", "F"),
+    (77, "winner",    "I", "best3", ("C","D","F","G","H")),
+    (78, "runner_up", "E", "runner_up", "I"),
+    (79, "winner",    "A", "best3", ("C","E","F","H","I")),
+    (80, "winner",    "L", "best3", ("E","H","I","J","K")),
+    (81, "winner",    "D", "best3", ("B","E","F","I","J")),
+    (82, "winner",    "G", "best3", ("A","E","H","I","J")),
+    (83, "runner_up", "K", "runner_up", "L"),
+    (84, "winner",    "H", "runner_up", "J"),
+    (85, "winner",    "B", "best3", ("E","F","G","I","J")),
+    (86, "winner",    "J", "runner_up", "H"),
+    (87, "winner",    "K", "best3", ("D","E","I","J","L")),
+    (88, "runner_up", "D", "runner_up", "G"),
+]
+
+
+def _resolve_r32_slot(groups: dict, best_thirds: list, kind: str, arg, used: set) -> dict:
+    """Resolve one R32 slot to {team, group, seed}.
+
+    - kind="winner":    arg = group letter, take standings[0]
+    - kind="runner_up": arg = group letter, take standings[1]
+    - kind="best3":     arg = tuple of allowed group letters, greedy pick
+                        best_thirds sorted by rank asc, skip used, must be in allowed set
+    """
+    if kind == "winner":
+        st = groups.get(arg, {}).get("standings", [])
+        if not st:
+            return {"team": f"{arg}组头名(待定)", "group": arg, "seed": 1}
+        return {"team": st[0]["team"], "group": arg, "seed": 1}
+    if kind == "runner_up":
+        st = groups.get(arg, {}).get("standings", [])
+        if len(st) < 2:
+            return {"team": f"{arg}组次名(待定)", "group": arg, "seed": 2}
+        return {"team": st[1]["team"], "group": arg, "seed": 2}
+    if kind == "best3":
+        for bt in sorted(best_thirds, key=lambda x: x.get("rank", 99)):
+            key = (bt["team"], bt["group"])
+            if key in used:
+                continue
+            if bt["group"] not in arg:
+                continue
+            used.add(key)
+            return {"team": bt["team"], "group": bt["group"], "seed": 3}
+        return {"team": "best3(待定)", "group": None, "seed": 3}
+    raise ValueError(f"unknown r32 slot kind: {kind}")
+
+
+def build_real_r32(groups: dict, best_thirds: list) -> list:
+    """按 FIFA 真实 Match 73-88 规则生成 16 场 R32 (覆盖 MiroFish 错配)。
+
+    Returns list of 16 BracketMatch dicts 按 Match 73→88 升序。
+    概率字段重置为中性 (0.5/0.0/0.5, winner=null, score="待定"), 不沿用 MiroFish 错配的概率。
+    """
+    used_best3 = set()
+    out = []
+    for idx, (_, k1, a1, k2, a2) in enumerate(REAL_R32_RULES):
+        s1 = _resolve_r32_slot(groups, best_thirds, k1, a1, used_best3)
+        s2 = _resolve_r32_slot(groups, best_thirds, k2, a2, used_best3)
+        out.append({
+            "bracket_idx": idx,
+            "team_a": s1["team"], "group_a": s1["group"], "seed_a": s1["seed"],
+            "team_b": s2["team"], "group_b": s2["group"], "seed_b": s2["seed"],
+            "team_a_win": 0.5, "draw": 0.0, "team_b_win": 0.5,
+            "score": "待定", "aet_pct": None, "pen_pct": None, "winner": None,
+        })
+    return out
 
 
 def _parse_third_place(md_text: str, sf_start: int) -> Optional[dict]:
@@ -766,6 +845,13 @@ def parse_run(run_id: str, run_dir: Path) -> dict:
         if m:
             final["champion"] = m.group(1).strip()
 
+    best_thirds = parse_best_thirds(report_md)
+    bracket = parse_bracket(report_md)
+    # 134 兜底: 用 FIFA 真实 Match 73-88 规则覆盖 MiroFish 错配的 R32
+    # 只在 12 组都解析到 + MiroFish 有 R32 输出时触发; 老 run 没 R32 (b37f/a184) 不触发
+    if bracket["r32"] and len(groups) == 12:
+        bracket["r32"] = build_real_r32(groups, best_thirds)
+
     return {
         "run_id": run_id,
         "created_at": summary.get("created_at", datetime.now().isoformat()),
@@ -783,8 +869,8 @@ def parse_run(run_id: str, run_dir: Path) -> dict:
             "top_agents": summary.get("top_agents", []),
         },
         "groups": groups,
-        "best_thirds": parse_best_thirds(report_md),
-        "bracket": parse_bracket(report_md),
+        "best_thirds": best_thirds,
+        "bracket": bracket,
         "final": final,
         "upset_risks": parse_upset_risks(report_md),
         "report_markdown": report_md,

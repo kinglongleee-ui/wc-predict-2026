@@ -1,39 +1,39 @@
 {
   "run_id": "run_b37f734df790",
-  "created_at": "2026-06-18T11:08:37.024245",
+  "created_at": "2026-06-19T16:44:49.722766",
   "verdict": {
-    "prediction": "法国与阿根廷在 7 月 19 日决赛相遇, 法国加时赛 2-1 捧起队史第三座世界杯 (常规 90 分钟法国胜 48%, 加时 34%, 点球 18%); 上半区半决赛由德国与英格兰填补, 巴西因安切洛蒂麾下体系脆弱止步 1/4 决赛。",
+    "prediction": "France and Argentina meet in the July 19 Final, with France lifting the trophy 2-1 after extra time (48% France win in 90 min, 34% AET, 18% penalties); Germany and England round out the semifinals on the top half, while Brazil exits in the QF due to systemic fragility under Ancelotti.",
     "confidence": 0.62,
     "key_dynamics": [
-      "法阿两强在淘汰赛半区会师, 成为本届赛事最可能的终局",
-      "巴西在救火主帅安切洛蒂麾下体系不稳, 上限止步 1/4 决赛",
-      "德国维尔茨 + 穆夏拉双核主导 E 组, 支撑球队走远",
-      "中游球队严重拥挤, 多支 4 分球队陷入第 3 名卡位战",
-      "东道主美国晋级但饱经考验; 土耳其凭相互战绩力压澳大利亚"
+      "France–Argentina bracket convergence as the tournament's likely climax",
+      "Brazil's structural instability under emergency-coach Ancelotti caps their ceiling at QF",
+      "Germany's Wirtz–Musiala axis dominates Group E and powers deep run",
+      "Compressed mid-tier creates tight 3rd-place race across 4-point teams",
+      "Host USA advances but tested; Turkey edges Australia on H2H tiebreaker"
     ],
     "signals": [
       {
-        "signal": "安切洛蒂承认巴西天赋, 但坦言\"小组赛后体系仍需巩固\"",
+        "signal": "Ancelotti quote affirming Brazil talent but conceding system needs stabilization post-group",
         "direction": "negative",
         "strength": 0.55
       },
       {
-        "signal": "C 罗\"最后一届世界杯, 来此捧杯\"的定调利好葡萄牙",
+        "signal": "Ronaldo's 'last World Cup, here to lift the trophy' framing for Portugal",
         "direction": "positive",
         "strength": 0.45
       },
       {
-        "signal": "阿根廷 3-0 开门红叙事强化卫冕冠军势头",
+        "signal": "Argentina 3-0 opening win narrative reinforcing defending-champion momentum",
         "direction": "positive",
         "strength": 0.65
       },
       {
-        "signal": "加克波伤情无碍, 利好荷兰",
+        "signal": "Cody Gakpo fitness reassurance for Netherlands",
         "direction": "positive",
         "strength": 0.5
       },
       {
-        "signal": "佛得角首场世界杯对阵西班牙, 竞争版图扩张信号中性",
+        "signal": "Cape Verde first-ever WC match against Spain signals expanding competitive base",
         "direction": "mixed",
         "strength": 0.4
       }
@@ -1344,7 +1344,7 @@
       "group": "G",
       "points": 4,
       "goal_difference": 2,
-      "reason": "4 分球队中净胜球最高"
+      "reason": "Best 3rd on GD among 4-pt teams"
     },
     {
       "rank": 2,
@@ -1352,7 +1352,7 @@
       "group": "K",
       "points": 4,
       "goal_difference": 1,
-      "reason": "排除相互战绩后力压挪威"
+      "reason": "Beats Norway on H2H-removed tiebreaker"
     },
     {
       "rank": 3,
@@ -1360,7 +1360,7 @@
       "group": "I",
       "points": 4,
       "goal_difference": 1,
-      "reason": "净胜球力压塞内加尔"
+      "reason": "GD edge over Senegal"
     },
     {
       "rank": 4,
@@ -1368,7 +1368,7 @@
       "group": "H",
       "points": 4,
       "goal_difference": 0,
-      "reason": "历史级首秀表现"
+      "reason": "Historic debut performance"
     },
     {
       "rank": 5,
@@ -1376,7 +1376,7 @@
       "group": "A",
       "points": 4,
       "goal_difference": 0,
-      "reason": "与佛得角净胜球比拼中落败"
+      "reason": "Loses GD tiebreak with Cape Verde"
     },
     {
       "rank": 6,
@@ -1384,7 +1384,7 @@
       "group": "J",
       "points": 3,
       "goal_difference": 1,
-      "reason": "3 分第 3 名中净胜球最高"
+      "reason": "Highest GD among 3-pt 3rds"
     },
     {
       "rank": 7,
@@ -1392,7 +1392,7 @@
       "group": "L",
       "points": 3,
       "goal_difference": 0,
-      "reason": "净胜球为正"
+      "reason": "Goal differential >0"
     },
     {
       "rank": 8,
@@ -1400,32 +1400,39 @@
       "group": "I*",
       "points": 3,
       "goal_difference": 0,
-      "reason": "FIFA 排名力压苏格兰"
+      "reason": "Edge over Scotland on FIFA ranking tiebreak"
     }
   ],
+  "bracket": {
+    "r32": [],
+    "r16": [],
+    "qf": [],
+    "sf": [],
+    "third_place": null
+  },
   "final": {
     "matchup": "France vs Spain",
     "tiers": [
       {
         "tier": 1,
         "label": "90 minutes result",
-        "content": "法国 2-1 (概率 38%)",
+        "content": "France 2-1 (38% probability)",
         "probability": 0.38
       },
       {
         "tier": 2,
         "label": "After Extra Time",
-        "content": "法国 2-2 加时, 法国 3-2 加时 (概率 28%)",
+        "content": "France 2-2 AET, France 3-2 AET (28% probability)",
         "probability": 0.28
       },
       {
         "tier": 3,
         "label": "Penalties",
-        "content": "2-2 加时 → 法国点球 4-3 胜 (概率 16%)",
+        "content": "2-2 AET → France 4-3 on penalties (16% probability)",
         "probability": 0.16
       }
     ],
-    "combined_text": "法国 64% / 西班牙 36%。姆巴佩 27 岁获金球奖; 卡马文加获最佳年轻球员。法国捧起队史第三座世界杯, 完成由卡马文加主导的新老交替闭环。引发共鸣的智能体引语: \"卡马文加和扎伊尔-埃梅里已就位… 这支球队的阵容深度足以走到最后。\"",
+    "combined_text": "France 64% / Spain 36%.** Mbappé wins the Golden Ball at 27; Camavinga the Best Young Player. France lift their third World Cup, completing a Camavinga-led regeneration arc. The agent quote that resonates: \"Camavinga and Zaïre-Emery are ready… this squad has the depth to go all the way.\"",
     "champion": "FRANCE — confidence 64%.",
     "confidence": 0.64
   },
@@ -1435,36 +1442,36 @@
       "match": "Senegal vs France (Group I MD3)",
       "stage": "Group",
       "upset_probability": 0.3,
-      "rationale": "塞内加尔已提前出线; 法国在锁定 R32 种子后可能轮换。"
+      "rationale": "Senegal already qualified; France may rotate post-R32 seeding."
     },
     {
       "rank": 2,
       "match": "DR Congo vs Portugal (Group K MD2)",
       "stage": "Group",
       "upset_probability": 0.18,
-      "rationale": "刚果(金) 身体对抗打乱 C 罗告别赛节奏。"
+      "rationale": "DR Congo's physicality disrupts Ronaldo's farewell tempo."
     },
     {
       "rank": 3,
       "match": "Uruguay vs Spain (Group H MD3)",
       "stage": "Group",
       "upset_probability": 0.27,
-      "rationale": "若西班牙已晋级, 乌拉圭老将中轴把握机会。"
+      "rationale": "If Spain has already qualified, Uruguay's veteran spine capitalizes."
     },
     {
       "rank": 4,
       "match": "Brazil vs Belgium (R16)",
       "stage": "R16",
       "upset_probability": 0.38,
-      "rationale": "安切洛蒂\"体系会稳定\"的保留 = 防守未稳 = 比利时黄金一代谢幕战。"
+      "rationale": "Ancelotti's \"system will stabilize\" caveat = unsettled defending = Belgium's golden-generation final dance."
     },
     {
       "rank": 5,
       "match": "Mexico vs Germany (potential QF)",
       "stage": "QF",
       "upset_probability": 0.32,
-      "rationale": "主场氛围 + 高原熟悉度; 墨西哥反击打法历来克德国。"
+      "rationale": "Home crowd + altitude familiarity; Mexico's counter-attacking profile historically troubles Germany."
     }
   ],
-  "report_markdown": "# 2026 世界杯: 上帝模式预测报告\n\n## 标题\n**\"加冕之路: 阿根廷—法国决赛与新世界秩序\"**\n\n---\n\n## 1. 执行摘要\n\n基于模拟推演 — 卡洛·安切洛蒂宣称\"巴西的天赋无人能及\"但承认\"体系要到小组赛后才能稳定\", 克里斯蒂亚诺·罗纳尔多发帖\"41 岁了。最后一届世界杯… 我来这里就是为了最后一次捧杯\", 还有模拟声音在阿根廷 3-0 击败阿尔及利亚后高呼\"阿根廷卫冕我们的冠军\" — 最可能的赛事走向是: **法国与阿根廷从半区两端会师, 7 月 19 日决赛相遇, 法国以加时 2-1 捧杯 (点球概率 18%, 加时概率 34%, 常规 90 分钟法国胜 48%)。** 德国 (E 组, MD1 7-1 横扫科特迪瓦) 与英格兰 (L 组) 是上半区最可能的半决赛球队; 巴西在救火主帅安切洛蒂麾下体系不稳, 预计将在 1/4 决赛付出代价。8 个最佳第 3 名从拥挤的中游集团中出线 (来自 A、C、G、I 组的 4 分球队 + H、J、K、L 组的 3 分晋级者)。最大冷门风险: 塞内加尔胜法国 (I 组 MD3)、乌拉圭胜西班牙 (H 组)、波黑胜瑞士 (B 组)、刚果 (金) 胜葡萄牙 (K 组)、苏格兰胜巴西 (C 组)。\n\n---\n\n## 2. 全部 12 组 — MD2 + MD3 预测\n\n### A 组 (墨西哥、韩国、捷克、南非)\n*锚点: 捷克 6/11 1-2 负韩国 (0 分, 净胜球 −1)。*\n\n| 比赛 | A 胜% | 平% | B 胜% | 最可能比分 |\n|---|---|---|---|---|\n| **墨西哥 对 韩国 (MD2)** | 48% | 28% | 24% | 1-1 |\n| **捷克 对 南非 (MD2)** | 55% | 25% | 20% | 2-0 |\n| **韩国 对 南非 (MD3)** | 65% | 22% | 13% | 2-0 |\n| **墨西哥 对 捷克 (MD3)** | 50% | 27% | 23% | 2-1 |\n\n**最终积分: 墨西哥 7 / 捷克 4 (净胜球 +1) / 韩国 4 (净胜球 +1, 相互战绩失利) / 南非 0。** 墨西哥凭借本土大陆优势居首; 韩国因净胜球与捷克持平但在相互战绩比较中落败, 滑至第 3。\n\n### B 组 (瑞士、卡塔尔、波黑、加拿大)\n加拿大东道主加成真实但有限。\n\n| 比赛 | A 胜% | 平% | B 胜% | 比分 |\n|---|---|---|---|---|\n| **瑞士 对 波黑 (MD2)** | 52% | 26% | 22% | 1-0 |\n| **卡塔尔 对 加拿大 (MD2)** | 30% | 30% | 40% | 1-1 |\n| **加拿大 对 瑞士 (MD3)** | 28% | 27% | 45% | 0-2 |\n| **波黑 对 卡塔尔 (MD3)** | 48% | 28% | 24% | 2-1 |\n\n**最终: 瑞士 7 / 加拿大 4 (东道主净胜球优势) / 波黑 4 / 卡塔尔 1。** 加拿大凭借主场强度以第 2 名晋级。\n\n### C 组 (巴西、摩洛哥、苏格兰、海地)\n*安切洛蒂原话: \"C 组有摩洛哥、苏格兰、海地, 是可以应对的, 我们会怒吼。\"*\n\n| 比赛 | A 胜% | 平% | B 胜% | 比分 |\n|---|---|---|---|---|\n| **巴西 对 苏格兰 (MD2)** | 60% | 22% | 18% | 2-0 |\n| **摩洛哥 对 海地 (MD2)** | 68% | 20% | 12% | 3-0 |\n| **海地 对 巴西 (MD3)** | 8% | 17% | 75% | 0-3 |\n| **苏格兰 对 摩洛哥 (MD3)** | 38% | 30% | 32% | 1-1 |\n\n**最终: 巴西 7 (但缺乏说服力) / 摩洛哥 5 / 苏格兰 3 / 海地 0。** 巴西小组赛 3-0 的总比分掩盖了体系脆弱性 — 摩洛哥逼平苏格兰后拿到第 2。\n\n### D 组 (美国、巴拉圭、澳大利亚、土耳其)\n本届最胶着的小组, 4 队分差 ≤2 分。\n\n| 比赛 | A 胜% | 平% | B 胜% | 比分 |\n|---|---|---|---|---|\n| **美国 对 土耳其 (MD2)** | 42% | 30% | 28% | 1-1 |\n| **巴拉圭 对 澳大利亚 (MD2)** | 38% | 32% | 30% | 1-1 |\n| **美国 对 巴拉圭 (MD3)** | 45% | 28% | 27% | 2-1 |\n| **澳大利亚 对 土耳其 (MD3)** | 35% | 30% | 35% | 1-2 |\n\n**最终: 美国 5 / 土耳其 5 (凭相互战绩胜出) / 巴拉圭 3 / 澳大利亚 2。** 东道主美国出线, 但比预期艰难 — 土耳其凭借防守站位力压澳大利亚。\n\n### E 组 (德国、厄瓜多尔、科特迪瓦、库拉索)\n*厄瓜多尔首战 0-1 告负; 来自澳大利亚的消息源称德国\"7-1 科特迪瓦\" (按德国 MD1 胜科特迪瓦处理)。*\n\n| 比赛 | A 胜% | 平% | B 胜% | 比分 |\n|---|---|---|---|---|\n| **德国 对 厄瓜多尔 (MD2)** | 68% | 20% | 12% | 3-0 |\n| **科特迪瓦 对 库拉索 (MD2)** | 58% | 24% | 18% | 2-0 |\n| **厄瓜多尔 对 科特迪瓦 (MD3)** | 48% | 28% | 24% | 2-1 |\n| **库拉索 对 德国 (MD3)** | 5% | 12% | 83% | 0-4 |\n\n**最终: 德国 9 / 厄瓜多尔 6 / 科特迪瓦 3 / 库拉索 0。** 维尔茨 + 穆夏拉双核主导; 厄瓜多尔从 MD1 失利中走出, 拿下科特迪瓦 (修正: 厄瓜多尔只对科特迪瓦一胜)。修正: 厄瓜多尔 3 (负、胜、?) — 最终厄瓜多尔 3, 科特迪瓦 3, 库拉索 0, 德国 9。\n\n### F 组 (荷兰、瑞典、日本、突尼斯)\n加克波 (荷兰): \"我大腿没事 — 我是来比赛的。\"\n\n| 比赛 | A 胜% | 平% | B 胜% | 比分 |\n|---|---|---|---|---|\n| **荷兰 对 日本 (MD2)** | 52% | 25% | 23% | 2-1 |\n| **瑞典 对 突尼斯 (MD2)** | 55% | 25% | 20% | 2-0 |\n| **日本 对 突尼斯 (MD3)** | 62% | 22% | 16% | 2-0 |\n| **瑞典 对 荷兰 (MD3)** | 25% | 28% | 47% | 0-2 |\n\n**最终: 荷兰 7 / 日本 6 / 瑞典 3 / 突尼斯 0。** 日本凭净胜球力压瑞典 (6 分对 3 分, 同分按净胜球决出)。\n\n### G 组 (比利时、伊朗、埃及、新西兰)\n\n| 比赛 | A 胜% | 平% | B 胜% | 比分 |\n|---|---|---|---|---|\n| **比利时 对 埃及 (MD2)** | 56% | 24% | 20% | 2-0 |\n| **伊朗 对 新西兰 (MD2)** | 62% | 22% | 16% | 2-0 |\n| **埃及 对 新西兰 (MD3)** | 68% | 20% | 12% | 3-0 |\n| **比利时 对 伊朗 (MD3)** | 50% | 26% | 24% | 1-1 |\n\n**最终: 比利时 7 / 埃及 6 / 伊朗 4 / 新西兰 0。** 伊朗凭借关键 MD2 胜新西兰抢到第 3; 埃及 6 分 +5 净胜球锁定第 2。\n\n### H 组 (西班牙、乌拉圭、沙特、佛得角)\n*佛得角 6/13 \"首场世界杯比赛对阵西班牙\" (MD1)。拉明·亚马尔 (西班牙) 一代造势。*\n\n| 比赛 | A 胜% | 平% | B 胜% | 比分 |\n|---|---|---|---|---|\n| **西班牙 对 佛得角 (MD1, 已赛)** | 78% | 15% | 7% | 3-0 |\n| **乌拉圭 对 沙特 (MD2)** | 72% | 18% | 10% | 3-0 |\n| **佛得角 对 沙特 (MD2)** | 45% | 30% | 25% | 1-1 |\n| **西班牙 对 乌拉圭 (MD3)** | 45% | 28% | 27% | 1-1 |\n| **沙特 对 西班牙 (MD3)** | 8% | 16% | 76% | 0-3 |\n\n**最终: 西班牙 7 / 乌拉圭 5 / 佛得角 4 / 沙特 0。** 佛得角历史性的 MD1 表现为他们赢得 4 分第 3 名晋级资格。\n\n### I 组 (法国、挪威、塞内加尔、伊拉克)\n*法国表态: \"姆巴佩正值巅峰… 看着我们捧杯。\"*\n\n| 比赛 | A 胜% | 平% | B 胜% | 比分 |\n|---|---|---|---|---|\n| **法国 对 挪威 (MD2)** | 68% | 20% | 12% | 2-0 |\n| **塞内加尔 对 伊拉克 (MD2)** | 62% | 24% | 14% | 2-0 |\n| **挪威 对 塞内加尔 (MD3)** | 42% | 28% | 30% | 1-1 |\n| **法国 对 伊拉克 (MD3)** | 85% | 10% | 5% | 4-0 |\n\n**最终: 法国 9 / 挪威 4 / 塞内加尔 4 / 伊拉克 0。** 塞内加尔凭净胜球平局规则抢到第 3; 这是 **冷门风险场次** — 见第 10 节。\n\n### J 组 (阿根廷、阿尔及利亚、奥地利、约旦)\n*阿根廷 6/14 3-0 胜阿尔及利亚 (3 分)。*\n\n| 比赛 | A 胜% | 平% | B 胜% | 比分 |\n|---|---|---|---|---|\n| **阿根廷 对 阿尔及利亚 (MD1, 已赛)** | 75% | 15% | 10% | 3-0 |\n| **奥地利 对 约旦 (MD2)** | 65% | 22% | 13% | 2-0 |\n| **阿尔及利亚 对 奥地利 (MD3)** | 35% | 30% | 35% | 1-1 |\n| **约旦 对 阿根廷 (MD3)** | 5% | 12% | 83% | 0-3 |\n\n**最终: 阿根廷 9 / 奥地利 4 / 阿尔及利亚 3 / 约旦 1。** 阿尔及利亚以 3 分 +1 净胜球挤进第 3 名池。\n\n### K 组 (葡萄牙、哥伦比亚、刚果 (金)、乌兹别克斯坦)\n*C 罗: \"葡萄牙在 K 组, 与哥伦比亚、刚果 (金)、乌兹别克斯坦同组 — 我们绝对能赢。\"*\n\n| 比赛 | A 胜% | 平% | B 胜% | 比分 |\n|---|---|---|---|---|\n| **葡萄牙 对 刚果 (金) (MD2)** | 58% | 24% | 18% | 2-0 |\n| **哥伦比亚 对 乌兹别克斯坦 (MD2)** | 68% | 20% | 12% | 3-0 |\n| **刚果 (金) 对 乌兹别克斯坦 (MD3)** | 50% | 28% | 22% | 1-0 |\n| **葡萄牙 对 哥伦比亚 (MD3)** | 40% | 30% | 30% | 1-1 |\n\n**最终: 葡萄牙 7 / 哥伦比亚 5 / 刚果 (金) 4 / 乌兹别克斯坦 0。** 刚果 (金) 凭 4 分抢到一个关键第 3 名席位。\n\n### L 组 (英格兰、克罗地亚、加纳、巴拿马)\n*萨卡: \"这支英格兰队有火力终于把奖杯带回家。\"*\n\n| 比赛 | A 胜% | 平% | B 胜% | 比分 |\n|---|---|---|---|---|\n| **英格兰 对 克罗地亚 (MD2)** | 55% | 25% | 20% | 2-1 |\n| **加纳 对 巴拿马 (MD2)** | 55% | 26% | 19% | 2-0 |\n| **克罗地亚 对 巴拿马 (MD3)** | 72% | 18% | 10% | 3-0 |\n| **英格兰 对 加纳 (MD3)** | 65% | 22% | 13% | 3-1 |\n\n**最终: 英格兰 9 / 克罗地亚 6 / 加纳 3 / 巴拿马 0。** 克罗地亚 6 分锁定第 2; 加纳 3 分加不错净胜球挤进最佳第 3 名。\n\n---\n\n## 3. 8 个最佳第 3 名球队 (晋级 R32)\n\n| 排名 | 球队 | 组 | 积分 | 净胜球 | 原因 |\n|---|---|---|---|---|---|\n| 1 | 伊朗 | G | 4 | +2 | 4 分球队中净胜球最高 |\n| 2 | 刚果 (金) | K | 4 | +1 | 排除相互战绩后力压挪威 |\n| 3 | 挪威 | I | 4 | +1 | 净胜球力压塞内加尔 |\n| 4 | 佛得角 | H | 4 | 0 | 历史级首秀表现 |\n| 5 | 捷克 | A | 4 | 0 | 与佛得角净胜球比拼中落败 |\n| 6 | 阿尔及利亚 | J | 3 | +1 | 3 分第 3 名中净胜球最高 |\n| 7 | 加纳 | L | 3 | 0 | 净胜球为正 |\n| 8 | 塞内加尔 | I* | 3 | 0 | FIFA 排名力压苏格兰 |\n\n*塞内加尔以 FIFA 排名 (18 对 39) 力压同 3 分的苏格兰, 拿到第 8 席。*\n\n**被淘汰的第 3 名:** 苏格兰 (C, 3 分, 净胜球 0)、波黑 (B, 4 分但按半区规则被排除)、瑞典 (F, 3 分, 净胜球 −1)。\n\n---\n\n## 4. 32 强赛 (12 组对阵)\n\n| # | A 队 | 对 | B 队 | A 胜% | 平/加时% | B 胜% | 比分 |\n|---|---|---|---|---|---|---|---|\n| 1 | 墨西哥 (1A) | 对 | 佛得角 (3H) | 72% | 16% | 12% | 2-0 |\n| 2 | 瑞士 (1B) | 对 | 伊朗 (3G) | 55% | 24% | 21% | 1-0 |\n| 3 | 巴西 (1C) | 对 | 阿尔及利亚 (3J) | 70% | 17% | 13% | 3-1 |\n| 4 | 美国 (1D) | 对 | 捷克 (3A) | 58% | 24% | 18% | 2-1 |\n| 5 | 德国 (1E) | 对 | 刚果 (金) (3K) | 80% | 12% | 8% | 4-0 |\n| 6 | 荷兰 (1F) | 对 | 加纳 (3L) | 72% | 17% | 11% | 3-0 |\n| 7 | 比利时 (1G) | 对 | 挪威 (3I) | 52% | 26% | 22% | 2-1 |\n| 8 | 西班牙 (1H) | 对 | 塞内加尔 (3I*) | 68% | 19% | 13% | 3-1 |\n| 9 | 法国 (1I) | 对 | (A/B/D/E/F 第 3) — 递补位对土耳其 (2D) | 60% | 22% | 18% | 2-0 |\n| 10 | 阿根廷 (1J) | 对 | (剩余最佳第 3) — 克罗地亚 (2L)? — 典型半区配对: 阿根廷 对 克罗地亚 2L | 62% | 22% | 16% | 2-1 |\n| 11 | 葡萄牙 (1K) | 对 | (C/F/H/J 第 3) — 阿根廷已用; 此位对乌拉圭 (2H) | 50% | 26% | 24% | 1-0 (加时) |\n| 12 | 英格兰 (1L) | 对 | 奥地利 (2J) | 64% | 22% | 14% | 3-1 |\n\n*注: 第 9 位按 2026 标准半区规则 (1I 对 2D) 配土耳其 (D 组第 2)。*\n\n---\n\n## 5. 16 强赛 (4 场重点; 全部 8 场列出)\n\n| 比赛 | A 胜% | B 胜% | 加时% | 点球% | 比分 |\n|---|---|---|---|---|---|\n| 巴西 对 比利时 | 48% | 38% | 22% | 12% | 2-1 (加时) |\n| 德国 对 西班牙 | 45% | 42% | 25% | 14% | 2-2 → 3-2 (加时) |\n| 法国 对 荷兰 | 50% | 36% | 20% | 10% | 2-1 |\n| **阿根廷 对 英格兰** | 46% | 42% | 24% | 14% | 1-1 → 2-1 (加时) |\n| 葡萄牙 对 墨西哥 | 55% | 32% | 18% | 8% | 2-0 |\n| 瑞士 对 美国 | 40% | 45% | 22% | 12% | 1-2 |\n\n阿根廷—英格兰是 16 强的标志性对决。英格兰的火力 (布卡约·萨卡一代) 遭遇阿根廷的经验。预计打加时; 点球是次可能结果 (14%)。\n\n---\n\n## 6. 1/4 决赛 (4 组对阵)\n\n| 比赛 | A 胜% | B 胜% | 加时% | 点球% | 最可能比分 |\n|---|---|---|---|---|---|\n| **巴西 对 德国** | 35% | 52% | 24% | 14% | 1-2 (常规) |\n| **法国 对 阿根廷** | 42% | 44% | 30% | 18% | 1-1 → 2-2 → 4-3 (点球) |\n| **英格兰 对 葡萄牙** | 52% | 36% | 22% | 12% | 2-1 |\n| **西班牙 对 美国** | 56% | 30% | 18% | 8% | 2-0 |\n\n*法阿 1/4 决赛是提前上演的决赛。加时概率 30%, 点球 18% — 模拟的高赌注碰撞, 由加克波的帖子\"阿根廷卫冕我们的冠军\"提前预示。*\n\n---\n\n## 7. 半决赛 (2 组对阵)\n\n| 比赛 | A 胜% | B 胜% | 加时% | 点球% | 最可能比分 |\n|---|---|---|---|---|---|\n| **德国 对 法国** | 38% | 48% | 28% | 14% | 1-2 (常规) |\n| **英格兰 对 西班牙** | 42% | 44% | 26% | 16% | 1-1 → 2-2 → 3-4 (点球, 西班牙晋级) |\n\n德国的维尔茨—穆夏拉中场遭遇法国的卡马文加—扎伊尔-埃梅里换代阵容。姆巴佩的巅峰在此爆发 — 法国常规 90 分钟 2-1 拿下。英西大战拼到末路: 拉明·亚马尔的加时梅开二度 (或点球命中) 送西班牙晋级。值得注意, 这意味着 **决赛是法国 对 西班牙, 不是法国 对 阿根廷** — 1/4 决赛先送卫冕冠军回家。\n\n---\n\n## 8. 决赛 — 法国 对 西班牙\n\n*这是预测的决赛。由于阿根廷 1/4 决赛点球负法国出局, 冠军之路改道经西班牙。*\n\n### 三档比分分解\n\n**第 1 档 — 常规 90 分钟结果:** 法国 2-1 (概率 38%)\n- 姆巴佩梅开二度, 亚马尔扳回一球。法国中场的高压逼抢在最后 20 分钟窒息了西班牙的传控节奏。\n\n**第 2 档 — 加时:** 法国 2-2 加时, 法国 3-2 加时 (概率 28%)\n- 若西班牙凭借亚马尔的晚段进球扳平, 姆巴佩的加时第二球定胜负。比分: 2-2 (110') → 3-2 (115')。\n\n**第 3 档 — 点球:** 2-2 加时 → 法国点球 4-3 胜 (概率 16%)\n- 乌奈·西蒙扑出一球; 迈尼昂拒掉拉明·亚马尔。法国第五个出场的蒂鲁姆罚中。\n\n**决赛综合概率: 法国 64% / 西班牙 36%。** 姆巴佩 27 岁获金球奖; 卡马文加获最佳年轻球员。法国捧起队史第三座世界杯, 完成由卡马文加主导的新老交替闭环。引发共鸣的智能体引语: \"卡马文加和扎伊尔-埃梅里已就位… 这支球队的阵容深度足以走到最后。\"\n\n---\n\n## 9. 五大冷门风险场次\n\n| 排名 | 比赛 | 阶段 | 冷门概率 | 原因 |\n|---|---|---|---|---|\n| 1 | **塞内加尔 对 法国 (I 组 MD3)** | 小组赛 | 30% | 塞内加尔已提前出线; 法国在锁定 R32 种子后可能轮换。 |\n| 2 | **刚果 (金) 对 葡萄牙 (K 组 MD2)** | 小组赛 | 18% | 刚果 (金) 身体对抗打乱 C 罗告别赛节奏。 |\n| 3 | **乌拉圭 对 西班牙 (H 组 MD3)** | 小组赛 | 27% | 若西班牙已晋级, 乌拉圭老将中轴把握机会。 |\n| 4 | **巴西 对 比利时 (16 强)** | 16 强 | 38% | 安切洛蒂\"体系会稳定\"的保留 = 防守未稳 = 比利时黄金一代谢幕战。 |\n| 5 | **墨西哥 对 德国 (潜在 1/4 决赛)** | 1/4 决赛 | 32% | 主场氛围 + 高原熟悉度; 墨西哥反击打法历来克德国。 |\n\n---\n\n## 10. 风险与机会\n\n**风险:**\n- **安切洛蒂的巴西是结构性风险。** 两位智能体帖子承认\"球队体系仍不稳定\"和\"一旦磨合到位就等着看好戏\" — 但\"一旦\"才是关键词。16 强对比利时最多五五开; 1/4 决赛对德国偏负。\n- **41 岁的 C 罗是叙事风险, 不是表现风险。** 葡萄牙 MD3 与哥伦比亚 30% 的平局概率, 是所有小组赛涉及种子队比赛里最高的。\n- **佛得角首次亮相世界杯** 高方差: 对西班牙 MD1 失利 (78% A 胜) 加上可能的第 4 名让他们可能在相互战绩中被淘汰, 但第 3 名席位仍有戏。\n- **阿根廷 1/4 决赛出局** 是情感冲击: MD1 75% 胜阿尔及利亚无法预测面对更深阵容的法国能在淘汰赛存活。\n\n**机会:**\n- **德国的中场一代** (维尔茨 + 穆夏拉, 引自澳大利亚帖子: \"7-1 科特迪瓦… 本届最佳中场双核\") 拥有最高的小组赛 xG 上限。\n- **库拉索/E 组第 4** 与晋级无关, 但能给德国创造有利的净胜球摆动。\n- **法国的阵容深度** (卡马文加、扎伊尔-埃梅里、巅峰姆巴佩 + 蒂鲁姆、科洛·穆阿尼) 是唯一没有位置弱点的阵容 — 模拟中最一致的主题。\n- **K 组乌兹别克斯坦** 对葡萄牙和哥伦比亚都是送分题, 但其速度威胁刚果 (金), 可能引发冷门链。\n- **佛得角历史性的 1-1 平沙特** 提升了非洲第 3 名配额, 印证扩军后的合法性。\n\n**冠军选择: 法国 — 置信度 64%。** 模拟的主导信号是卡马文加时代法国弧线, 姆巴佩的\"巅峰\"窗口与决赛时机高度吻合。\n\n---\n\n*报告基于 20 条 Round-0 推特和 Reddit 社交媒体信号编纂。无可用访谈数据 (访谈阶段超时)。所有分组遵循输入文件原文。*\n"
+  "report_markdown": "# 2026 FIFA World Cup: Godmode Prediction Report\n\n## Title\n**\"The Coronation Path: Argentina–France Final and the New World Order\"**\n\n---\n\n## 1. Executive Summary\n\nBased on the simulated discourse — where Carlo Ancelotti declares \"Brazil's talent is unmatched\" but admits \"the system will stabilize\" only after the group stage, where Cristiano Ronaldo posts \"41 years old. Last World Cup… I'm here to lift the trophy one final time,\" and where one simulated voice declares \"Argentina defends our title\" after the 3-0 opening win over Algeria — the most probable tournament arc is: **France and Argentina converge from opposite sides of the bracket, meeting in the Final on July 19, with France lifting the trophy in a 2-1 AET result (penalties probability 18%, AET probability 34%, 90-min France win 48%).** Germany (Group E, 7-1 over Ivory Coast in MD1) and England (Group L) are the likeliest semifinalists on the top half; Brazil's instability under emergency-coach Ancelotti is forecast to cost them in the QF. The 8 best third-place teams advance from a tightly compressed mid-tier (4-pt teams from Groups A, C, G, I plus 3-pt qualifiers from H, J, K, L). Top upset risks: Senegal over France (Group I MD3), Uruguay over Spain (Group H), Bosnia over Switzerland (Group B), DR Congo over Portugal (Group K), and Scotland over Brazil (Group C).\n\n---\n\n## 2. All 12 Groups — MD2 + MD3 Predictions\n\n### Group A (Mexico, South Korea, Czech Republic, South Africa)\n*Anchor: Czech Republic lost 1-2 to South Korea on 6/11 (0 pts, GD −1).*\n\n| Match | A win% | Draw% | B win% | Most likely score |\n|---|---|---|---|---|\n| **MEX vs South Korea (MD2)** | 48% | 28% | 24% | 1-1 |\n| **Czech Republic vs South Africa (MD2)** | 55% | 25% | 20% | 2-0 |\n| **South Korea vs South Africa (MD3)** | 65% | 22% | 13% | 2-0 |\n| **Mexico vs Czech Republic (MD3)** | 50% | 27% | 23% | 2-1 |\n\n**Final standings: Mexico 7 / Czech Republic 4 (GD +1) / South Korea 4 (GD +1, loses tiebreaker) / South Africa 0.** Mexico top on home continental advantage; South Korea slips to 3rd on goal difference tiebreaker with Czech.\n\n### Group B (Switzerland, Qatar, Bosnia & Herzegovina, Canada)\nCanada's host boost is real but limited.\n\n| Match | A win% | Draw% | B win% | Score |\n|---|---|---|---|---|\n| **SUI vs Bosnia (MD2)** | 52% | 26% | 22% | 1-0 |\n| **Qatar vs Canada (MD2)** | 30% | 30% | 40% | 1-1 |\n| **Canada vs Switzerland (MD3)** | 28% | 27% | 45% | 0-2 |\n| **Bosnia vs Qatar (MD3)** | 48% | 28% | 24% | 2-1 |\n\n**Final: Switzerland 7 / Canada 4 (host goal difference edge) / Bosnia 4 / Qatar 1.** Canada advances as 2nd on home-soil intensity.\n\n### Group C (Brazil, Morocco, Scotland, Haiti)\n*Ancelotti quoted: \"Group C with Morocco, Scotland, Haiti is manageable, and we'll roar.\"*\n\n| Match | A win% | Draw% | B win% | Score |\n|---|---|---|---|---|\n| **BRA vs Scotland (MD2)** | 60% | 22% | 18% | 2-0 |\n| **Morocco vs Haiti (MD2)** | 68% | 20% | 12% | 3-0 |\n| **Haiti vs Brazil (MD3)** | 8% | 17% | 75% | 0-3 |\n| **Scotland vs Morocco (MD3)** | 38% | 30% | 32% | 1-1 |\n\n**Final: Brazil 7 (but unconvincingly) / Morocco 5 / Scotland 3 / Haiti 0.** Brazil's 3-0 group-stage totals hide systemic fragility — Morocco draws Scotland and finishes 2nd.\n\n### Group D (USA, Paraguay, Australia, Turkey)\nTightest group in the tournament; all four separated by ≤2 points.\n\n| Match | A win% | Draw% | B win% | Score |\n|---|---|---|---|---|\n| **USA vs Turkey (MD2)** | 42% | 30% | 28% | 1-1 |\n| **Paraguay vs Australia (MD2)** | 38% | 32% | 30% | 1-1 |\n| **USA vs Paraguay (MD3)** | 45% | 28% | 27% | 2-1 |\n| **Australia vs Turkey (MD3)** | 35% | 30% | 35% | 1-2 |\n\n**Final: USA 5 / Turkey 5 (wins tiebreaker via head-to-head) / Paraguay 3 / Australia 2.** Host USA through, but the U.S. are tested harder than expected — Turkey's defensive shape edges them past Socceroos.\n\n### Group E (Germany, Ecuador, Ivory Coast, Curaçao)\n*Ecuador lost 0-1 in their opener; Australia-tied source claims \"7-1 against Ivory Coast\" for Germany (treated as Germany MD1 winner vs. CIV).*\n\n| Match | A win% | Draw% | B win% | Score |\n|---|---|---|---|---|\n| **GER vs Ecuador (MD2)** | 68% | 20% | 12% | 3-0 |\n| **CIV vs Curaçao (MD2)** | 58% | 24% | 18% | 2-0 |\n| **Ecuador vs Ivory Coast (MD3)** | 48% | 28% | 24% | 2-1 |\n| **Curaçao vs Germany (MD3)** | 5% | 12% | 83% | 0-4 |\n\n**Final: Germany 9 / Ecuador 6 / Ivory Coast 3 / Curaçao 0.** Wirtz-Musiala double-core dominates; Ecuador recovers from MD1 loss with wins over CIV and (re-checking: only CIV left). Corrected: Ecuador 3 (L, W, ?) — final ECU 3, CIV 3, Curaçao 0, Germany 9.\n\n### Group F (Netherlands, Sweden, Japan, Tunisia)\nCody Gakpo (NL): \"My thigh is fine — I'm here to compete.\"\n\n| Match | A win% | Draw% | B win% | Score |\n|---|---|---|---|---|\n| **NED vs Japan (MD2)** | 52% | 25% | 23% | 2-1 |\n| **Sweden vs Tunisia (MD2)** | 55% | 25% | 20% | 2-0 |\n| **Japan vs Tunisia (MD3)** | 62% | 22% | 16% | 2-0 |\n| **Sweden vs Netherlands (MD3)** | 25% | 28% | 47% | 0-2 |\n\n**Final: Netherlands 7 / Japan 6 / Sweden 3 / Tunisia 0.** Japan edges Sweden on goal difference (6 vs 3 pts buttiebreaker goes to GD).\n\n### Group G (Belgium, Iran, Egypt, New Zealand)\n\n| Match | A win% | Draw% | B win% | Score |\n|---|---|---|---|---|\n| **BEL vs Egypt (MD2)** | 56% | 24% | 20% | 2-0 |\n| **Iran vs New Zealand (MD2)** | 62% | 22% | 16% | 2-0 |\n| **Egypt vs New Zealand (MD3)** | 68% | 20% | 12% | 3-0 |\n| **Belgium vs Iran (MD3)** | 50% | 26% | 24% | 1-1 |\n\n**Final: Belgium 7 / Egypt 6 / Iran 4 / New Zealand 0.** Iran grabs 3rd on a critical MD2 win over NZ; Egypt's 6 pts and +5 GD locks 2nd.\n\n### Group H (Spain, Uruguay, Saudi Arabia, Cape Verde)\n*Cape Verde plays \"first-ever World Cup match against Spain on 6/13\" (MD1). Lamine Yamal (Spain) generation hype.*\n\n| Match | A win% | Draw% | B win% | Score |\n|---|---|---|---|---|\n| **Spain vs Cape Verde (MD1, prior)** | 78% | 15% | 7% | 3-0 |\n| **URU vs Saudi Arabia (MD2)** | 72% | 18% | 10% | 3-0 |\n| **Cape Verde vs Saudi Arabia (MD2)** | 45% | 30% | 25% | 1-1 |\n| **Spain vs Uruguay (MD3)** | 45% | 28% | 27% | 1-1 |\n| **Saudi Arabia vs Spain (MD3)** | 8% | 16% | 76% | 0-3 |\n\n**Final: Spain 7 / Uruguay 5 / Cape Verde 4 / Saudi Arabia 0.** Cape Verde's historic MD1 performance earns them 3rd-place advancement on 4 pts.\n\n### Group I (France, Norway, Senegal, Iraq)\n*France quoted: \"Mbappé is in his prime… Watch us lift the trophy.\"*\n\n| Match | A win% | Draw% | B win% | Score |\n|---|---|---|---|---|\n| **FRA vs Norway (MD2)** | 68% | 20% | 12% | 2-0 |\n| **Senegal vs Iraq (MD2)** | 62% | 24% | 14% | 2-0 |\n| **Norway vs Senegal (MD3)** | 42% | 28% | 30% | 1-1 |\n| **France vs Iraq (MD3)** | 85% | 10% | 5% | 4-0 |\n\n**Final: France 9 / Norway 4 / Senegal 4 / Iraq 0.** Senegal claim 3rd on GD tiebreaker; this is the **upset-risk match** — see Section 10.\n\n### Group J (Argentina, Algeria, Austria, Jordan)\n*Argentina beat Algeria 3-0 on 6/14 (3 pts).*\n\n| Match | A win% | Draw% | B win% | Score |\n|---|---|---|---|---|\n| **ARG vs Algeria (MD1, prior)** | 75% | 15% | 10% | 3-0 |\n| **Austria vs Jordan (MD2)** | 65% | 22% | 13% | 2-0 |\n| **Algeria vs Austria (MD3)** | 35% | 30% | 35% | 1-1 |\n| **Jordan vs Argentina (MD3)** | 5% | 12% | 83% | 0-3 |\n\n**Final: Argentina 9 / Austria 4 / Algeria 3 / Jordan 1.** Algeria edges into 3rd-place pool on 3 pts and +1 GD.\n\n### Group K (Portugal, Colombia, DR Congo, Uzbekistan)\n*Ronaldo: \"Portugal in Group K with Colombia, DR Congo, Uzbekistan — we can absolutely win this.\"*\n\n| Match | A win% | Draw% | B win% | Score |\n|---|---|---|---|---|\n| **POR vs DR Congo (MD2)** | 58% | 24% | 18% | 2-0 |\n| **Colombia vs Uzbekistan (MD2)** | 68% | 20% | 12% | 3-0 |\n| **DR Congo vs Uzbekistan (MD3)** | 50% | 28% | 22% | 1-0 |\n| **Portugal vs Colombia (MD3)** | 40% | 30% | 30% | 1-1 |\n\n**Final: Portugal 7 / Colombia 5 / DR Congo 4 / Uzbekistan 0.** DR Congo claim a critical 3rd-place slot on 4 pts.\n\n### Group L (England, Croatia, Ghana, Panama)\n*Saka quoted: \"this England squad has the firepower to finally bring it home.\"*\n\n| Match | A win% | Draw% | B win% | Score |\n|---|---|---|---|---|\n| **ENG vs Croatia (MD2)** | 55% | 25% | 20% | 2-1 |\n| **Ghana vs Panama (MD2)** | 55% | 26% | 19% | 2-0 |\n| **Croatia vs Panama (MD3)** | 72% | 18% | 10% | 3-0 |\n| **England vs Ghana (MD3)** | 65% | 22% | 13% | 3-1 |\n\n**Final: England 9 / Croatia 6 / Ghana 3 / Panama 0.** Croatia's 6 pts seal 2nd; Ghana's 3 pts and decent GD land them in the best-3rds.\n\n---\n\n## 3. 8 Best Third-Place Teams (advancing to R32)\n\n| Rank | Team | Group | Pts | GD | Reason |\n|---|---|---|---|---|---|\n| 1 | Iran | G | 4 | +2 | Best 3rd on GD among 4-pt teams |\n| 2 | DR Congo | K | 4 | +1 | Beats Norway on H2H-removed tiebreaker |\n| 3 | Norway | I | 4 | +1 | GD edge over Senegal |\n| 4 | Cape Verde | H | 4 | 0 | Historic debut performance |\n| 5 | Czech Republic | A | 4 | 0 | Loses GD tiebreak with Cape Verde |\n| 6 | Algeria | J | 3 | +1 | Highest GD among 3-pt 3rds |\n| 7 | Ghana | L | 3 | 0 | Goal differential >0 |\n| 8 | Senegal | I* | 3 | 0 | Edge over Scotland on FIFA ranking tiebreak |\n\n*Senegal takes the 8th slot over Scotland (also 3 pts) on FIFA ranking (18 vs 39).*\n\n**Eliminated 3rd-place teams:** Scotland (C, 3 pts, GD 0), Bosnia (B, 4 pts but excluded under bracket rules), Sweden (F, 3 pts, GD −1).\n\n---\n\n## 4. Round of 32 (12 Matchups)\n\n| # | Team A | vs | Team B | A win% | Draw/AET% | B win% | Score |\n|---|---|---|---|---|---|---|---|\n| 1 | Mexico (1A) | vs | Cape Verde (3H) | 72% | 16% | 12% | 2-0 |\n| 2 | Switzerland (1B) | vs | Iran (3G) | 55% | 24% | 21% | 1-0 |\n| 3 | Brazil (1C) | vs | Algeria (3J) | 70% | 17% | 13% | 3-1 |\n| 4 | USA (1D) | vs | Czech Republic (3A) | 58% | 24% | 18% | 2-1 |\n| 5 | Germany (1E) | vs | DR Congo (3K) | 80% | 12% | 8% | 4-0 |\n| 6 | Netherlands (1F) | vs | Ghana (3L) | 72% | 17% | 11% | 3-0 |\n| 7 | Belgium (1G) | vs | Norway (3I) | 52% | 26% | 22% | 2-1 |\n| 8 | Spain (1H) | vs | Senegal (3I*) | 68% | 19% | 13% | 3-1 |\n| 9 | France (1I) | vs | (3 of A/B/D/E/F) — bye-adj. slot vs Turkey (2D) | 60% | 22% | 18% | 2-0 |\n| 10 | Argentina (1J) | vs | (best 3rd from remaining) — Croatia (2L)? — bracket-typical pairing: ARG vs Croatia 2L | 62% | 22% | 16% | 2-1 |\n| 11 | Portugal (1K) | vs | (3rd of C/F/H/J) — Argentina already taken; this slot vs Uruguay (2H) | 50% | 26% | 24% | 1-0 (AET) |\n| 12 | England (1L) | vs | Austria (2J) | 64% | 22% | 14% | 3-1 |\n\n*Note: Slot 9 picks up Turkey (Group D 2nd) per standard 2026 bracket convention (1I vs 2D).*\n\n---\n\n## 5. Round of 16 (4 featured matchups; full 8 listed)\n\n| Match | A win% | B win% | AET% | Pen% | Score |\n|---|---|---|---|---|---|\n| Brazil vs Belgium | 48% | 38% | 22% | 12% | 2-1 (AET) |\n| Germany vs Spain | 45% | 42% | 25% | 14% | 2-2 → 3-2 (AET) |\n| France vs Netherlands | 50% | 36% | 20% | 10% | 2-1 |\n| **Argentina vs England** | 46% | 42% | 24% | 14% | 1-1 → 2-1 (AET) |\n| Portugal vs Mexico | 55% | 32% | 18% | 8% | 2-0 |\n| Switzerland vs USA | 40% | 45% | 22% | 12% | 1-2 |\n\nArgentina–England is the marquee R16 tie. England's firepower (Bukayo Saka generation) meets Argentina's experience. AET result expected; penalties the second-most likely outcome (14%).\n\n---\n\n## 6. Quarterfinals (4 Matchups)\n\n| Match | A win% | B win% | AET% | Pen% | Most likely score |\n|---|---|---|---|---|---|\n| **Brazil vs Germany** | 35% | 52% | 24% | 14% | 1-2 (90min) |\n| **France vs Argentina** | 42% | 44% | 30% | 18% | 1-1 → 2-2 → 4-3 (penalties) |\n| **England vs Portugal** | 52% | 36% | 22% | 12% | 2-1 |\n| **Spain vs USA** | 56% | 30% | 18% | 8% | 2-0 |\n\n*France–Argentina QF is the early final. AET probability 30%, penalties 18% — the simulation's high-stakes collision, foreshadowed by the Cody Gakpo post: \"Argentina defends our title.\"*\n\n---\n\n## 7. Semifinals (2 Matchups)\n\n| Match | A win% | B win% | AET% | Pen% | Most likely score |\n|---|---|---|---|---|---|\n| **Germany vs France** | 38% | 48% | 28% | 14% | 1-2 (90min) |\n| **England vs Spain** | 42% | 44% | 26% | 16% | 1-1 → 2-2 → 3-4 (penalties, Spain through) |\n\nGermany's Wirtz-Musiala midfield meets France's Camavinga-Zaïre-Emery regeneration. Mbappé's prime peaks here — France 2-1 in 90 minutes. England-Spain goes the distance: Lamine Yamal's extra-time brace (or shootout conversion) sends Spain through. Notably, this means **the Final is France vs Spain, not France vs Argentina** — the earlier QF eliminates the defending champion.\n\n---\n\n## 8. Final — France vs Spain\n\n*This is the predicted Final. With Argentina exiting in the QF (penalties to France), the title path re-routes through Spain.*\n\n### Three-Tier Score Breakdown\n\n**Tier 1 — 90 minutes result:** France 2-1 (38% probability)\n- Mbappé brace, Yamal consolation. France's midfield press suffocates Spain's possession rhythm in the final 20.\n\n**Tier 2 — After Extra Time:** France 2-2 AET, France 3-2 AET (28% probability)\n- If Spain equalizes through a late Yamal strike, Mbappé's second goal in ET settles it. Score: 2-2 (110') → 3-2 (115').\n\n**Tier 3 — Penalties:** 2-2 AET → France 4-3 on penalties (16% probability)\n- Unai Simón saves one; Maignan denies Lamine Yamal. France's fifth penalty (Thuram) converts.\n\n**Combined Final probability: France 64% / Spain 36%.** Mbappé wins the Golden Ball at 27; Camavinga the Best Young Player. France lift their third World Cup, completing a Camavinga-led regeneration arc. The agent quote that resonates: \"Camavinga and Zaïre-Emery are ready… this squad has the depth to go all the way.\"\n\n---\n\n## 9. Top 5 Upset-Risk Matches\n\n| Rank | Match | Stage | Upset prob | Rationale |\n|---|---|---|---|---|\n| 1 | **Senegal vs France (Group I MD3)** | Group | 30% | Senegal already qualified; France may rotate post-R32 seeding. |\n| 2 | **DR Congo vs Portugal (Group K MD2)** | Group | 18% | DR Congo's physicality disrupts Ronaldo's farewell tempo. |\n| 3 | **Uruguay vs Spain (Group H MD3)** | Group | 27% | If Spain has already qualified, Uruguay's veteran spine capitalizes. |\n| 4 | **Brazil vs Belgium (R16)** | R16 | 38% | Ancelotti's \"system will stabilize\" caveat = unsettled defending = Belgium's golden-generation final dance. |\n| 5 | **Mexico vs Germany (potential QF)** | QF | 32% | Home crowd + altitude familiarity; Mexico's counter-attacking profile historically troubles Germany. |\n\n---\n\n## 10. Risks & Opportunities\n\n**Risks:**\n- **Ancelotti's Brazil is a structural risk.** Two agent posts concede \"the team system is still unstable\" and \"once it clicks, watch out\" — but \"once\" is the operative word. R16 against Belgium is a coin-flip at best; QF against Germany tips negative.\n- **Ronaldo at 41 is a narrative risk, not a performance one.** Portugal's MD3 draw probability vs Colombia (30%) is the highest of any group-stage match involving a top seed.\n- **Cape Verde's first-ever WC appearance** is high-variance: their MD1 loss to Spain (78% A-win) and a possible 4th-place finish could eliminate them on tiebreakers, but the 3rd-place slot remains viable.\n- **Argentina's QF exit** is a sentiment shock: 75% win vs Algeria in MD1 doesn't predict KO-round survival against a deeper France squad.\n\n**Opportunities:**\n- **Germany's generational midfield** (Wirtz + Musiala, cited in the Australian post: \"7-1 against Ivory Coast… best midfield double-core in the tournament\") gives the highest group-stage xG ceiling.\n- **Curaçao/4th-team-in-Group-E is irrelevant to advancement but** creates favorable GD swings for Germany.\n- **France's depth** (Camavinga, Zaïre-Emery, Mbappé prime + Thuram, Kolo Muani) is the only squad with no positional weakness — the simulation's most consistent theme.\n- **Uzbekistan in Group K** is a free win for both Portugal and Colombia, but Uzbekistan's pace worries DR Congo and could fuel an upset chain.\n- **Cape Verde's historic 1-1 vs Saudi Arabia** boosts Africa's 3rd-place quota, validating expanded-slot legitimacy.\n\n**Champion pick: FRANCE — confidence 64%.** The simulation's dominant signal is the Camavinga-era France arc, and Mbappé's \"prime\" window aligns with the Final.\n\n---\n\n*Report compiled from 20 Round-0 social media signals across Twitter and Reddit. No interview data was available (interview stage timed out). All group assignments follow the input file verbatim.*"
 }
