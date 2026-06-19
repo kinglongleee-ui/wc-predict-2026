@@ -47,18 +47,46 @@ export function MatchRow({ match, played }: Props) {
               }`}
               title={`MiroFish 预测: ${predict === "draw" ? "平" : predict === "a" ? teamNameZh(match.team_a) + " 胜" : teamNameZh(match.team_b) + " 胜"}`}
             >
-              {hit ? "✓ 已比赛 · 预测命中" : "✗ 已比赛 · 预测未中"}
+              {hit ? "✓ 已比赛 · 胜方预测命中" : "✗ 已比赛 · 胜方预测未中"}
             </span>
           )}
         </div>
-        <div className="flex items-center gap-2">
-          {score.raw && (
+        <div className="flex items-center gap-2 flex-wrap">
+          {match.top_3_scores && match.top_3_scores.length > 0 ? (
+            <div className="flex items-center gap-1 text-xs">
+              <span className="text-[10px] uppercase tracking-wider text-gray-500 mr-1">Top 3 比分</span>
+              {match.top_3_scores.map((s, i) => {
+                const playedHit =
+                  played && s.home === played.score_a && s.away === played.score_b;
+                return (
+                  <div
+                    key={i}
+                    className={`px-1.5 py-0.5 rounded font-mono font-semibold ${
+                      playedHit
+                        ? "bg-emerald-600 text-white ring-1 ring-emerald-300"
+                        : i === 0
+                          ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                          : "bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-400"
+                    }`}
+                    title={`${i === 0 ? "最可能" : `第 ${i + 1} 可能`} · 概率 ${(s.pct ?? Math.round(s.prob * 1000) / 10).toFixed(1)}%${
+                      playedHit ? " · ✓ 命中真实比分!" : ""
+                    }`}
+                  >
+                    {s.home}-{s.away}{" "}
+                    <span className="text-[10px] opacity-70">
+                      {(s.pct ?? Math.round(s.prob * 1000) / 10).toFixed(1)}%
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          ) : score.raw ? (
             <div className="text-sm font-mono font-semibold px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800">
               最可能比分: {teamFlag(match.team_a)} {score.home}-{score.away} {teamFlag(match.team_b)}
               {score.aet && <span className="text-orange-600 dark:text-orange-400 ml-1">加时</span>}
               {score.pens && <span className="text-purple-600 dark:text-purple-400 ml-1">点球</span>}
             </div>
-          )}
+          ) : null}
           {played && (
             <div
               className={`text-sm font-mono font-bold px-2 py-0.5 rounded ${

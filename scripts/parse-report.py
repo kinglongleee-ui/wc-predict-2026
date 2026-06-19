@@ -27,7 +27,14 @@ from pathlib import Path
 from typing import Optional
 
 ROOT = Path(__file__).resolve().parent.parent
+SCRIPT_DIR = Path(__file__).resolve().parent
 DATA_DIR = ROOT / "data" / "runs"
+
+# Make scripts/ importable so _enrich_with_top3 can lazy-load elo_poisson
+# regardless of the caller's working directory.
+import sys as _sys
+if str(SCRIPT_DIR) not in _sys.path:
+    _sys.path.insert(0, str(SCRIPT_DIR))
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -818,6 +825,75 @@ def parse_final(md_text: str, verdict: Optional[dict] = None) -> dict:
     }
 
 
+def load_elo_baseline() -> dict:
+    """Read data/elo/wc_2026_baseline.json (Elo-Poisson top-3 scores).
+
+    Returns {} if the file is missing (e.g., first run before elo_poisson.py
+    has been executed). Format:
+      {meta, matches: [{key, stage, team_a, team_b, top_3: [{home, away, prob}, ...], ...}]}
+    """
+    fp = ROOT / "data" / "elo" / "wc_2026_baseline.json"
+    if not fp.exists():
+        return {}
+    try:
+        return json.loads(fp.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def _enrich_with_top3(matches, baseline):
+    """For each match, attach top_3_scores from the Elo-Poisson baseline.
+
+    Two-step resolution:
+      1. Lookup in pre-computed baseline (data/elo/wc_2026_baseline.json) by
+         (stage, sorted team pair). Works when the run being parsed uses the
+         SAME name style as the run that built the baseline.
+      2. On miss, compute on the fly via elo_poisson.predict_one — handles the
+         R4 (3-letter codes) vs R3 (full names) mismatch automatically, since
+         the Elo JSON has both spellings.
+    Returns (matches, n_enriched).
+    """
+    if not matches:
+        return matches, 0
+    by_key = {}
+    if baseline and baseline.get("matches"):
+        for bm in baseline["matches"]:
+            s = (bm.get("stage") or "").strip()
+            a = (bm.get("team_a") or "").strip().lower()
+            b = (bm.get("team_b") or "").strip().lower()
+            if not a or not b:
+                continue
+            k = (s.lower(), tuple(sorted([a, b])))
+            if bm.get("top_3") and k not in by_key:
+                by_key[k] = bm["top_3"]
+    n = 0
+    elo_helper = None  # lazy import
+    elo_ratings = None
+    for m in matches:
+        s = (m.get("stage") or "").strip()
+        a = (m.get("team_a") or "").strip()
+        b = (m.get("team_b") or "").strip()
+        if not a or not b:
+            continue
+        k = (s.lower(), tuple(sorted([a.lower(), b.lower()])))
+        top3 = by_key.get(k)
+        if not top3:
+            if elo_helper is None:
+                try:
+                    import elo_poisson  # type: ignore
+                    elo_helper = elo_poisson
+                    elo_ratings = elo_helper.load_elo_ratings()
+                except (ImportError, OSError):
+                    elo_helper = False
+            if elo_helper and elo_helper is not False:
+                pred = elo_helper.predict_one(a, b, elo_ratings)
+                top3 = pred.get("top_3")
+        if top3:
+            m["top_3_scores"] = top3
+            n += 1
+    return matches, n
+
+
 def parse_run(run_id: str, run_dir: Path) -> dict:
     report_md = (run_dir / "report" / "report.md").read_text(encoding="utf-8")
     verdict = json.loads((run_dir / "report" / "verdict.json").read_text(encoding="utf-8"))
@@ -851,6 +927,20 @@ def parse_run(run_id: str, run_dir: Path) -> dict:
     # 只在 12 组都解析到 + MiroFish 有 R32 输出时触发; 老 run 没 R32 (b37f/a184) 不触发
     if bracket["r32"] and len(groups) == 12:
         bracket["r32"] = build_real_r32(groups, best_thirds)
+
+    # A+B 提分: 注入 Elo-Poisson top_3_scores 到所有 match
+    # (MiroFish 未来输出新 top_3 字段会覆盖; 现在都是 fallback 兜底)
+    baseline = load_elo_baseline()
+    n_top3 = 0
+    for letter, g in groups.items():
+        g["matches"], n = _enrich_with_top3(g["matches"], baseline)
+        n_top3 += n
+    for stage in ["r32", "r16", "qf", "sf"]:
+        if bracket.get(stage):
+            bracket[stage], n = _enrich_with_top3(bracket[stage], baseline)
+            n_top3 += n
+    if n_top3 > 0:
+        print(f"  [A+B] enriched {n_top3} matches with top_3_scores from Elo-Poisson baseline")
 
     return {
         "run_id": run_id,

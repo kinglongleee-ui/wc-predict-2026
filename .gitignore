@@ -6,3 +6,8 @@ out/
 .env*.local
 .vercel
 data/runs/.cache/
+
+# Python
+__pycache__/
+*.pyc
+

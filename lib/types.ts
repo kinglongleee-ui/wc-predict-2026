@@ -8,6 +8,13 @@ export type Score = {
   pens: boolean;
 };
 
+export type TopScore = {
+  home: number;
+  away: number;
+  prob: number;     // 0-1 (e.g. 0.247 for 24.7%)
+  pct?: number;     // optional pre-formatted display value (e.g. 24.7)
+};
+
 export type Match = {
   stage: string;
   matchday: number;
@@ -17,6 +24,10 @@ export type Match = {
   draw: number;
   team_b_win: number;
   most_likely_score: Score;
+  // Top 3 most likely exact scores with probabilities. New in A+B (2026-06-19):
+  // populated from MiroFish's prompt-anchored output when available, falling
+  // back to scripts/elo_poisson.py's independent-Poisson baseline.
+  top_3_scores?: TopScore[];
 };
 
 export type Standing = {
@@ -125,6 +136,9 @@ export type BracketMatch = {
   aet_pct: number | null;
   pen_pct: number | null;
   winner: "a" | "b" | null;
+  // A+B (2026-06-19): same top-3 score list as group matches. Drives the
+  // new "Top-1 exact score" + "Top-3 score" hit metrics on the homepage.
+  top_3_scores?: TopScore[];
 };
 
 export type ThirdPlace = {

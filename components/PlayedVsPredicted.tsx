@@ -46,18 +46,18 @@ export function PlayedVsPredicted() {
     pred_score: string;
     pred_winner: string;
     real_winner: string;
-    hit: boolean;
+    hit: boolean;             // 胜方命中 (MiroFish win-prob max == real outcome)
+    top1_hit: boolean;        // 比分完全命中 (Top-1 比分 == 真实比分) — A+B 新指标
+    top3_hit: boolean;        // Top-3 比分包含真实比分 — A+B 新指标
     mirofish_conf: number;
     groupLetter: string;
-    simulated: boolean; // MiroFish 是否模拟了这场
+    simulated: boolean;       // MiroFish 是否模拟了这场
+    top_3?: { home: number; away: number; prob: number; pct?: number }[];
   };
   const rows: Row[] = [];
   for (const rm of real.matches) {
     const g = r3.groups[rm.group];
     if (!g) continue;
-    // 在 MiroFish 模拟里找 (team_a, team_b) 这场 (顺序无关)。
-    // MiroFish R4 用三字代码 (MEX/CZE), 真实数据用全称 (Mexico/Czech Republic);
-    // 归一化两个方向都兼容 (e.g. "MEX" === "Mexico" via CODE_TO_TEAM)。
     const ra = normalizeTeam(rm.team_a);
     const rb = normalizeTeam(rm.team_b);
     const m = g.matches.find((mm) => {
@@ -65,7 +65,7 @@ export function PlayedVsPredicted() {
       const mb = normalizeTeam(mm.team_b);
       return (ma === ra && mb === rb) || (ma === rb && mb === ra);
     });
-    // MiroFish 每组只模拟 6 场 schedule 里的 4 场; 没模拟的也列出, 标 "未模拟"。
+    const realWinName = rm.score_a > rm.score_b ? teamNameZh(rm.team_a) : rm.score_a < rm.score_b ? teamNameZh(rm.team_b) : "平局";
     if (!m) {
       rows.push({
         group: rm.group,
@@ -76,8 +76,8 @@ export function PlayedVsPredicted() {
         real_score: `${rm.score_a}-${rm.score_b}`,
         pred_score: "—",
         pred_winner: "—",
-        real_winner: rm.score_a > rm.score_b ? teamNameZh(rm.team_a) : rm.score_a < rm.score_b ? teamNameZh(rm.team_b) : "平局",
-        hit: false,
+        real_winner: realWinName,
+        hit: false, top1_hit: false, top3_hit: false,
         mirofish_conf: 0,
         groupLetter: rm.group,
         simulated: false,
@@ -91,8 +91,12 @@ export function PlayedVsPredicted() {
     });
     const realOut = rm.score_a > rm.score_b ? "a" : rm.score_a < rm.score_b ? "b" : "draw";
     const hit = pred === realOut;
-    const realWinName = realOut === "a" ? teamNameZh(rm.team_a) : realOut === "b" ? teamNameZh(rm.team_b) : "平局";
     const predWinName = pred === "a" ? teamNameZh(m.team_a) : pred === "b" ? teamNameZh(m.team_b) : "平局";
+    // Top-1 / Top-3 exact-score hits (A+B new metric)
+    const top3 = m.top_3_scores && m.top_3_scores.length > 0 ? m.top_3_scores : undefined;
+    const top1 = top3?.[0];
+    const top1_hit = !!top1 && top1.home === rm.score_a && top1.away === rm.score_b;
+    const top3_hit = !!top3 && top3.some((s) => s.home === rm.score_a && s.away === rm.score_b);
     rows.push({
       group: rm.group,
       team_a: rm.team_a,
@@ -100,22 +104,31 @@ export function PlayedVsPredicted() {
       score_a: rm.score_a,
       score_b: rm.score_b,
       real_score: `${rm.score_a}-${rm.score_b}`,
-      pred_score: `${m.most_likely_score.home ?? "—"}-${m.most_likely_score.away ?? "—"}`,
+      pred_score: top1
+        ? `${top1.home}-${top1.away}`
+        : `${m.most_likely_score.home ?? "—"}-${m.most_likely_score.away ?? "—"}`,
       pred_winner: predWinName,
       real_winner: realWinName,
       hit,
+      top1_hit,
+      top3_hit,
       mirofish_conf: Math.max(m.team_a_win, m.draw, m.team_b_win),
       groupLetter: rm.group,
       simulated: true,
+      top_3: top3,
     });
   }
 
   if (rows.length === 0) return null;
 
-  // 命中率只算 MiroFish 实际模拟的场次
+  // 三层命中率: 胜方命中 / Top-1 比分命中 / Top-3 比分命中
   const simulatedRows = rows.filter((r) => r.simulated);
   const hits = simulatedRows.filter((r) => r.hit).length;
+  const top1Hits = simulatedRows.filter((r) => r.top1_hit).length;
+  const top3Hits = simulatedRows.filter((r) => r.top3_hit).length;
   const hitPct = simulatedRows.length > 0 ? hits / simulatedRows.length : 0;
+  const top1Pct = simulatedRows.length > 0 ? top1Hits / simulatedRows.length : 0;
+  const top3Pct = simulatedRows.length > 0 ? top3Hits / simulatedRows.length : 0;
   const unSimulatedCount = rows.filter((r) => !r.simulated).length;
 
   return (
@@ -148,10 +161,13 @@ export function PlayedVsPredicted() {
       <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
         <div>
           <div className="text-xs uppercase tracking-widest text-gray-500 mb-1">
-            ✅ 已比赛 vs 🔮 MiroFish 预测
+            ✅ 已比赛 vs 🔮 MiroFish 预测 (A+B Top-3 比分模型)
           </div>
           <h2 className="text-xl font-bold">
-            {hits} / {simulatedRows.length} 场胜方预测命中 ({formatPct(hitPct, 0)})
+            Top-1 比分命中 {top1Hits} / {simulatedRows.length} ({formatPct(top1Pct, 1)})
+            <span className="text-sm font-normal text-gray-500 ml-2">
+              · Top-3 内 {top3Hits} 场 ({formatPct(top3Pct, 1)}) · 胜方命中 {hits} 场
+            </span>
             {unSimulatedCount > 0 && (
               <span className="text-sm font-normal text-gray-500 ml-2">
                 + {unSimulatedCount} 场 MiroFish 未模拟
@@ -168,13 +184,17 @@ export function PlayedVsPredicted() {
         {rows.map((r) => {
           const a = r.team_a;
           const b = r.team_b;
-          const realHome = r.group === r.group; // home/away 无影响 (显示只看比分)
-          // 三种边框: 命中=绿, 未中=橙, 未模拟=灰
+          // 四种边框颜色: Top-1 比分命中=深绿, Top-3 内=浅绿, 胜方中但比分错=黄,
+          //                胜方也错=橙, 未模拟=灰
           const cardClass = !r.simulated
             ? "border-gray-300 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-900/30 opacity-70"
-            : r.hit
-              ? "border-emerald-300 dark:border-emerald-800 bg-emerald-50/50 dark:bg-emerald-950/20"
-              : "border-orange-300 dark:border-orange-800 bg-orange-50/50 dark:bg-orange-950/20";
+            : r.top1_hit
+              ? "border-emerald-500 bg-emerald-100/70 dark:bg-emerald-950/40 ring-1 ring-emerald-400/50"
+              : r.top3_hit
+                ? "border-emerald-300 dark:border-emerald-800 bg-emerald-50/50 dark:bg-emerald-950/20"
+                : r.hit
+                  ? "border-yellow-400 dark:border-yellow-700 bg-yellow-50/50 dark:bg-yellow-950/20"
+                  : "border-orange-300 dark:border-orange-800 bg-orange-50/50 dark:bg-orange-950/20";
           return (
             <Link
               key={`${r.group}-${a}-${b}`}
@@ -201,13 +221,36 @@ export function PlayedVsPredicted() {
                   <span><span className="font-semibold">{teamNameZh(b)}</span> {teamFlag(b)}</span>
                 </div>
                 {r.simulated ? (
-                  <div className="text-xs text-gray-600 dark:text-gray-400">
-                    预测 <span className="font-mono font-semibold">{r.pred_score}</span>
-                    {" · "}
-                    <span className={r.hit ? "text-emerald-700 dark:text-emerald-400" : "text-orange-700 dark:text-orange-400"}>
-                      {r.pred_winner} 胜
-                    </span>
-                  </div>
+                  <>
+                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                      预测 <span className="font-mono font-semibold">{r.pred_score}</span>
+                      {" · "}
+                      <span className={r.hit ? "text-emerald-700 dark:text-emerald-400" : "text-orange-700 dark:text-orange-400"}>
+                        {r.pred_winner} 胜
+                      </span>
+                    </div>
+                    {r.top_3 && r.top_3.length > 0 && (
+                      <div className="flex items-center gap-1 mt-0.5">
+                        <span className="text-[10px] text-gray-500">Top 3:</span>
+                        {r.top_3.map((s, i) => {
+                          const isHit = s.home === r.score_a && s.away === r.score_b;
+                          return (
+                            <span
+                              key={i}
+                              className={`text-[10px] font-mono px-1 rounded ${
+                                isHit
+                                  ? "bg-emerald-600 text-white font-bold"
+                                  : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+                              }`}
+                              title={`概率 ${(s.pct ?? Math.round(s.prob * 1000) / 10).toFixed(1)}%${isHit ? " · ✓ 命中!" : ""}`}
+                            >
+                              {s.home}-{s.away} {(s.pct ?? Math.round(s.prob * 1000) / 10).toFixed(0)}%
+                            </span>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </>
                 ) : (
                   <div className="text-xs text-gray-500 italic">
                     MiroFish 未模拟此场 · 真实 {r.real_winner}
@@ -218,18 +261,32 @@ export function PlayedVsPredicted() {
                 </div>
               </div>
 
-              {/* 命中状态 */}
+              {/* 命中状态: Top-1 / Top-3 / 胜方 / 未模拟 */}
               <div
                 className={`shrink-0 text-base font-black ${
                   !r.simulated
                     ? "text-gray-400"
-                    : r.hit
-                      ? "text-emerald-600 dark:text-emerald-400"
-                      : "text-orange-600 dark:text-orange-400"
+                    : r.top1_hit
+                      ? "text-emerald-600 dark:text-emerald-300"
+                      : r.top3_hit
+                        ? "text-emerald-500 dark:text-emerald-500"
+                        : r.hit
+                          ? "text-yellow-600 dark:text-yellow-400"
+                          : "text-orange-600 dark:text-orange-400"
                 }`}
-                title={r.simulated ? `预测: ${r.pred_winner} 胜 · 真实: ${r.real_winner}` : `真实: ${r.real_winner} · MiroFish 未模拟`}
+                title={
+                  !r.simulated
+                    ? `真实: ${r.real_winner} · MiroFish 未模拟`
+                    : r.top1_hit
+                      ? `Top-1 比分命中! 预测 ${r.pred_score} = 真实 ${r.real_score}`
+                      : r.top3_hit
+                        ? `Top-3 内: 真实 ${r.real_score} 在 Top-3 列表中`
+                        : r.hit
+                          ? `胜方对但比分错: 预测 ${r.pred_score} ≠ 真实 ${r.real_score}`
+                          : `预测: ${r.pred_winner} 胜 ${r.pred_score} · 真实: ${r.real_winner} ${r.real_score}`
+                }
               >
-                {!r.simulated ? "—" : r.hit ? "✓" : "✗"}
+                {!r.simulated ? "—" : r.top1_hit ? "★" : r.top3_hit ? "✓" : r.hit ? "△" : "✗"}
               </div>
             </Link>
           );
@@ -237,9 +294,12 @@ export function PlayedVsPredicted() {
       </div>
 
       <p className="text-xs text-gray-500 mt-3">
-        绿色 ✓ = MiroFish 预测的胜方与真实胜方一致 · 橙色 ✗ = 预测错了胜方 ·
-        灰色 — = MiroFish 未模拟此场 (每组 schedule 6 场但只跑 4 场) ·
-        比分/进球不参与对比 (只对比胜平负)
+        <span className="font-semibold">★ 深绿</span> = Top-1 比分完全命中 ·{" "}
+        <span className="font-semibold">✓ 浅绿</span> = 真实比分在 Top-3 列表内 ·{" "}
+        <span className="font-semibold">△ 黄</span> = 胜方对但比分错 ·{" "}
+        <span className="font-semibold">✗ 橙</span> = 胜方错 ·{" "}
+        <span className="font-semibold">— 灰</span> = MiroFish 未模拟 (每组 6 场 schedule 但只跑 4 场) ·
+        比分通过 Elo-Poisson 基座 (μ=1.4, 中立场) + MiroFish LLM 微调生成
       </p>
     </section>
   );

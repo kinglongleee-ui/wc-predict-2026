@@ -1,6 +1,6 @@
 {
   "run_id": "run_b37f734df790",
-  "created_at": "2026-06-19T16:44:49.722766",
+  "created_at": "2026-06-19T20:14:09.134941",
   "verdict": {
     "prediction": "France and Argentina meet in the July 19 Final, with France lifting the trophy 2-1 after extra time (48% France win in 90 min, 34% AET, 18% penalties); Germany and England round out the semifinals on the top half, while Brazil exits in the QF due to systemic fragility under Ancelotti.",
     "confidence": 0.62,
@@ -179,7 +179,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2045,
+              "pct": 20.5
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1407,
+              "pct": 14.1
+            }
+          ]
         },
         {
           "stage": "Group A",
@@ -195,7 +215,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2117,
+              "pct": 21.2
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1336,
+              "pct": 13.4
+            }
+          ]
         },
         {
           "stage": "Group A",
@@ -211,7 +251,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2407,
+              "pct": 24.1
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1175,
+              "pct": 11.8
+            }
+          ]
         },
         {
           "stage": "Group A",
@@ -227,7 +287,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2344,
+              "pct": 23.4
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1114,
+              "pct": 11.1
+            }
+          ]
         }
       ],
       "standings": [
@@ -276,7 +356,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2255,
+              "pct": 22.6
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1197,
+              "pct": 12.0
+            }
+          ]
         },
         {
           "stage": "Group B",
@@ -292,7 +392,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1973,
+              "pct": 19.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1479,
+              "pct": 14.8
+            }
+          ]
         },
         {
           "stage": "Group B",
@@ -308,7 +428,27 @@
             "away": 2,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.214,
+              "pct": 21.4
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1312,
+              "pct": 13.1
+            }
+          ]
         },
         {
           "stage": "Group B",
@@ -324,7 +464,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.185,
+              "pct": 18.5
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1602,
+              "pct": 16.0
+            }
+          ]
         }
       ],
       "standings": [
@@ -373,7 +533,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2659,
+              "pct": 26.6
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1433,
+              "pct": 14.3
+            }
+          ]
         },
         {
           "stage": "Group C",
@@ -389,7 +569,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.3086,
+              "pct": 30.9
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1931,
+              "pct": 19.3
+            }
+          ]
         },
         {
           "stage": "Group C",
@@ -405,7 +605,27 @@
             "away": 3,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.3104,
+              "pct": 31.0
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1954,
+              "pct": 19.5
+            }
+          ]
         },
         {
           "stage": "Group C",
@@ -421,7 +641,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.2623,
+              "pct": 26.2
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 0,
+              "away": 2,
+              "prob": 0.1395,
+              "pct": 13.9
+            }
+          ]
         }
       ],
       "standings": [
@@ -470,7 +710,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2322,
+              "pct": 23.2
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1131,
+              "pct": 11.3
+            }
+          ]
         },
         {
           "stage": "Group D",
@@ -486,7 +746,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1973,
+              "pct": 19.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1479,
+              "pct": 14.8
+            }
+          ]
         },
         {
           "stage": "Group D",
@@ -502,7 +782,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2407,
+              "pct": 24.1
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1175,
+              "pct": 11.8
+            }
+          ]
         },
         {
           "stage": "Group D",
@@ -518,7 +818,27 @@
             "away": 2,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1875,
+              "pct": 18.7
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1577,
+              "pct": 15.8
+            }
+          ]
         }
       ],
       "standings": [
@@ -567,7 +887,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.23,
+              "pct": 23.0
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1153,
+              "pct": 11.5
+            }
+          ]
         },
         {
           "stage": "Group E",
@@ -583,7 +923,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2529,
+              "pct": 25.3
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1297,
+              "pct": 13.0
+            }
+          ]
         },
         {
           "stage": "Group E",
@@ -599,7 +959,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1776,
+              "pct": 17.8
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1677,
+              "pct": 16.8
+            }
+          ]
         },
         {
           "stage": "Group E",
@@ -615,7 +995,27 @@
             "away": 4,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.2944,
+              "pct": 29.4
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 0,
+              "away": 2,
+              "prob": 0.1757,
+              "pct": 17.6
+            }
+          ]
         }
       ],
       "standings": [
@@ -664,7 +1064,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2187,
+              "pct": 21.9
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1266,
+              "pct": 12.7
+            }
+          ]
         },
         {
           "stage": "Group F",
@@ -680,7 +1100,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.185,
+              "pct": 18.5
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1602,
+              "pct": 16.0
+            }
+          ]
         },
         {
           "stage": "Group F",
@@ -696,7 +1136,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2117,
+              "pct": 21.2
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1336,
+              "pct": 13.4
+            }
+          ]
         },
         {
           "stage": "Group F",
@@ -712,7 +1172,27 @@
             "away": 2,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.2428,
+              "pct": 24.3
+            },
+            {
+              "home": 0,
+              "away": 2,
+              "prob": 0.1196,
+              "pct": 12.0
+            }
+          ]
         }
       ],
       "standings": [
@@ -761,7 +1241,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2365,
+              "pct": 23.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1134,
+              "pct": 11.3
+            }
+          ]
         },
         {
           "stage": "Group G",
@@ -777,7 +1277,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2759,
+              "pct": 27.6
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1544,
+              "pct": 15.4
+            }
+          ]
         },
         {
           "stage": "Group G",
@@ -793,7 +1313,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2727,
+              "pct": 27.3
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1508,
+              "pct": 15.1
+            }
+          ]
         },
         {
           "stage": "Group G",
@@ -809,7 +1349,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2322,
+              "pct": 23.2
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1131,
+              "pct": 11.3
+            }
+          ]
         }
       ],
       "standings": [
@@ -858,7 +1418,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.3095,
+              "pct": 30.9
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1942,
+              "pct": 19.4
+            }
+          ]
         },
         {
           "stage": "Group H",
@@ -874,7 +1454,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2529,
+              "pct": 25.3
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1297,
+              "pct": 13.0
+            }
+          ]
         },
         {
           "stage": "Group H",
@@ -890,7 +1490,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1726,
+              "pct": 17.3
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1726,
+              "pct": 17.3
+            }
+          ]
         },
         {
           "stage": "Group H",
@@ -906,7 +1526,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2623,
+              "pct": 26.2
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1395,
+              "pct": 13.9
+            }
+          ]
         },
         {
           "stage": "Group H",
@@ -922,7 +1562,27 @@
             "away": 3,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.3095,
+              "pct": 30.9
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1942,
+              "pct": 19.4
+            }
+          ]
         }
       ],
       "standings": [
@@ -971,7 +1631,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2727,
+              "pct": 27.3
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1508,
+              "pct": 15.1
+            }
+          ]
         },
         {
           "stage": "Group I",
@@ -987,7 +1667,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2605,
+              "pct": 26.0
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1376,
+              "pct": 13.8
+            }
+          ]
         },
         {
           "stage": "Group I",
@@ -1003,7 +1703,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1949,
+              "pct": 19.5
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1504,
+              "pct": 15.0
+            }
+          ]
         },
         {
           "stage": "Group I",
@@ -1019,7 +1739,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.3104,
+              "pct": 31.0
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1954,
+              "pct": 19.5
+            }
+          ]
         }
       ],
       "standings": [
@@ -1068,7 +1808,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2931,
+              "pct": 29.3
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1742,
+              "pct": 17.4
+            }
+          ]
         },
         {
           "stage": "Group J",
@@ -1084,7 +1844,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.23,
+              "pct": 23.0
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1153,
+              "pct": 11.5
+            }
+          ]
         },
         {
           "stage": "Group J",
@@ -1100,7 +1880,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1825,
+              "pct": 18.3
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1627,
+              "pct": 16.3
+            }
+          ]
         },
         {
           "stage": "Group J",
@@ -1116,7 +1916,27 @@
             "away": 3,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.3139,
+              "pct": 31.4
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1997,
+              "pct": 20.0
+            }
+          ]
         }
       ],
       "standings": [
@@ -1165,7 +1985,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2791,
+              "pct": 27.9
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1579,
+              "pct": 15.8
+            }
+          ]
         },
         {
           "stage": "Group K",
@@ -1181,7 +2021,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2623,
+              "pct": 26.2
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1395,
+              "pct": 13.9
+            }
+          ]
         },
         {
           "stage": "Group K",
@@ -1197,7 +2057,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1825,
+              "pct": 18.3
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1627,
+              "pct": 16.3
+            }
+          ]
         },
         {
           "stage": "Group K",
@@ -1213,7 +2093,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2069,
+              "pct": 20.7
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1383,
+              "pct": 13.8
+            }
+          ]
         }
       ],
       "standings": [
@@ -1262,7 +2162,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2278,
+              "pct": 22.8
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1175,
+              "pct": 11.7
+            }
+          ]
         },
         {
           "stage": "Group L",
@@ -1278,7 +2198,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1899,
+              "pct": 19.0
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1553,
+              "pct": 15.5
+            }
+          ]
         },
         {
           "stage": "Group L",
@@ -1294,7 +2234,27 @@
             "away": 0,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2821,
+              "pct": 28.2
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1613,
+              "pct": 16.1
+            }
+          ]
         },
         {
           "stage": "Group L",
@@ -1310,7 +2270,27 @@
             "away": 1,
             "aet": false,
             "pens": false
-          }
+          },
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.3025,
+              "pct": 30.3
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1855,
+              "pct": 18.6
+            }
+          ]
         }
       ],
       "standings": [

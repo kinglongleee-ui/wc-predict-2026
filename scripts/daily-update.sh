@@ -61,6 +61,28 @@ echo "===== daily-update started at $TS ====="
 
 cd "$WCP"
 
+# ---------- Step 0.5: Elo-Poisson baseline (must run before MiroFish) ----------
+# Generates data/elo/wc_2026_baseline.{json,md} — a math-based score-distribution
+# baseline (μ=1.4, neutral venue, independent Poisson on each side). The .md
+# table is injected into the MiroFish --requirement below as anchoring context,
+# so the LLM picks top-3 scores with numeric confidence instead of zero-shot
+# guessing. Top-3 + exact-score is the new accuracy metric (胜方命中 is no
+# longer sufficient).
+echo "[0.5/5] Elo-Poisson baseline..."
+if "$PYTHON" "$WCP/scripts/elo_poisson.py" 2>&1 | tail -8; then
+  if [[ -f "$WCP/data/elo/wc_2026_baseline.md" ]]; then
+    BASELINE_MD=$("$PYTHON" -c "import sys;print(open('$WCP/data/elo/wc_2026_baseline.md').read())")
+    BASELINE_BYTES=$(stat -c %s "$WCP/data/elo/wc_2026_baseline.md")
+    echo "[0.5/5] ✓ baseline built ($BASELINE_BYTES bytes, $(echo "$BASELINE_MD" | grep -c '^|') rows)"
+  else
+    BASELINE_MD=""
+    echo "[0.5/5] ⚠️  baseline.md missing — proceeding without context injection"
+  fi
+else
+  BASELINE_MD=""
+  echo "[0.5/5] ⚠️  Elo-Poisson failed — proceeding without context injection"
+fi
+
 # ---------- Step 1: MiroFish re-run ----------
 NEW_RUN_ID=""
 if [[ "${SKIP_MIROFISH:-0}" == "1" ]]; then
@@ -75,7 +97,7 @@ else
   MF_OUT=$("$MIROFISH_BIN" run \
     --files wc2026_remaining.md \
     --max-rounds 5 \
-    --requirement "Predict every remaining 2026 FIFA World Cup match (group stage MD2+MD3, Round of 32, Round of 16, QF, SF, Final) with per-match team_a_win_prob / draw_prob / team_b_win_prob / most_likely_score / aet_prob / penalties_prob. Identify the 8 best 3rd-place teams, list the predicted 32-team knockout bracket, champion pick with confidence, top 5 upset-risk matches, and final matchup with most likely score (90min / AET / penalties breakdown).
+    --requirement "Predict every remaining 2026 FIFA World Cup match (group stage MD2+MD3, Round of 32, Round of 16, QF, SF, Final) with per-match team_a_win_prob / draw_prob / team_b_win_prob / most_likely_score / aet_prob / penalties_prob. **For every match, ALSO output top_3_scores: [{score: 'H-A', prob: 0.0X}, ...] — the top 3 most likely exact scores with their probability percentages. Use the Elo-Poisson baseline table at the END of this requirement as your numeric anchor (μ=1.4, neutral venue); adjust modestly based on recent form / H2H / injuries / tactical matchup. The top_3_scores list is what gets displayed to users and scored against real results — exact score match is the only thing that counts as a correct prediction.** Identify the 8 best 3rd-place teams, list the predicted 32-team knockout bracket, champion pick with confidence, top 5 upset-risk matches, and final matchup with most likely score (90min / AET / penalties breakdown).
 
 ROUND OF 32 PAIRINGS — FIFA OFFICIAL (Match 73-88, MUST USE EXACTLY, DO NOT REORDER OR REASSIGN):
 - Match 73: Runner-up A vs Runner-up B
@@ -138,7 +160,10 @@ CRITICAL GROUP-LOCK CONSTRAINT (overrides any prior knowledge):
 - Paraguay is in Group D. Australia is in Group D. Turkey is in Group D.
 - Haiti is in Group C. Scotland is in Group C.
 
-ALL 12 GROUPS A-L must be present in your report, labeled EXACTLY as above. Group letters in your output (Group A, Group B, ...) MUST match the input table." \
+ALL 12 GROUPS A-L must be present in your report, labeled EXACTLY as above. Group letters in your output (Group A, Group B, ...) MUST match the input table.
+
+NUMERIC ANCHOR (Elo-Poisson baseline, μ=1.4, neutral venue) — use this to set per-match top_3_scores with probability:
+${BASELINE_MD}" \
     --json 2>&1 | tail -200) || true
 
   NEW_RUN_ID=$(echo "$MF_OUT" | grep -oE '"run_id"[[:space:]]*:[[:space:]]*"run_[a-f0-9]+"' | head -1 | grep -oE 'run_[a-f0-9]+')
