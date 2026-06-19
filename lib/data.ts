@@ -104,17 +104,18 @@ export function getLatestRound3Run(): RunData | null {
   // baseline (run_a18431af48fd) and whose file is large enough to be a full
   // Round 3 (>20 KB; Round 2's parsed JSON is ~13 KB).
   //
-  // IMPORTANT: prefer runs whose `bracket` field is populated (= parse-report.py
-  // successfully extracted the R32 table). Newer runs whose report.md uses a
-  // Chinese heading variant ("## 4. 32 强赛") may parse without a bracket —
-  // we fall back to the latest run WITH bracket so the tree / BracketMini
-  // pages still render. See scripts/parse-report.py for the regex TODO.
+  // Selection rule (2026-06-19): prefer the latest run by created_at; if
+  // its bracket is empty (parser failure), fall back to the latest run
+  // whose bracket is populated. R4 reports list "12 Matchups" instead of
+  // 16, so we no longer require r32.length >= 16 — that was preventing R4
+  // from ever becoming the canonical run.
   const all = listRuns().filter(
     (r) => r.run_id !== "run_a18431af48fd" && r.final && r.groups,
   );
   if (all.length === 0) return null;
+  if (all[0].bracket?.r32 && all[0].bracket.r32.length > 0) return all[0];
   const withBracket = all.find(
-    (r) => r.bracket && r.bracket.r32 && r.bracket.r32.length >= 16,
+    (r) => r.bracket && r.bracket.r32 && r.bracket.r32.length > 0,
   );
   return withBracket || all[0];
 }

@@ -58,8 +58,10 @@ def parse_score(s: str) -> dict:
 
 
 def _find_group_section(md_text: str, group_letter: str) -> tuple:
-    """Return (start, end) of a group's section, or (-1, -1)."""
-    pattern = rf"###\s*Group\s+{group_letter}\s*\(([^)]+)\)"
+    """Return (start, end) of a group's section, or (-1, -1).
+    Supports both R3 ('### Group D (USA, ...)') and R4 ('### Group D: USA, ...').
+    """
+    pattern = rf"###\s*Group\s+{group_letter}\s*(?:\(([^)]+)\)|:\s*([^\n]+))"
     section_match = re.search(pattern, md_text)
     if not section_match:
         return -1, -1
@@ -67,6 +69,18 @@ def _find_group_section(md_text: str, group_letter: str) -> tuple:
     next_section = re.search(r"\n###\s", md_text[start:])
     end = start + next_section.start() if next_section else len(md_text)
     return start, end
+
+
+def _find_group_teams(md_text: str, group_letter: str) -> list:
+    """Return the list of teams for a group, regardless of R3/R4 heading style.
+    Returns [] when the group isn't present.
+    """
+    pattern = rf"###\s*Group\s+{group_letter}\s*(?:\(([^)]+)\)|:\s*([^\n]+))"
+    m = re.search(pattern, md_text)
+    if not m:
+        return []
+    raw = (m.group(1) or m.group(2) or "").strip()
+    return [t.strip() for t in raw.split(",") if t.strip()]
 
 
 def parse_group_table(md_text: str, group_letter: str) -> list:
@@ -120,16 +134,16 @@ def parse_group_table(md_text: str, group_letter: str) -> list:
 
 def parse_standings(md_text: str, group_letter: str) -> list:
     """Extract final standings. Supports:
-    R3: 'Final: MEX 7 / KOR 5 / CZE 3 / RSA 0'
-        'Final standings: ...'
-    R4: 'Predicted Final Standings: 1. Mexico (7pts) | 2. South Korea (5pts) | 3. Czech Republic (3pts) | 4. South Africa (1pt)'
+    R3: 'Final: MEX 7 / KOR 5 / CZE 3 / RSA 0' (slash-delimited)
+    R3: 'Predicted Final Standings: 1. Mexico (7pts) | 2. South Korea (5pts) | ...'
+    R4: '**Standings: MEX 7, KOR 6, CZE 1, RSA 0**' (comma-delimited, optional trailing note)
     """
     start, end = _find_group_section(md_text, group_letter)
     if start == -1:
         return []
     section_text = md_text[start:end]
 
-    # Match R4: **Predicted Final Standings:** 1. Mexico (7pts) | 2. South Korea (5pts) | ...
+    # Match R3 alt: **Predicted Final Standings:** 1. Mexico (7pts) | 2. South Korea (5pts) | ...
     r4_match = re.search(r"\*\*Predicted Final Standings:\*\*\s*([^\n]+)", section_text)
     if r4_match:
         text = r4_match.group(1).strip()
@@ -138,7 +152,6 @@ def parse_standings(md_text: str, group_letter: str) -> list:
             entry = raw_entry.strip()
             if not entry:
                 continue
-            # Match "1. Mexico (7pts)" or "1. Mexico 7pts" — capture rank, team, pts
             m = re.match(r"(\d+)\.\s*([^\(]+?)\s*\(?\s*(\d+)\s*pts?\s*\)?", entry)
             if not m:
                 continue
@@ -151,7 +164,32 @@ def parse_standings(md_text: str, group_letter: str) -> list:
             })
         return standings
 
-    # Match R3: **Final: ...** or **Final standings: ...**
+    # Match R4: **Standings: MEX 7, KOR 6, CZE 1, RSA 0** (optionally followed by ** (... note))
+    r4_standings = re.search(r"\*\*Standings:\s*([^*]+?)\*\*", section_text)
+    if r4_standings:
+        text = r4_standings.group(1).strip().rstrip(".")
+        # Extract trailing parenthetical note (e.g. "(AUS ahead on GD)")
+        note_m = re.search(r"\s*\(([^)]+)\)\s*$", text)
+        trailing_note = note_m.group(1).strip() if note_m else None
+        if note_m:
+            text = text[: note_m.start()].strip().rstrip(",")
+        standings = []
+        for raw_entry in text.split(","):
+            entry = raw_entry.strip()
+            if not entry:
+                continue
+            m = re.match(r"(.+?)\s+(\d+)$", entry)
+            if not m:
+                continue
+            team, pts = m.groups()
+            standings.append({
+                "team": team.strip(),
+                "points": int(pts),
+                "note": trailing_note,
+            })
+        return standings
+
+    # Match R3: **Final: ...** or **Final standings: ...** (slash-delimited)
     final_match = re.search(r"\*\*Final(?:\s+standings)?:\s*([^*]+?)\*\*", section_text)
     if not final_match:
         return []
@@ -174,8 +212,12 @@ def parse_standings(md_text: str, group_letter: str) -> list:
 
 
 def parse_best_thirds(md_text: str) -> list:
-    """Parse '## N. 8 Best 3rd-Place Teams'. Supports R3 table and R4 numbered list."""
-    section_match = re.search(r"##\s*\d+\.\s*8\s+Best\s+(?:Third|3rd)[-\s]Place", md_text)
+    """Parse '## N. 8 Best 3rd-Place Teams'. Supports:
+    R3 table: | 1 | **France** | I | 4 | 0 | reason |
+    R3 numbered: 1. **France** (Group I, 4pts, GD 0) — reason
+    R4 simplified: 1. **Cape Verde (H)** — 3 pts, +1 GD (reason)
+    """
+    section_match = re.search(r"##\s*(?:\d+\.\s*)?8\s+Best\s+(?:Third|3rd)[-\s]Place", md_text)
     if not section_match:
         return []
     start = section_match.end()
@@ -203,7 +245,7 @@ def parse_best_thirds(md_text: str) -> list:
     if rows:
         return rows
 
-    # R4 numbered list: 1. **France** (Group I, 4pts, GD 0) — reason
+    # R3 numbered list: 1. **France** (Group I, 4pts, GD 0) — reason
     for row in re.finditer(
         r"(\d+)\.\s*\*\*([^*]+?)\*\*\s*\(Group\s+([A-L]),\s*(\d+)pts,\s*GD\s*([+\-]?\d+)\)\s*[—\-–]\s*([^\n]+)",
         section_text,
@@ -216,6 +258,24 @@ def parse_best_thirds(md_text: str) -> list:
             "points": int(pts),
             "goal_difference": int(gd),
             "reason": reason.strip(),
+        })
+
+    if rows:
+        return rows
+
+    # R4 simplified: 1. **Cape Verde (H)** — 3 pts, +1 GD (upset specialist)
+    for row in re.finditer(
+        r"(\d+)\.\s*\*\*([^*\n]+?)\s*\(([A-L])\)\*\*\s*[—\-–]\s*(\d+)\s*pts,\s*([+\-]?\d+)\s*GD(?:\s*\(([^)]+)\))?",
+        section_text,
+    ):
+        rank, team, group, pts, gd, reason = row.groups()
+        rows.append({
+            "rank": int(rank),
+            "team": team.strip(),
+            "group": group.strip(),
+            "points": int(pts),
+            "goal_difference": int(gd),
+            "reason": reason.strip() if reason else None,
         })
 
     return rows
@@ -242,8 +302,12 @@ def parse_knockout_table(md_text: str, section_pattern: str) -> list:
 
 
 def parse_upset_risks(md_text: str) -> list:
-    """Parse '## N. Top 5 Upset-Risk Matches'. Supports R3 table and R4 numbered list."""
-    section_match = re.search(r"##\s*\d+\.\s*Top\s+5\s+Upset-Risk", md_text)
+    """Parse '## N. Top 5 Upset-Risk Matches'. Supports:
+    R3: | 1 | **Mexico vs France** | R32 | 38% | rationale |  (5 cols)
+    R4 alt: | 1 | **Senegal (2I) vs Croatia (2L) — 55% upset risk:** "..."   (numbered list)
+    R4: | Rank | Match | Context | Upset Prob |  (4 cols, no rationale, pct in **bold**)
+    """
+    section_match = re.search(r"##\s*(?:\d+\.\s*)?Top\s+5\s+Upset-Risk", md_text)
     if not section_match:
         return []
     start = section_match.end()
@@ -270,6 +334,23 @@ def parse_upset_risks(md_text: str) -> list:
     if risks:
         return risks
 
+    # R4 4-col table: | 1 | **Cape Verde vs Spain (R32)** | context text | **22%** |
+    for row in re.finditer(
+        r"\|\s*(\d+)\s*\|\s*\*\*([^|*]+?)\*\*\s*\|\s*([^|]+?)\s*\|\s*\*?\*?(\d+)%\*?\*?\s*\|",
+        section_text,
+    ):
+        rank, match, context, upset_pct = row.groups()
+        risks.append({
+            "rank": int(rank),
+            "match": match.strip(),
+            "stage": "—",
+            "upset_probability": parse_pct(upset_pct + "%"),
+            "rationale": context.strip(),
+        })
+
+    if risks:
+        return risks
+
     # R4 numbered: 1. **Senegal (2I) vs Croatia (2L) — 55% upset risk:** "..."
     for row in re.finditer(
         r"(\d+)\.\s*\*\*([^—\-]+?)\s*[—\-–]\s*(\d+)%\s+upset\s+risk:\*\*\s*[“\"']?([^\"”\n]+)",
@@ -279,7 +360,7 @@ def parse_upset_risks(md_text: str) -> list:
         risks.append({
             "rank": int(rank),
             "match": match.strip(),
-            "stage": "—",  # R4 doesn't label stage explicitly
+            "stage": "—",
             "upset_probability": parse_pct(pct + "%"),
             "rationale": rationale.strip().rstrip("\"").rstrip("”").rstrip("'"),
         })
@@ -288,9 +369,10 @@ def parse_upset_risks(md_text: str) -> list:
 
 
 def _strip_group_pos(raw: str) -> str:
-    """Strip 'Mexico (1A)' → 'Mexico'. Tolerant of leading **bold** markers."""
+    """Strip 'Mexico (1A)' (R3) or 'Mexico (A1)' (R4) → 'Mexico'. Tolerant of leading **bold** markers."""
     s = raw.strip().strip("*").strip()
-    m = re.match(r"([^(]+?)\s*\(\d+[A-L](?:-\w+)?\)", s)
+    # R3: Mexico (1A) / R4: Mexico (A1) / R4 with seed suffix: Mexico (1A-2)
+    m = re.match(r"([^(]+?)\s*\((?:\d+)?[A-L](?:\d+)?(?:-\w+)?\)", s)
     return m.group(1).strip() if m else s
 
 
@@ -311,8 +393,12 @@ def _winner_from_pct(a: str, b: str, d: str) -> Optional[str]:
 def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> list:
     """Parse a knockout bracket table starting at section_start (after the heading).
 
-    with_index=True  → R32 format: | # | Matchup | A% | D% | B% | Score |
-    with_index=False → R16/QF/SF format: | Matchup | A% | D% | B% | Score | AET% | Pen% |
+    with_index=True  → R32 format:
+        R3: | # | Matchup | A% | D% | B% | Score |
+        R4: | # | Team A | Team B | A% | Draw | B% | Score | AET | Pen |
+    with_index=False → R16/QF/SF format:
+        R3: | Matchup | A% | D% | B% | Score | AET% | Pen% |
+        R4: | Match | Matchup | A% | Draw | B% | Score | AET | Pen |
     """
     next_section = re.search(r"\n##\s", md_text[section_start:])
     section_end = section_start + next_section.start() if next_section else len(md_text)
@@ -321,6 +407,34 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
     matches = []
 
     if with_index:
+        # R4 style: | # | **Team A (X1)** | Team B (Y3) | A% | Draw | B% | Score | AET | Pen |
+        # Tolerates **70%** bolded percentages and skips n/a rows.
+        r4_rows = list(re.finditer(
+            r"\|\s*(\d+)\s*\|\s*\*\*([^*]+?)\*\*\s*\|\s*([^|]+?)\s*\|\s*\*?\*?(\d+)%\*?\*?\s*\|\s*\*?\*?(\d+)%\*?\*?\s*\|\s*\*?\*?(\d+)%\*?\*?\s*\|\s*([^|]+?)\s*\|\s*\*?\*?(\d+)%\*?\*?\s*\|\s*\*?\*?(\d+)%\*?\*?\s*\|",
+            section_text,
+        ))
+        for row in r4_rows:
+            idx, team_a_raw, team_b_raw, a_pct, d_pct, b_pct, score, aet_pct, pen_pct = row.groups()
+            # Skip rows where all percentages are zero (likely n/a row)
+            if a_pct == "0" and d_pct == "0" and b_pct == "0":
+                continue
+            matches.append({
+                "bracket_idx": int(idx) - 1,
+                "team_a": _strip_group_pos(team_a_raw),
+                "team_b": _strip_group_pos(team_b_raw),
+                "team_a_win": parse_pct(a_pct + "%"),
+                "draw": parse_pct(d_pct + "%"),
+                "team_b_win": parse_pct(b_pct + "%"),
+                "score": score.strip(),
+                "aet_pct": parse_pct(aet_pct + "%"),
+                "pen_pct": parse_pct(pen_pct + "%"),
+                "winner": _winner_from_pct(a_pct + "%", b_pct + "%", d_pct + "%"),
+            })
+
+        if matches:
+            return matches
+
+        # R3 style: | # | Matchup | A% | D% | B% | Score |
         for row in re.finditer(
             r"\|\s*(\d+)\s*\|\s*([^|]+?)\s+vs\s+([^|]+?)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*([^|]+?)\s*\|",
             section_text,
@@ -339,6 +453,31 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
                 "winner": _winner_from_pct(a_pct, b_pct, d_pct),
             })
     else:
+        # R4 style: | Match | Matchup | A% | Draw | B% | Score | AET | Pen |
+        r4_rows = list(re.finditer(
+            r"\|\s*(?:R\d+-\d+|QF\d+|SF\d+|Match)\s*\|\s*\*\*?([^|*]+?)\*\*?\s+vs\s+\*\*?([^|*]+?)\*\*?(?:\s*\([^)]+\))?\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*([^|]+?)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|",
+            section_text,
+        ))
+        for row in r4_rows:
+            team_a, team_b, a_pct, d_pct, b_pct, score, aet_pct, pen_pct = row.groups()
+            matches.append({
+                "team_a": team_a.strip().strip("*"),
+                "team_b": team_b.strip().strip("*"),
+                "team_a_win": parse_pct(a_pct),
+                "draw": parse_pct(d_pct),
+                "team_b_win": parse_pct(b_pct),
+                "score": score.strip(),
+                "aet_pct": parse_pct(aet_pct),
+                "pen_pct": parse_pct(pen_pct),
+                "winner": _winner_from_pct(a_pct, b_pct, d_pct),
+            })
+        for i, m in enumerate(matches):
+            m["bracket_idx"] = i
+
+        if matches:
+            return matches
+
+        # R3 style: | Matchup | A% | D% | B% | Score | AET% | Pen% |
         for row in re.finditer(
             r"\|\s*([^|]+?)\s+vs\s+([^|]+?)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*([^|]+?)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|",
             section_text,
@@ -355,6 +494,8 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
                 "pen_pct": parse_pct(pen_pct),
                 "winner": _winner_from_pct(a_pct, b_pct, d_pct),
             })
+        for i, m in enumerate(matches):
+            m["bracket_idx"] = i
 
     return matches
 
@@ -390,31 +531,36 @@ def parse_bracket(md_text: str) -> dict:
     The Final itself is parsed separately by parse_final() and stored under
     `final` at the top level, so the bracket dict does NOT include it.
     Index pairing is left to the frontend (R16[i] parents = R32[2i], R32[2i+1]).
+
+    Heading patterns:
+      R3: '## 3. Round of 32 — 16 Matchups'
+      R4: '## Round of 32 (12 Matchups)'
+    Both are matched.
     """
     result = {"r32": [], "r16": [], "qf": [], "sf": [], "third_place": None}
 
-    # R32: ## 3. Round of 32 — 16 Matchups
-    r32_head = re.search(r"##\s*3\.\s*Round\s+of\s+32[^\n]*", md_text)
+    # R32: ## 3. Round of 32 / ## Round of 32 (...)
+    r32_head = re.search(r"##\s*(?:\d+\.\s*)?Round\s+of\s+32[^\n]*", md_text)
     if r32_head:
         result["r32"] = _parse_bracket_table(md_text, r32_head.end(), with_index=True)
 
-    # R16: ## 4. Round of 16
-    r16_head = re.search(r"##\s*4\.\s*Round\s+of\s+16[^\n]*", md_text)
+    # R16: ## 4. Round of 16 / ## Round of 16 (...)
+    r16_head = re.search(r"##\s*(?:\d+\.\s*)?Round\s+of\s+16[^\n]*", md_text)
     if r16_head:
         result["r16"] = _parse_bracket_table(md_text, r16_head.end(), with_index=False)
         # Tag bracket_idx so frontend can pair parents
         for i, m in enumerate(result["r16"]):
             m["bracket_idx"] = i
 
-    # QF: ## 5. Quarterfinals
-    qf_head = re.search(r"##\s*5\.\s*Quarterfinals[^\n]*", md_text)
+    # QF: ## 5. Quarterfinals / ## Quarterfinals (...)
+    qf_head = re.search(r"##\s*(?:\d+\.\s*)?Quarterfinals?[^\n]*", md_text)
     if qf_head:
         result["qf"] = _parse_bracket_table(md_text, qf_head.end(), with_index=False)
         for i, m in enumerate(result["qf"]):
             m["bracket_idx"] = i
 
-    # SF: ## 6. Semifinals
-    sf_head = re.search(r"##\s*6\.\s*Semifinals[^\n]*", md_text)
+    # SF: ## 6. Semifinals / ## Semifinals (...)
+    sf_head = re.search(r"##\s*(?:\d+\.\s*)?Semifinals?[^\n]*", md_text)
     if sf_head:
         result["sf"] = _parse_bracket_table(md_text, sf_head.end(), with_index=False)
         for i, m in enumerate(result["sf"]):
@@ -424,14 +570,19 @@ def parse_bracket(md_text: str) -> dict:
     return result
 
 
-def parse_final(md_text: str) -> dict:
-    """Parse '## N. Final — TeamA vs TeamB'. Supports R3 (Tier lines) and R4 (sub-sections)."""
-    # Find ANY ## N. Final heading
-    section_match = re.search(r"##\s*\d+\.\s*Final(?:\s*[—\-:]\s*([^*\n]+))?", md_text)
+def parse_final(md_text: str, verdict: Optional[dict] = None) -> dict:
+    """Parse '## N. Final — TeamA vs TeamB'. Supports R3 (Tier lines) and R4 (3-Tier Breakdown table).
+
+    R3 final section uses '**Tier X — label:**' lines.
+    R4 final section uses '### 3-Tier Probability Breakdown' table with 3 rows (90 min / AET / Pen).
+    Champion falls back to verdict.prediction when no Champion Outlook section is found.
+    """
+    # Find ANY ## N. Final heading (also match plain '## Final' with no number)
+    section_match = re.search(r"##\s*(?:\d+\.\s*)?Final(?:\s*[—\-:]\s*([^*\n]+))?", md_text)
     if not section_match:
         return {}
     final_matchup = section_match.group(1).strip() if section_match.group(1) else None
-    # Strip trailing annotation like "(per section requirement)"
+    # Strip trailing annotation like "(per section requirement)" or venue
     if final_matchup:
         final_matchup = re.sub(r"\s*\(per[^)]+\)\s*$", "", final_matchup).strip()
     start = section_match.end()
@@ -455,36 +606,34 @@ def parse_final(md_text: str) -> dict:
             "probability": parse_pct(pct_match.group(1)) if pct_match else None,
         })
 
-    # R4 style: sub-sections (90-Minute Breakdown / Extra Time (AET) / Penalties)
+    # R4 style: 3-Tier Probability Breakdown table
+    #   | Tier | Probability | Most Likely Outcome |
+    #   | **90 minutes (regulation)** | 1-1 draw — **22%** | ... |
     if not tiers:
-        # Extract AET probability: **AET probability: 26%**
-        aet_pct = re.search(r"\*\*AET\s+probability:\s*(\d+)%\*\*", section_text)
-        # Extract Penalties probability
-        pen_pct = re.search(r"\*\*Penalties\s+probability:\s*(\d+)%\*\*", section_text)
-        # Extract 90min: each row in the table
-        ninety = re.search(r"### 90-Minute Breakdown", section_text)
-
-        if ninety:
-            tiers.append({
-                "tier": 1,
-                "label": "90 min",
-                "content": "常规 90 分钟内分出胜负",
-                "probability": (100 - (int(aet_pct.group(1)) if aet_pct else 0) - (int(pen_pct.group(1)) if pen_pct else 0)) / 100,
-            })
-        if aet_pct:
-            tiers.append({
-                "tier": 2,
-                "label": "AET",
-                "content": "进入加时赛 (120 分钟)",
-                "probability": int(aet_pct.group(1)) / 100,
-            })
-        if pen_pct:
-            tiers.append({
-                "tier": 3,
-                "label": "Penalties",
-                "content": "进入点球大战",
-                "probability": int(pen_pct.group(1)) / 100,
-            })
+        breakdown = re.search(r"###\s*3-Tier\s+Probability\s+Breakdown", section_text)
+        if breakdown:
+            breakdown_text = section_text[breakdown.end():]
+            tier_rows = list(re.finditer(
+                r"\|\s*\*\*([^*]+?)\*\*\s*\|\s*([^*\n]+?)\s*\|\s*([^\n|]+?)\s*\|",
+                breakdown_text,
+            ))
+            tier_labels = {
+                "90 minutes (regulation)": ("90 min", "常规 90 分钟内分出胜负"),
+                "After Extra Time (AET)": ("AET", "进入加时赛 (120 分钟)"),
+                "Penalties": ("Penalties", "进入点球大战"),
+            }
+            for i, trow in enumerate(tier_rows, start=1):
+                raw_label, mid, _outcome = trow.groups()
+                pct_m = re.search(r"(\d+)%", mid)
+                pct = int(pct_m.group(1)) / 100 if pct_m else None
+                label_key = raw_label.strip()
+                label_zh, content_zh = tier_labels.get(label_key, (raw_label.strip(), raw_label.strip()))
+                tiers.append({
+                    "tier": i,
+                    "label": label_zh,
+                    "content": content_zh,
+                    "probability": pct,
+                })
 
     # Combined probability / aggregated outcome
     combined_match = re.search(r"(?:Combined[^:]*:|Final\s+Aggregated\s+Outcome:?)\s*([^\n]+)", section_text)
@@ -497,13 +646,22 @@ def parse_final(md_text: str) -> dict:
     champ_section = re.search(r"##\s*\d+\.\s*Champion\s+Outlook[^\n]*\n([\s\S]+?)(?=\n##\s|\Z)", md_text)
     if champ_section:
         champ_text = champ_section.group(1)
-        # Look for "1. **Argentina** — 22%" line → champion is the highest
         m = re.search(r"1\.\s*\*\*([^*]+)\*\*\s*[—\-]\s*(\d+)%", champ_text)
         if m:
             champion = m.group(1).strip()
             confidence = parse_pct(m.group(2) + "%")
 
-    # Fallback: look anywhere in doc for **Champion pick:**
+    # Fallback: look for **Final aggregated: X champion probability ~N%** (R4 style)
+    if not champion:
+        agg = re.search(r"\*\*Final\s+aggregated:\s*([^*]+?)\*\*", md_text)
+        if agg:
+            text = agg.group(1)
+            m = re.search(r"([A-Za-z][A-Za-z\s]+?)\s+champion\s+probability\s+~?(\d+)%", text)
+            if m:
+                champion = m.group(1).strip()
+                confidence = parse_pct(m.group(2) + "%")
+
+    # Fallback: anywhere for **Champion pick:
     if not champion:
         champion_match = re.search(r"\*\*Champion pick:\s*([^*\n]+)", md_text)
         if champion_match:
@@ -511,6 +669,14 @@ def parse_final(md_text: str) -> dict:
             conf_match = re.search(r"confidence\s+(\d+%)", champion_match.group(0))
             if conf_match:
                 confidence = parse_pct(conf_match.group(1))
+
+    # Final fallback: parse verdict.json's prediction sentence (e.g. "France are crowned ... 17% confidence")
+    if not champion and verdict and verdict.get("prediction"):
+        vp = verdict["prediction"]
+        m = re.search(r"([A-Z][a-zA-Z\s]+?)\s+are\s+crowned\s+.*?(\d+)%\s+confidence", vp)
+        if m:
+            champion = m.group(1).strip()
+            confidence = parse_pct(m.group(2) + "%")
 
     # Verdict confidence fallback
     if not confidence:
@@ -535,8 +701,7 @@ def parse_run(run_id: str, run_dir: Path) -> dict:
     # All 12 groups
     groups = {}
     for letter in "ABCDEFGHIJKL":
-        teams_match = re.search(rf"###\s*Group\s+{letter}\s*\(([^)]+)\)", report_md)
-        teams = [t.strip() for t in teams_match.group(1).split(",")] if teams_match else []
+        teams = _find_group_teams(report_md, letter)
         groups[letter] = {
             "letter": letter,
             "teams": teams,
@@ -544,10 +709,16 @@ def parse_run(run_id: str, run_dir: Path) -> dict:
             "standings": parse_standings(report_md, letter),
         }
 
-    final = parse_final(report_md)
+    final = parse_final(report_md, verdict=verdict)
     # If final.confidence not detected from report, use verdict.confidence
     if not final.get("confidence"):
         final["confidence"] = verdict.get("confidence")
+    # If final.champion not detected from report, use first capitalized team from verdict.prediction
+    if not final.get("champion") and verdict.get("prediction"):
+        import re as _re
+        m = _re.search(r"\b([A-Z][a-zA-Z]+(?:\s+[A-Z][a-zA-Z]+)?)\b", verdict["prediction"])
+        if m:
+            final["champion"] = m.group(1).strip()
 
     return {
         "run_id": run_id,

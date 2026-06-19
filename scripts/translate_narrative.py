@@ -497,6 +497,8 @@ def apply_dict_translation_r2(data: dict) -> bool:
 # Round 4 内置中文翻译 (run_d7c8d02bf376, 2026-06-18)
 # ---------------------------------------------------------------------------
 
+# Round 4 (e667, 2026-06-19) — 这是 06-18 翻译字典, 保留作为历史记录
+# 新版 (e667) 实际翻译在 R4_E667_TRANSLATIONS
 R4_TRANSLATIONS: dict[str, Any] = {
     "verdict.prediction": (
         "阿根廷在 2026 世界杯决赛通过点球大战 1-1 (加时) 击败法国; "
@@ -544,6 +546,51 @@ R4_TRANSLATIONS: dict[str, Any] = {
         "在所有可能的世界杯冠军走势中, 阿根廷凭借 22% 的边际概率领跑, "
         "巴西 19%, 英格兰 16%, 法国 13%, 德国 9%。"
     ),
+}
+
+
+# ---------------------------------------------------------------------------
+# Round 4 内置中文翻译 (run_e667e173bb3f, 2026-06-19) — 当前 R4
+# ---------------------------------------------------------------------------
+
+R4_E667_TRANSLATIONS: dict[str, Any] = {
+    "verdict.prediction": (
+        "法国以 17% 置信度加冕 2026 FIFA 世界杯冠军, 险胜阿根廷 (16%) 与巴西 (14%), "
+        "决赛预测 7 月 19 日于大都会人寿球场对垒巴西。"
+    ),
+    "verdict.key_dynamics": [
+        "姆巴佩巅峰年法国队 I 组 9 分领跑, 过关斩将直至捧杯",
+        "安切洛蒂治下巴西 R16 遇西班牙, 成为关键淘汰测试",
+        "东道主 (墨西哥、美国、加拿大) 凭主场优势在小组赛阶段超额完成",
+        "佛得角成黑马, 对西班牙 R32 冷门概率 22%",
+        "瑞典在 F 组对荷兰构成可信威胁 (MD3 1-1 投影)",
+    ],
+    "verdict.signals": [
+        "法国夺冠概率 17% — 居首但绝对置信度低, 显示赛事极度开放",
+        "佛得角对西班牙 R32 22% 冷门概率, 反映竞争差距收窄",
+        "瑞典 MD3 1-1 战平荷兰, 威胁荷兰小组头名种子",
+        "巴西—西班牙 R16 投影为两支前十强队的淘汰分水岭",
+        "东道主 (MEX 7 分 / USA 9 分 / CAN 5 分) 跑赢中性预期",
+        "阿根廷 J 组头名 78%, R32 对埃及 — 路径相对平坦",
+    ],
+    "upset_risks": [
+        "佛得角 对 西班牙 (R32) — H 组第 3 对 H1; 亚马尔新军首考",
+        "库拉索 对 德国 (MD3, E 组) — 第 82 位对头号种子; 巨大净胜球摆动空间",
+        "瑞典 对 荷兰 (MD3, F 组) — 淘汰赛影响场; 瑞典同分",
+        "波黑 对 瑞士 (MD2, B 组) — 波黑 (FIFA 26) 对小组头名冷门威胁",
+        "塞内加尔 对 法国 (MD2, I 组) — 2022 小组赛曾胜法国 — 复仇叙事",
+    ],
+    "best_thirds": [
+        "冷门专业户",
+        "FIFA 官方确认晋级",
+        "FIFA 官方确认晋级",
+        "FIFA 官方确认晋级",
+        "FIFA 官方确认晋级",
+        "FIFA 官方确认晋级",
+        "FIFA 官方确认晋级",
+    ],
+    "final.tiers": [],  # e667 report 没填 final.tiers — 留空不翻译
+    "final.combined_text": "",  # e667 report combined_text 为 None — 留空
 }
 
 
@@ -606,6 +653,57 @@ def apply_dict_translation_r4(data: dict) -> bool:
     if data["final"].get("combined_text") != t["final.combined_text"]:
         data["final"]["combined_text"] = t["final.combined_text"]
         changed = True
+
+    return changed
+
+
+def apply_dict_translation_r4_e667(data: dict) -> bool:
+    """应用 Round 4 (e667) 内置中文翻译。Returns True if any field was changed."""
+    changed = False
+    t = R4_E667_TRANSLATIONS
+
+    if data["verdict"]["prediction"] != t["verdict.prediction"]:
+        data["verdict"]["prediction"] = t["verdict.prediction"]
+        changed = True
+
+    if data["verdict"]["key_dynamics"] != t["verdict.key_dynamics"]:
+        data["verdict"]["key_dynamics"] = t["verdict.key_dynamics"]
+        changed = True
+
+    new_signals = []
+    for i, sig in enumerate(data["verdict"]["signals"]):
+        if i < len(t["verdict.signals"]):
+            new_signals.append({
+                **sig,
+                "signal": t["verdict.signals"][i],
+            })
+        else:
+            new_signals.append(sig)
+    if data["verdict"]["signals"] != new_signals:
+        data["verdict"]["signals"] = new_signals
+        changed = True
+
+    new_upsets = []
+    for i, u in enumerate(data["upset_risks"]):
+        if i < len(t["upset_risks"]):
+            new_upsets.append({**u, "rationale": t["upset_risks"][i]})
+        else:
+            new_upsets.append(u)
+    if data["upset_risks"] != new_upsets:
+        data["upset_risks"] = new_upsets
+        changed = True
+
+    new_bt = []
+    for i, bt in enumerate(data.get("best_thirds", [])):
+        if i < len(t["best_thirds"]):
+            new_bt.append({**bt, "reason": t["best_thirds"][i]})
+        else:
+            new_bt.append(bt)
+    if data.get("best_thirds") != new_bt:
+        data["best_thirds"] = new_bt
+        changed = True
+
+    # final.tiers 跟 combined_text — e667 都没内容, 跳过
 
     return changed
 
@@ -747,14 +845,21 @@ def main() -> int:
 
     if args.dict:
         targets = []
-        for fname in ("run_d7c8d02bf376.json", "run_b37f734df790.json", "run_a18431af48fd.json"):
+        for fname in (
+            "run_e667e173bb3f.json",  # R4 当前
+            "run_d7c8d02bf376.json",  # R4 旧 (06-18)
+            "run_b37f734df790.json",  # R3
+            "run_a18431af48fd.json",  # R2 baseline
+        ):
             p = DATA_DIR / fname
             if p.exists():
                 targets.append(p)
         changed_total = 0
         for p in targets:
             data = json.loads(p.read_text())
-            if "d7c8d02bf376" in p.name:
+            if "e667e173bb3f" in p.name:
+                changed = apply_dict_translation_r4_e667(data)
+            elif "d7c8d02bf376" in p.name:
                 changed = apply_dict_translation_r4(data)
             elif "b37f734df790" in p.name:
                 changed = apply_dict_translation_r3(data)

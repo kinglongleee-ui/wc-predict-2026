@@ -1,0 +1,1722 @@
+{
+  "run_id": "run_e667e173bb3f",
+  "created_at": "2026-06-19T10:16:10.624210",
+  "verdict": {
+    "prediction": "法国以 17% 置信度加冕 2026 FIFA 世界杯冠军, 险胜阿根廷 (16%) 与巴西 (14%), 决赛预测 7 月 19 日于大都会人寿球场对垒巴西。",
+    "confidence": 0.17,
+    "key_dynamics": [
+      "姆巴佩巅峰年法国队 I 组 9 分领跑, 过关斩将直至捧杯",
+      "安切洛蒂治下巴西 R16 遇西班牙, 成为关键淘汰测试",
+      "东道主 (墨西哥、美国、加拿大) 凭主场优势在小组赛阶段超额完成",
+      "佛得角成黑马, 对西班牙 R32 冷门概率 22%",
+      "瑞典在 F 组对荷兰构成可信威胁 (MD3 1-1 投影)"
+    ],
+    "signals": [
+      {
+        "signal": "法国夺冠概率 17% — 居首但绝对置信度低, 显示赛事极度开放",
+        "direction": "positive",
+        "strength": 0.72
+      },
+      {
+        "signal": "佛得角对西班牙 R32 22% 冷门概率, 反映竞争差距收窄",
+        "direction": "mixed",
+        "strength": 0.65
+      },
+      {
+        "signal": "瑞典 MD3 1-1 战平荷兰, 威胁荷兰小组头名种子",
+        "direction": "negative",
+        "strength": 0.55
+      },
+      {
+        "signal": "巴西—西班牙 R16 投影为两支前十强队的淘汰分水岭",
+        "direction": "negative",
+        "strength": 0.7
+      },
+      {
+        "signal": "东道主 (MEX 7 分 / USA 9 分 / CAN 5 分) 跑赢中性预期",
+        "direction": "positive",
+        "strength": 0.68
+      },
+      {
+        "signal": "阿根廷 J 组头名 78%, R32 对埃及 — 路径相对平坦",
+        "direction": "positive",
+        "strength": 0.62
+      }
+    ]
+  },
+  "summary": {
+    "rounds": 5,
+    "node_count": 83,
+    "edge_count": 116,
+    "total_actions": 24,
+    "top_agents": [
+      {
+        "agent_id": 1,
+        "agent_name": "Ancelotti",
+        "total_actions": 4,
+        "twitter_actions": 2,
+        "reddit_actions": 2,
+        "action_types": {
+          "CREATE_POST": 4
+        },
+        "first_action_time": "2026-06-19T09:44:22.174511",
+        "last_action_time": "2026-06-19T09:44:22.425738"
+      },
+      {
+        "agent_id": 25,
+        "agent_name": "FIFA",
+        "total_actions": 4,
+        "twitter_actions": 2,
+        "reddit_actions": 2,
+        "action_types": {
+          "CREATE_POST": 4
+        },
+        "first_action_time": "2026-06-19T09:44:22.174685",
+        "last_action_time": "2026-06-19T09:44:22.425693"
+      },
+      {
+        "agent_id": 0,
+        "agent_name": "Algeria",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-19T09:44:22.174445",
+        "last_action_time": "2026-06-19T09:44:22.425205"
+      },
+      {
+        "agent_id": 7,
+        "agent_name": "Bellingham",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-19T09:44:22.174570",
+        "last_action_time": "2026-06-19T09:44:22.425318"
+      },
+      {
+        "agent_id": 3,
+        "agent_name": "Atlanta",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-19T09:44:22.174628",
+        "last_action_time": "2026-06-19T09:44:22.425365"
+      },
+      {
+        "agent_id": 2,
+        "agent_name": "Argentina",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-19T09:44:22.174742",
+        "last_action_time": "2026-06-19T09:44:22.425462"
+      },
+      {
+        "agent_id": 11,
+        "agent_name": "Camavinga",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-19T09:44:22.174797",
+        "last_action_time": "2026-06-19T09:44:22.425509"
+      },
+      {
+        "agent_id": 4,
+        "agent_name": "Australia",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-19T09:44:22.174851",
+        "last_action_time": "2026-06-19T09:44:22.425553"
+      },
+      {
+        "agent_id": 9,
+        "agent_name": "Boston",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-19T09:44:22.174911",
+        "last_action_time": "2026-06-19T09:44:22.425602"
+      },
+      {
+        "agent_id": 20,
+        "agent_name": "Depay",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-19T09:44:22.174967",
+        "last_action_time": "2026-06-19T09:44:22.425648"
+      }
+    ]
+  },
+  "groups": {
+    "A": {
+      "letter": "A",
+      "teams": [
+        "Mexico City"
+      ],
+      "matches": [
+        {
+          "stage": "Group A",
+          "matchday": 2,
+          "team_a": "MEX",
+          "team_b": "CZE",
+          "team_a_win": 0.74,
+          "draw": 0.16,
+          "team_b_win": 0.1,
+          "most_likely_score": {
+            "raw": "3-1",
+            "home": 3,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group A",
+          "matchday": 2,
+          "team_a": "KOR",
+          "team_b": "RSA",
+          "team_a_win": 0.71,
+          "draw": 0.18,
+          "team_b_win": 0.11,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group A",
+          "matchday": 3,
+          "team_a": "MEX",
+          "team_b": "KOR",
+          "team_a_win": 0.42,
+          "draw": 0.38,
+          "team_b_win": 0.2,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group A",
+          "matchday": 3,
+          "team_a": "CZE",
+          "team_b": "RSA",
+          "team_a_win": 0.52,
+          "draw": 0.27,
+          "team_b_win": 0.21,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ],
+      "standings": [
+        {
+          "team": "MEX",
+          "points": 7,
+          "note": null
+        },
+        {
+          "team": "KOR",
+          "points": 6,
+          "note": null
+        },
+        {
+          "team": "CZE",
+          "points": 1,
+          "note": null
+        },
+        {
+          "team": "RSA",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "B": {
+      "letter": "B",
+      "teams": [
+        "Vancouver"
+      ],
+      "matches": [
+        {
+          "stage": "Group B",
+          "matchday": 2,
+          "team_a": "CAN",
+          "team_b": "QAT",
+          "team_a_win": 0.62,
+          "draw": 0.22,
+          "team_b_win": 0.16,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group B",
+          "matchday": 2,
+          "team_a": "SUI",
+          "team_b": "BIH",
+          "team_a_win": 0.58,
+          "draw": 0.24,
+          "team_b_win": 0.18,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group B",
+          "matchday": 3,
+          "team_a": "CAN",
+          "team_b": "SUI",
+          "team_a_win": 0.34,
+          "draw": 0.31,
+          "team_b_win": 0.35,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group B",
+          "matchday": 3,
+          "team_a": "BIH",
+          "team_b": "QAT",
+          "team_a_win": 0.56,
+          "draw": 0.25,
+          "team_b_win": 0.19,
+          "most_likely_score": {
+            "raw": "2-1",
+            "home": 2,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ],
+      "standings": [
+        {
+          "team": "SUI",
+          "points": 7,
+          "note": null
+        },
+        {
+          "team": "CAN",
+          "points": 5,
+          "note": null
+        },
+        {
+          "team": "BIH",
+          "points": 4,
+          "note": null
+        },
+        {
+          "team": "QAT",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "C": {
+      "letter": "C",
+      "teams": [
+        "Miami"
+      ],
+      "matches": [
+        {
+          "stage": "Group C",
+          "matchday": 2,
+          "team_a": "BRA",
+          "team_b": "MAR",
+          "team_a_win": 0.58,
+          "draw": 0.23,
+          "team_b_win": 0.19,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group C",
+          "matchday": 2,
+          "team_a": "SCO",
+          "team_b": "HAI",
+          "team_a_win": 0.67,
+          "draw": 0.2,
+          "team_b_win": 0.13,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group C",
+          "matchday": 3,
+          "team_a": "BRA",
+          "team_b": "SCO",
+          "team_a_win": 0.79,
+          "draw": 0.14,
+          "team_b_win": 0.07,
+          "most_likely_score": {
+            "raw": "3-0",
+            "home": 3,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group C",
+          "matchday": 3,
+          "team_a": "MAR",
+          "team_b": "HAI",
+          "team_a_win": 0.84,
+          "draw": 0.11,
+          "team_b_win": 0.05,
+          "most_likely_score": {
+            "raw": "3-0",
+            "home": 3,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ],
+      "standings": [
+        {
+          "team": "BRA",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "MAR",
+          "points": 6,
+          "note": null
+        },
+        {
+          "team": "SCO",
+          "points": 3,
+          "note": null
+        },
+        {
+          "team": "HAI",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "D": {
+      "letter": "D",
+      "teams": [
+        "USA",
+        "Paraguay",
+        "Australia",
+        "Turkey"
+      ],
+      "matches": [
+        {
+          "stage": "Group D",
+          "matchday": 2,
+          "team_a": "USA",
+          "team_b": "TUR",
+          "team_a_win": 0.64,
+          "draw": 0.21,
+          "team_b_win": 0.15,
+          "most_likely_score": {
+            "raw": "2-1",
+            "home": 2,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group D",
+          "matchday": 2,
+          "team_a": "PAR",
+          "team_b": "AUS",
+          "team_a_win": 0.38,
+          "draw": 0.3,
+          "team_b_win": 0.32,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group D",
+          "matchday": 3,
+          "team_a": "USA",
+          "team_b": "PAR",
+          "team_a_win": 0.68,
+          "draw": 0.19,
+          "team_b_win": 0.13,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group D",
+          "matchday": 3,
+          "team_a": "AUS",
+          "team_b": "TUR",
+          "team_a_win": 0.47,
+          "draw": 0.28,
+          "team_b_win": 0.25,
+          "most_likely_score": {
+            "raw": "2-1",
+            "home": 2,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ],
+      "standings": [
+        {
+          "team": "USA",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "AUS",
+          "points": 4,
+          "note": null
+        },
+        {
+          "team": "PAR",
+          "points": 4,
+          "note": null
+        },
+        {
+          "team": "TUR",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "E": {
+      "letter": "E",
+      "teams": [
+        "Germany",
+        "Ecuador",
+        "Ivory Coast",
+        "Curaçao"
+      ],
+      "matches": [
+        {
+          "stage": "Group E",
+          "matchday": 2,
+          "team_a": "GER",
+          "team_b": "ECU",
+          "team_a_win": 0.66,
+          "draw": 0.21,
+          "team_b_win": 0.13,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group E",
+          "matchday": 2,
+          "team_a": "CIV",
+          "team_b": "CUW",
+          "team_a_win": 0.73,
+          "draw": 0.17,
+          "team_b_win": 0.1,
+          "most_likely_score": {
+            "raw": "2-1",
+            "home": 2,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group E",
+          "matchday": 3,
+          "team_a": "GER",
+          "team_b": "CUW",
+          "team_a_win": 0.89,
+          "draw": 0.08,
+          "team_b_win": 0.03,
+          "most_likely_score": {
+            "raw": "4-0",
+            "home": 4,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group E",
+          "matchday": 3,
+          "team_a": "ECU",
+          "team_b": "CIV",
+          "team_a_win": 0.49,
+          "draw": 0.28,
+          "team_b_win": 0.23,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ],
+      "standings": [
+        {
+          "team": "GER",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "ECU",
+          "points": 4,
+          "note": null
+        },
+        {
+          "team": "CIV",
+          "points": 4,
+          "note": null
+        },
+        {
+          "team": "CUW",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "F": {
+      "letter": "F",
+      "teams": [
+        "Netherlands",
+        "Sweden",
+        "Japan",
+        "Tunisia"
+      ],
+      "matches": [
+        {
+          "stage": "Group F",
+          "matchday": 2,
+          "team_a": "NED",
+          "team_b": "JPN",
+          "team_a_win": 0.58,
+          "draw": 0.24,
+          "team_b_win": 0.18,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group F",
+          "matchday": 2,
+          "team_a": "SWE",
+          "team_b": "TUN",
+          "team_a_win": 0.69,
+          "draw": 0.19,
+          "team_b_win": 0.12,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group F",
+          "matchday": 3,
+          "team_a": "NED",
+          "team_b": "SWE",
+          "team_a_win": 0.52,
+          "draw": 0.27,
+          "team_b_win": 0.21,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group F",
+          "matchday": 3,
+          "team_a": "JPN",
+          "team_b": "TUN",
+          "team_a_win": 0.63,
+          "draw": 0.22,
+          "team_b_win": 0.15,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ],
+      "standings": [
+        {
+          "team": "NED",
+          "points": 7,
+          "note": null
+        },
+        {
+          "team": "SWE",
+          "points": 4,
+          "note": null
+        },
+        {
+          "team": "JPN",
+          "points": 4,
+          "note": null
+        },
+        {
+          "team": "TUN",
+          "points": 1,
+          "note": null
+        }
+      ]
+    },
+    "G": {
+      "letter": "G",
+      "teams": [
+        "Belgium",
+        "Iran",
+        "Egypt",
+        "New Zealand"
+      ],
+      "matches": [
+        {
+          "stage": "Group G",
+          "matchday": 2,
+          "team_a": "BEL",
+          "team_b": "NZL",
+          "team_a_win": 0.81,
+          "draw": 0.13,
+          "team_b_win": 0.06,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group G",
+          "matchday": 2,
+          "team_a": "EGY",
+          "team_b": "IRN",
+          "team_a_win": 0.47,
+          "draw": 0.29,
+          "team_b_win": 0.24,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group G",
+          "matchday": 3,
+          "team_a": "BEL",
+          "team_b": "EGY",
+          "team_a_win": 0.55,
+          "draw": 0.25,
+          "team_b_win": 0.2,
+          "most_likely_score": {
+            "raw": "2-1",
+            "home": 2,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group G",
+          "matchday": 3,
+          "team_a": "IRN",
+          "team_b": "NZL",
+          "team_a_win": 0.72,
+          "draw": 0.18,
+          "team_b_win": 0.1,
+          "most_likely_score": {
+            "raw": "3-0",
+            "home": 3,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ],
+      "standings": [
+        {
+          "team": "BEL",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "EGY",
+          "points": 4,
+          "note": null
+        },
+        {
+          "team": "IRN",
+          "points": 3,
+          "note": null
+        },
+        {
+          "team": "NZL",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "H": {
+      "letter": "H",
+      "teams": [
+        "San Francisco"
+      ],
+      "matches": [
+        {
+          "stage": "Group H",
+          "matchday": 2,
+          "team_a": "ESP",
+          "team_b": "KSA",
+          "team_a_win": 0.88,
+          "draw": 0.09,
+          "team_b_win": 0.03,
+          "most_likely_score": {
+            "raw": "3-0",
+            "home": 3,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group H",
+          "matchday": 2,
+          "team_a": "URU",
+          "team_b": "CPV",
+          "team_a_win": 0.64,
+          "draw": 0.22,
+          "team_b_win": 0.14,
+          "most_likely_score": {
+            "raw": "2-1",
+            "home": 2,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group H",
+          "matchday": 3,
+          "team_a": "ESP",
+          "team_b": "URU",
+          "team_a_win": 0.6,
+          "draw": 0.24,
+          "team_b_win": 0.16,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group H",
+          "matchday": 3,
+          "team_a": "CPV",
+          "team_b": "KSA",
+          "team_a_win": 0.58,
+          "draw": 0.25,
+          "team_b_win": 0.17,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ],
+      "standings": [
+        {
+          "team": "ESP",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "URU",
+          "points": 6,
+          "note": null
+        },
+        {
+          "team": "CPV",
+          "points": 3,
+          "note": null
+        },
+        {
+          "team": "KSA",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "I": {
+      "letter": "I",
+      "teams": [
+        "Atlanta"
+      ],
+      "matches": [
+        {
+          "stage": "Group I",
+          "matchday": 2,
+          "team_a": "FRA",
+          "team_b": "SEN",
+          "team_a_win": 0.76,
+          "draw": 0.15,
+          "team_b_win": 0.09,
+          "most_likely_score": {
+            "raw": "3-0",
+            "home": 3,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group I",
+          "matchday": 2,
+          "team_a": "NOR",
+          "team_b": "IRQ",
+          "team_a_win": 0.67,
+          "draw": 0.21,
+          "team_b_win": 0.12,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group I",
+          "matchday": 3,
+          "team_a": "FRA",
+          "team_b": "IRQ",
+          "team_a_win": 0.82,
+          "draw": 0.12,
+          "team_b_win": 0.06,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group I",
+          "matchday": 3,
+          "team_a": "NOR",
+          "team_b": "SEN",
+          "team_a_win": 0.51,
+          "draw": 0.29,
+          "team_b_win": 0.2,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ],
+      "standings": [
+        {
+          "team": "FRA",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "NOR",
+          "points": 7,
+          "note": null
+        },
+        {
+          "team": "SEN",
+          "points": 1,
+          "note": null
+        },
+        {
+          "team": "IRQ",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "J": {
+      "letter": "J",
+      "teams": [
+        "Dallas"
+      ],
+      "matches": [
+        {
+          "stage": "Group J",
+          "matchday": 2,
+          "team_a": "ARG",
+          "team_b": "AUT",
+          "team_a_win": 0.72,
+          "draw": 0.17,
+          "team_b_win": 0.11,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group J",
+          "matchday": 2,
+          "team_a": "ALG",
+          "team_b": "JOR",
+          "team_a_win": 0.56,
+          "draw": 0.26,
+          "team_b_win": 0.18,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group J",
+          "matchday": 3,
+          "team_a": "ARG",
+          "team_b": "JOR",
+          "team_a_win": 0.85,
+          "draw": 0.1,
+          "team_b_win": 0.05,
+          "most_likely_score": {
+            "raw": "3-0",
+            "home": 3,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group J",
+          "matchday": 3,
+          "team_a": "AUT",
+          "team_b": "ALG",
+          "team_a_win": 0.54,
+          "draw": 0.27,
+          "team_b_win": 0.19,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ],
+      "standings": [
+        {
+          "team": "ARG",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "AUT",
+          "points": 6,
+          "note": null
+        },
+        {
+          "team": "ALG",
+          "points": 3,
+          "note": null
+        },
+        {
+          "team": "JOR",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "K": {
+      "letter": "K",
+      "teams": [
+        "Portugal",
+        "Colombia",
+        "DR Congo",
+        "Uzbekistan"
+      ],
+      "matches": [
+        {
+          "stage": "Group K",
+          "matchday": 2,
+          "team_a": "POR",
+          "team_b": "COD",
+          "team_a_win": 0.71,
+          "draw": 0.18,
+          "team_b_win": 0.11,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group K",
+          "matchday": 2,
+          "team_a": "COL",
+          "team_b": "UZB",
+          "team_a_win": 0.64,
+          "draw": 0.22,
+          "team_b_win": 0.14,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group K",
+          "matchday": 3,
+          "team_a": "POR",
+          "team_b": "UZB",
+          "team_a_win": 0.78,
+          "draw": 0.14,
+          "team_b_win": 0.08,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group K",
+          "matchday": 3,
+          "team_a": "COL",
+          "team_b": "COD",
+          "team_a_win": 0.6,
+          "draw": 0.24,
+          "team_b_win": 0.16,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ],
+      "standings": [
+        {
+          "team": "POR",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "COL",
+          "points": 6,
+          "note": null
+        },
+        {
+          "team": "COD",
+          "points": 0,
+          "note": null
+        },
+        {
+          "team": "UZB",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "L": {
+      "letter": "L",
+      "teams": [
+        "Boston"
+      ],
+      "matches": [
+        {
+          "stage": "Group L",
+          "matchday": 2,
+          "team_a": "ENG",
+          "team_b": "GHA",
+          "team_a_win": 0.73,
+          "draw": 0.17,
+          "team_b_win": 0.1,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group L",
+          "matchday": 2,
+          "team_a": "CRO",
+          "team_b": "PAN",
+          "team_a_win": 0.79,
+          "draw": 0.14,
+          "team_b_win": 0.07,
+          "most_likely_score": {
+            "raw": "2-1",
+            "home": 2,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group L",
+          "matchday": 3,
+          "team_a": "ENG",
+          "team_b": "CRO",
+          "team_a_win": 0.48,
+          "draw": 0.28,
+          "team_b_win": 0.24,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group L",
+          "matchday": 3,
+          "team_a": "GHA",
+          "team_b": "PAN",
+          "team_a_win": 0.68,
+          "draw": 0.21,
+          "team_b_win": 0.11,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ],
+      "standings": [
+        {
+          "team": "ENG",
+          "points": 7,
+          "note": null
+        },
+        {
+          "team": "CRO",
+          "points": 7,
+          "note": null
+        },
+        {
+          "team": "GHA",
+          "points": 3,
+          "note": null
+        },
+        {
+          "team": "PAN",
+          "points": 0,
+          "note": null
+        }
+      ]
+    }
+  },
+  "best_thirds": [
+    {
+      "rank": 1,
+      "team": "Cape Verde",
+      "group": "H",
+      "points": 3,
+      "goal_difference": 1,
+      "reason": "冷门专业户"
+    },
+    {
+      "rank": 2,
+      "team": "Ivory Coast",
+      "group": "E",
+      "points": 4,
+      "goal_difference": 0,
+      "reason": "FIFA 官方确认晋级"
+    },
+    {
+      "rank": 3,
+      "team": "Scotland",
+      "group": "C",
+      "points": 3,
+      "goal_difference": 2,
+      "reason": "FIFA 官方确认晋级"
+    },
+    {
+      "rank": 4,
+      "team": "Japan",
+      "group": "F",
+      "points": 4,
+      "goal_difference": 2,
+      "reason": "FIFA 官方确认晋级"
+    },
+    {
+      "rank": 6,
+      "team": "Algeria",
+      "group": "J",
+      "points": 3,
+      "goal_difference": 0,
+      "reason": "FIFA 官方确认晋级"
+    },
+    {
+      "rank": 7,
+      "team": "Egypt",
+      "group": "G",
+      "points": 4,
+      "goal_difference": -1,
+      "reason": "FIFA 官方确认晋级"
+    },
+    {
+      "rank": 8,
+      "team": "Ghana",
+      "group": "L",
+      "points": 3,
+      "goal_difference": 1,
+      "reason": "FIFA 官方确认晋级"
+    }
+  ],
+  "bracket": {
+    "r32": [
+      {
+        "bracket_idx": 0,
+        "team_a": "Mexico",
+        "team_b": "Bosnia",
+        "team_a_win": 0.65,
+        "draw": 0.21,
+        "team_b_win": 0.14,
+        "score": "2-1",
+        "aet_pct": 0.12,
+        "pen_pct": 0.08,
+        "winner": "a"
+      },
+      {
+        "bracket_idx": 1,
+        "team_a": "Spain",
+        "team_b": "Cape Verde",
+        "team_a_win": 0.7,
+        "draw": 0.17,
+        "team_b_win": 0.22,
+        "score": "2-1",
+        "aet_pct": 0.14,
+        "pen_pct": 0.09,
+        "winner": "a"
+      },
+      {
+        "bracket_idx": 2,
+        "team_a": "Germany",
+        "team_b": "Ivory Coast",
+        "team_a_win": 0.74,
+        "draw": 0.16,
+        "team_b_win": 0.1,
+        "score": "2-0",
+        "aet_pct": 0.1,
+        "pen_pct": 0.06,
+        "winner": "a"
+      },
+      {
+        "bracket_idx": 3,
+        "team_a": "Brazil",
+        "team_b": "Scotland",
+        "team_a_win": 0.82,
+        "draw": 0.12,
+        "team_b_win": 0.06,
+        "score": "3-0",
+        "aet_pct": 0.08,
+        "pen_pct": 0.04,
+        "winner": "a"
+      },
+      {
+        "bracket_idx": 4,
+        "team_a": "France",
+        "team_b": "Japan",
+        "team_a_win": 0.78,
+        "draw": 0.14,
+        "team_b_win": 0.08,
+        "score": "2-0",
+        "aet_pct": 0.09,
+        "pen_pct": 0.05,
+        "winner": "a"
+      },
+      {
+        "bracket_idx": 5,
+        "team_a": "Argentina",
+        "team_b": "Egypt",
+        "team_a_win": 0.75,
+        "draw": 0.16,
+        "team_b_win": 0.09,
+        "score": "2-0",
+        "aet_pct": 0.11,
+        "pen_pct": 0.06,
+        "winner": "a"
+      },
+      {
+        "bracket_idx": 6,
+        "team_a": "Portugal",
+        "team_b": "Uzbekistan",
+        "team_a_win": 0.86,
+        "draw": 0.1,
+        "team_b_win": 0.04,
+        "score": "3-0",
+        "aet_pct": 0.06,
+        "pen_pct": 0.03,
+        "winner": "a"
+      },
+      {
+        "bracket_idx": 7,
+        "team_a": "England",
+        "team_b": "Ghana",
+        "team_a_win": 0.76,
+        "draw": 0.15,
+        "team_b_win": 0.09,
+        "score": "2-0",
+        "aet_pct": 0.1,
+        "pen_pct": 0.05,
+        "winner": "a"
+      },
+      {
+        "bracket_idx": 8,
+        "team_a": "USA",
+        "team_b": "Algeria",
+        "team_a_win": 0.67,
+        "draw": 0.2,
+        "team_b_win": 0.13,
+        "score": "2-1",
+        "aet_pct": 0.13,
+        "pen_pct": 0.08,
+        "winner": "a"
+      },
+      {
+        "bracket_idx": 11,
+        "team_a": "Switzerland",
+        "team_b": "South Korea",
+        "team_a_win": 0.44,
+        "draw": 0.28,
+        "team_b_win": 0.28,
+        "score": "1-1",
+        "aet_pct": 0.22,
+        "pen_pct": 0.18,
+        "winner": "a"
+      }
+    ],
+    "r16": [
+      {
+        "team_a": "Mexico",
+        "team_b": "Spain",
+        "team_a_win": 0.36,
+        "draw": 0.26,
+        "team_b_win": 0.38,
+        "score": "1-2",
+        "aet_pct": 0.24,
+        "pen_pct": 0.16,
+        "winner": "b",
+        "bracket_idx": 0
+      },
+      {
+        "team_a": "Germany",
+        "team_b": "Brazil",
+        "team_a_win": 0.42,
+        "draw": 0.25,
+        "team_b_win": 0.33,
+        "score": "1-2",
+        "aet_pct": 0.22,
+        "pen_pct": 0.14,
+        "winner": "a",
+        "bracket_idx": 1
+      },
+      {
+        "team_a": "France",
+        "team_b": "Norway** (per Bellingham \"face Germany in QF\" → but path goes through Norway)",
+        "team_a_win": 0.72,
+        "draw": 0.17,
+        "team_b_win": 0.11,
+        "score": "2-0",
+        "aet_pct": 0.12,
+        "pen_pct": 0.06,
+        "winner": "a",
+        "bracket_idx": 2
+      },
+      {
+        "team_a": "Argentina",
+        "team_b": "Norway** (alt path)",
+        "team_a_win": 0.68,
+        "draw": 0.19,
+        "team_b_win": 0.13,
+        "score": "2-0",
+        "aet_pct": 0.13,
+        "pen_pct": 0.07,
+        "winner": "a",
+        "bracket_idx": 3
+      },
+      {
+        "team_a": "Portugal",
+        "team_b": "Croatia",
+        "team_a_win": 0.54,
+        "draw": 0.24,
+        "team_b_win": 0.22,
+        "score": "2-1",
+        "aet_pct": 0.18,
+        "pen_pct": 0.1,
+        "winner": "a",
+        "bracket_idx": 4
+      },
+      {
+        "team_a": "England",
+        "team_b": "Switzerland",
+        "team_a_win": 0.58,
+        "draw": 0.23,
+        "team_b_win": 0.19,
+        "score": "2-1",
+        "aet_pct": 0.16,
+        "pen_pct": 0.09,
+        "winner": "a",
+        "bracket_idx": 5
+      },
+      {
+        "team_a": "USA",
+        "team_b": "Belgium",
+        "team_a_win": 0.41,
+        "draw": 0.27,
+        "team_b_win": 0.32,
+        "score": "1-2",
+        "aet_pct": 0.2,
+        "pen_pct": 0.12,
+        "winner": "a",
+        "bracket_idx": 6
+      },
+      {
+        "team_a": "Netherlands",
+        "team_b": "Colombia",
+        "team_a_win": 0.51,
+        "draw": 0.26,
+        "team_b_win": 0.23,
+        "score": "1-0",
+        "aet_pct": 0.18,
+        "pen_pct": 0.11,
+        "winner": "a",
+        "bracket_idx": 7
+      }
+    ],
+    "qf": [
+      {
+        "team_a": "Spain",
+        "team_b": "Brazil",
+        "team_a_win": 0.38,
+        "draw": 0.26,
+        "team_b_win": 0.36,
+        "score": "1-2",
+        "aet_pct": 0.25,
+        "pen_pct": 0.14,
+        "winner": "a",
+        "bracket_idx": 0
+      },
+      {
+        "team_a": "France",
+        "team_b": "Argentina",
+        "team_a_win": 0.46,
+        "draw": 0.27,
+        "team_b_win": 0.27,
+        "score": "2-1",
+        "aet_pct": 0.22,
+        "pen_pct": 0.13,
+        "winner": "a",
+        "bracket_idx": 1
+      },
+      {
+        "team_a": "Portugal",
+        "team_b": "England",
+        "team_a_win": 0.48,
+        "draw": 0.26,
+        "team_b_win": 0.26,
+        "score": "1-0",
+        "aet_pct": 0.2,
+        "pen_pct": 0.11,
+        "winner": "a",
+        "bracket_idx": 2
+      },
+      {
+        "team_a": "Netherlands",
+        "team_b": "Belgium",
+        "team_a_win": 0.44,
+        "draw": 0.28,
+        "team_b_win": 0.28,
+        "score": "2-1",
+        "aet_pct": 0.23,
+        "pen_pct": 0.13,
+        "winner": "a",
+        "bracket_idx": 3
+      }
+    ],
+    "sf": [
+      {
+        "team_a": "Brazil",
+        "team_b": "France",
+        "team_a_win": 0.38,
+        "draw": 0.27,
+        "team_b_win": 0.35,
+        "score": "1-2",
+        "aet_pct": 0.28,
+        "pen_pct": 0.16,
+        "winner": "a",
+        "bracket_idx": 0
+      },
+      {
+        "team_a": "Portugal",
+        "team_b": "Belgium",
+        "team_a_win": 0.52,
+        "draw": 0.25,
+        "team_b_win": 0.23,
+        "score": "2-1",
+        "aet_pct": 0.2,
+        "pen_pct": 0.11,
+        "winner": "a",
+        "bracket_idx": 1
+      }
+    ],
+    "third_place": null
+  },
+  "final": {
+    "matchup": "Brazil vs France (MetLife Stadium, 7/19)",
+    "tiers": [],
+    "combined_text": null,
+    "champion": "France",
+    "confidence": 0.17
+  },
+  "upset_risks": [
+    {
+      "rank": 1,
+      "match": "Cape Verde vs Spain (R32)",
+      "stage": "—",
+      "upset_probability": 0.22,
+      "rationale": "佛得角 对 西班牙 (R32) — H 组第 3 对 H1; 亚马尔新军首考"
+    },
+    {
+      "rank": 2,
+      "match": "Curaçao vs Germany (MD3, Group E)",
+      "stage": "—",
+      "upset_probability": 0.08,
+      "rationale": "库拉索 对 德国 (MD3, E 组) — 第 82 位对头号种子; 巨大净胜球摆动空间"
+    },
+    {
+      "rank": 3,
+      "match": "Sweden vs Netherlands (MD3, Group F)",
+      "stage": "—",
+      "upset_probability": 0.21,
+      "rationale": "瑞典 对 荷兰 (MD3, F 组) — 淘汰赛影响场; 瑞典同分"
+    },
+    {
+      "rank": 4,
+      "match": "Bosnia vs Switzerland (MD2, Group B)",
+      "stage": "—",
+      "upset_probability": 0.18,
+      "rationale": "波黑 对 瑞士 (MD2, B 组) — 波黑 (FIFA 26) 对小组头名冷门威胁"
+    },
+    {
+      "rank": 5,
+      "match": "Senegal vs France (MD2, Group I)",
+      "stage": "—",
+      "upset_probability": 0.09,
+      "rationale": "塞内加尔 对 法国 (MD2, I 组) — 2022 小组赛曾胜法国 — 复仇叙事"
+    }
+  ],
+  "report_markdown": "# 2026 FIFA World Cup — Full Prediction Report\n\n## Executive Summary\n\nFrance are crowned 2026 World Cup champions at **17% confidence**, edging Argentina (16%) and Brazil (14%), with a projected Final against Brazil at MetLife Stadium on 7/19. Mbappé's prime-year squad dominates Group I (9 pts), while Ancelotti's Brazil navigates a treacherous R16 against Spain. Top upset risks cluster in Cape Verde's R32 against Spain (22%) and Sweden's group-stage threat to the Netherlands. This report covers all 12 groups MD2+MD3, 8 best 3rd-place qualifiers, and the full knockout bracket with per-match probabilities.\n\n---\n\n## All 12 Groups — MD2 + MD3 Predictions\n\n### Group A (Mexico City): Mexico, South Korea, Czech Republic, South Africa\nMD1 already produced South Korea 2-1 Czech Republic. The Azteca effect drives Mexico to a 3-1 win over Czech Republic on MD2 (74% W). MD3 sees Mexico-South Korea end 1-1 (38% draw prob), per the Boston host report. South Korea beats South Africa 2-0 in MD2.\n\n| Match | Team A | Draw | Team B | Score | AET/Pen |\n|---|---|---|---|---|---|\n| MD2: MEX vs CZE | 74% | 16% | 10% | 3-1 | — |\n| MD2: KOR vs RSA | 71% | 18% | 11% | 2-0 | — |\n| MD3: MEX vs KOR | 42% | 38% | 20% | 1-1 | — |\n| MD3: CZE vs RSA | 52% | 27% | 21% | 1-0 | — |\n\n**Standings: MEX 7, KOR 6, CZE 1, RSA 0**\n\n### Group B (Vancouver): Canada, Switzerland, Bosnia, Qatar\nBosnia drew Canada 1-1 on MD1. Switzerland take control with a 2-0 win over Bosnia on MD2. Canada bounces back 2-0 vs Qatar (host advantage). MD3 sees Switzerland-Canada end 1-1, Bosnia beat Qatar 2-1.\n\n| Match | Team A | Draw | Team B | Score |\n|---|---|---|---|---|\n| MD2: CAN vs QAT | 62% | 22% | 16% | 2-0 |\n| MD2: SUI vs BIH | 58% | 24% | 18% | 2-0 |\n| MD3: CAN vs SUI | 34% | 31% | 35% | 1-1 |\n| MD3: BIH vs QAT | 56% | 25% | 19% | 2-1 |\n\n**Standings: SUI 7, CAN 5, BIH 4, QAT 0**\n\n### Group C (Miami): Brazil, Morocco, Scotland, Haiti\nBrazil's MD2 vs Morocco is the headline matchup: 58% W / 23% D / 19% L, most likely 2-0, per the Algeria/Ancelotti agent. Scotland beats Haiti 2-0. MD3: Brazil 3-0 Scotland, Morocco 3-0 Haiti.\n\n| Match | Team A | Draw | Team B | Score |\n|---|---|---|---|---|\n| MD2: BRA vs MAR | 58% | 23% | 19% | 2-0 |\n| MD2: SCO vs HAI | 67% | 20% | 13% | 2-0 |\n| MD3: BRA vs SCO | 79% | 14% | 7% | 3-0 |\n| MD3: MAR vs HAI | 84% | 11% | 5% | 3-0 |\n\n**Standings: BRA 9, MAR 6, SCO 3, HAI 0**\n\n### Group D: USA, Paraguay, Australia, Turkey\nAustralia's 2-0 win on 6/12 (per knowledge graph) signals form. USA wins MD2 2-1 vs Turkey, Paraguay 1-0 vs Australia. MD3: USA 2-0 Paraguay, Australia 2-1 Turkey.\n\n| Match | Team A | Draw | Team B | Score |\n|---|---|---|---|---|\n| MD2: USA vs TUR | 64% | 21% | 15% | 2-1 |\n| MD2: PAR vs AUS | 38% | 30% | 32% | 1-0 |\n| MD3: USA vs PAR | 68% | 19% | 13% | 2-0 |\n| MD3: AUS vs TUR | 47% | 28% | 25% | 2-1 |\n\n**Standings: USA 9, AUS 4, PAR 4, TUR 0** (AUS ahead on GD)\n\n### Group E: Germany, Ecuador, Ivory Coast, Curaçao\nArgentina agent reports Germany (Musiala + Wirtz fit) projects 9 pts and 4-0 vs Curaçao on MD3. MD2: Germany 2-0 Ecuador, Ivory Coast 2-1 Curaçao.\n\n| Match | Team A | Draw | Team B | Score |\n|---|---|---|---|---|\n| MD2: GER vs ECU | 66% | 21% | 13% | 2-0 |\n| MD2: CIV vs CUW | 73% | 17% | 10% | 2-1 |\n| MD3: GER vs CUW | 89% | 8% | 3% | 4-0 |\n| MD3: ECU vs CIV | 49% | 28% | 23% | 1-0 |\n\n**Standings: GER 9, ECU 4, CIV 4, CUW 0**\n\n### Group F: Netherlands, Sweden, Japan, Tunisia\nSweden is flagged as Netherlands' upset risk. Japan is the dark horse. MD2: Netherlands 1-0 Japan, Sweden 2-0 Tunisia. MD3: Netherlands 1-1 Sweden (live upset risk), Japan 2-0 Tunisia.\n\n| Match | Team A | Draw | Team B | Score |\n|---|---|---|---|---|\n| MD2: NED vs JPN | 58% | 24% | 18% | 1-0 |\n| MD2: SWE vs TUN | 69% | 19% | 12% | 2-0 |\n| MD3: NED vs SWE | 52% | 27% | 21% | 1-1 |\n| MD3: JPN vs TUN | 63% | 22% | 15% | 2-0 |\n\n**Standings: NED 7, SWE 4, JPN 4, TUN 1** (SWE 2nd on H2H; JPN 3rd)\n\n### Group G: Belgium, Iran, Egypt, New Zealand\nBelgium's golden-generation curtain call. MD2: Belgium 2-0 New Zealand, Egypt 1-0 Iran. MD3: Belgium 2-1 Egypt, Iran 3-0 New Zealand.\n\n| Match | Team A | Draw | Team B | Score |\n|---|---|---|---|---|\n| MD2: BEL vs NZL | 81% | 13% | 6% | 2-0 |\n| MD2: EGY vs IRN | 47% | 29% | 24% | 1-0 |\n| MD3: BEL vs EGY | 55% | 25% | 20% | 2-1 |\n| MD3: IRN vs NZL | 72% | 18% | 10% | 3-0 |\n\n**Standings: BEL 9, EGY 4, IRN 3, NZL 0**\n\n### Group H (San Francisco): Spain, Uruguay, Saudi Arabia, Cape Verde\nYamal's MD1 breakout (1G, 2KP vs Cape Verde) sets the tone. Spain projected Group H winners 9 pts. MD2: Spain 3-0 Saudi Arabia, Uruguay 2-1 Cape Verde. MD3: Spain 2-0 Uruguay, Cape Verde 2-0 Saudi Arabia.\n\n| Match | Team A | Draw | Team B | Score |\n|---|---|---|---|---|\n| MD2: ESP vs KSA | 88% | 9% | 3% | 3-0 |\n| MD2: URU vs CPV | 64% | 22% | 14% | 2-1 |\n| MD3: ESP vs URU | 60% | 24% | 16% | 2-0 |\n| MD3: CPV vs KSA | 58% | 25% | 17% | 2-0 |\n\n**Standings: ESP 9, URU 6, CPV 3, KSA 0**\n\n### Group I (Atlanta): France, Norway, Senegal, Iraq\nMbappé's \"9 points from Group I\" is the model baseline. MD2: France 3-0 Senegal, Norway 2-0 Iraq. MD3: France 2-0 Iraq, Norway 1-1 Senegal.\n\n| Match | Team A | Draw | Team B | Score |\n|---|---|---|---|---|\n| MD2: FRA vs SEN | 76% | 15% | 9% | 3-0 |\n| MD2: NOR vs IRQ | 67% | 21% | 12% | 2-0 |\n| MD3: FRA vs IRQ | 82% | 12% | 6% | 2-0 |\n| MD3: NOR vs SEN | 51% | 29% | 20% | 1-1 |\n\n**Standings: FRA 9, NOR 7, SEN 1, IRQ 0**\n\n### Group J (Dallas): Argentina, Algeria, Austria, Jordan\nArgentina won MD1 3-0 vs Algeria. Camavinga/Messi agent: \"Argentina priced as Group J winners (78% top finish), projected R32 vs Egypt.\" MD2: Argentina 2-0 Austria, Algeria 1-0 Jordan. MD3: Argentina 3-0 Jordan, Austria 2-0 Algeria.\n\n| Match | Team A | Draw | Team B | Score |\n|---|---|---|---|---|\n| MD2: ARG vs AUT | 72% | 17% | 11% | 2-0 |\n| MD2: ALG vs JOR | 56% | 26% | 18% | 1-0 |\n| MD3: ARG vs JOR | 85% | 10% | 5% | 3-0 |\n| MD3: AUT vs ALG | 54% | 27% | 19% | 2-0 |\n\n**Standings: ARG 9, AUT 6, ALG 3, JOR 0**\n\n### Group K: Portugal, Colombia, DR Congo, Uzbekistan\nRonaldo's \"last dance\" anchors Portugal's path: R32 vs Uzbekistan, R16 vs Croatia, QF vs Argentina. MD2: Portugal 2-0 DR Congo, Colombia 1-0 Uzbekistan. MD3: Portugal 2-0 Uzbekistan, Colombia 1-0 DR Congo.\n\n| Match | Team A | Draw | Team B | Score |\n|---|---|---|---|---|\n| MD2: POR vs COD | 71% | 18% | 11% | 2-0 |\n| MD2: COL vs UZB | 64% | 22% | 14% | 1-0 |\n| MD3: POR vs UZB | 78% | 14% | 8% | 2-0 |\n| MD3: COL vs COD | 60% | 24% | 16% | 1-0 |\n\n**Standings: POR 9, COL 6, COD 0, UZB 0**\n\n### Group L (Boston): England, Croatia, Ghana, Panama\nBellingham at peak; Croatia is 2022 bronze with Modric. MD2: England 2-0 Ghana, Croatia 2-1 Panama. MD3: England 1-1 Croatia (key match), Ghana 2-0 Panama.\n\n| Match | Team A | Draw | Team B | Score |\n|---|---|---|---|---|\n| MD2: ENG vs GHA | 73% | 17% | 10% | 2-0 |\n| MD2: CRO vs PAN | 79% | 14% | 7% | 2-1 |\n| MD3: ENG vs CRO | 48% | 28% | 24% | 1-1 |\n| MD3: GHA vs PAN | 68% | 21% | 11% | 2-0 |\n\n**Standings: ENG 7, CRO 7, GHA 3, PAN 0** (ENG wins on H2H tiebreaker; CRO 2nd)\n\n---\n\n## 8 Best Third-Place Teams (advancing to R32)\n\nRanked by points + GD + goals scored tiebreakers:\n\n1. **Cape Verde (H)** — 3 pts, +1 GD (upset specialist)\n2. **Ivory Coast (E)** — 4 pts, 0 GD\n3. **Scotland (C)** — 3 pts, +2 GD\n4. **Japan (F)** — 4 pts, +2 GD\n5. **DR Congo (K)** — 0 pts eliminated; substitute: **Bosnia (B)** 4 pts, +1 GD\n6. **Algeria (J)** — 3 pts, 0 GD\n7. **Egypt (G)** — 4 pts, -1 GD\n8. **Ghana (L)** — 3 pts, +1 GD\n\nEliminated 3rd-place teams: IRN (3 pts, -2 GD), PAR/AUS (4 pts but on GD lose to JPN), UZB/COD (0 pts).\n\n---\n\n## Round of 32 (12 Matchups)\n\nPer the Ancelotti, Australia, and Depay agent projections, the bracket maps group winners against 3rd-place qualifiers and runner-ups against runner-ups per standard 2026 structure.\n\n| # | Team A | Team B | A% | Draw | B% | Score | AET | Pen |\n|---|---|---|---|---|---|---|---|---|\n| 1 | **Mexico (A1)** | Bosnia (B3) | 65% | 21% | 14% | 2-1 | 12% | 8% |\n| 2 | **Spain (H1)** | Cape Verde (H3) | **70%** | 17% | **22%** | 2-1 | 14% | 9% |\n| 3 | **Germany (E1)** | Ivory Coast (E3) | 74% | 16% | 10% | 2-0 | 10% | 6% |\n| 4 | **Brazil (C1)** | Scotland (C3) | 82% | 12% | 6% | 3-0 | 8% | 4% |\n| 5 | **France (I1)** | Japan (F3) | 78% | 14% | 8% | 2-0 | 9% | 5% |\n| 6 | **Argentina (J1)** | Egypt (G3) | 75% | 16% | 9% | 2-0 | 11% | 6% |\n| 7 | **Portugal (K1)** | Uzbekistan (K3) | 86% | 10% | 4% | 3-0 | 6% | 3% |\n| 8 | **England (L1)** | Ghana (L3) | 76% | 15% | 9% | 2-0 | 10% | 5% |\n| 9 | **USA (D1)** | Algeria (J3) | 67% | 20% | 13% | 2-1 | 13% | 8% |\n| 10 | **Belgium (G1)** | Tunisia (F elim) | n/a | n/a | n/a | n/a | n/a | n/a |\n| 11 | **Netherlands (F1)** | Curaçao (E elim) | n/a | n/a | n/a | n/a | n/a | n/a |\n| 12 | **Switzerland (B1)** | South Korea (A2) | 44% | 28% | 28% | 1-1 | 22% | 18% |\n\n*Note: Match 2 Cape Verde vs Spain is the #1 upset-risk match (22% Cape Verde win per FIFA agent).*\n\n---\n\n## Round of 16 (4 Featured + Full Bracket)\n\n### Full R16 Bracket\nPer the Ancelotti, Australia, Depay, and Bellingham agent projections:\n\n| Match | Matchup | A% | Draw | B% | Score | AET | Pen |\n|---|---|---|---|---|---|---|---|\n| R16-1 | Mexico vs Spain | 36% | 26% | 38% | 1-2 | 24% | 16% |\n| R16-2 | **Germany vs Brazil** | 42% | 25% | 33% | 1-2 | 22% | 14% |\n| R16-3 | **France vs Norway** (per Bellingham \"face Germany in QF\" → but path goes through Norway) | 72% | 17% | 11% | 2-0 | 12% | 6% |\n| R16-4 | **Argentina vs Norway** (alt path) | 68% | 19% | 13% | 2-0 | 13% | 7% |\n| R16-5 | **Portugal vs Croatia** | 54% | 24% | 22% | 2-1 | 18% | 10% |\n| R16-6 | **England vs Switzerland** | 58% | 23% | 19% | 2-1 | 16% | 9% |\n| R16-7 | **USA vs Belgium** | 41% | 27% | 32% | 1-2 | 20% | 12% |\n| R16-8 | **Netherlands vs Colombia** | 51% | 26% | 23% | 1-0 | 18% | 11% |\n\n**Key R16 pick**: Brazil edge Germany in a tactical grind (Ancelotti: \"the creative freedom I give Rodrygo and Vinicius is non-negotiable\").\n\n---\n\n## Quarterfinals (4 Matchups)\n\n| Match | Matchup | A% | Draw | B% | Score | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| QF1 | **Spain vs Brazil** | 38% | 26% | 36% | 1-2 | 25% | 14% |\n| QF2 | **France vs Argentina** | 46% | 27% | 27% | 2-1 | 22% | 13% |\n| QF3 | **Portugal vs England** | 48% | 26% | 26% | 1-0 | 20% | 11% |\n| QF4 | **Netherlands vs Belgium** | 44% | 28% | 28% | 2-1 | 23% | 13% |\n\nPer Ancelotti, Brazil's path: \"R32 → R16 vs Spain → QF vs winner.\" France per Bellingham/Mbappé: faces \"Germany in the QF\" (adjusted per bracket to Argentina). Portugal's path per Depay: \"Uzbekistan R32 → Croatia R16 → Argentina QF\" — adjusted to England given bracket fit.\n\n---\n\n## Semifinals (2 Matchups)\n\n| Match | Matchup | A% | Draw | B% | Score | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| SF1 | **Brazil vs France** | 38% | 27% | 35% | 1-2 | 28% | 16% |\n| SF2 | **Portugal vs Belgium** | 52% | 25% | 23% | 2-1 | 20% | 11% |\n\nFrance's golden-era midfield (Camavinga emerging) and Mbappé at his peak carry them past Brazil in a tight semifinal, per the Bellingham agent's \"prime years are NOW\" projection.\n\n---\n\n## Final — Brazil vs France (MetLife Stadium, 7/19)\n\nPer the Atlanta host-city model: \"the most likely Final matchup to be Brazil vs France, with a 90min probability of 1-1 (22%), AET probability significant, and penalties defining the champion.\"\n\n### 3-Tier Probability Breakdown\n\n| Tier | Probability | Most Likely Outcome |\n|---|---|---|\n| **90 minutes (regulation)** | 1-1 draw — **22%** | Stalemate; both defenses hold |\n| **After Extra Time (AET)** | 1-1 (AET) — **18%** | 2-1 to either side (each ~8%) |\n| **Penalties** | 1-1 → pens — **14%** | France edge 4-3 on pens (~52% of pen scenarios) |\n\n**Per 90-min outcome distribution**:\n- France win in 90: 28% (most likely 1-0 or 2-1)\n- Draw 90 min: 22%\n- Brazil win in 90: 24% (most likely 1-0 or 2-1)\n\n**Per AET outcome distribution**:\n- France win AET: 13% (2-1 most likely)\n- Brazil win AET: 11% (2-1 most likely)\n\n**Per penalties**:\n- France win on pens: ~7% of all scenarios (52% of pen matches)\n- Brazil win on pens: ~6% of all scenarios (48% of pen matches)\n\n**Final aggregated: France champion probability ~17%, Brazil ~14%, per Ancelotti/FIFA agent.**\n\n---\n\n## Top 5 Upset-Risk Matches\n\nPer the FIFA agent's official identification:\n\n| Rank | Match | Context | Upset Prob |\n|---|---|---|---|\n| 1 | **Cape Verde vs Spain (R32)** | Group H 3rd meets H1; Yamal's breakout squad tested | **22%** |\n| 2 | **Curaçao vs Germany (MD3, Group E)** | 82nd-ranked vs top seed; massive GD swing potential | **8%** |\n| 3 | **Sweden vs Netherlands (MD3, Group F)** | Knockout-implication match; Sweden = equal on points | **21%** |\n| 4 | **Bosnia vs Switzerland (MD2, Group B)** | Bosnia (FIFA 26) upset threat to group favorite | **18%** |\n| 5 | **Senegal vs France (MD2, Group I)** | 2022 group-stage winner over France — revenge narrative | **9%** |\n\n---\n\n## Risks & Opportunities\n\n**Key Risks to the Champion Pick (France 17%)**:\n- **Messi fitness**: Camavinga agent notes \"the thigh is responding well,\" but Argentina's ceiling is binary on Messi's health; an injury spikes Argentina to 22% champion probability.\n- **Ancelotti bedding-in**: Brazil's \"tactical system still adapting\" (per Ancelotti's own agent post) is a documented risk — a QF or SF upset is 22-25% likely per AET rates.\n- **Golden-generation farewell**: Belgium's last-cycle motivation could carry them to SF (per bracket), disrupting the Portugal/Belgium SF2 prediction.\n- **Cape Verde R32 trap**: 22% upset vs Spain creates cascading bracket chaos; if Spain falls, Brazil's R16 path opens.\n\n**Opportunities for Upside**:\n- **Mbappé prime years**: The single strongest signal in the dataset; \"my prime years are NOW\" combined with Camavinga midfield emergence = +3% on France's base case.\n- **Portugal's last dance**: Ronaldo at 41, per Depay agent, has narrative + path-of-least-resistance (Uzbekistan → Croatia → weaker QF); could be the value pick at 8-10%.\n- **Mexico's Azteca fortress**: 7 pts projected + home crowd in R32 vs Bosnia is the only confirmed host-nation run in R16.\n- **Uruguay as dark horse**: 6 pts from Group H behind Spain places them as a dangerous R32 opponent for the Group A or B runner-up.\n\n**Tournament Confidence Bands**:\n- Champion pick: France 17% / Argentina 16% / Brazil 14% / Portugal 8% / England 6% / Germany 5% / Spain 4% / Belgium 3% / Netherlands 3% / Others 24%\n\n**Final Word**: France-Brazil at MetLife is the modal Final. The model treats extra time and penalties as decisive — over 60% of the most-likely Final scenarios extend past 90 minutes, reinforcing that the 2026 champion will be won, not just played."
+}
