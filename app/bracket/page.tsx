@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { getLatestRound3Run } from "@/lib/data";
+import { getLatestRound3Run, teamFlag, teamNameZh } from "@/lib/data";
+import { matchHref } from "@/lib/matchUrl";
 import type { BracketMatch } from "@/lib/types";
 
 // 一列宽度 + 一行高度 + SVG 总尺寸。所有匹配卡几何参数在这里集中调整。
@@ -266,12 +267,15 @@ export default function BracketPage() {
           <div className="text-xs uppercase tracking-wider text-gray-500 mb-2 font-bold">
             🥉 季军赛
           </div>
-          <div className="flex items-center gap-4">
-            <div className="text-lg font-bold">
-              {bracket.third_place.team_a}
-              <span className="mx-2 text-gray-400">vs</span>
-              {bracket.third_place.team_b}
-            </div>
+          <div className="flex items-center gap-4 flex-wrap">
+            <Link
+              href={matchHref(bracket.third_place.team_a, bracket.third_place.team_b)}
+              className="text-lg font-bold hover:underline cursor-pointer"
+            >
+              {teamFlag(bracket.third_place.team_a)} {teamNameZh(bracket.third_place.team_a)}
+              <span className="mx-2 text-gray-400">对</span>
+              {teamFlag(bracket.third_place.team_b)} {teamNameZh(bracket.third_place.team_b)}
+            </Link>
             <div className="text-2xl font-black text-orange-600 dark:text-orange-400 font-mono">
               {bracket.third_place.score}
             </div>
@@ -357,14 +361,15 @@ function MatchCard({
     >
       {/* Team A 行 */}
       <div className="flex items-center justify-between px-2 h-[20px]">
-        <div
-          className={`flex items-center gap-1 text-sm truncate ${
+        <Link
+          href={matchHref(match.team_a, match.team_b)}
+          className={`flex items-center gap-1 text-sm truncate hover:underline cursor-pointer ${
             aWins ? "font-bold text-emerald-700 dark:text-emerald-400" : bWins ? "text-gray-400" : ""
           }`}
         >
-          <span className="text-base leading-none">{flagFor(match.team_a)}</span>
-          <span className="truncate">{match.team_a}</span>
-        </div>
+          <span className="text-base leading-none">{teamFlag(match.team_a)}</span>
+          <span className="truncate">{teamNameZh(match.team_a)}</span>
+        </Link>
         <span
           className={`text-xs font-mono shrink-0 ${
             aWins ? "text-emerald-600 dark:text-emerald-400 font-bold" : "text-gray-500"
@@ -375,14 +380,15 @@ function MatchCard({
       </div>
       {/* Team B 行 */}
       <div className="flex items-center justify-between px-2 h-[20px] border-t border-gray-100 dark:border-gray-800">
-        <div
-          className={`flex items-center gap-1 text-sm truncate ${
+        <Link
+          href={matchHref(match.team_a, match.team_b)}
+          className={`flex items-center gap-1 text-sm truncate hover:underline cursor-pointer ${
             bWins ? "font-bold text-emerald-700 dark:text-emerald-400" : aWins ? "text-gray-400" : ""
           }`}
         >
-          <span className="text-base leading-none">{flagFor(match.team_b)}</span>
-          <span className="truncate">{match.team_b}</span>
-        </div>
+          <span className="text-base leading-none">{teamFlag(match.team_b)}</span>
+          <span className="truncate">{teamNameZh(match.team_b)}</span>
+        </Link>
         <span
           className={`text-xs font-mono shrink-0 ${
             bWins ? "text-emerald-600 dark:text-emerald-400 font-bold" : "text-gray-500"
@@ -437,20 +443,26 @@ function FinalChampionCard({
       </div>
       {/* Team A */}
       <div className="flex items-center justify-between px-3 py-1.5">
-        <div className="flex items-center gap-1.5 text-base font-bold">
-          <span className="text-2xl leading-none">{flagFor(m.team_a)}</span>
-          <span>{m.team_a}</span>
-        </div>
+        <Link
+          href={matchHref(m.team_a, m.team_b)}
+          className="flex items-center gap-1.5 text-base font-bold hover:underline cursor-pointer"
+        >
+          <span className="text-2xl leading-none">{teamFlag(m.team_a)}</span>
+          <span>{teamNameZh(m.team_a)}</span>
+        </Link>
         <span className="text-xs text-gray-500 font-mono">
           {Math.round(m.team_a_win * 100)}%
         </span>
       </div>
       {/* Team B */}
       <div className="flex items-center justify-between px-3 py-1.5 border-t border-gray-100 dark:border-gray-800">
-        <div className="flex items-center gap-1.5 text-base">
-          <span className="text-2xl leading-none">{flagFor(m.team_b)}</span>
-          <span>{m.team_b}</span>
-        </div>
+        <Link
+          href={matchHref(m.team_a, m.team_b)}
+          className="flex items-center gap-1.5 text-base hover:underline cursor-pointer"
+        >
+          <span className="text-2xl leading-none">{teamFlag(m.team_b)}</span>
+          <span>{teamNameZh(m.team_b)}</span>
+        </Link>
         <span className="text-xs text-gray-500 font-mono">
           {Math.round(m.team_b_win * 100)}%
         </span>
@@ -462,29 +474,13 @@ function FinalChampionCard({
       {/* 冠军徽章 */}
       <div className="px-3 py-1.5 flex items-center justify-between bg-yellow-100/50 dark:bg-yellow-900/20 rounded-b-lg">
         <span className="text-xs text-gray-600 dark:text-gray-400">冠军:</span>
-        <span className="text-base font-black bg-gradient-to-r from-emerald-600 to-yellow-600 bg-clip-text text-transparent">
-          {champion} {Math.round(confidence * 100)}%
-        </span>
+        <Link
+          href={matchHref(m.team_a, m.team_b)}
+          className="text-base font-black bg-gradient-to-r from-emerald-600 to-yellow-600 bg-clip-text text-transparent hover:underline cursor-pointer"
+        >
+          {teamFlag(champion)} {teamNameZh(champion)} {Math.round(confidence * 100)}%
+        </Link>
       </div>
     </div>
   );
-}
-
-// 临时旗子 helper (不查 lib.data 避免 SSR issue)
-function flagFor(team: string): string {
-  const m: Record<string, string> = {
-    Mexico: "🇲🇽", "South Korea": "🇰🇷", "Czech Republic": "🇨🇿", "South Africa": "🇿🇦",
-    Switzerland: "🇨🇭", Qatar: "🇶🇦", Bosnia: "🇧🇦", Canada: "🇨🇦",
-    Brazil: "🇧🇷", Morocco: "🇲🇦", Scotland: "🏴", Haiti: "🇭🇹",
-    USA: "🇺🇸", Paraguay: "🇵🇾", Australia: "🇦🇺", Turkey: "🇹🇷",
-    Germany: "🇩🇪", Ecuador: "🇪🇨", "Ivory Coast": "🇨🇮", Curaçao: "🇨🇼",
-    Netherlands: "🇳🇱", Sweden: "🇸🇪", Japan: "🇯🇵", Tunisia: "🇹🇳",
-    Belgium: "🇧🇪", Iran: "🇮🇷", Egypt: "🇪🇬", "New Zealand": "🇳🇿",
-    Spain: "🇪🇸", Uruguay: "🇺🇾", "Saudi Arabia": "🇸🇦", "Cape Verde": "🇨🇻",
-    France: "🇫🇷", Norway: "🇳🇴", Senegal: "🇸🇳", Iraq: "🇮🇶",
-    Argentina: "🇦🇷", Algeria: "🇩🇿", Austria: "🇦🇹", Jordan: "🇯🇴",
-    Portugal: "🇵🇹", Colombia: "🇨🇴", "DR Congo": "🇨🇩", Uzbekistan: "🇺🇿",
-    England: "🏴", Croatia: "🇭🇷", Ghana: "🇬🇭", Panama: "🇵🇦",
-  };
-  return m[team] || "🏳️";
 }

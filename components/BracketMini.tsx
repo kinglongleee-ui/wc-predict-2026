@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getLatestRound3Run, teamFlag, teamNameZh, tierLabelZh } from "@/lib/data";
+import { matchHref } from "@/lib/matchUrl";
 import type { BracketMatch } from "@/lib/types";
 
 // 首页用的缩水版对阵树:
@@ -409,13 +410,14 @@ function MiniR32Card({
         {label}
       </div>
       <div className="flex items-center justify-between px-2 h-[22px]">
-        <span
-          className={`text-xs truncate ${
+        <Link
+          href={matchHref(match.team_a, match.team_b)}
+          className={`text-xs truncate hover:underline cursor-pointer ${
             aWins ? "font-bold text-emerald-700 dark:text-emerald-400" : bWins ? "text-gray-400" : ""
           }`}
         >
           {teamFlag(match.team_a)} {teamNameZh(match.team_a)}
-        </span>
+        </Link>
         {showProb && (
           <span
             className={`text-[10px] font-mono shrink-0 ml-1 ${
@@ -427,13 +429,14 @@ function MiniR32Card({
         )}
       </div>
       <div className="flex items-center justify-between px-2 h-[22px] border-t border-gray-100 dark:border-gray-800">
-        <span
-          className={`text-xs truncate ${
+        <Link
+          href={matchHref(match.team_a, match.team_b)}
+          className={`text-xs truncate hover:underline cursor-pointer ${
             bWins ? "font-bold text-emerald-700 dark:text-emerald-400" : aWins ? "text-gray-400" : ""
           }`}
         >
           {teamFlag(match.team_b)} {teamNameZh(match.team_b)}
-        </span>
+        </Link>
         {showProb && (
           <span
             className={`text-[10px] font-mono shrink-0 ml-1 ${
@@ -487,13 +490,14 @@ function MiniCard({
       style={{ left: x, top: y, width, height }}
     >
       <div className="flex items-center justify-between px-2 h-[22px]">
-        <span
-          className={`text-xs truncate ${
+        <Link
+          href={matchHref(match.team_a, match.team_b)}
+          className={`text-xs truncate hover:underline cursor-pointer ${
             aWins ? "font-bold text-emerald-700 dark:text-emerald-400" : bWins ? "text-gray-400" : ""
           }`}
         >
           {teamFlag(match.team_a)} {teamNameZh(match.team_a)}
-        </span>
+        </Link>
         <span
           className={`text-[10px] font-mono shrink-0 ml-1 ${
             aWins ? "text-emerald-600 dark:text-emerald-400 font-bold" : "text-gray-500"
@@ -503,13 +507,14 @@ function MiniCard({
         </span>
       </div>
       <div className="flex items-center justify-between px-2 h-[22px] border-t border-gray-100 dark:border-gray-800">
-        <span
-          className={`text-xs truncate ${
+        <Link
+          href={matchHref(match.team_a, match.team_b)}
+          className={`text-xs truncate hover:underline cursor-pointer ${
             bWins ? "font-bold text-emerald-700 dark:text-emerald-400" : aWins ? "text-gray-400" : ""
           }`}
         >
           {teamFlag(match.team_b)} {teamNameZh(match.team_b)}
-        </span>
+        </Link>
         <span
           className={`text-[10px] font-mono shrink-0 ml-1 ${
             bWins ? "text-emerald-600 dark:text-emerald-400 font-bold" : "text-gray-500"
@@ -562,16 +567,22 @@ function MiniFinalCard({
         🏆 决赛
       </div>
       <div className="flex items-center justify-between px-2 py-1">
-        <div className="flex items-center gap-1 text-sm font-bold">
+        <Link
+          href={matchHref(teamA, teamB)}
+          className="flex items-center gap-1 text-sm font-bold hover:underline cursor-pointer"
+        >
           <span className="text-base leading-none">{teamFlag(teamA)}</span>
           <span>{teamNameZh(teamA)}</span>
-        </div>
+        </Link>
       </div>
       <div className="flex items-center justify-between px-2 py-1 border-t border-gray-100 dark:border-gray-800">
-        <div className="flex items-center gap-1 text-sm">
+        <Link
+          href={matchHref(teamA, teamB)}
+          className="flex items-center gap-1 text-sm hover:underline cursor-pointer"
+        >
           <span className="text-base leading-none">{teamFlag(teamB)}</span>
           <span>{teamNameZh(teamB)}</span>
-        </div>
+        </Link>
       </div>
       {/* 预测比分 footer — 飘出卡底 */}
       <div className="absolute -bottom-2 right-1 px-1.5 text-[9px] font-mono bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 rounded shadow-sm flex items-center gap-1 whitespace-nowrap">
@@ -599,9 +610,12 @@ function MiniFinalCard({
       )}
       <div className="px-2 py-1.5 flex flex-col items-center gap-0.5 bg-yellow-100/50 dark:bg-yellow-900/20 rounded-b-lg">
         <span className="text-[9px] text-gray-600 dark:text-gray-400 uppercase tracking-wider">冠军</span>
-        <span className="text-sm font-black bg-gradient-to-r from-emerald-600 to-yellow-600 bg-clip-text text-transparent">
+        <Link
+          href={matchHref(teamA, teamB)}
+          className="text-sm font-black bg-gradient-to-r from-emerald-600 to-yellow-600 bg-clip-text text-transparent hover:underline cursor-pointer"
+        >
           {teamFlag(champion)} {teamNameZh(champion)} {Math.round(confidence * 100)}%
-        </span>
+        </Link>
       </div>
     </div>
   );

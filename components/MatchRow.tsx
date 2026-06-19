@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { ProbabilityBar } from "./ProbabilityBar";
 import { teamFlag, teamNameZh, stageZh, predictOutcome } from "@/lib/data";
+import { matchHref } from "@/lib/matchUrl";
 import type { Match } from "@/lib/types";
 import type { RealMatch } from "@/lib/data";
 
@@ -72,13 +74,19 @@ export function MatchRow({ match, played }: Props) {
         </div>
       </div>
       <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 mb-3">
-        <div className="text-right font-semibold">
+        <Link
+          href={matchHref(match.team_a, match.team_b)}
+          className="text-right font-semibold hover:underline cursor-pointer"
+        >
           {teamFlag(match.team_a)} {teamNameZh(match.team_a)}
-        </div>
+        </Link>
         <div className="text-gray-400 text-sm">对</div>
-        <div className="text-left font-semibold">
+        <Link
+          href={matchHref(match.team_a, match.team_b)}
+          className="text-left font-semibold hover:underline cursor-pointer"
+        >
           {teamNameZh(match.team_b)} {teamFlag(match.team_b)}
-        </div>
+        </Link>
       </div>
       <ProbabilityBar
         a={match.team_a_win}
