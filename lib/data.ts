@@ -41,9 +41,29 @@ export type PlayedKey = string; // "{group}|{team_a_canonical}|{team_b_canonical
 function canon(t: string): string {
   return t.trim().toLowerCase();
 }
+// 把 FIFA 三字代码 (MEX/CZE) 归一化成 MiroFish 用的全称 (Mexico/Czech Republic),
+// 让 playedKeyForMatch 在 R4 三字代码 + R3 全称场景下都能查到。
+const CODE_TO_TEAM_CANON: Record<string, string> = {
+  mex: "mexico", kor: "south korea", cze: "czech republic", rsa: "south africa",
+  sui: "switzerland", qat: "qatar", bih: "bosnia", can: "canada",
+  bra: "brazil", mar: "morocco", sco: "scotland", hai: "haiti",
+  usa: "usa", par: "paraguay", aus: "australia", tur: "turkey",
+  ger: "germany", ecu: "ecuador", civ: "ivory coast", cuw: "curaçao",
+  ned: "netherlands", swe: "sweden", jpn: "japan", tun: "tunisia",
+  bel: "belgium", irn: "iran", egy: "egypt", nzl: "new zealand",
+  esp: "spain", uru: "uruguay", ksa: "saudi arabia", cpv: "cape verde",
+  fra: "france", nor: "norway", sen: "senegal", irq: "iraq",
+  arg: "argentina", alg: "algeria", aut: "austria", jor: "jordan",
+  por: "portugal", col: "colombia", cod: "dr congo", uzb: "uzbekistan",
+  eng: "england", cro: "croatia", gha: "ghana", pan: "panama",
+};
+function canonTeam(t: string): string {
+  const c = canon(t);
+  return CODE_TO_TEAM_CANON[c] || c;
+}
 export function playedKeyForMatch(group: string, team_a: string, team_b: string): PlayedKey {
-  const a = canon(team_a);
-  const b = canon(team_b);
+  const a = canonTeam(team_a);
+  const b = canonTeam(team_b);
   // 用 (sorted pair) 让 home/away 顺序无关
   return `${group}|${[a, b].sort().join("|")}`;
 }

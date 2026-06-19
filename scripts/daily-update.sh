@@ -150,6 +150,19 @@ ALL 12 GROUPS A-L must be present in your report, labeled EXACTLY as above. Grou
   cd "$WCP"
 fi
 
+# ---------- Step 1.5: refresh real WC results (ESPN scoreboard primary, Wikipedia fallback) ----------
+# Runs unconditionally (no MiroFish needed). Fetches 28-100 matches from ESPN's
+# public scoreboard endpoint (no API key) into data/real/wc_2026_results.json.
+# This keeps the PlayedVsPredicted banner + /groups/[letter] "真实 X-Y" badges
+# in sync with the actual tournament progress, even if MiroFish fails/skips.
+echo "[1.5/5] refresh real WC results from ESPN..."
+if "$PYTHON" scripts/fetch_real_results.py 2>&1 | tail -10; then
+  REAL_COUNT=$(python3 -c "import json;print(json.load(open('data/real/wc_2026_results.json'))['match_count'])" 2>/dev/null || echo 0)
+  echo "[1.5/5] ✓ real results refreshed ($REAL_COUNT played matches)"
+else
+  echo "[1.5/5] ⚠️ fetch failed — site will keep showing last good real data"
+fi
+
 # ---------- Step 2: parse the new run + refresh round-2 baseline ----------
 echo "[2/5] parse-report.py + parse-round2.py..."
 if [[ -n "$NEW_RUN_ID" && -d "$MF/uploads/runs/$NEW_RUN_ID" ]]; then
@@ -195,7 +208,7 @@ fi
 
 # ---------- Step 4: git commit + push ----------
 echo "[4/5] git commit + push..."
-git add data/runs/ lib/data.ts app/page.tsx app/simulations/page.tsx app/report/\[id\]/page.tsx scripts/daily-update.sh scripts/translate_narrative.py 2>/dev/null || true
+git add data/runs/ data/real/ lib/data.ts app/page.tsx app/simulations/page.tsx app/report/\[id\]/page.tsx app/groups/\[letter\]/page.tsx components/PlayedVsPredicted.tsx components/MatchRow.tsx scripts/daily-update.sh scripts/fetch_real_results.py scripts/translate_narrative.py 2>/dev/null || true
 if git diff --cached --quiet; then
   echo "[4/5] no changes to commit"
 else

@@ -1,6 +1,259 @@
 {
-  "fetched_at": "2026-06-19T01:01:38Z",
-  "source": "Wikipedia wikitext action=parse (12 Group_A-L pages)",
-  "match_count": 0,
-  "matches": []
+  "fetched_at": "2026-06-19T11:25:00Z",
+  "source": "ESPN scoreboard (fifa.world, dates=20260611-20260719, 28 played)",
+  "match_count": 28,
+  "matches": [
+    {
+      "group": "A",
+      "team_a": "Mexico",
+      "score_a": 2,
+      "team_b": "South Africa",
+      "score_b": 0,
+      "date": "2026-06-11",
+      "source_wiki_page": "ESPN:fifa.world:760415"
+    },
+    {
+      "group": "A",
+      "team_a": "South Korea",
+      "score_a": 2,
+      "team_b": "Czech Republic",
+      "score_b": 1,
+      "date": "2026-06-12",
+      "source_wiki_page": "ESPN:fifa.world:760414"
+    },
+    {
+      "group": "A",
+      "team_a": "Czech Republic",
+      "score_a": 1,
+      "team_b": "South Africa",
+      "score_b": 1,
+      "date": "2026-06-18",
+      "source_wiki_page": "ESPN:fifa.world:760438"
+    },
+    {
+      "group": "A",
+      "team_a": "Mexico",
+      "score_a": 1,
+      "team_b": "South Korea",
+      "score_b": 0,
+      "date": "2026-06-19",
+      "source_wiki_page": "ESPN:fifa.world:760441"
+    },
+    {
+      "group": "B",
+      "team_a": "Canada",
+      "score_a": 1,
+      "team_b": "Bosnia",
+      "score_b": 1,
+      "date": "2026-06-12",
+      "source_wiki_page": "ESPN:fifa.world:760416"
+    },
+    {
+      "group": "B",
+      "team_a": "Qatar",
+      "score_a": 1,
+      "team_b": "Switzerland",
+      "score_b": 1,
+      "date": "2026-06-13",
+      "source_wiki_page": "ESPN:fifa.world:760420"
+    },
+    {
+      "group": "B",
+      "team_a": "Switzerland",
+      "score_a": 4,
+      "team_b": "Bosnia",
+      "score_b": 1,
+      "date": "2026-06-18",
+      "source_wiki_page": "ESPN:fifa.world:760439"
+    },
+    {
+      "group": "B",
+      "team_a": "Canada",
+      "score_a": 6,
+      "team_b": "Qatar",
+      "score_b": 0,
+      "date": "2026-06-18",
+      "source_wiki_page": "ESPN:fifa.world:760440"
+    },
+    {
+      "group": "C",
+      "team_a": "Brazil",
+      "score_a": 1,
+      "team_b": "Morocco",
+      "score_b": 1,
+      "date": "2026-06-13",
+      "source_wiki_page": "ESPN:fifa.world:760419"
+    },
+    {
+      "group": "C",
+      "team_a": "Haiti",
+      "score_a": 0,
+      "team_b": "Scotland",
+      "score_b": 1,
+      "date": "2026-06-14",
+      "source_wiki_page": "ESPN:fifa.world:760418"
+    },
+    {
+      "group": "D",
+      "team_a": "USA",
+      "score_a": 4,
+      "team_b": "Paraguay",
+      "score_b": 1,
+      "date": "2026-06-13",
+      "source_wiki_page": "ESPN:fifa.world:760417"
+    },
+    {
+      "group": "D",
+      "team_a": "Australia",
+      "score_a": 2,
+      "team_b": "Turkey",
+      "score_b": 0,
+      "date": "2026-06-14",
+      "source_wiki_page": "ESPN:fifa.world:760421"
+    },
+    {
+      "group": "E",
+      "team_a": "Germany",
+      "score_a": 7,
+      "team_b": "Curaçao",
+      "score_b": 1,
+      "date": "2026-06-14",
+      "source_wiki_page": "ESPN:fifa.world:760422"
+    },
+    {
+      "group": "E",
+      "team_a": "Ivory Coast",
+      "score_a": 1,
+      "team_b": "Ecuador",
+      "score_b": 0,
+      "date": "2026-06-14",
+      "source_wiki_page": "ESPN:fifa.world:760423"
+    },
+    {
+      "group": "F",
+      "team_a": "Netherlands",
+      "score_a": 2,
+      "team_b": "Japan",
+      "score_b": 2,
+      "date": "2026-06-14",
+      "source_wiki_page": "ESPN:fifa.world:760425"
+    },
+    {
+      "group": "F",
+      "team_a": "Sweden",
+      "score_a": 5,
+      "team_b": "Tunisia",
+      "score_b": 1,
+      "date": "2026-06-15",
+      "source_wiki_page": "ESPN:fifa.world:760424"
+    },
+    {
+      "group": "G",
+      "team_a": "Belgium",
+      "score_a": 1,
+      "team_b": "Egypt",
+      "score_b": 1,
+      "date": "2026-06-15",
+      "source_wiki_page": "ESPN:fifa.world:760426"
+    },
+    {
+      "group": "G",
+      "team_a": "Iran",
+      "score_a": 2,
+      "team_b": "New Zealand",
+      "score_b": 2,
+      "date": "2026-06-16",
+      "source_wiki_page": "ESPN:fifa.world:760427"
+    },
+    {
+      "group": "H",
+      "team_a": "Spain",
+      "score_a": 0,
+      "team_b": "Cape Verde",
+      "score_b": 0,
+      "date": "2026-06-15",
+      "source_wiki_page": "ESPN:fifa.world:760428"
+    },
+    {
+      "group": "H",
+      "team_a": "Saudi Arabia",
+      "score_a": 1,
+      "team_b": "Uruguay",
+      "score_b": 1,
+      "date": "2026-06-15",
+      "source_wiki_page": "ESPN:fifa.world:760429"
+    },
+    {
+      "group": "I",
+      "team_a": "France",
+      "score_a": 3,
+      "team_b": "Senegal",
+      "score_b": 1,
+      "date": "2026-06-16",
+      "source_wiki_page": "ESPN:fifa.world:760432"
+    },
+    {
+      "group": "I",
+      "team_a": "Iraq",
+      "score_a": 1,
+      "team_b": "Norway",
+      "score_b": 4,
+      "date": "2026-06-16",
+      "source_wiki_page": "ESPN:fifa.world:760430"
+    },
+    {
+      "group": "J",
+      "team_a": "Argentina",
+      "score_a": 3,
+      "team_b": "Algeria",
+      "score_b": 0,
+      "date": "2026-06-17",
+      "source_wiki_page": "ESPN:fifa.world:760433"
+    },
+    {
+      "group": "J",
+      "team_a": "Austria",
+      "score_a": 3,
+      "team_b": "Jordan",
+      "score_b": 1,
+      "date": "2026-06-17",
+      "source_wiki_page": "ESPN:fifa.world:760431"
+    },
+    {
+      "group": "K",
+      "team_a": "Portugal",
+      "score_a": 1,
+      "team_b": "DR Congo",
+      "score_b": 1,
+      "date": "2026-06-17",
+      "source_wiki_page": "ESPN:fifa.world:760435"
+    },
+    {
+      "group": "K",
+      "team_a": "Uzbekistan",
+      "score_a": 1,
+      "team_b": "Colombia",
+      "score_b": 3,
+      "date": "2026-06-18",
+      "source_wiki_page": "ESPN:fifa.world:760436"
+    },
+    {
+      "group": "L",
+      "team_a": "England",
+      "score_a": 4,
+      "team_b": "Croatia",
+      "score_b": 2,
+      "date": "2026-06-17",
+      "source_wiki_page": "ESPN:fifa.world:760437"
+    },
+    {
+      "group": "L",
+      "team_a": "Ghana",
+      "score_a": 1,
+      "team_b": "Panama",
+      "score_b": 0,
+      "date": "2026-06-17",
+      "source_wiki_page": "ESPN:fifa.world:760434"
+    }
+  ]
 }
