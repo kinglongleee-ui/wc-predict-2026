@@ -2,7 +2,8 @@ import Link from "next/link";
 import { getLatestRound3Run, loadRealResults, teamFlag, teamNameZh, predictOutcome, formatPct } from "@/lib/data";
 
 // R4 (run_e667) 用 FIFA 三字代码 (MEX/CZE), 真实数据 + R3 用全称 (Mexico/Czech Republic)。
-// 归一化函数让 lookup 跟两个方向都兼容。
+// R5 偶有全名变体 (Bosnia and Herzegovina vs ESPN Bosnia)。归一化函数让 lookup 跟
+// 所有方向都兼容 — 三字代码 → ESPN 全称, ESPN 全称 → 原样, MiroFish 变体全名 → ESPN 全称。
 const CODE_TO_TEAM: Record<string, string> = {
   MEX: "Mexico", KOR: "South Korea", CZE: "Czech Republic", RSA: "South Africa",
   SUI: "Switzerland", QAT: "Qatar", BIH: "Bosnia", CAN: "Canada",
@@ -17,9 +18,31 @@ const CODE_TO_TEAM: Record<string, string> = {
   POR: "Portugal", COL: "Colombia", COD: "DR Congo", UZB: "Uzbekistan",
   ENG: "England", CRO: "Croatia", GHA: "Ghana", PAN: "Panama",
 };
+// MiroFish 偶有全名变体 (跟 ESPN "Bosnia" / "USA" / "Czechia" 不一致) → ESPN 真实全称
+const ALIAS_TO_TEAM: Record<string, string> = {
+  "Bosnia and Herzegovina": "Bosnia",
+  "Bosnia & Herzegovina": "Bosnia",
+  "Czechia": "Czech Republic",
+  "United States": "USA",
+  "United States of America": "USA",
+  "The Netherlands": "Netherlands",
+  "Holland": "Netherlands",
+  "Ivory Coast": "Ivory Coast",  // 别名 = 正名 (双写保护)
+  "Cape Verde Islands": "Cape Verde",
+  "Cabo Verde": "Cape Verde",
+  "Eswatini": "Eswatini",        // 不在本届 32 队, 留位
+  "Korea Republic": "South Korea",
+  "Korea DPR": "South Korea",    // 不在本届
+  "IR Iran": "Iran",
+  "UAE": "UAE",                  // 不在本届
+};
 function normalizeTeam(t: string): string {
   const trimmed = t.trim();
-  return CODE_TO_TEAM[trimmed] || trimmed; // 三字→全称; 全称→原样
+  // 三字代码 → 全称
+  if (CODE_TO_TEAM[trimmed]) return CODE_TO_TEAM[trimmed];
+  // MiroFish 变体全名 → ESPN 全称
+  if (ALIAS_TO_TEAM[trimmed]) return ALIAS_TO_TEAM[trimmed];
+  return trimmed; // ESPN 全称 / MiroFish 一致全称 → 原样
 }
 
 // FIFA WC 2026 真实赛程 — ESPN scoreboard API 抓的 72 场 (12 组 × 6 场/组), 2026-06-19
