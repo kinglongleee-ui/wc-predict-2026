@@ -1,20 +1,21 @@
 import Link from "next/link";
-import { getLatestRound3Run, teamFlag, teamNameZh } from "@/lib/data";
+import { getLatestRound3Run, teamFlag, teamNameZh, teamSeedLabel } from "@/lib/data";
 import { matchHref } from "@/lib/matchUrl";
 import type { BracketMatch } from "@/lib/types";
 
-// 一列宽度 + 一行高度 + SVG 总尺寸。所有匹配卡几何参数在这里集中调整。
-// 关键: ROW_H 必须 ≥ CARD_H + 间隙, 否则相邻卡片上下重叠。
+// 树状图几何参数:
+//   6 列: R32 上半 / R32 下半 / R16 / QF / SF / Final
+//   R32 上下半各 8 场, 平行; 后续 4 列从 R32 父子配对往中央汇聚
 const COL_W = 220;        // 单列宽度
 const COL_GAP = 36;       // 列间隙 (留给连线)
 const ROW_H = 52;         // R32 中每行间距 (留 12px 间隙, 不重叠)
 const CARD_W = 200;
-const CARD_H = 40;        // R32 紧凑卡 (只装队名 + 概率, 无比分行)
-const CARD_H_FULL = 60;   // R16/QF/SF 完整卡 (含比分/AET 行)
+const CARD_H = 40;        // R32 紧凑卡 (队名 + 概率 + seed)
+const CARD_H_FULL = 60;   // R16/QF/SF 完整卡 (含比分/AET/独立模拟徽章)
 const FINAL_COL_W = 240;  // 决赛列稍宽,放冠军大卡
 
-// 5 列: R32 → R16 → QF → SF → Final
-const ROUND_LABELS = ["32 强赛", "16 强赛", "1/4 决赛", "半决赛", "决赛"];
+// 6 列轮次标签 — 跟 cols 数组顺序一致
+const ROUND_LABELS = ["32 强 (上半区)", "32 强 (下半区)", "16 强", "1/4 决赛", "半决赛", "决赛"];
 
 export default function BracketPage() {
   const r3 = getLatestRound3Run();
@@ -35,8 +36,21 @@ export default function BracketPage() {
     );
   }
 
-  // 列与列对应: r32 → r16 → qf → sf → final (final 用 r3.final.matchup)
-  const cols = [bracket.r32, bracket.r16, bracket.qf, bracket.sf];
+  // 把 R32 16 场拆成上半 (A-H 8 场) + 下半 (I-L 8 场)
+  // MiroFish bracket.r32 顺序按 FIFA 半区规则: idx 0..7 上半, 8..15 下半
+  const r32Top: BracketMatch[] = bracket.r32.slice(0, 8);
+  const r32Bot: BracketMatch[] = bracket.r32.slice(8, 16);
+
+  // 列与列对应: r32Top + r32Bot → r16 → qf → sf → final
+  const cols: (BracketMatch & { _zone?: "top" | "bot" })[][] = [
+    r32Top.map((m) => ({ ...m, _zone: "top" })),
+    r32Bot.map((m) => ({ ...m, _zone: "bot" })),
+    bracket.r16,
+    bracket.qf,
+    bracket.sf,
+  ];
+
+  // 决赛列 (硬编码 1 场)
   const finalCol: BracketMatch[] = [
     {
       team_a: r3.final.matchup?.split(/\s+vs\s+|\s+v\s+/i)[0]?.trim() || "—",
@@ -53,90 +67,99 @@ export default function BracketPage() {
   ];
 
   // SVG 总尺寸
-  const totalRows = cols[0].length;        // 16
-  const totalH = totalRows * ROW_H + 80;   // 16 * 44 + 上下 padding
-  const totalW = 5 * COL_W + 4 * COL_GAP + FINAL_COL_W + 40;
+  // R32 两个半区每个 8 行 = 8 * ROW_H = 416px; 后续列从中点往下汇聚
+  const r32TotalH = 8 * ROW_H + 60;          // 单列 R32 总高度
+  const totalCols = 6;
+  const totalW = totalCols * COL_W + (totalCols - 1) * COL_GAP + 40;
+  const totalH = r32TotalH + 40;             // 加点 padding
 
-  // 父-子配对: 第 i 列的 k 场比赛 → 第 i+1 列的 floor(k/2) 场
-  // 返回 { leftIdx, rightIdx } 在子列上的父母索引
+  // 父-子配对: 第 ci 列的 k 场 → 第 ci+1 列的 floor(k/2) 场
   function parents(colIdx: number, childIdx: number): [number, number] {
     return [childIdx * 2, childIdx * 2 + 1];
   }
 
   // 第 col 列的 k 场卡片 Y 中心 (相对 SVG top)
+  // R32 两个半区: 直接按行号 (col 0 上半, col 1 下半)
+  // R16 (col 2): 上半 4 场 (k=0..3) 来自 R32 上半 (k=0..7) 父子配对中点;
+  //              下半 4 场 (k=4..7) 来自 R32 下半 (k=0..7) 父子配对中点
+  // QF / SF: 全部从上一列父子配对中点
   function cardY(colIdx: number, k: number): number {
     const col = cols[colIdx] ?? finalCol;
-    if (colIdx === 0) {
-      // R32: 直接按行号
+    if (colIdx === 0 || colIdx === 1) {
+      // R32 上下半: 直接按行号
       return 30 + k * ROW_H + CARD_H / 2;
     }
-    // R16/QF/SF: 是其两个父母 Y 中心的中点
-    const [l, r] = parents(colIdx, k);
-    const lY = cardY(colIdx - 1, l);
-    const rY = cardY(colIdx - 1, r);
+    // R16 (col 2) k=0..3 → R32 上半 (col 0) 父母; k=4..7 → R32 下半 (col 1) 父母
+    let parentCol: number;
+    let parentIdx: number;
+    if (colIdx === 2) {
+      parentCol = k < 4 ? 0 : 1;
+      parentIdx = (k % 4) * 2;
+    } else {
+      parentCol = colIdx - 1;
+      parentIdx = k;
+    }
+    const [l, r] = parents(parentCol, parentIdx);
+    const lY = cardY(parentCol, l);
+    const rY = cardY(parentCol, r);
     return (lY + rY) / 2;
   }
 
   // R16/QF/SF 卡片实际高度 = CARD_H_FULL
   function cardHeight(colIdx: number): number {
-    return colIdx === 0 ? CARD_H : CARD_H_FULL;
+    return colIdx === 0 || colIdx === 1 ? CARD_H : CARD_H_FULL;
   }
 
   function cardX(colIdx: number): number {
-    if (colIdx === 4) {
+    if (colIdx === 5) {
       // Final 列在最右
-      return 20 + 4 * (COL_W + COL_GAP) + COL_W - 40;
+      return 20 + 5 * (COL_W + COL_GAP) - COL_GAP - 20;
     }
     return 20 + colIdx * (COL_W + COL_GAP);
   }
 
   // 连线: 从 col 列 k 场的右侧 → 子列 floor(k/2) 的左侧
-  // 仅在 colIdx < 4 时画
+  // 仅在 colIdx < 5 时画; R32→R16 (col 0/1 → col 2) 是灰色虚线 (语义: MiroFish 独立模拟)
   function connectionLines() {
-    const paths: { x1: number; y1: number; x2: number; y2: number; key: string }[] = [];
+    const paths: { x1: number; y1: number; x2: number; y2: number; key: string; dashed?: boolean }[] = [];
     for (let ci = 0; ci < cols.length; ci++) {
+      // R32 上半 (col 0) 和下半 (col 1) 都连到 R16 (col 2), 每列内部按 2 父子配对
       for (let k = 0; k < cols[ci].length; k += 2) {
         const topY = cardY(ci, k);
         const botY = cardY(ci, k + 1);
         const midY = (topY + botY) / 2;
         const x = cardX(ci) + CARD_W;
         const childX = cardX(ci + 1);
+        const isR32toR16 = ci < 2;
+        const isR32toR16Path = ci === 0 || ci === 1;
         paths.push({
-          x1: x,
-          y1: topY,
-          x2: x + 8,
-          y2: topY,
+          x1: x, y1: topY, x2: x + 8, y2: topY,
           key: `top-${ci}-${k}`,
+          dashed: isR32toR16Path,
         });
         paths.push({
-          x1: x + 8,
-          y1: topY,
-          x2: x + 8,
-          y2: botY,
+          x1: x + 8, y1: topY, x2: x + 8, y2: botY,
           key: `vbar-${ci}-${k}`,
+          dashed: isR32toR16Path,
         });
         paths.push({
-          x1: x + 8,
-          y1: botY,
-          x2: x,
-          y2: botY,
+          x1: x + 8, y1: botY, x2: x, y2: botY,
           key: `bot-${ci}-${k}`,
+          dashed: isR32toR16Path,
         });
         paths.push({
-          x1: childX,
-          y1: midY,
-          x2: x + 8,
-          y2: midY,
+          x1: childX, y1: midY, x2: x + 8, y2: midY,
           key: `hchild-${ci}-${k}`,
+          dashed: isR32toR16Path,
         });
       }
     }
-    // 第 4 列 (SF) → Final (colIdx=4)
-    const sfTop = cardY(3, 0);
-    const sfBot = cardY(3, 1);
-    const finalX = cardX(4);
+    // SF (col 4) → Final (col 5)
+    const sfTop = cardY(4, 0);
+    const sfBot = cardY(4, 1);
+    const finalX = cardX(5);
     const finalY = (sfTop + sfBot) / 2;
-    const lastX = cardX(3) + CARD_W;
+    const lastX = cardX(4) + CARD_W;
     paths.push({ x1: lastX, y1: sfTop, x2: lastX + 8, y2: sfTop, key: "sf-top" });
     paths.push({ x1: lastX + 8, y1: sfTop, x2: lastX + 8, y2: sfBot, key: "sf-vbar" });
     paths.push({ x1: lastX + 8, y1: sfBot, x2: lastX, y2: sfBot, key: "sf-bot" });
@@ -160,8 +183,11 @@ export default function BracketPage() {
           32 强 → 16 强 → 1/4 → 半决赛 → 决赛
         </h1>
         <p className="mt-3 text-sm text-gray-600 dark:text-gray-400 max-w-3xl leading-relaxed">
-          树状图按 MiroFish 多智能体模拟的预测路径展开,胜方按高亮绿显示,平局走加时/点球以虚线连接。
-          每张卡片显示两队国名、最可能比分和胜出概率。
+          树状图按 MiroFish 多智能体模拟的预测路径展开, 胜方按高亮绿显示, 平局走加时/点球以橙色边框标识。
+          每张卡片显示两队国名、最可能比分和胜出概率, R32 卡片额外标注组别种子 (如 A1 / I3) 解释对阵来源。
+        </p>
+        <p className="mt-2 text-xs text-gray-500 dark:text-gray-500 leading-relaxed">
+          <span className="font-semibold">32 强配对规则</span>: A 组 1 名 vs I 组 3 名 / B 组 1 名 vs J 组 3 名 / ... 上下半区各 8 场, 跨组碰面 — 卡片左边条颜色区分上下半区。
         </p>
         <div className="mt-3 flex flex-wrap gap-3 text-xs">
           <Link href="/" className="px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200">
@@ -187,26 +213,46 @@ export default function BracketPage() {
           未晋级
         </span>
         <span className="flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded border-l-4 border-l-emerald-500 border-gray-300 bg-white dark:bg-gray-950" />
+          上半区 (col 0)
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded border-l-4 border-l-orange-500 border-gray-300 bg-white dark:bg-gray-950" />
+          下半区 (col 1)
+        </span>
+        <span className="flex items-center gap-1.5">
           <span className="inline-block w-3 h-3 rounded bg-orange-400/80" />
           平局走加时/点球
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="inline-block w-3 h-0.5 bg-gray-400" />
-          父-子连线 (胜方路径)
+          <span className="inline-block w-6 h-0.5 bg-gray-400" />
+          实线: 实测延续 (col 2+)
+        </span>
+        <span className="flex items-center gap-1.5">
+          <svg width="24" height="6" className="text-gray-400">
+            <line x1="0" y1="3" x2="24" y2="3" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
+          </svg>
+          灰色虚线: MiroFish 独立模拟 (R32→R16)
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="px-1 rounded text-[9px] font-mono bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300">
+            🔁 独立模拟
+          </span>
+          R16 队伍是 MiroFish 重新模拟 (非 R32 胜方延续)
         </span>
       </section>
 
       {/* 树状图主体 */}
       <section className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 overflow-x-auto">
-        <div className="relative" style={{ width: totalW, height: totalH + 60 }}>
+        <div className="relative" style={{ width: totalW, height: totalH }}>
           {/* 顶部轮次标签 */}
           {ROUND_LABELS.map((label, ci) => (
             <div
               key={label}
               className="absolute top-2 text-xs font-bold uppercase tracking-wider text-gray-500 text-center"
               style={{
-                left: ci === 4 ? cardX(4) : cardX(ci),
-                width: ci === 4 ? FINAL_COL_W : CARD_W,
+                left: ci === 5 ? cardX(5) : cardX(ci),
+                width: ci === 5 ? FINAL_COL_W : CARD_W,
               }}
             >
               {label}
@@ -217,15 +263,16 @@ export default function BracketPage() {
           <svg
             className="absolute inset-0 pointer-events-none"
             width={totalW}
-            height={totalH + 60}
+            height={totalH}
           >
             {lines.map((l) => (
               <path
                 key={l.key}
                 d={`M ${l.x1} ${l.y1} L ${l.x2} ${l.y2}`}
                 stroke="currentColor"
-                className="text-gray-300 dark:text-gray-700"
-                strokeWidth="1.5"
+                className={l.dashed ? "text-gray-400 dark:text-gray-600 opacity-60" : "text-gray-300 dark:text-gray-700"}
+                strokeWidth={l.dashed ? "1" : "1.5"}
+                strokeDasharray={l.dashed ? "4 3" : undefined}
                 fill="none"
               />
             ))}
@@ -243,8 +290,11 @@ export default function BracketPage() {
                   match={m}
                   x={x}
                   y={y}
-                  compact={ci < 3}
+                  compact={ci < 2}
                   height={h}
+                  zone={m._zone}
+                  stage={ci < 2 ? "r32" : ci === 2 ? "r16" : ci === 3 ? "qf" : "sf"}
+                  run={r3}
                 />
               );
             }),
@@ -252,8 +302,8 @@ export default function BracketPage() {
 
           {/* 决赛大卡 + 冠军 (放在 SF 中点) */}
           <FinalChampionCard
-            x={cardX(4)}
-            y={(cardY(3, 0) + cardY(3, 1)) / 2 - 90}
+            x={cardX(5)}
+            y={(cardY(4, 0) + cardY(4, 1)) / 2 - 90}
             finalCol={finalCol}
             champion={championName}
             confidence={r3.final.confidence || 0.22}
@@ -334,20 +384,42 @@ function MatchCard({
   y,
   compact,
   height,
+  zone,
+  stage,
+  run,
 }: {
   match: BracketMatch;
   x: number;
   y: number;
   compact: boolean;
   height: number;
+  zone?: "top" | "bot";
+  stage?: "r32" | "r16" | "qf" | "sf";
+  run: import("@/lib/types").RunData;
 }) {
   const isDraw = match.winner === null;
   const aWins = match.winner === "a";
   const bWins = match.winner === "b";
 
+  // R32 上下半区左边条
+  const accentBar =
+    zone === "top"
+      ? "border-l-4 border-l-emerald-500"
+      : zone === "bot"
+      ? "border-l-4 border-l-orange-500"
+      : "";
+
+  // 组别种子 (R32 用 match 自带的; R16+ 兜底反查 standings)
+  const seedA = match.group_a && match.seed_a != null
+    ? `${match.group_a}${match.seed_a}`
+    : teamSeedLabel(run, match.team_a);
+  const seedB = match.group_b && match.seed_b != null
+    ? `${match.group_b}${match.seed_b}`
+    : teamSeedLabel(run, match.team_b);
+
   return (
     <div
-      className={`absolute rounded-md border ${
+      className={`absolute rounded-md border ${accentBar} ${
         isDraw
           ? "border-orange-300 dark:border-orange-700 bg-orange-50/40 dark:bg-orange-950/20"
           : "border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-950"
@@ -359,6 +431,12 @@ function MatchCard({
         height: height,
       }}
     >
+      {/* R16 顶部 独立模拟 徽章 (语义: MiroFish 重新模拟, 非 R32 胜方延续) */}
+      {stage === "r16" && (
+        <div className="absolute -top-2 right-1 px-1 text-[8px] font-mono bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 rounded shadow-sm">
+          🔁 独立模拟
+        </div>
+      )}
       {/* Team A 行 */}
       <div className="flex items-center justify-between px-2 h-[20px]">
         <Link
@@ -369,6 +447,9 @@ function MatchCard({
         >
           <span className="text-base leading-none">{teamFlag(match.team_a)}</span>
           <span className="truncate">{teamNameZh(match.team_a)}</span>
+          {seedA && (
+            <span className="text-[9px] font-mono text-gray-400 shrink-0 ml-0.5">[{seedA}]</span>
+          )}
         </Link>
         <span
           className={`text-xs font-mono shrink-0 ${
@@ -388,6 +469,9 @@ function MatchCard({
         >
           <span className="text-base leading-none">{teamFlag(match.team_b)}</span>
           <span className="truncate">{teamNameZh(match.team_b)}</span>
+          {seedB && (
+            <span className="text-[9px] font-mono text-gray-400 shrink-0 ml-0.5">[{seedB}]</span>
+          )}
         </Link>
         <span
           className={`text-xs font-mono shrink-0 ${

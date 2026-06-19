@@ -272,3 +272,43 @@ export function matchupZh(matchup: string | null | undefined): string {
     .map((t) => teamNameZh(t.trim()))
     .join(" 对 ");
 }
+
+// ---------------------------------------------------------------------------
+// 组别+排名反查 (用来给 R32 卡显示 "A1" / "I3" 这种种子标识)
+// ---------------------------------------------------------------------------
+// 优先: match 自带的 group_a/seed_a
+// 兜底: 反查 groups[letter].standings (R3 旧 run 没有 group 字段, 用 standings)
+export function buildGroupIndex(
+  run: RunData
+): Map<string, { group: string; rank: number }> {
+  const idx = new Map<string, { group: string; rank: number }>();
+  const bracket = run.bracket;
+  if (bracket) {
+    for (const stage of ["r32", "r16", "qf", "sf"] as const) {
+      for (const m of bracket[stage] || []) {
+        if (m.group_a && m.seed_a != null) {
+          idx.set(m.team_a, { group: m.group_a, rank: m.seed_a });
+        }
+        if (m.group_b && m.seed_b != null) {
+          idx.set(m.team_b, { group: m.group_b, rank: m.seed_b });
+        }
+      }
+    }
+  }
+  // 兜底: 从小组赛积分榜拿 (R3 旧 run 没补字段)
+  // 注意: Standing 类型只有 team/points/note; rank 在 R3 JSON 里 position = rank, R4 JSON 里也 position
+  for (const [letter, g] of Object.entries(run.groups || {})) {
+    g.standings.forEach((s, i) => {
+      if (!idx.has(s.team)) {
+        idx.set(s.team, { group: letter, rank: i + 1 });
+      }
+    });
+  }
+  return idx;
+}
+
+// 返回 "A1" / "I3" 这种组+排名短码, 查不到返空串
+export function teamSeedLabel(run: RunData, team: string): string {
+  const info = buildGroupIndex(run).get(team);
+  return info ? `${info.group}${info.rank}` : "";
+}

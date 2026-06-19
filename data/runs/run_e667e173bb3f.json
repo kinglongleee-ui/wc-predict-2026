@@ -1483,7 +1483,9 @@
         "score": "2-1",
         "aet_pct": 0.13,
         "pen_pct": 0.08,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "D",
+        "seed_a": 1
       },
       {
         "bracket_idx": 11,

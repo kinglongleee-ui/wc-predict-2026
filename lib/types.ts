@@ -113,6 +113,11 @@ export type BracketMatch = {
   bracket_idx?: number;       // 0-based position within the round
   team_a: string;
   team_b: string;
+  // 组别种子 (parse 阶段从 MiroFish 报告的 (A1)/(1A) 后缀提取; 老 run 缺字段时 buildGroupIndex() 反查 standings)
+  group_a?: string;           // "A" / "I" — R32 才有; R16/QF/SF 通常没 (跨组)
+  seed_a?: number;            // 1 / 2 / 3
+  group_b?: string;
+  seed_b?: number;
   team_a_win: number;
   draw: number;
   team_b_win: number;

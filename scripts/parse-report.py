@@ -369,11 +369,33 @@ def parse_upset_risks(md_text: str) -> list:
 
 
 def _strip_group_pos(raw: str) -> str:
-    """Strip 'Mexico (1A)' (R3) or 'Mexico (A1)' (R4) → 'Mexico'. Tolerant of leading **bold** markers."""
+    """[Legacy] Strip 'Mexico (1A)' (R3) or 'Mexico (A1)' (R4) → 'Mexico'. Tolerant of leading **bold** markers."""
+    name, _g, _s = _parse_team_with_seed(raw)
+    return name
+
+
+def _parse_team_with_seed(raw: str) -> tuple[str, Optional[str], Optional[int]]:
+    """Parse 'Mexico (1A)' / 'Mexico (A1)' / '**Mexico (1A)**' → ('Mexico', 'A', 1).
+
+    Returns (team_name, group_letter, seed_rank).
+    Tolerates leading/trailing ** bold markers and various formats:
+      R3: Mexico (1A)         → ('Mexico', 'A', 1)
+      R4: Mexico (A1)         → ('Mexico', 'A', 1)
+      R4: Mexico (1A-2)       → ('Mexico', 'A', 1)
+      No suffix              → (raw, None, None)
+    """
     s = raw.strip().strip("*").strip()
-    # R3: Mexico (1A) / R4: Mexico (A1) / R4 with seed suffix: Mexico (1A-2)
-    m = re.match(r"([^(]+?)\s*\((?:\d+)?[A-L](?:\d+)?(?:-\w+)?\)", s)
-    return m.group(1).strip() if m else s
+    # 捕获队名 + 字母 (A-L)
+    m = re.match(r"([^(]+?)\s*\((?:\d+)?([A-L])(?:\d+)?(?:-\w+)?\)", s)
+    if not m:
+        return (s, None, None)
+    name = m.group(1).strip()
+    group = m.group(2)
+    # 种子: 优先取括号里数字 (R3 = 1A 数字在前; R4 = A1 数字在后)
+    inside = s[s.index("("):s.index(")")]
+    nums = re.findall(r"\d+", inside)
+    seed = int(nums[0]) if nums else None
+    return (name, group, seed)
 
 
 def _winner_from_pct(a: str, b: str, d: str) -> Optional[str]:
@@ -418,10 +440,16 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
             # Skip rows where all percentages are zero (likely n/a row)
             if a_pct == "0" and d_pct == "0" and b_pct == "0":
                 continue
+            team_a, group_a, seed_a = _parse_team_with_seed(team_a_raw)
+            team_b, group_b, seed_b = _parse_team_with_seed(team_b_raw)
             matches.append({
                 "bracket_idx": int(idx) - 1,
-                "team_a": _strip_group_pos(team_a_raw),
-                "team_b": _strip_group_pos(team_b_raw),
+                "team_a": team_a,
+                "group_a": group_a,
+                "seed_a": seed_a,
+                "team_b": team_b,
+                "group_b": group_b,
+                "seed_b": seed_b,
                 "team_a_win": parse_pct(a_pct + "%"),
                 "draw": parse_pct(d_pct + "%"),
                 "team_b_win": parse_pct(b_pct + "%"),
@@ -440,10 +468,16 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
             section_text,
         ):
             idx, team_a_raw, team_b_raw, a_pct, d_pct, b_pct, score = row.groups()
+            team_a, group_a, seed_a = _parse_team_with_seed(team_a_raw)
+            team_b, group_b, seed_b = _parse_team_with_seed(team_b_raw)
             matches.append({
                 "bracket_idx": int(idx) - 1,  # 0-based for tree indexing
-                "team_a": _strip_group_pos(team_a_raw),
-                "team_b": _strip_group_pos(team_b_raw),
+                "team_a": team_a,
+                "group_a": group_a,
+                "seed_a": seed_a,
+                "team_b": team_b,
+                "group_b": group_b,
+                "seed_b": seed_b,
                 "team_a_win": parse_pct(a_pct),
                 "draw": parse_pct(d_pct),
                 "team_b_win": parse_pct(b_pct),
@@ -460,9 +494,15 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
         ))
         for row in r4_rows:
             team_a, team_b, a_pct, d_pct, b_pct, score, aet_pct, pen_pct = row.groups()
+            team_a_clean, group_a, seed_a = _parse_team_with_seed(team_a)
+            team_b_clean, group_b, seed_b = _parse_team_with_seed(team_b)
             matches.append({
-                "team_a": team_a.strip().strip("*"),
-                "team_b": team_b.strip().strip("*"),
+                "team_a": team_a_clean,
+                "group_a": group_a,
+                "seed_a": seed_a,
+                "team_b": team_b_clean,
+                "group_b": group_b,
+                "seed_b": seed_b,
                 "team_a_win": parse_pct(a_pct),
                 "draw": parse_pct(d_pct),
                 "team_b_win": parse_pct(b_pct),
@@ -483,9 +523,15 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
             section_text,
         ):
             team_a, team_b, a_pct, d_pct, b_pct, score, aet_pct, pen_pct = row.groups()
+            team_a_clean, group_a, seed_a = _parse_team_with_seed(team_a)
+            team_b_clean, group_b, seed_b = _parse_team_with_seed(team_b)
             matches.append({
-                "team_a": team_a.strip().strip("*"),
-                "team_b": team_b.strip().strip("*"),
+                "team_a": team_a_clean,
+                "group_a": group_a,
+                "seed_a": seed_a,
+                "team_b": team_b_clean,
+                "group_b": group_b,
+                "seed_b": seed_b,
                 "team_a_win": parse_pct(a_pct),
                 "draw": parse_pct(d_pct),
                 "team_b_win": parse_pct(b_pct),

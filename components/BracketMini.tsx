@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { getLatestRound3Run, teamFlag, teamNameZh, tierLabelZh } from "@/lib/data";
+import { getLatestRound3Run, teamFlag, teamNameZh, teamSeedLabel, tierLabelZh } from "@/lib/data";
 import { matchHref } from "@/lib/matchUrl";
-import type { BracketMatch } from "@/lib/types";
+import type { BracketMatch, RunData } from "@/lib/types";
 
 // 首页用的缩水版对阵树:
 //  - 不画 R32 16 场细节 (太宽)
@@ -253,34 +253,34 @@ export function BracketMini() {
           {r32Top.map((m, k) => {
             const h = CARD_H;
             const y = rowY(0, k) - h / 2;
-            return <MiniR32Card key={`r32t-${k}`} match={m} x={colX(0)} y={y} width={CARD_W} height={h} label={`上半 #${k + 1}`} zone="top" />;
+            return <MiniR32Card key={`r32t-${k}`} match={m} x={colX(0)} y={y} width={CARD_W} height={h} label={`上半 #${k + 1}`} zone="top" run={r3} />;
           })}
           {/* R32 下半 (col 1) (orange 左边条标识下半区) */}
           {r32Bot.map((m, k) => {
             const h = CARD_H;
             const y = rowY(1, k) - h / 2;
-            return <MiniR32Card key={`r32b-${k}`} match={m} x={colX(1)} y={y} width={CARD_W} height={h} label={`下半 #${k + 1}`} zone="bot" />;
+            return <MiniR32Card key={`r32b-${k}`} match={m} x={colX(1)} y={y} width={CARD_W} height={h} label={`下半 #${k + 1}`} zone="bot" run={r3} />;
           })}
 
           {/* R16 (col 2) — 8 场 */}
           {bracket.r16.map((m, k) => {
             const h = CARD_H;
             const y = r16Y(k) - h / 2;
-            return <MiniCard key={`r16-${k}`} match={m} x={colX(2)} y={y} width={CARD_W} height={h} />;
+            return <MiniCard key={`r16-${k}`} match={m} x={colX(2)} y={y} width={CARD_W} height={h} run={r3} />;
           })}
 
           {/* QF (col 3) — 4 场 */}
           {bracket.qf.map((m, k) => {
             const h = CARD_H;
             const y = qfY(k) - h / 2;
-            return <MiniCard key={`qf-${k}`} match={m} x={colX(3)} y={y} width={CARD_W} height={h} />;
+            return <MiniCard key={`qf-${k}`} match={m} x={colX(3)} y={y} width={CARD_W} height={h} run={r3} />;
           })}
 
           {/* SF (col 4) — 2 场 */}
           {bracket.sf.map((m, k) => {
             const h = CARD_H;
             const y = sfY(k) - h / 2;
-            return <MiniCard key={`sf-${k}`} match={m} x={colX(4)} y={y} width={CARD_W} height={h} />;
+            return <MiniCard key={`sf-${k}`} match={m} x={colX(4)} y={y} width={CARD_W} height={h} run={r3} />;
           })}
 
           {/* Final (col 5) — 单卡 + 冠军徽章 + 预测比分 + 三档概率 */}
@@ -375,6 +375,7 @@ function MiniR32Card({
   label,
   showProb = true,
   zone,
+  run,
 }: {
   match: BracketMatch;
   x: number;
@@ -384,6 +385,7 @@ function MiniR32Card({
   label: string;
   showProb?: boolean;
   zone?: "top" | "bot"; // 上半/下半区 — 给卡左边条颜色
+  run: RunData;
 }) {
   const aWins = match.winner === "a";
   const bWins = match.winner === "b";
@@ -395,6 +397,14 @@ function MiniR32Card({
       : zone === "bot"
       ? "border-l-4 border-l-orange-500"
       : "";
+
+  // 组别种子 (优先 match 自带, 兜底反查 standings)
+  const seedA = match.group_a && match.seed_a != null
+    ? `${match.group_a}${match.seed_a}`
+    : teamSeedLabel(run, match.team_a);
+  const seedB = match.group_b && match.seed_b != null
+    ? `${match.group_b}${match.seed_b}`
+    : teamSeedLabel(run, match.team_b);
 
   return (
     <div
@@ -412,11 +422,12 @@ function MiniR32Card({
       <div className="flex items-center justify-between px-2 h-[22px]">
         <Link
           href={matchHref(match.team_a, match.team_b)}
-          className={`text-xs truncate hover:underline cursor-pointer ${
+          className={`text-xs truncate hover:underline cursor-pointer flex items-center gap-0.5 ${
             aWins ? "font-bold text-emerald-700 dark:text-emerald-400" : bWins ? "text-gray-400" : ""
           }`}
         >
-          {teamFlag(match.team_a)} {teamNameZh(match.team_a)}
+          <span className="truncate">{teamFlag(match.team_a)} {teamNameZh(match.team_a)}</span>
+          {seedA && <span className="text-[8px] font-mono text-gray-400 shrink-0">[{seedA}]</span>}
         </Link>
         {showProb && (
           <span
@@ -431,11 +442,12 @@ function MiniR32Card({
       <div className="flex items-center justify-between px-2 h-[22px] border-t border-gray-100 dark:border-gray-800">
         <Link
           href={matchHref(match.team_a, match.team_b)}
-          className={`text-xs truncate hover:underline cursor-pointer ${
+          className={`text-xs truncate hover:underline cursor-pointer flex items-center gap-0.5 ${
             bWins ? "font-bold text-emerald-700 dark:text-emerald-400" : aWins ? "text-gray-400" : ""
           }`}
         >
-          {teamFlag(match.team_b)} {teamNameZh(match.team_b)}
+          <span className="truncate">{teamFlag(match.team_b)} {teamNameZh(match.team_b)}</span>
+          {seedB && <span className="text-[8px] font-mono text-gray-400 shrink-0">[{seedB}]</span>}
         </Link>
         {showProb && (
           <span
@@ -464,12 +476,14 @@ function MiniCard({
   y,
   width,
   height,
+  run,
 }: {
   match: BracketMatch;
   x: number;
   y: number;
   width: number;
   height: number;
+  run: RunData;
 }) {
   const aWins = match.winner === "a";
   const bWins = match.winner === "b";
@@ -479,6 +493,14 @@ function MiniCard({
   let overtimeTag: string | null = null;
   if (match.aet_pct != null && match.aet_pct >= 0.15) overtimeTag = `加时${Math.round(match.aet_pct * 100)}%`;
   else if (match.pen_pct != null && match.pen_pct >= 0.08) overtimeTag = `点球${Math.round(match.pen_pct * 100)}%`;
+
+  // 组别种子 (R16+ 通常没有, 兜底反查 standings)
+  const seedA = match.group_a && match.seed_a != null
+    ? `${match.group_a}${match.seed_a}`
+    : teamSeedLabel(run, match.team_a);
+  const seedB = match.group_b && match.seed_b != null
+    ? `${match.group_b}${match.seed_b}`
+    : teamSeedLabel(run, match.team_b);
 
   return (
     <div
@@ -492,11 +514,12 @@ function MiniCard({
       <div className="flex items-center justify-between px-2 h-[22px]">
         <Link
           href={matchHref(match.team_a, match.team_b)}
-          className={`text-xs truncate hover:underline cursor-pointer ${
+          className={`text-xs truncate hover:underline cursor-pointer flex items-center gap-0.5 ${
             aWins ? "font-bold text-emerald-700 dark:text-emerald-400" : bWins ? "text-gray-400" : ""
           }`}
         >
-          {teamFlag(match.team_a)} {teamNameZh(match.team_a)}
+          <span className="truncate">{teamFlag(match.team_a)} {teamNameZh(match.team_a)}</span>
+          {seedA && <span className="text-[8px] font-mono text-gray-400 shrink-0">[{seedA}]</span>}
         </Link>
         <span
           className={`text-[10px] font-mono shrink-0 ml-1 ${
@@ -509,11 +532,12 @@ function MiniCard({
       <div className="flex items-center justify-between px-2 h-[22px] border-t border-gray-100 dark:border-gray-800">
         <Link
           href={matchHref(match.team_a, match.team_b)}
-          className={`text-xs truncate hover:underline cursor-pointer ${
+          className={`text-xs truncate hover:underline cursor-pointer flex items-center gap-0.5 ${
             bWins ? "font-bold text-emerald-700 dark:text-emerald-400" : aWins ? "text-gray-400" : ""
           }`}
         >
-          {teamFlag(match.team_b)} {teamNameZh(match.team_b)}
+          <span className="truncate">{teamFlag(match.team_b)} {teamNameZh(match.team_b)}</span>
+          {seedB && <span className="text-[8px] font-mono text-gray-400 shrink-0">[{seedB}]</span>}
         </Link>
         <span
           className={`text-[10px] font-mono shrink-0 ml-1 ${

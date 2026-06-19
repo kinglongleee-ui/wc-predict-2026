@@ -1423,7 +1423,11 @@
         "score": "1-0",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "A",
+        "seed_a": 1,
+        "group_b": "I",
+        "seed_b": 3
       },
       {
         "bracket_idx": 1,
@@ -1435,7 +1439,11 @@
         "score": "1-1",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "B",
+        "seed_a": 1,
+        "group_b": "G",
+        "seed_b": 2
       },
       {
         "bracket_idx": 2,
@@ -1447,7 +1455,11 @@
         "score": "2-0",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "C",
+        "seed_a": 1,
+        "group_b": "G",
+        "seed_b": 3
       },
       {
         "bracket_idx": 3,
@@ -1459,7 +1471,11 @@
         "score": "1-1",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "D",
+        "seed_a": 1,
+        "group_b": "F",
+        "seed_b": 2
       },
       {
         "bracket_idx": 4,
@@ -1471,7 +1487,11 @@
         "score": "2-1",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "E",
+        "seed_a": 1,
+        "group_b": "K",
+        "seed_b": 2
       },
       {
         "bracket_idx": 5,
@@ -1483,7 +1503,11 @@
         "score": "2-0",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "F",
+        "seed_a": 1,
+        "group_b": "H",
+        "seed_b": 2
       },
       {
         "bracket_idx": 6,
@@ -1495,7 +1519,11 @@
         "score": "1-0",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "G",
+        "seed_a": 1,
+        "group_b": "E",
+        "seed_b": 2
       },
       {
         "bracket_idx": 7,
@@ -1507,7 +1535,11 @@
         "score": "2-1",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "H",
+        "seed_a": 1,
+        "group_b": "C",
+        "seed_b": 2
       },
       {
         "bracket_idx": 8,
@@ -1519,7 +1551,11 @@
         "score": "1-1",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "I",
+        "seed_a": 1,
+        "group_b": "L",
+        "seed_b": 2
       },
       {
         "bracket_idx": 9,
@@ -1531,7 +1567,11 @@
         "score": "2-0",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "J",
+        "seed_a": 1,
+        "group_b": "H",
+        "seed_b": 3
       },
       {
         "bracket_idx": 10,
@@ -1543,7 +1583,11 @@
         "score": "3-0",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "K",
+        "seed_a": 1,
+        "group_b": "B",
+        "seed_b": 3
       },
       {
         "bracket_idx": 11,
@@ -1555,7 +1599,11 @@
         "score": "2-0",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "L",
+        "seed_a": 1,
+        "group_b": "E",
+        "seed_b": 3
       },
       {
         "bracket_idx": 12,
@@ -1567,7 +1615,11 @@
         "score": "0-1",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "b"
+        "winner": "b",
+        "group_a": "A",
+        "seed_a": 2,
+        "group_b": "I",
+        "seed_b": 2
       },
       {
         "bracket_idx": 13,
@@ -1579,7 +1631,11 @@
         "score": "1-1",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "B",
+        "seed_a": 2,
+        "group_b": "D",
+        "seed_b": 2
       },
       {
         "bracket_idx": 14,
@@ -1591,7 +1647,11 @@
         "score": "1-1",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "C",
+        "seed_a": 3,
+        "group_b": "J",
+        "seed_b": 2
       },
       {
         "bracket_idx": 15,
@@ -1603,7 +1663,11 @@
         "score": "1-1",
         "aet_pct": null,
         "pen_pct": null,
-        "winner": "a"
+        "winner": "a",
+        "group_a": "L",
+        "seed_a": 3,
+        "group_b": "K",
+        "seed_b": 3
       }
     ],
     "r16": [
