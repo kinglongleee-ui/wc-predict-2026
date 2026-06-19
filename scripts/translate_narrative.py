@@ -113,6 +113,62 @@ R2_TRANSLATIONS: dict[str, Any] = {
     "verdict.signals": [],  # Round 2 signals 字段存在但没填具体内容 (旧模板)
 }
 
+# ---------------------------------------------------------------------------
+# R5 (run_25c1443aa500) — 71 agents, 5 rounds, France 22% 冠军
+# 解析 R5 报告后手动固化的中文翻译, 避免 M3 reasoning model 翻译质量不稳定
+# ---------------------------------------------------------------------------
+R5_TRANSLATIONS: dict[str, Any] = {
+    "verdict.prediction": (
+        "法国赢得 2026 国际足联世界杯冠军, 决赛常规 90 分钟 2-1 击败阿根廷 "
+        "(常规 90 分钟 52% / 加时 28% / 点球 20%); 阿根廷 (18%)、德国 (14%) 为主要挑战者, "
+        "巴西因安切洛蒂麾下体系不稳被压至 9%, 克罗地亚 (8%) 凭\"最后一舞\"叙事保住一席之地。"
+        "法国 I 组路径最干净, 姆巴佩处于巅峰, 卡马文加接棒卡马文加-楚阿梅尼中场。 "
+        "最大冷门风险: MD2 克罗地亚-加纳 (方差最大); 摩洛哥/哥伦比亚被列为潜在冷门制造者。"
+    ),
+    "verdict.key_dynamics": [
+        "法国 I 组路径最干净 (9 分), 姆巴佩巅峰 + 卡马文加锁定中场新老交替, 是头号夺冠热门",
+        "阿根廷凭 J 组 9 分全胜 + 梅西告别叙事被看好, 但仅 18% 反映竞争开放",
+        "德国 7-1 横扫科特迪瓦展现恐怖攻击力 (Wirtz + Musiala 双核), 14% 排第三热门",
+        "巴西在安切洛蒂救火麾下体系不稳, 上限止步 1/4 决赛 (9%)",
+        "摩洛哥 2022 半决赛 DNA + 克罗地亚 2022 季军光环 + 哥伦比亚状态正佳 = 黑马三角",
+    ],
+    "verdict.signals": [
+        "法国凭 I 组最干净小组赛路径 + 巅峰姆巴佩 + 卡马文加接棒, 22% 冠军概率领跑",
+        "卡马文加 - 楚阿梅尼中场组合已接棒卡马文加 - 博格巴时代, 中场新老交替完成",
+        "德国 7-1 科特迪瓦震撼性胜利, Wirtz-Musiala 双核将德国上限推至 14%",
+        "巴西体系脆弱 (安切洛蒂亲承), 即使巴西通过 R16 也大概率在 1/4 决赛被淘汰",
+        "加纳反击速度 vs 克罗地亚末段控制 = MD2 最大方差场, 任何意外都会重塑 R32 半区",
+    ],
+    "upset_risks": [
+        "MD2 克罗地亚 vs 加纳 (L 组): 48/26/26, 加纳反击速度对莫德里奇\"最后一舞\", MD2 方差最大",
+        "M83 R32 哥伦比亚 vs 克罗地亚: 38/28/34, 黑马对黑马, FIFA 排名 10-12, 模型预测最高概率点球",
+        "R16-3 巴西 vs 荷兰: 42/28/30, 安切洛蒂不稳体系遭遇加克波荷兰, 德佩伤情是摇摆变量",
+        "QF1 德国 vs 法国: 38/26/36, 德国 Wirtz-Musiala 轴对法国结构, 模型只给法国 36% 微弱优势",
+        "M78 R32 厄瓜多尔 vs 塞内加尔: 32/28/40, 塞内加尔反被看好 (FIFA 排名更低), 身体对抗 vs 战术对决",
+    ],
+    "best_thirds": [
+        "E/H/I/J/K 池中 3 分球队, 净胜球力压挪威",
+        "E/F/G/I/J 池中 3 分球队, 凭相互战绩力压挪威",
+        "A/B/C/D/F 池中 4 分球队, 净胜球 0",
+        "B/E/F/I/J 池中 4 分球队, 净胜球 -1",
+        "C/E/F/H/I 池中 4 分球队, 净胜球 -4",
+        "E/F/G/I/J 池中 3 分球队, 净胜球 0",
+        "A/E/H/I/J 池中 5 分 +3 净胜球, 力压埃及",
+        "C/D/F/G/H 池中 3 分球队, 净胜球 0",
+    ],
+    "final.tiers": [
+        "法国 2–1 阿根廷 (概率 52%)",
+        "法国 2–2 加时, 法国胜 (概率 28%)",
+        "法国 1–1 后点球大战 4–3 胜 (概率 20%)",
+    ],
+    "final.combined_text": (
+        "法国 64% / 阿根廷 36%。姆巴佩获金球奖, 卡马文加获最佳年轻球员。法国捧起队史第三座世界杯, "
+        "完成卡马文加主导的新老交替闭环。"
+        "模型引述: \"卡马文加和扎伊尔-埃梅里已就位, 这支球队的阵容深度足以走到最后。\""
+    ),
+}
+
+
 # Report markdown 翻译 (R3, 16KB)
 # 注意: 保留表格结构、Markdown 语法、球队名中文、数字; 翻译所有英文叙述
 R3_REPORT_MD_ZH = """# 2026 世界杯: 上帝模式预测报告
@@ -1018,6 +1074,72 @@ def apply_dict_translation_r4_e667(data: dict) -> bool:
     return changed
 
 
+def apply_dict_translation_r5(data: dict) -> bool:
+    """应用 Round 5 (run_25c1443aa500) 内置中文翻译。Returns True if any field was changed."""
+    changed = False
+    t = R5_TRANSLATIONS
+
+    if data["verdict"]["prediction"] != t["verdict.prediction"]:
+        data["verdict"]["prediction"] = t["verdict.prediction"]
+        changed = True
+
+    if data["verdict"]["key_dynamics"] != t["verdict.key_dynamics"]:
+        data["verdict"]["key_dynamics"] = t["verdict.key_dynamics"]
+        changed = True
+
+    new_signals = []
+    for i, sig in enumerate(data["verdict"]["signals"]):
+        if i < len(t["verdict.signals"]):
+            new_signals.append({
+                **sig,
+                "signal": t["verdict.signals"][i],
+            })
+        else:
+            new_signals.append(sig)
+    if data["verdict"]["signals"] != new_signals:
+        data["verdict"]["signals"] = new_signals
+        changed = True
+
+    new_upsets = []
+    for i, u in enumerate(data["upset_risks"]):
+        if i < len(t["upset_risks"]):
+            new_upsets.append({**u, "rationale": t["upset_risks"][i]})
+        else:
+            new_upsets.append(u)
+    if data["upset_risks"] != new_upsets:
+        data["upset_risks"] = new_upsets
+        changed = True
+
+    new_bt = []
+    for i, bt in enumerate(data.get("best_thirds", [])):
+        if i < len(t["best_thirds"]):
+            new_bt.append({**bt, "reason": t["best_thirds"][i]})
+        else:
+            new_bt.append(bt)
+    if data.get("best_thirds") != new_bt:
+        data["best_thirds"] = new_bt
+        changed = True
+
+    new_tiers = []
+    for i, tier in enumerate(data["final"]["tiers"]):
+        if i < len(t["final.tiers"]):
+            new_tiers.append({**tier, "content": t["final.tiers"][i]})
+        else:
+            new_tiers.append(tier)
+    if data["final"]["tiers"] != new_tiers:
+        data["final"]["tiers"] = new_tiers
+        changed = True
+
+    if data["final"].get("combined_text") != t["final.combined_text"]:
+        data["final"]["combined_text"] = t["final.combined_text"]
+        changed = True
+
+    # report_markdown: R5 报告 16KB, 完整翻译见 /home/king/mirofish-cli/uploads/runs/run_25c1443aa500/report/report.md
+    # 这里仅留占位 — TODO: 用 --api 模式重试 (需 M3 稳定输出纯翻译, 当前有 reasoning 噪音)
+
+    return changed
+
+
 # ---------------------------------------------------------------------------
 # API 模式 (cron 用)
 # ---------------------------------------------------------------------------
@@ -1028,7 +1150,7 @@ def translate_via_api(text: str, *, kind: str = "narrative") -> str:
 
     api_key = os.environ["MINIMAX_API_KEY"]
     base_url = os.environ.get("MINIMAX_BASE_URL", "https://api.minimaxi.com")
-    model = os.environ.get("MINIMAX_MODEL", "MiniMax-Text-01")
+    model = os.environ.get("MINIMAX_MODEL", "MiniMax-M3")
 
     system_prompt = (
         "你是一名专业足球 + 中文翻译。请把用户输入的英文翻译成简体中文, "
@@ -1043,22 +1165,61 @@ def translate_via_api(text: str, *, kind: str = "narrative") -> str:
         f"翻译类型: {kind}。只输出翻译结果, 不要任何解释。"
     )
 
-    resp = requests.post(
-        f"{base_url}/v1/text/chatcompletion_v2",
-        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-        json={
-            "model": model,
-            "messages": [
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": text},
-            ],
-            "temperature": 0.1,
-        },
-        timeout=60,
-    )
-    resp.raise_for_status()
-    j = resp.json()
-    return j["choices"][0]["message"]["content"].strip()
+    # 用 OpenAI-compatible /v1/chat/completions (M3 也支持); 自动去掉 trailing /v1
+    base_clean = base_url.rstrip("/")
+    if base_clean.endswith("/v1"):
+        base_clean = base_clean[:-3]
+    # 3 次重试 + 180s 超时 (M3 是 reasoning model, 单次慢)
+    last_err = None
+    for attempt in range(3):
+        try:
+            resp = requests.post(
+                f"{base_clean}/v1/chat/completions",
+                headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+                json={
+                    "model": model,
+                    "messages": [
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": text},
+                    ],
+                    "temperature": 0.1,
+                },
+                timeout=180,
+            )
+            resp.raise_for_status()
+            j = resp.json()
+            content = j["choices"][0]["message"]["content"]
+            # Strip M3 reasoning output: 思 tags + "Translation:" prefix + dedupe
+            import re as _re
+            content = _re.sub(r"</?think>", "", content)
+            # 截到 "Translation:" 标记之后 (M3 习惯: reasoning → original → Translation: → 中文)
+            cut = _re.search(r"\n\n?Translation:\s*\n", content)
+            if cut:
+                content = content[cut.end():]
+            # 启发式: 如果前 200 字符主要是 ASCII 且后面有中文, 找第一个中文字符截断
+            elif _re.search(r"[一-鿿]", content):
+                # 找连续中文段
+                m = _re.search(r"[一-鿿].*", content)
+                # 但仅当 ASCII 段 > 100 chars 时才截断 (避免误伤短输入)
+                if m and m.start() > 100:
+                    content = content[m.start():]
+            content = content.strip()
+            # Dedupe 连续重复行 (M3 有时会复制粘贴翻译结果)
+            lines = content.split("\n")
+            deduped = []
+            prev = None
+            for line in lines:
+                if line == prev and line.strip():
+                    continue
+                deduped.append(line)
+                prev = line
+            content = "\n".join(deduped)
+            return content
+        except Exception as e:
+            last_err = e
+            import time as _t
+            _t.sleep(3 + attempt * 4)
+    raise last_err
 
 
 def apply_api_translation(data: dict, *, max_report_chars: int = 4000) -> bool:
@@ -1156,6 +1317,7 @@ def main() -> int:
     if args.dict:
         targets = []
         for fname in (
+            "run_25c1443aa500.json",  # R5 (06-19 22:16-23:03, France 22%)
             "run_e667e173bb3f.json",  # R4 当前
             "run_d7c8d02bf376.json",  # R4 旧 (06-18)
             "run_b37f734df790.json",  # R3
@@ -1167,7 +1329,9 @@ def main() -> int:
         changed_total = 0
         for p in targets:
             data = json.loads(p.read_text())
-            if "e667e173bb3f" in p.name:
+            if "25c1443aa500" in p.name:
+                changed = apply_dict_translation_r5(data)
+            elif "e667e173bb3f" in p.name:
                 changed = apply_dict_translation_r4_e667(data)
             elif "d7c8d02bf376" in p.name:
                 changed = apply_dict_translation_r4(data)

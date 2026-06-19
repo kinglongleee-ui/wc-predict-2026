@@ -91,7 +91,7 @@ def _find_group_teams(md_text: str, group_letter: str) -> list:
 
 
 def parse_group_table(md_text: str, group_letter: str) -> list:
-    """Extract match rows from a group's markdown table. Supports both R3 and R4 styles."""
+    """Extract match rows from a group's markdown table. Supports R3, R4, R5 styles."""
     start, end = _find_group_section(md_text, group_letter)
     if start == -1:
         return []
@@ -113,6 +113,27 @@ def parse_group_table(md_text: str, group_letter: str) -> list:
             "team_a_win": parse_pct(a_pct),
             "draw": parse_pct(draw_pct),
             "team_b_win": parse_pct(b_pct),
+            "most_likely_score": parse_score(score_raw),
+        })
+
+    if matches:
+        return matches
+
+    # R5 style: | MD | Match | A% | D% | B% | MLS |  (numeric MD col, plain numbers w/o %)
+    # Skip header rows where col1 is "MD" or "---"
+    for row in re.finditer(
+        r"\|\s*(\d+)\s*\|\s*([^|]+?)\s+vs\s+([^|]+?)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*([^|]+?)\s*\|",
+        section_text,
+    ):
+        md, team_a, team_b, a_pct, draw_pct, b_pct, score_raw = row.groups()
+        matches.append({
+            "stage": f"Group {group_letter}",
+            "matchday": int(md),
+            "team_a": team_a.strip(),
+            "team_b": team_b.strip(),
+            "team_a_win": parse_pct(a_pct + "%"),
+            "draw": parse_pct(draw_pct + "%"),
+            "team_b_win": parse_pct(b_pct + "%"),
             "most_likely_score": parse_score(score_raw),
         })
 
@@ -196,6 +217,23 @@ def parse_standings(md_text: str, group_letter: str) -> list:
             })
         return standings
 
+    # Match R5: **Final standings:** 1) Mexico 7pts 2) South Korea 6pts 3) Czech Republic 3pts 4) South Africa 0pts. ...
+    r5_match = re.search(r"\*\*Final\s+standings:\*\*\s*([^\n]+)", section_text)
+    if r5_match:
+        text = r5_match.group(1).strip()
+        # split on " N) " or "(GD +/-)" patterns; 关键是用数字编号 split
+        # 提取 entries via: "1) Mexico 7pts 2) South Korea 6pts ..."
+        entries = re.findall(r"\d+\)\s*([^\d]+?)\s+(\d+)\s*pts?", text)
+        if entries:
+            standings = []
+            for team, pts in entries:
+                standings.append({
+                    "team": team.strip(),
+                    "points": int(pts),
+                    "note": None,
+                })
+            return standings
+
     # Match R3: **Final: ...** or **Final standings: ...** (slash-delimited)
     final_match = re.search(r"\*\*Final(?:\s+standings)?:\s*([^*]+?)\*\*", section_text)
     if not final_match:
@@ -224,7 +262,7 @@ def parse_best_thirds(md_text: str) -> list:
     R3 numbered: 1. **France** (Group I, 4pts, GD 0) — reason
     R4 simplified: 1. **Cape Verde (H)** — 3 pts, +1 GD (reason)
     """
-    section_match = re.search(r"##\s*(?:\d+\.\s*)?8\s+Best\s+(?:Third|3rd)[-\s]Place", md_text)
+    section_match = re.search(r"##\s*(?:\d+\.\s*)?(?:8|Eight)\s+Best\s+(?:Third|3rd)[-\s]Place", md_text)
     if not section_match:
         return []
     start = section_match.end()
@@ -233,6 +271,37 @@ def parse_best_thirds(md_text: str) -> list:
     section_text = md_text[start:end]
 
     rows = []
+
+    # R5 markdown table: | Rank | Team | Group | Pts | GD | Pool |
+    for row in re.finditer(
+        r"\|\s*(\d+)\s*\|\s*([^*|]+?)\s*\|\s*([A-L])\s*\|\s*(\d+)\s*\|\s*([+\-]?\d+)\s*\|\s*([^|]+?)\s*\|",
+        section_text,
+    ):
+        rank, team, group, pts, gd, pool = row.groups()
+        rows.append({
+            "rank": int(rank),
+            "team": team.strip(),
+            "group": group.strip(),
+            "points": int(pts),
+            "goal_difference": int(gd),
+            "reason": f"R5 pool={pool.strip()}",
+        })
+
+    # R5 corrected list (sometimes replaces first table): 1. Iran (G, 5pts, +3GD)
+    if not rows:
+        for row in re.finditer(
+            r"(\d+)\.\s*\*\*([^*]+?)\*\*\s*\(([A-L]),\s*(\d+)pts?,\s*([+\-]?\d+)GD\)",
+            section_text,
+        ):
+            rank, team, group, pts, gd = row.groups()
+            rows.append({
+                "rank": int(rank),
+                "team": team.strip(),
+                "group": group.strip(),
+                "points": int(pts),
+                "goal_difference": int(gd),
+                "reason": "R5 corrected list",
+            })
 
     # R3 table style: | 1 | **France** | I | 4 | 0 | reason |
     for row in re.finditer(
@@ -372,6 +441,25 @@ def parse_upset_risks(md_text: str) -> list:
             "rationale": rationale.strip().rstrip("\"").rstrip("”").rstrip("'"),
         })
 
+    if risks:
+        return risks
+
+    # R5 numbered: 1. **MD2 Croatia vs Ghana (Group L)** — 48/26/26. Ghana's pace ...
+    # Use a single combined regex so rationale matches the SAME entry as the team.
+    for row in re.finditer(
+        r"(\d+)\.\s*\*\*([^*\n]+?)\*\*\s*[—\-–]\s*(\d+)\s*/\s*(\d+)\s*/\s*(\d+)\.?\s*([^\n]+)",
+        section_text,
+    ):
+        rank, match, _a, _d, _b, rationale = row.groups()
+        nums = [int(_a), int(_d), int(_b)]
+        risks.append({
+            "rank": int(rank),
+            "match": match.strip(),
+            "stage": "—",
+            "upset_probability": (100 - max(nums)) / 100.0,
+            "rationale": rationale.strip(),
+        })
+
     return risks
 
 
@@ -436,6 +524,36 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
     matches = []
 
     if with_index:
+        # R5 style: | # | 1st A (Mexico) vs 2nd B (Canada) | 44 | 28 | 28 | 1-0 | 22 | 10 |
+        # Best-3rd slot: | # | 1st E (Germany) vs 3rd (Scotland) | ... (group letter optional)
+        r5_rows = list(re.finditer(
+            r"\|\s*(?:\w+\s*\|)?\s*(\d+)(?:st|nd|rd|th)\s+(?:([A-L])\s+)?\(([^)]+)\)\s+vs\s+(\d+)(?:st|nd|rd|th)\s+(?:([A-L])\s+)?\(([^)]+)\)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|",
+            section_text,
+        ))
+        for row in r5_rows:
+            seed_a, group_a, team_a, seed_b, group_b, team_b, a_pct, d_pct, b_pct, score, aet_pct, pen_pct = row.groups()
+            if a_pct == "0" and d_pct == "0" and b_pct == "0":
+                continue
+            matches.append({
+                "bracket_idx": len(matches),  # sequential index for R5
+                "team_a": team_a.strip(),
+                "group_a": group_a.strip() if group_a else None,
+                "seed_a": int(seed_a),
+                "team_b": team_b.strip(),
+                "group_b": group_b.strip() if group_b else None,
+                "seed_b": int(seed_b),
+                "team_a_win": parse_pct(a_pct + "%"),
+                "draw": parse_pct(d_pct + "%"),
+                "team_b_win": parse_pct(b_pct + "%"),
+                "score": score.strip(),
+                "aet_pct": parse_pct(aet_pct + "%"),
+                "pen_pct": parse_pct(pen_pct + "%"),
+                "winner": _winner_from_pct(a_pct + "%", b_pct + "%", d_pct + "%"),
+            })
+
+        if matches:
+            return matches
+
         # R4 style: | # | **Team A (X1)** | Team B (Y3) | A% | Draw | B% | Score | AET | Pen |
         # Tolerates **70%** bolded percentages and skips n/a rows.
         r4_rows = list(re.finditer(
@@ -495,14 +613,20 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
             })
     else:
         # R4 style: | Match | Matchup | A% | Draw | B% | Score | AET | Pen |
+        # R5 style: | R16-1 | TeamA vs TeamB | 64 | 22 | 14 | 2-1 | 14 | 6 | (plain numbers, no %)
         r4_rows = list(re.finditer(
-            r"\|\s*(?:R\d+-\d+|QF\d+|SF\d+|Match)\s*\|\s*\*\*?([^|*]+?)\*\*?\s+vs\s+\*\*?([^|*]+?)\*\*?(?:\s*\([^)]+\))?\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*([^|]+?)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|",
+            r"\|\s*(?:R\d+-\d+|QF\d+|SF\d+|Match)\s*\|\s*\*\*?([^|*]+?)\*\*?\s+vs\s+\*\*?([^|*]+?)\*\*?(?:\s*\([^)]+\))?\s*\|\s*(\d+%?)\s*\|\s*(\d+%?)\s*\|\s*(\d+%?)\s*\|\s*([^|]+?)\s*\|\s*(\d+%?)\s*\|\s*(\d+%?)\s*\|",
             section_text,
         ))
         for row in r4_rows:
             team_a, team_b, a_pct, d_pct, b_pct, score, aet_pct, pen_pct = row.groups()
             team_a_clean, group_a, seed_a = _parse_team_with_seed(team_a)
             team_b_clean, group_b, seed_b = _parse_team_with_seed(team_b)
+            # normalize to "N%" for parse_pct
+            def _norm_pct(s: str) -> str:
+                s = s.strip()
+                return s if s.endswith("%") else s + "%"
+            a_n, d_n, b_n, ae_n, pe_n = _norm_pct(a_pct), _norm_pct(d_pct), _norm_pct(b_pct), _norm_pct(aet_pct), _norm_pct(pen_pct)
             matches.append({
                 "team_a": team_a_clean,
                 "group_a": group_a,
@@ -510,13 +634,13 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
                 "team_b": team_b_clean,
                 "group_b": group_b,
                 "seed_b": seed_b,
-                "team_a_win": parse_pct(a_pct),
-                "draw": parse_pct(d_pct),
-                "team_b_win": parse_pct(b_pct),
+                "team_a_win": parse_pct(a_n),
+                "draw": parse_pct(d_n),
+                "team_b_win": parse_pct(b_n),
                 "score": score.strip(),
-                "aet_pct": parse_pct(aet_pct),
-                "pen_pct": parse_pct(pen_pct),
-                "winner": _winner_from_pct(a_pct, b_pct, d_pct),
+                "aet_pct": parse_pct(ae_n),
+                "pen_pct": parse_pct(pe_n),
+                "winner": _winner_from_pct(a_n, b_n, d_n),
             })
         for i, m in enumerate(matches):
             m["bracket_idx"] = i
@@ -767,6 +891,33 @@ def parse_final(md_text: str, verdict: Optional[dict] = None) -> dict:
                     "probability": pct,
                 })
 
+    # R5 style: | Outcome Tier | Probability | Score |
+    #   | 90-minute decision | **52%** | France 2–1 Argentina |
+    if not tiers:
+        # Match rows like "| <label> | **<pct>%** | <score> |"
+        for i, trow in enumerate(re.finditer(
+            r"\|\s*([^|*]+?)\s*\|\s*\*\*(\d+)%\*\*\s*\|\s*([^|\n]+?)\s*\|",
+            section_text,
+        ), start=1):
+            label_raw, pct, score_raw = trow.groups()
+            label_raw = label_raw.strip()
+            if label_raw.lower() in {"outcome tier", "tier", "score", "probability"}:
+                continue  # header row
+            label_zh_map = {
+                "90-minute decision": "90 min",
+                "after extra time": "AET",
+                "penalties": "Penalties",
+                "90 minutes (regulation)": "90 min",
+                "after extra time (aet)": "AET",
+            }
+            label_zh = label_zh_map.get(label_raw.lower(), label_raw)
+            tiers.append({
+                "tier": i,
+                "label": label_zh,
+                "content": score_raw.strip(),
+                "probability": int(pct) / 100,
+            })
+
     # Combined probability / aggregated outcome
     combined_match = re.search(r"(?:Combined[^:]*:|Final\s+Aggregated\s+Outcome:?)\s*([^\n]+)", section_text)
     combined_text = combined_match.group(1).strip() if combined_match else None
@@ -922,10 +1073,43 @@ def parse_run(run_id: str, run_dir: Path) -> dict:
             final["champion"] = m.group(1).strip()
 
     best_thirds = parse_best_thirds(report_md)
+    # Dedupe best_thirds: 如果既匹配 first table 又匹配 corrected list, 只保留 corrected (8 个)
+    if len(best_thirds) > 8:
+        # 保留每组 (rank, team, group) 唯一的 8 个; rank 1-8 优先
+        seen = set()
+        deduped = []
+        # 先按 rank 排序, 取前 8 个 unique
+        for bt in sorted(best_thirds, key=lambda x: x.get("rank", 99)):
+            key = (bt["team"], bt["group"])
+            if key in seen:
+                continue
+            seen.add(key)
+            deduped.append(bt)
+            if len(deduped) >= 8:
+                break
+        best_thirds = deduped
+
     bracket = parse_bracket(report_md)
     # 134 兜底: 用 FIFA 真实 Match 73-88 规则覆盖 MiroFish 错配的 R32
-    # 只在 12 组都解析到 + MiroFish 有 R32 输出时触发; 老 run 没 R32 (b37f/a184) 不触发
+    # 只在 MiroFish 解析出 R32 但配对看起来错位时触发。R5 现在 R32 表格清晰,
+    # 解析出的 team_a_win/draw/team_b_win 概率应该用 MiroFish 的, 不用中性 0.5。
+    # 判断标准: MiroFish R32 第一个 entry 概率是否全 0 (134 兜底标志)
+    needs_override = False
     if bracket["r32"] and len(groups) == 12:
+        first = bracket["r32"][0]
+        if (first.get("team_a_win") in (None, 0.0)
+            and first.get("draw") in (None, 0.0)
+            and first.get("team_b_win") in (None, 0.0)):
+            needs_override = True
+        # 或 MiroFish 报告含明显错位信号 (e.g. M73 不应该是 runner-up A vs runner-up B)
+        m73 = next((m for m in bracket["r32"] if m.get("bracket_idx") == 0), None)
+        if m73:
+            a_team, a_group, a_seed = m73.get("team_a"), m73.get("group_a"), m73.get("seed_a")
+            b_team, b_group, b_seed = m73.get("team_b"), m73.get("group_b"), m73.get("seed_b")
+            # FIFA M73 = Runner-up A vs Runner-up B (a_seed=2,b_seed=2,a_group=A,b_group=B)
+            if not (a_seed == 2 and b_seed == 2 and a_group == "A" and b_group == "B"):
+                needs_override = True
+    if needs_override:
         bracket["r32"] = build_real_r32(groups, best_thirds)
 
     # A+B 提分: 注入 Elo-Poisson top_3_scores 到所有 match
