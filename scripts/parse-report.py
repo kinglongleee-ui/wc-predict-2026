@@ -160,6 +160,109 @@ def parse_group_table(md_text: str, group_letter: str) -> list:
     return matches
 
 
+def _parse_md1_narrative(section_text: str, teams: list) -> list:
+    """Extract MD1 (already-played) matches from R5 narrative line.
+
+    R5 example narrative formats:
+      "*MD1 already played: Mexico 2-0 South Africa; South Korea 2-1 Czech Republic*"
+      "*MD1: Canada 1-1 Bosnia*"
+      "*MD1: Scotland 1-0 Morocco; Brazil played Haiti 6/12 (projected 3-0 win)*"
+      "*MD1: Australia 2-0 win; USA–Paraguay and Turkey fixtures pending*"  (incomplete)
+      "*MD1: Germany 7-1 Ivory Coast*"
+
+    Returns list of dicts with team_a / team_b / most_likely_score / matchday=1.
+    Skips narrative entries that name only one team (e.g. "Australia 2-0 win")
+    because we can't pair them. Caller backfills the rest from real data.
+    """
+    # Pull the first *MD1 ...* narrative line from this section
+    narr = re.search(r"\*MD1[^:]*:\s*([^*]+?)\*", section_text)
+    if not narr:
+        return []
+    body = narr.group(1)
+
+    md1 = []
+    for piece in re.split(r"\s*;\s*", body):
+        m = re.match(
+            r"\s*([A-Za-z .'’\-]+?)\s+(\d+)\s*[-–]\s*(\d+)\s+([A-Za-z .'’\-]+?)\s*(?:\(.*\))?\s*$",
+            piece,
+        )
+        if not m:
+            continue
+        a_raw, a_score, b_score, b_raw = m.groups()
+        a = _match_team(a_raw.strip(), teams)
+        b = _match_team(b_raw.strip(), teams)
+        if not a or not b:
+            continue
+        md1.append({
+            "stage": None,  # filled by caller
+            "matchday": 1,
+            "team_a": a,
+            "team_b": b,
+            "team_a_win": 1.0 if int(a_score) > int(b_score) else (0.0 if int(a_score) < int(b_score) else 0.0),
+            "draw": 1.0 if int(a_score) == int(b_score) else 0.0,
+            "team_b_win": 1.0 if int(b_score) > int(a_score) else 0.0,
+            "most_likely_score": {
+                "raw": f"{a_score}-{b_score}",
+                "home": int(a_score),
+                "away": int(b_score),
+                "aet": False,
+                "pens": False,
+            },
+            "is_played": True,
+        })
+    return md1
+
+
+def _match_team(raw: str, candidates: list) -> Optional[str]:
+    """Fuzzy match `raw` (e.g. 'USA', 'South Africa', 'Bosnia') against the
+    canonical teams list. Returns the canonical team name or None."""
+    if not raw:
+        return None
+    raw_l = raw.lower()
+    for c in candidates:
+        if c.lower() == raw_l:
+            return c
+    for c in candidates:
+        if raw_l in c.lower() or c.lower() in raw_l:
+            return c
+    for c in candidates:
+        if c.lower().startswith(raw_l) or raw_l.startswith(c.lower()):
+            return c
+    return None
+
+
+def _load_real_md1_for_backfill() -> dict:
+    """Load data/real/wc_2026_results.json and bucket MD1 matches by group.
+
+    MD1 is determined by date sort: the earliest matchday in each group is MD1.
+    We do not have explicit matchday info from ESPN, so we approximate by
+    selecting the first 2 matches per group (4-team group has 2 MD1 matches).
+    For groups where MiroFish already filled MD1, the backfill is a no-op
+    (de-dupe key on team pair).
+    """
+    real_path = ROOT / "data" / "real" / "wc_2026_results.json"
+    if not real_path.exists():
+        return {}
+    try:
+        data = json.loads(real_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    by_group = {}
+    for m in data.get("matches", []):
+        g = m.get("group")
+        if not g:
+            continue
+        by_group.setdefault(g, []).append(m)
+    # Sort each group by date (asc) so MD1 are the first 2 entries
+    md1_only = {}
+    for g, ms in by_group.items():
+        sorted_ms = sorted(ms, key=lambda x: x.get("date", ""))
+        # MD1 has 2 matches (4-team group). For groups with more matches
+        # already played, just return the first 2 — backfill is conservative.
+        md1_only[g] = sorted_ms[:2]
+    return md1_only
+
+
 def parse_standings(md_text: str, group_letter: str) -> list:
     """Extract final standings. Supports:
     R3: 'Final: MEX 7 / KOR 5 / CZE 3 / RSA 0' (slash-delimited)
@@ -507,6 +610,32 @@ def _winner_from_pct(a: str, b: str, d: str) -> Optional[str]:
     return None
 
 
+def _extract_winner_from_score(score: str, team_a: str, team_b: str) -> Optional[str]:
+    """If R5 score annotates the winner in parens (e.g. '1-2 (France)' or
+    '1-1 (Argentina pens)'), match against team_a/team_b and return 'a'/'b'.
+
+    Returns None when no annotation or team name doesn't match.
+    """
+    m = re.search(r"\(([^)]+)\)\s*$", score)
+    if not m:
+        return None
+    inner = m.group(1)
+    # Strip "pens" / "pen" / "wins" suffixes that signal how (not who)
+    cleaned = re.sub(r"\b(pens?|wins?|on pens|aet)\b", "", inner, flags=re.IGNORECASE).strip()
+    if not cleaned:
+        return None
+    if cleaned == team_a:
+        return "a"
+    if cleaned == team_b:
+        return "b"
+    # Partial match (e.g. "France wins" → "France")
+    if team_a in cleaned or cleaned in team_a:
+        return "a"
+    if team_b in cleaned or cleaned in team_b:
+        return "b"
+    return None
+
+
 def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> list:
     """Parse a knockout bracket table starting at section_start (after the heading).
 
@@ -534,21 +663,24 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
             seed_a, group_a, team_a, seed_b, group_b, team_b, a_pct, d_pct, b_pct, score, aet_pct, pen_pct = row.groups()
             if a_pct == "0" and d_pct == "0" and b_pct == "0":
                 continue
+            team_a_s, team_b_s = team_a.strip(), team_b.strip()
+            score_clean = score.strip()
+            winner_hint = _extract_winner_from_score(score_clean, team_a_s, team_b_s)
             matches.append({
                 "bracket_idx": len(matches),  # sequential index for R5
-                "team_a": team_a.strip(),
+                "team_a": team_a_s,
                 "group_a": group_a.strip() if group_a else None,
                 "seed_a": int(seed_a),
-                "team_b": team_b.strip(),
+                "team_b": team_b_s,
                 "group_b": group_b.strip() if group_b else None,
                 "seed_b": int(seed_b),
                 "team_a_win": parse_pct(a_pct + "%"),
                 "draw": parse_pct(d_pct + "%"),
                 "team_b_win": parse_pct(b_pct + "%"),
-                "score": score.strip(),
+                "score": score_clean,
                 "aet_pct": parse_pct(aet_pct + "%"),
                 "pen_pct": parse_pct(pen_pct + "%"),
-                "winner": _winner_from_pct(a_pct + "%", b_pct + "%", d_pct + "%"),
+                "winner": winner_hint or _winner_from_pct(a_pct + "%", b_pct + "%", d_pct + "%"),
             })
 
         if matches:
@@ -615,7 +747,7 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
         # R4 style: | Match | Matchup | A% | Draw | B% | Score | AET | Pen |
         # R5 style: | R16-1 | TeamA vs TeamB | 64 | 22 | 14 | 2-1 | 14 | 6 | (plain numbers, no %)
         r4_rows = list(re.finditer(
-            r"\|\s*(?:R\d+-\d+|QF\d+|SF\d+|Match)\s*\|\s*\*\*?([^|*]+?)\*\*?\s+vs\s+\*\*?([^|*]+?)\*\*?(?:\s*\([^)]+\))?\s*\|\s*(\d+%?)\s*\|\s*(\d+%?)\s*\|\s*(\d+%?)\s*\|\s*([^|]+?)\s*\|\s*(\d+%?)\s*\|\s*(\d+%?)\s*\|",
+            r"\|\s*(?:R\d+-\d+|QF\d+|SF\d+|Match)\s*\|\s*\**([^|*]+?)\**\s+vs\s+\**([^|*]+?)\**(?:\s*\([^)]+\))?\s*\|\s*(\d+%?)\s*\|\s*(\d+%?)\s*\|\s*(\d+%?)\s*\|\s*([^|]+?)\s*\|\s*(\d+%?)\s*\|\s*(\d+%?)\s*\|",
             section_text,
         ))
         for row in r4_rows:
@@ -627,6 +759,11 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
                 s = s.strip()
                 return s if s.endswith("%") else s + "%"
             a_n, d_n, b_n, ae_n, pe_n = _norm_pct(a_pct), _norm_pct(d_pct), _norm_pct(b_pct), _norm_pct(aet_pct), _norm_pct(pen_pct)
+            # R5 score may carry winner hint in parentheses, e.g. "1-1 (Argentina pens)"
+            # or "1-2 (France)". Use that to override a_pct/b_pct when the
+            # probabilities are tied or draw is highest (AET/pen decided).
+            score_clean = score.strip()
+            winner_hint = _extract_winner_from_score(score_clean, team_a_clean, team_b_clean)
             matches.append({
                 "team_a": team_a_clean,
                 "group_a": group_a,
@@ -637,10 +774,10 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
                 "team_a_win": parse_pct(a_n),
                 "draw": parse_pct(d_n),
                 "team_b_win": parse_pct(b_n),
-                "score": score.strip(),
+                "score": score_clean,
                 "aet_pct": parse_pct(ae_n),
                 "pen_pct": parse_pct(pe_n),
-                "winner": _winner_from_pct(a_n, b_n, d_n),
+                "winner": winner_hint or _winner_from_pct(a_n, b_n, d_n),
             })
         for i, m in enumerate(matches):
             m["bracket_idx"] = i
@@ -1052,12 +1189,92 @@ def parse_run(run_id: str, run_dir: Path) -> dict:
 
     # All 12 groups
     groups = {}
+    real_md1 = _load_real_md1_for_backfill()  # {group: [{team_a, team_b, score_a, score_b, date}]}
     for letter in "ABCDEFGHIJKL":
         teams = _find_group_teams(report_md, letter)
+        matches = parse_group_table(report_md, letter)
+        # R5: MD1 matches are described in narrative line above the table.
+        # Try to extract them and prepend; mark is_played=True so the UI
+        # can color them as "已比赛" without conflicting with future predictions.
+        start, end = _find_group_section(report_md, letter)
+        if start != -1:
+            section_text = report_md[start:end]
+            md1 = _parse_md1_narrative(section_text, teams)
+            for m in md1:
+                m["stage"] = f"Group {letter}"
+                # Avoid duplicates (in case the table also lists MD1)
+                if not any(
+                    ex["team_a"] == m["team_a"] and ex["team_b"] == m["team_b"]
+                    and ex["matchday"] == 1
+                    for ex in matches
+                ):
+                    matches.append(m)
+            # For F-L, MiroFish listed MD1 in the table as predictions, but
+            # often with WRONG matchups (e.g. MiroFish said Netherlands-Sweden
+            # MD1 but the actual FIFA MD1 was Netherlands-Japan). To avoid
+            # bogus "future MD1" rows polluting the data, drop MiroFish's MD1
+            # entries that don't correspond to a real played match, then
+            # append the real MD1 entries. For A-E, narrative backfill above
+            # already added real MD1 entries; we dedupe by team pair.
+            real_pairs = set()
+            for rm in real_md1.get(letter, []):
+                team_a = _match_team(rm["team_a"], teams)
+                team_b = _match_team(rm["team_b"], teams)
+                if not team_a or not team_b:
+                    continue
+                real_pairs.add(frozenset({team_a, team_b}))
+                sa, sb = rm["score_a"], rm["score_b"]
+                replaced = False
+                for ex in matches:
+                    if ex["matchday"] == 1 and (
+                        {ex["team_a"], ex["team_b"]} == {team_a, team_b}
+                    ):
+                        ex["most_likely_score"] = {
+                            "raw": f"{sa}-{sb}",
+                            "home": sa,
+                            "away": sb,
+                            "aet": False,
+                            "pens": False,
+                        }
+                        ex["team_a_win"] = 1.0 if sa > sb else (0.0 if sa < sb else 0.0)
+                        ex["draw"] = 1.0 if sa == sb else 0.0
+                        ex["team_b_win"] = 1.0 if sb > sa else 0.0
+                        ex["is_played"] = True
+                        ex["played_date"] = rm.get("date")
+                        replaced = True
+                        break
+                if replaced:
+                    continue
+                matches.append({
+                    "stage": f"Group {letter}",
+                    "matchday": 1,
+                    "team_a": team_a,
+                    "team_b": team_b,
+                    "team_a_win": 1.0 if sa > sb else (0.0 if sa < sb else 0.0),
+                    "draw": 1.0 if sa == sb else 0.0,
+                    "team_b_win": 1.0 if sb > sa else 0.0,
+                    "most_likely_score": {
+                        "raw": f"{sa}-{sb}",
+                        "home": sa,
+                        "away": sb,
+                        "aet": False,
+                        "pens": False,
+                    },
+                    "is_played": True,
+                    "played_date": rm.get("date"),
+                })
+            # Drop ALL MD1 entries whose pairing is NOT in real data
+            # (these are bogus predictions/narrative with wrong matchups).
+            # Real MD1 is authoritative; only real entries survive.
+            matches = [
+                m for m in matches
+                if not (m["matchday"] == 1
+                        and frozenset({m["team_a"], m["team_b"]}) not in real_pairs)
+            ]
         groups[letter] = {
             "letter": letter,
             "teams": teams,
-            "matches": parse_group_table(report_md, letter),
+            "matches": matches,
             "standings": parse_standings(report_md, letter),
         }
 
