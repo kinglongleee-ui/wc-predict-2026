@@ -22,6 +22,27 @@ function normalizeTeam(t: string): string {
   return CODE_TO_TEAM[trimmed] || trimmed; // 三字→全称; 全称→原样
 }
 
+// FIFA WC 2026 小组赛日程 (从 ESPN 真实数据反推 + 官方赛程):
+// 12 组各 3 个比赛日 (MD1/MD2/MD3), MD1 已全部踢完 (6/11-6/17), MD2 部分开踢,
+// MD3 待踢。给"未比赛"赛事一个大概日期, 用来排序和"明天"过滤。
+const GROUP_MD_DATES: Record<string, Record<number, string>> = {
+  A: { 2: "2026-06-18", 3: "2026-06-24" }, // MD2 game1=6/18 (CZE-RSA), game2=6/19 (MEX-KOR) 已踢; MD3 6/24
+  B: { 2: "2026-06-18", 3: "2026-06-23" },
+  C: { 2: "2026-06-19", 3: "2026-06-24" },
+  D: { 2: "2026-06-19", 3: "2026-06-24" },
+  E: { 2: "2026-06-20", 3: "2026-06-25" },
+  F: { 2: "2026-06-20", 3: "2026-06-25" },
+  G: { 2: "2026-06-21", 3: "2026-06-26" },
+  H: { 2: "2026-06-21", 3: "2026-06-26" },
+  I: { 2: "2026-06-22", 3: "2026-06-26" },
+  J: { 2: "2026-06-22", 3: "2026-06-27" },
+  K: { 2: "2026-06-23", 3: "2026-06-27" },
+  L: { 2: "2026-06-23", 3: "2026-06-27" },
+};
+function approxMatchDate(group: string, matchday: number): string {
+  return GROUP_MD_DATES[group]?.[matchday] ?? "2026-07-01";
+}
+
 // 把 MiroFish groups.X.matches[] 和 data/real/wc_2026_results.json 配对, 渲染
 // "已比赛 vs 预测" 对比条: 真实比分 / MiroFish 预测比分 / 胜方命中状态。
 export function PlayedVsPredicted() {
@@ -53,6 +74,7 @@ export function PlayedVsPredicted() {
     groupLetter: string;
     simulated: boolean;       // MiroFish 是否模拟了这场
     top_3?: { home: number; away: number; prob: number; pct?: number }[];
+    real_date?: string;       // 真实比赛日期 (ISO YYYY-MM-DD), 来自 ESPN, 用于排序
   };
   const rows: Row[] = [];
   for (const rm of real.matches) {
@@ -116,10 +138,63 @@ export function PlayedVsPredicted() {
       groupLetter: rm.group,
       simulated: true,
       top_3: top3,
+      real_date: rm.date ?? undefined,
     });
   }
 
   if (rows.length === 0) return null;
+
+  // 排序 + 拆 section:
+  //   - 即将开赛: MiroFish 模拟但 ESPN 还没出结果 (从前到后按 FIFA 赛程日期)
+  //   - 已比赛: real 数据里有这场 (按真实比赛日期 asc)
+  type UpcomingRow = {
+    group: string;
+    team_a: string;
+    team_b: string;
+    matchday: number;
+    approx_date: string;
+    pred_score: string;
+    mirofish_conf: number;
+    top_3?: { home: number; away: number; prob: number; pct?: number }[];
+  };
+  const playedRows = rows.slice().sort(
+    (a, b) => (a.real_date ?? "").localeCompare(b.real_date ?? "") || a.groupLetter.localeCompare(b.groupLetter),
+  );
+  const realKeys = new Set(
+    real.matches.map((rm) => {
+      const a = normalizeTeam(rm.team_a);
+      const b = normalizeTeam(rm.team_b);
+      return [a, b].sort().join("|");
+    }),
+  );
+  const upcomingRows: UpcomingRow[] = [];
+  for (const [gLetter, g] of Object.entries(r3.groups)) {
+    for (const m of g.matches) {
+      const a = normalizeTeam(m.team_a);
+      const b = normalizeTeam(m.team_b);
+      const key = [a, b].sort().join("|");
+      if (realKeys.has(key)) continue; // 已比赛 → 跳过
+      const top1 = m.top_3_scores?.[0];
+      upcomingRows.push({
+        group: gLetter,
+        team_a: m.team_a,
+        team_b: m.team_b,
+        matchday: m.matchday,
+        approx_date: approxMatchDate(gLetter, m.matchday),
+        pred_score: top1
+          ? `${top1.home}-${top1.away}`
+          : `${m.most_likely_score.home ?? "—"}-${m.most_likely_score.away ?? "—"}`,
+        mirofish_conf: Math.max(m.team_a_win, m.draw, m.team_b_win),
+        top_3: m.top_3_scores && m.top_3_scores.length > 0 ? m.top_3_scores : undefined,
+      });
+    }
+  }
+  upcomingRows.sort(
+    (a, b) =>
+      a.approx_date.localeCompare(b.approx_date) ||
+      a.matchday - b.matchday ||
+      a.group.localeCompare(b.group),
+  );
 
   // 三层命中率: 胜方命中 / Top-1 比分命中 / Top-3 比分命中
   const simulatedRows = rows.filter((r) => r.simulated);
@@ -161,7 +236,7 @@ export function PlayedVsPredicted() {
       <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
         <div>
           <div className="text-xs uppercase tracking-widest text-gray-500 mb-1">
-            ✅ 已比赛 vs 🔮 MiroFish 预测 (A+B Top-3 比分模型)
+            🗓 即将开赛 · ✅ 已比赛 vs 🔮 MiroFish 预测 (A+B Top-3 比分模型)
           </div>
           <h2 className="text-xl font-bold">
             Top-1 比分命中 {top1Hits} / {simulatedRows.length} ({formatPct(top1Pct, 1)})
@@ -180,8 +255,88 @@ export function PlayedVsPredicted() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-2">
-        {rows.map((r) => {
+      {/* 即将开赛 section — MiroFish 已模拟但 ESPN 还没出结果, 排前面 */}
+      {upcomingRows.length > 0 && (
+        <div className="mb-4">
+          <div className="flex items-center gap-2 mb-2">
+            <h3 className="text-sm font-bold text-blue-700 dark:text-blue-300">
+              🗓 即将开赛 ({upcomingRows.length} 场)
+            </h3>
+            <span className="text-[10px] text-gray-500">
+              按 FIFA 赛程日期排序 · 明天 ({upcomingRows.find((r) => r.approx_date >= new Date().toISOString().slice(0, 10))?.approx_date ?? "—"}) 起
+            </span>
+          </div>
+          <div className="grid md:grid-cols-2 gap-2">
+            {upcomingRows.map((r) => {
+              const a = r.team_a;
+              const b = r.team_b;
+              return (
+                <Link
+                  key={`up-${r.group}-${a}-${b}`}
+                  href={`/groups/${r.group}`}
+                  className="rounded-lg border border-blue-300 dark:border-blue-800 bg-blue-50/40 dark:bg-blue-950/20 p-3 flex items-center gap-3 hover:shadow-md transition-shadow"
+                  title={`MiroFish 预测 ${r.pred_score} · 比赛日 ${r.matchday} · 置信度 ${formatPct(r.mirofish_conf, 0)}`}
+                >
+                  <div className="shrink-0 text-center">
+                    <div className="text-2xl font-black font-mono leading-none text-blue-700 dark:text-blue-300">
+                      🔮
+                    </div>
+                    <div className="text-[10px] uppercase tracking-wider text-blue-600 dark:text-blue-400 mt-1">
+                      MD{r.matchday}
+                    </div>
+                    <div className="text-[9px] text-gray-500 mt-0.5 font-mono">
+                      {r.approx_date.slice(5)}
+                    </div>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 text-xs mb-0.5">
+                      <span>{teamFlag(a)} <span className="font-semibold">{teamNameZh(a)}</span></span>
+                      <span className="text-gray-400">vs</span>
+                      <span><span className="font-semibold">{teamNameZh(b)}</span> {teamFlag(b)}</span>
+                    </div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                      预测 <span className="font-mono font-semibold text-blue-700 dark:text-blue-300">{r.pred_score}</span>
+                      <span className="ml-2 text-[10px] text-gray-500">
+                        {r.group} 组 · 置信度 {formatPct(r.mirofish_conf, 0)}
+                      </span>
+                    </div>
+                    {r.top_3 && r.top_3.length > 0 && (
+                      <div className="flex items-center gap-1 mt-0.5">
+                        <span className="text-[10px] text-gray-500">Top 3:</span>
+                        {r.top_3.map((s, i) => (
+                          <span
+                            key={i}
+                            className={`text-[10px] font-mono px-1 rounded ${
+                              i === 0
+                                ? "bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200"
+                                : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+                            }`}
+                            title={`概率 ${(s.pct ?? Math.round(s.prob * 1000) / 10).toFixed(1)}%`}
+                          >
+                            {s.home}-{s.away} {(s.pct ?? Math.round(s.prob * 1000) / 10).toFixed(0)}%
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* 已比赛 section — 排后面, 按真实比赛日期 asc */}
+      {playedRows.length > 0 && (
+        <div className="mb-4">
+          <div className="flex items-center gap-2 mb-2">
+            <h3 className="text-sm font-bold text-gray-700 dark:text-gray-300">
+              ✅ 已比赛 ({playedRows.length} 场)
+            </h3>
+            <span className="text-[10px] text-gray-500">按真实比赛日期从早到晚</span>
+          </div>
+          <div className="grid md:grid-cols-2 gap-2">
+            {playedRows.map((r) => {
           const a = r.team_a;
           const b = r.team_b;
           // 四种边框颜色: Top-1 比分命中=深绿, Top-3 内=浅绿, 胜方中但比分错=黄,
@@ -291,7 +446,9 @@ export function PlayedVsPredicted() {
             </Link>
           );
         })}
-      </div>
+          </div>
+        </div>
+      )}
 
       <p className="text-xs text-gray-500 mt-3">
         <span className="font-semibold">★ 深绿</span> = Top-1 比分完全命中 ·{" "}
