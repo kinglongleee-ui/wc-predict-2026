@@ -83,6 +83,36 @@ else
   echo "[0.5/5] ⚠️  Elo-Poisson failed — proceeding without context injection"
 fi
 
+# ---------- Step 0.7: Bookmaker odds (DraftKings via ESPN) ----------
+# Generates data/real/wc_2026_odds.json — 1X2 + O/U + 让球 for all pre matches
+# (6/20-7/19). Injected into MiroFish --requirement as a calibration prior
+# (bookmaker implied prob, 30% weight blended with the LLM's reasoning). This
+# is the LLM-side ("layer 2") half of #176. The post-process half lives in
+# parse-report.py::_enrich_with_odds.
+echo "[0.7/5] Bookmaker odds (DraftKings via ESPN)..."
+if "$PYTHON" "$WCP/scripts/fetch_odds.py" 2>&1 | tail -5; then
+  if [[ -f "$WCP/data/real/wc_2026_odds.json" ]]; then
+    ODDS_MD=$("$PYTHON" -c "
+import json
+d = json.load(open('$WCP/data/real/wc_2026_odds.json'))
+rows = ['| UTC date | Group | Matchup | Home% | Draw% | Away% | O/U | Provider |',
+        '|---|---|---|---|---|---|---|---|']
+for m in d.get('matches', []):
+    o = m['odds']
+    rows.append(f\"| {m['date']} | {m['group']} | {m['team_a']} vs {m['team_b']} | {o['home_prob_norm']*100:.1f} | {o['draw_prob_norm']*100:.1f} | {o['away_prob_norm']*100:.1f} | {o['over_under']} | {o['provider']} |\")
+print('\n'.join(rows))
+")
+    ODDS_COUNT=$(echo "$ODDS_MD" | grep -c '^| [0-9]')
+    echo "[0.7/5] ✓ odds built ($ODDS_COUNT matches)"
+  else
+    ODDS_MD=""
+    echo "[0.7/5] ⚠️  odds.json missing — proceeding without bookmaker context"
+  fi
+else
+  ODDS_MD=""
+  echo "[0.7/5] ⚠️  fetch_odds failed — proceeding without bookmaker context"
+fi
+
 # ---------- Step 1: MiroFish re-run ----------
 NEW_RUN_ID=""
 if [[ "${SKIP_MIROFISH:-0}" == "1" ]]; then
@@ -118,6 +148,35 @@ ROUND OF 32 PAIRINGS — FIFA OFFICIAL (Match 73-88, MUST USE EXACTLY, DO NOT RE
 - Match 88: Runner-up D vs Runner-up G
 
 8 best 3rd-place teams must be DISTINCT (no duplicates) and each must satisfy the parens in the matches they fill. Write R32 16 场 in Match 73 → 88 ascending order.
+
+CRITICAL 6/20-6/24 FIX (R5 BUG, R6 MUST CORRECT — matchup dates are MANDATORY):
+The 24 group-stage matches below MUST appear in your group tables at the correct MD. R5 (25c1443aa500) wrote all 4 of these with WRONG matchups (e.g. 'Brazil vs Morocco' for C MD2 instead of 'Brazil vs Haiti'). R6 MUST use the EXACT matchup below; the date/MD on the LEFT column is the source of truth.
+| UTC date | Beijing date | Group | Matchup | MD |
+|---|---|---|---|---|
+| 6/20 00:30 | 6/20 08:30 | C | Brazil vs Haiti | MD2 |
+| 6/20 03:00 | 6/20 11:00 | D | Paraguay vs Turkey | MD2 |
+| 6/20 17:00 | 6/21 01:00 | F | Netherlands vs Sweden | MD2 |
+| 6/20 20:00 | 6/21 04:00 | E | Germany vs Ivory Coast | MD2 |
+| 6/21 00:00 | 6/21 08:00 | E | Ecuador vs Curaçao | MD2 |
+| 6/21 04:00 | 6/21 12:00 | F | Japan vs Tunisia | MD2 |
+| 6/21 16:00 | 6/22 00:00 | H | Saudi Arabia vs Spain | MD2 |
+| 6/21 19:00 | 6/22 03:00 | G | Belgium vs Iran | MD2 |
+| 6/21 22:00 | 6/22 06:00 | H | Cape Verde vs Uruguay | MD2 |
+| 6/22 01:00 | 6/22 09:00 | G | Egypt vs New Zealand | MD2 |
+| 6/22 17:00 | 6/23 01:00 | J | Argentina vs Austria | MD2 |
+| 6/22 21:00 | 6/23 05:00 | I | France vs Iraq | MD2 |
+| 6/23 00:00 | 6/23 08:00 | I | Norway vs Senegal | MD2 |
+| 6/23 03:00 | 6/23 11:00 | J | Algeria vs Jordan | MD2 |
+| 6/23 17:00 | 6/24 01:00 | K | Portugal vs Uzbekistan | MD2 |
+| 6/23 20:00 | 6/24 04:00 | L | England vs Ghana | MD2 |
+| 6/23 23:00 | 6/24 07:00 | L | Croatia vs Panama | MD2 |
+| 6/24 02:00 | 6/24 10:00 | K | Colombia vs DR Congo | MD3 |
+| 6/24 19:00 | 6/25 03:00 | A | Mexico vs South Korea | MD3 |
+| 6/24 19:00 | 6/25 03:00 | B | Canada vs Switzerland | MD3 |
+| 6/24 22:00 | 6/25 06:00 | C | Brazil vs Scotland | MD3 |
+| 6/24 22:00 | 6/25 06:00 | C | Haiti vs Morocco | MD3 |
+| 6/25 20:00 | 6/26 04:00 | E | Germany vs Ecuador | MD3 |
+| 6/25 20:00 | 6/26 04:00 | E | Ivory Coast vs Curaçao | MD3 |
 
 OUTPUT ORDER (CRITICAL — DO NOT REORDER — UI renders groups→QF→SF→Final→Champion in this exact order):
   ① 12 组 final standings (A→L)
@@ -163,7 +222,10 @@ CRITICAL GROUP-LOCK CONSTRAINT (overrides any prior knowledge):
 ALL 12 GROUPS A-L must be present in your report, labeled EXACTLY as above. Group letters in your output (Group A, Group B, ...) MUST match the input table.
 
 NUMERIC ANCHOR (Elo-Poisson baseline, μ=1.4, neutral venue) — use this to set per-match top_3_scores with probability:
-${BASELINE_MD}" \
+${BASELINE_MD}
+
+BOOKMAKER PRIOR (DraftKings via ESPN, 1X2 vig-removed, 30% weight calibration) — use as a market consensus reference for 1X2 probability. Treat as a soft prior (do not blindly follow if your reasoning strongly disagrees, e.g. lineup news); blend ~30% bookmaker + ~70% LLM reasoning. Only available for matches with published odds (pre-round matches 6/20-7/19).
+${ODDS_MD}" \
     --json 2>&1 | tail -200) || true
 
   NEW_RUN_ID=$(echo "$MF_OUT" | grep -oE '"run_id"[[:space:]]*:[[:space:]]*"run_[a-f0-9]+"' | head -1 | grep -oE 'run_[a-f0-9]+')
