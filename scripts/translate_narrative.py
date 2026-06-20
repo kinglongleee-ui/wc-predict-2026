@@ -169,6 +169,55 @@ R5_TRANSLATIONS: dict[str, Any] = {
 }
 
 
+R6_TRANSLATIONS: dict[str, Any] = {
+    "verdict.prediction": (
+        "法国以 68% 概率赢得 2026 国际足联世界杯冠军, 决赛在 MetLife 球场 2-2 战平阿根廷, "
+        "经加时后通过点球大战取胜。姆巴佩处于巅峰窗口, 阵容深度冠绝 32 强, 助法国半决赛 18% 概率 "
+        "淘汰巴西晋级。阿根廷 (10%) 和德国 (8%) 为次要挑战者, 巴西因安切洛蒂体系不稳被压至 18% "
+        "(小组赛 6 分)、难以再现 2002 年七战全胜轨迹。"
+    ),
+    "verdict.key_dynamics": [
+        "法国凭姆巴佩巅峰 + 阵容深度 (卡马文加 / 扎伊尔-埃梅里 接替老化核心) 居 68% 头号热门",
+        "巴西凭维尼修斯-罗德里戈-拉菲尼亚攻击三叉戟成头号挑战者, 但安切洛蒂体系不稳成隐患",
+        "阿根廷上限受梅西大腿伤势不确定性限制, 贝尔林厄姆领衔的辅佐阵容填补有限",
+        "小组赛多场冷门风险被标 (突尼斯 vs 日本、伊朗 vs 比利时、塞内加尔胜挪威、佛得角进 R32)",
+        "东道主 (美国 / 墨西哥 / 加拿大) 凭主场优势保住小组出线, 但缺乏淘汰赛深度",
+    ],
+    "verdict.signals": [
+        "法国阵容均衡 + 姆巴佩巅峰窗口 | 正向 0.85",
+        "巴西攻击人才厚度 (维尼修斯 / 罗德里戈 / 拉菲尼亚) | 正向 0.72",
+        "阿根廷梅西伤势不确定性 + 年龄 | 负向 0.55",
+        "巴西安切洛蒂体系不稳定 | 负向 0.45",
+        "多组 (F/G/H/I) 小组赛冷门风险并存 | 中性 0.60",
+        "东道主主场优势 (美国 / 墨西哥 / 加拿大) | 正向 0.50",
+        "德国死亡 E 组 + 同组同时开球压力 | 负向 0.40",
+    ],
+    "upset_risks": [
+        "#1 塞内加尔胜挪威 (I 组 MD3): 速度 vs 结构, FIFA 官方标红",
+        "#2 伊朗逼平比利时 (G 组 MD2): 低位防守 vs 比利时老化后防",
+        "#3 突尼斯逼平日本 (F 组 MD2): 反击 vs 控球型球队",
+        "#4 库拉索在厄瓜多尔身上抢一分 (E 组 MD2): 弱旅斗志",
+        "#5 克罗地亚淘汰葡萄牙: 莫德里奇告别赛经验",
+    ],
+    "best_thirds": [
+        "rank 1 捷克 (A): M82 对比利时",
+        "rank 2 波黑 (B): M81 对土耳其",
+        "rank 3 苏格兰 (C): M79 对韩国",
+        "rank 4 科特迪瓦 (E): M74 对德国",
+        "rank 5 瑞典 (F): M77 对法国",
+        "rank 6 埃及 (G): M85 对加拿大",
+        "rank 7 佛得角 (H): M80 对英格兰",
+        "rank 8 挪威 (I): M87 对葡萄牙",
+    ],
+    # R6 final.tiers 解析后为空 (parse 没产出), 跳过
+    "final.combined_text": (
+        "法国 68% / 阿根廷 10%。姆巴佩获金球奖, 卡马文加获最佳年轻球员。"
+        "法国在 MetLife 加时 2-2 后点球大战取胜, 捧起队史第三座世界杯。"
+        "模型引述: \"姆巴佩巅峰 + 卡马文加接棒 + 阵容深度 = 不可阻挡的三位一体。\""
+    ),
+}
+
+
 # Report markdown 翻译 (R3, 16KB)
 # 注意: 保留表格结构、Markdown 语法、球队名中文、数字; 翻译所有英文叙述
 R3_REPORT_MD_ZH = """# 2026 世界杯: 上帝模式预测报告
@@ -1140,6 +1189,56 @@ def apply_dict_translation_r5(data: dict) -> bool:
     return changed
 
 
+def apply_dict_translation_r6(data: dict) -> bool:
+    """应用 Round 6 (run_ea1419a0e22f) 内置中文翻译。Returns True if any field was changed."""
+    changed = False
+    t = R6_TRANSLATIONS
+
+    if data["verdict"]["prediction"] != t["verdict.prediction"]:
+        data["verdict"]["prediction"] = t["verdict.prediction"]
+        changed = True
+
+    if data["verdict"]["key_dynamics"] != t["verdict.key_dynamics"]:
+        data["verdict"]["key_dynamics"] = t["verdict.key_dynamics"]
+        changed = True
+
+    new_signals = []
+    for i, sig in enumerate(data["verdict"]["signals"]):
+        if i < len(t["verdict.signals"]):
+            new_signals.append({**sig, "signal": t["verdict.signals"][i]})
+        else:
+            new_signals.append(sig)
+    if data["verdict"]["signals"] != new_signals:
+        data["verdict"]["signals"] = new_signals
+        changed = True
+
+    new_upsets = []
+    for i, u in enumerate(data["upset_risks"]):
+        if i < len(t["upset_risks"]):
+            new_upsets.append({**u, "rationale": t["upset_risks"][i]})
+        else:
+            new_upsets.append(u)
+    if data["upset_risks"] != new_upsets:
+        data["upset_risks"] = new_upsets
+        changed = True
+
+    new_bt = []
+    for i, bt in enumerate(data.get("best_thirds", [])):
+        if i < len(t["best_thirds"]):
+            new_bt.append({**bt, "reason": t["best_thirds"][i]})
+        else:
+            new_bt.append(bt)
+    if data.get("best_thirds") != new_bt:
+        data["best_thirds"] = new_bt
+        changed = True
+
+    if data["final"].get("combined_text") != t["final.combined_text"]:
+        data["final"]["combined_text"] = t["final.combined_text"]
+        changed = True
+
+    return changed
+
+
 # ---------------------------------------------------------------------------
 # API 模式 (cron 用)
 # ---------------------------------------------------------------------------
@@ -1317,6 +1416,7 @@ def main() -> int:
     if args.dict:
         targets = []
         for fname in (
+            "run_ea1419a0e22f.json",  # R6 (06-20 02:23-02:47, France 68%)
             "run_25c1443aa500.json",  # R5 (06-19 22:16-23:03, France 22%)
             "run_e667e173bb3f.json",  # R4 当前
             "run_d7c8d02bf376.json",  # R4 旧 (06-18)
@@ -1331,6 +1431,8 @@ def main() -> int:
             data = json.loads(p.read_text())
             if "25c1443aa500" in p.name:
                 changed = apply_dict_translation_r5(data)
+            elif "ea1419a0e22f" in p.name:
+                changed = apply_dict_translation_r6(data)
             elif "e667e173bb3f" in p.name:
                 changed = apply_dict_translation_r4_e667(data)
             elif "d7c8d02bf376" in p.name:

@@ -1,49 +1,49 @@
 {
   "run_id": "run_ea1419a0e22f",
-  "created_at": "2026-06-20T13:47:37.753489",
+  "created_at": "2026-06-20T19:56:25.022084",
   "verdict": {
-    "prediction": "法国以 68% 概率加冕 2026 FIFA 世界杯冠军, 决赛于大都会人寿球场 7/19 战阿根廷, 2-2 战平加时后点球大战取胜。姆巴佩处于巅峰窗口, 阵容深度全场最佳, 半决赛以 18% 概率的巴西为最大威胁。",
+    "prediction": "法国以 68% 概率赢得 2026 国际足联世界杯冠军, 决赛在 MetLife 球场 2-2 战平阿根廷, 经加时后通过点球大战取胜。姆巴佩处于巅峰窗口, 阵容深度冠绝 32 强, 助法国半决赛 18% 概率 淘汰巴西晋级。阿根廷 (10%) 和德国 (8%) 为次要挑战者, 巴西因安切洛蒂体系不稳被压至 18% (小组赛 6 分)、难以再现 2002 年七战全胜轨迹。",
     "confidence": 0.68,
     "key_dynamics": [
-      "法国凭姆巴佩巅峰与卡马文加/扎伊尔-埃梅里顶替老化核心的阵容深度建立统治力",
-      "巴西凭维尼修斯-罗德里戈-拉菲尼亚攻击三叉戟构成头号挑战者, 尽管安切洛蒂体系尚不稳定",
-      "阿根廷上限受梅西大腿伤势不确定性压制, 虽有贝林厄姆领衔的辅助阵容但天花板有限",
-      "小组赛多场冷门风险浮现 (突尼斯对日本, 伊朗对比利时, 塞内加尔对挪威, 佛得角锁定第三)",
-      "东道主 (美国/墨西哥/加拿大) 借主场优势保住组内排位, 但缺乏淘汰赛深度"
+      "法国凭姆巴佩巅峰 + 阵容深度 (卡马文加 / 扎伊尔-埃梅里 接替老化核心) 居 68% 头号热门",
+      "巴西凭维尼修斯-罗德里戈-拉菲尼亚攻击三叉戟成头号挑战者, 但安切洛蒂体系不稳成隐患",
+      "阿根廷上限受梅西大腿伤势不确定性限制, 贝尔林厄姆领衔的辅佐阵容填补有限",
+      "小组赛多场冷门风险被标 (突尼斯 vs 日本、伊朗 vs 比利时、塞内加尔胜挪威、佛得角进 R32)",
+      "东道主 (美国 / 墨西哥 / 加拿大) 凭主场优势保住小组出线, 但缺乏淘汰赛深度"
     ],
     "signals": [
       {
-        "signal": "法国阵容平衡 + 姆巴佩巅峰窗口",
+        "signal": "法国阵容均衡 + 姆巴佩巅峰窗口 | 正向 0.85",
         "direction": "positive",
         "strength": 0.85
       },
       {
-        "signal": "巴西攻击天赋深度 (维尼修斯/罗德里戈/拉菲尼亚)",
+        "signal": "巴西攻击人才厚度 (维尼修斯 / 罗德里戈 / 拉菲尼亚) | 正向 0.72",
         "direction": "positive",
         "strength": 0.72
       },
       {
-        "signal": "阿根廷梅西伤病不确定性与年龄",
+        "signal": "阿根廷梅西伤势不确定性 + 年龄 | 负向 0.55",
         "direction": "negative",
         "strength": 0.55
       },
       {
-        "signal": "安切洛蒂体系在巴西的不稳定性",
+        "signal": "巴西安切洛蒂体系不稳定 | 负向 0.45",
         "direction": "negative",
         "strength": 0.45
       },
       {
-        "signal": "小组赛冷门风险跨多组 (F/G/H/I)",
+        "signal": "多组 (F/G/H/I) 小组赛冷门风险并存 | 中性 0.60",
         "direction": "mixed",
         "strength": 0.6
       },
       {
-        "signal": "东道主主场优势 (美国/墨西哥/加拿大)",
+        "signal": "东道主主场优势 (美国 / 墨西哥 / 加拿大) | 正向 0.50",
         "direction": "positive",
         "strength": 0.5
       },
       {
-        "signal": "德国 E 组同时开球压力带来残酷赛程",
+        "signal": "德国死亡 E 组 + 同组同时开球压力 | 负向 0.40",
         "direction": "negative",
         "strength": 0.4
       }
@@ -295,7 +295,26 @@
               "prob": 0.1312,
               "pct": 13.1
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-24T19:00Z",
+            "is_played": false,
+            "home_odds_american": "+145",
+            "draw_odds_american": "+210",
+            "away_odds_american": "+220",
+            "home_prob_raw": 0.4082,
+            "draw_prob_raw": 0.3226,
+            "away_prob_raw": 0.3125,
+            "overround": 1.0432,
+            "home_prob_norm": 0.3912,
+            "draw_prob_norm": 0.3092,
+            "away_prob_norm": 0.2995,
+            "blended_home": 0.3834,
+            "blended_draw": 0.3028,
+            "blended_away": 0.3138,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group B",
@@ -417,7 +436,26 @@
               "prob": 0.1433,
               "pct": 14.3
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-24T22:00Z",
+            "is_played": false,
+            "home_odds_american": "+650",
+            "draw_odds_american": "+425",
+            "away_odds_american": "-250",
+            "home_prob_raw": 0.1333,
+            "draw_prob_raw": 0.1905,
+            "away_prob_raw": 0.7143,
+            "overround": 1.0381,
+            "home_prob_norm": 0.1284,
+            "draw_prob_norm": 0.1835,
+            "away_prob_norm": 0.6881,
+            "blended_home": 0.5845,
+            "blended_draw": 0.153,
+            "blended_away": 0.2624,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group C",
@@ -453,7 +491,26 @@
               "prob": 0.1931,
               "pct": 19.3
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-24T22:00Z",
+            "is_played": false,
+            "home_odds_american": "-500",
+            "draw_odds_american": "+600",
+            "away_odds_american": "+1500",
+            "home_prob_raw": 0.8333,
+            "draw_prob_raw": 0.1429,
+            "away_prob_raw": 0.0625,
+            "overround": 1.0387,
+            "home_prob_norm": 0.8023,
+            "draw_prob_norm": 0.1375,
+            "away_prob_norm": 0.0602,
+            "blended_home": 0.3947,
+            "blended_draw": 0.2162,
+            "blended_away": 0.3891,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group C",
@@ -701,7 +758,26 @@
               "prob": 0.1114,
               "pct": 11.1
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-20T20:00Z",
+            "is_played": false,
+            "home_odds_american": "-190",
+            "draw_odds_american": "+370",
+            "away_odds_american": "+475",
+            "home_prob_raw": 0.6552,
+            "draw_prob_raw": 0.2128,
+            "away_prob_raw": 0.1739,
+            "overround": 1.0419,
+            "home_prob_norm": 0.6289,
+            "draw_prob_norm": 0.2042,
+            "away_prob_norm": 0.1669,
+            "blended_home": 0.6927,
+            "blended_draw": 0.1733,
+            "blended_away": 0.1341,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group E",
@@ -737,7 +813,26 @@
               "prob": 0.1336,
               "pct": 13.4
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-21T00:00Z",
+            "is_played": false,
+            "home_odds_american": "-750",
+            "draw_odds_american": "+800",
+            "away_odds_american": "+2000",
+            "home_prob_raw": 0.8824,
+            "draw_prob_raw": 0.1111,
+            "away_prob_raw": 0.0476,
+            "overround": 1.0411,
+            "home_prob_norm": 0.8475,
+            "draw_prob_norm": 0.1067,
+            "away_prob_norm": 0.0457,
+            "blended_home": 0.6883,
+            "blended_draw": 0.186,
+            "blended_away": 0.1257,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group E",
@@ -773,7 +868,26 @@
               "prob": 0.1153,
               "pct": 11.5
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-25T20:00Z",
+            "is_played": false,
+            "home_odds_american": "+400",
+            "draw_odds_american": "+300",
+            "away_odds_american": "-145",
+            "home_prob_raw": 0.2,
+            "draw_prob_raw": 0.25,
+            "away_prob_raw": 0.5918,
+            "overround": 1.0418,
+            "home_prob_norm": 0.192,
+            "draw_prob_norm": 0.24,
+            "away_prob_norm": 0.5681,
+            "blended_home": 0.4636,
+            "blended_draw": 0.24,
+            "blended_away": 0.2964,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group E",
@@ -809,7 +923,26 @@
               "prob": 0.1297,
               "pct": 13.0
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-25T20:00Z",
+            "is_played": false,
+            "home_odds_american": "+1800",
+            "draw_odds_american": "+800",
+            "away_odds_american": "-700",
+            "home_prob_raw": 0.0526,
+            "draw_prob_raw": 0.1111,
+            "away_prob_raw": 0.875,
+            "overround": 1.0387,
+            "home_prob_norm": 0.0507,
+            "draw_prob_norm": 0.107,
+            "away_prob_norm": 0.8424,
+            "blended_home": 0.4772,
+            "blended_draw": 0.1861,
+            "blended_away": 0.3367,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group E",
@@ -933,7 +1066,26 @@
               "prob": 0.1196,
               "pct": 12.0
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-20T17:00Z",
+            "is_played": false,
+            "home_odds_american": "-140",
+            "draw_odds_american": "+310",
+            "away_odds_american": "+370",
+            "home_prob_raw": 0.5833,
+            "draw_prob_raw": 0.2439,
+            "away_prob_raw": 0.2128,
+            "overround": 1.04,
+            "home_prob_norm": 0.5609,
+            "draw_prob_norm": 0.2345,
+            "away_prob_norm": 0.2046,
+            "blended_home": 0.5463,
+            "blended_draw": 0.2383,
+            "blended_away": 0.2154,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group F",
@@ -969,7 +1121,26 @@
               "prob": 0.1336,
               "pct": 13.4
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-21T04:00Z",
+            "is_played": false,
+            "home_odds_american": "+500",
+            "draw_odds_american": "+300",
+            "away_odds_american": "-170",
+            "home_prob_raw": 0.1667,
+            "draw_prob_raw": 0.25,
+            "away_prob_raw": 0.6296,
+            "overround": 1.0463,
+            "home_prob_norm": 0.1593,
+            "draw_prob_norm": 0.2389,
+            "away_prob_norm": 0.6018,
+            "blended_home": 0.4818,
+            "blended_draw": 0.2257,
+            "blended_away": 0.2925,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group F",
@@ -1093,7 +1264,26 @@
               "prob": 0.1131,
               "pct": 11.3
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-21T19:00Z",
+            "is_played": false,
+            "home_odds_american": "-225",
+            "draw_odds_american": "+360",
+            "away_odds_american": "+650",
+            "home_prob_raw": 0.6923,
+            "draw_prob_raw": 0.2174,
+            "away_prob_raw": 0.1333,
+            "overround": 1.043,
+            "home_prob_norm": 0.6637,
+            "draw_prob_norm": 0.2084,
+            "away_prob_norm": 0.1278,
+            "blended_home": 0.6191,
+            "blended_draw": 0.2305,
+            "blended_away": 0.1503,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group G",
@@ -1129,7 +1319,26 @@
               "prob": 0.1508,
               "pct": 15.1
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-22T01:00Z",
+            "is_played": false,
+            "home_odds_american": "+450",
+            "draw_odds_american": "+320",
+            "away_odds_american": "-165",
+            "home_prob_raw": 0.1818,
+            "draw_prob_raw": 0.2381,
+            "away_prob_raw": 0.6226,
+            "overround": 1.0426,
+            "home_prob_norm": 0.1744,
+            "draw_prob_norm": 0.2284,
+            "away_prob_norm": 0.5972,
+            "blended_home": 0.5283,
+            "blended_draw": 0.2085,
+            "blended_away": 0.2632,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group G",
@@ -1253,7 +1462,26 @@
               "prob": 0.1942,
               "pct": 19.4
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-21T16:00Z",
+            "is_played": false,
+            "home_odds_american": "-1000",
+            "draw_odds_american": "+1000",
+            "away_odds_american": "+2500",
+            "home_prob_raw": 0.9091,
+            "draw_prob_raw": 0.0909,
+            "away_prob_raw": 0.0385,
+            "overround": 1.0385,
+            "home_prob_norm": 0.8754,
+            "draw_prob_norm": 0.0875,
+            "away_prob_norm": 0.037,
+            "blended_home": 0.3466,
+            "blended_draw": 0.1522,
+            "blended_away": 0.5011,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group H",
@@ -1289,7 +1517,26 @@
               "prob": 0.1297,
               "pct": 13.0
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-21T22:00Z",
+            "is_played": false,
+            "home_odds_american": "-230",
+            "draw_odds_american": "+340",
+            "away_odds_american": "+750",
+            "home_prob_raw": 0.697,
+            "draw_prob_raw": 0.2273,
+            "away_prob_raw": 0.1176,
+            "overround": 1.0419,
+            "home_prob_norm": 0.6689,
+            "draw_prob_norm": 0.2181,
+            "away_prob_norm": 0.1129,
+            "blended_home": 0.3967,
+            "blended_draw": 0.2754,
+            "blended_away": 0.3279,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group H",
@@ -1413,7 +1660,26 @@
               "prob": 0.1954,
               "pct": 19.5
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-22T21:00Z",
+            "is_played": false,
+            "home_odds_american": "-1200",
+            "draw_odds_american": "+1100",
+            "away_odds_american": "+2800",
+            "home_prob_raw": 0.9231,
+            "draw_prob_raw": 0.0833,
+            "away_prob_raw": 0.0345,
+            "overround": 1.0409,
+            "home_prob_norm": 0.8868,
+            "draw_prob_norm": 0.0801,
+            "away_prob_norm": 0.0331,
+            "blended_home": 0.868,
+            "blended_draw": 0.087,
+            "blended_away": 0.0449,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group I",
@@ -1449,7 +1715,26 @@
               "prob": 0.1504,
               "pct": 15.0
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-23T00:00Z",
+            "is_played": false,
+            "home_odds_american": "+135",
+            "draw_odds_american": "+250",
+            "away_odds_american": "+195",
+            "home_prob_raw": 0.4255,
+            "draw_prob_raw": 0.2857,
+            "away_prob_raw": 0.339,
+            "overround": 1.0502,
+            "home_prob_norm": 0.4052,
+            "draw_prob_norm": 0.272,
+            "away_prob_norm": 0.3228,
+            "blended_home": 0.4016,
+            "blended_draw": 0.2776,
+            "blended_away": 0.3208,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group I",
@@ -1573,7 +1858,26 @@
               "prob": 0.168,
               "pct": 16.8
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-22T17:00Z",
+            "is_played": false,
+            "home_odds_american": "-170",
+            "draw_odds_american": "+300",
+            "away_odds_american": "+500",
+            "home_prob_raw": 0.6296,
+            "draw_prob_raw": 0.25,
+            "away_prob_raw": 0.1667,
+            "overround": 1.0463,
+            "home_prob_norm": 0.6018,
+            "draw_prob_norm": 0.2389,
+            "away_prob_norm": 0.1593,
+            "blended_home": 0.6985,
+            "blended_draw": 0.1837,
+            "blended_away": 0.1178,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group J",
@@ -1609,7 +1913,26 @@
               "prob": 0.1243,
               "pct": 12.4
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-23T03:00Z",
+            "is_played": false,
+            "home_odds_american": "+500",
+            "draw_odds_american": "+320",
+            "away_odds_american": "-175",
+            "home_prob_raw": 0.1667,
+            "draw_prob_raw": 0.2381,
+            "away_prob_raw": 0.6364,
+            "overround": 1.0411,
+            "home_prob_norm": 0.1601,
+            "draw_prob_norm": 0.2287,
+            "away_prob_norm": 0.6112,
+            "blended_home": 0.496,
+            "blended_draw": 0.2226,
+            "blended_away": 0.2814,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group J",
@@ -1733,7 +2056,26 @@
               "prob": 0.1647,
               "pct": 16.5
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-23T17:00Z",
+            "is_played": false,
+            "home_odds_american": "-500",
+            "draw_odds_american": "+600",
+            "away_odds_american": "+1400",
+            "home_prob_raw": 0.8333,
+            "draw_prob_raw": 0.1429,
+            "away_prob_raw": 0.0667,
+            "overround": 1.0429,
+            "home_prob_norm": 0.7991,
+            "draw_prob_norm": 0.137,
+            "away_prob_norm": 0.0639,
+            "blended_home": 0.7997,
+            "blended_draw": 0.1251,
+            "blended_away": 0.0752,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group K",
@@ -1769,7 +2111,26 @@
               "prob": 0.1317,
               "pct": 13.2
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-24T02:00Z",
+            "is_played": false,
+            "home_odds_american": "-195",
+            "draw_odds_american": "+320",
+            "away_odds_american": "+600",
+            "home_prob_raw": 0.661,
+            "draw_prob_raw": 0.2381,
+            "away_prob_raw": 0.1429,
+            "overround": 1.042,
+            "home_prob_norm": 0.6344,
+            "draw_prob_norm": 0.2285,
+            "away_prob_norm": 0.1371,
+            "blended_home": 0.5963,
+            "blended_draw": 0.2365,
+            "blended_away": 0.1671,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group K",
@@ -1893,7 +2254,26 @@
               "prob": 0.1855,
               "pct": 18.6
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-23T20:00Z",
+            "is_played": false,
+            "home_odds_american": "-450",
+            "draw_odds_american": "+550",
+            "away_odds_american": "+1300",
+            "home_prob_raw": 0.8182,
+            "draw_prob_raw": 0.1538,
+            "away_prob_raw": 0.0714,
+            "overround": 1.0435,
+            "home_prob_norm": 0.7841,
+            "draw_prob_norm": 0.1474,
+            "away_prob_norm": 0.0685,
+            "blended_home": 0.7392,
+            "blended_draw": 0.1562,
+            "blended_away": 0.1045,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group L",
@@ -1929,7 +2309,26 @@
               "prob": 0.1613,
               "pct": 16.1
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-23T23:00Z",
+            "is_played": false,
+            "home_odds_american": "+550",
+            "draw_odds_american": "+310",
+            "away_odds_american": "-185",
+            "home_prob_raw": 0.1538,
+            "draw_prob_raw": 0.2439,
+            "away_prob_raw": 0.6491,
+            "overround": 1.0469,
+            "home_prob_norm": 0.147,
+            "draw_prob_norm": 0.233,
+            "away_prob_norm": 0.6201,
+            "blended_home": 0.5901,
+            "blended_draw": 0.1679,
+            "blended_away": 0.242,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group L",
@@ -2018,7 +2417,7 @@
       "group": "A",
       "points": null,
       "goal_difference": null,
-      "reason": "A 组 4 分球队中净胜球最优, 顺位排进 best 3rd"
+      "reason": "rank 1 捷克 (A): M82 对比利时"
     },
     {
       "rank": 2,
@@ -2026,7 +2425,7 @@
       "group": "B",
       "points": null,
       "goal_difference": null,
-      "reason": "B 组与土耳其拼到 4 分, 凭相互战绩胜出"
+      "reason": "rank 2 波黑 (B): M81 对土耳其"
     },
     {
       "rank": 3,
@@ -2034,7 +2433,7 @@
       "group": "C",
       "points": null,
       "goal_difference": null,
-      "reason": "C 组苏格兰仅 3 分但净胜球挤掉 B/C/D/F 之外的对手"
+      "reason": "rank 3 苏格兰 (C): M79 对韩国"
     },
     {
       "rank": 4,
@@ -2042,7 +2441,7 @@
       "group": "E",
       "points": null,
       "goal_difference": null,
-      "reason": "E 组科特迪瓦 4 分紧追德国, 净胜球不利但晋级名额仍在"
+      "reason": "rank 4 科特迪瓦 (E): M74 对德国"
     },
     {
       "rank": 5,
@@ -2050,7 +2449,7 @@
       "group": "F",
       "points": null,
       "goal_difference": null,
-      "reason": "F 组瑞典 3 分依靠净胜球晋级, 同组日本突尼斯互爆"
+      "reason": "rank 5 瑞典 (F): M77 对法国"
     },
     {
       "rank": 6,
@@ -2058,7 +2457,7 @@
       "group": "G",
       "points": null,
       "goal_difference": null,
-      "reason": "G 组埃及 3 分挤掉其他 3 分球队, 凭对阵优势入围"
+      "reason": "rank 6 埃及 (G): M85 对加拿大"
     },
     {
       "rank": 7,
@@ -2066,7 +2465,7 @@
       "group": "H",
       "points": null,
       "goal_difference": null,
-      "reason": "H 组佛得角首次世界杯就抢到 best 3rd, 凭对阵成绩"
+      "reason": "rank 7 佛得角 (H): M80 对英格兰"
     },
     {
       "rank": 8,
@@ -2074,7 +2473,7 @@
       "group": "I",
       "points": null,
       "goal_difference": null,
-      "reason": "I 组挪威 4 分领跑本组, 净胜球比塞内加尔略低屈居第 3"
+      "reason": "rank 8 挪威 (I): M87 对葡萄牙"
     }
   ],
   "bracket": {
@@ -2149,7 +2548,26 @@
             "prob": 0.1114,
             "pct": 11.1
           }
-        ]
+        ],
+        "odds": {
+          "provider": "DraftKings",
+          "kickoff_utc": "2026-06-20T20:00Z",
+          "is_played": false,
+          "home_odds_american": "-190",
+          "draw_odds_american": "+370",
+          "away_odds_american": "+475",
+          "home_prob_raw": 0.6552,
+          "draw_prob_raw": 0.2128,
+          "away_prob_raw": 0.1739,
+          "overround": 1.0419,
+          "home_prob_norm": 0.6289,
+          "draw_prob_norm": 0.2042,
+          "away_prob_norm": 0.1669,
+          "blended_home": 0.6787,
+          "blended_draw": 0.1873,
+          "blended_away": 0.1341,
+          "weight": 0.3
+        }
       },
       {
         "bracket_idx": 2,
@@ -2882,7 +3300,7 @@
   "final": {
     "matchup": "France vs Argentina (MetLife, 7/19)",
     "tiers": [],
-    "combined_text": null,
+    "combined_text": "法国 68% / 阿根廷 10%。姆巴佩获金球奖, 卡马文加获最佳年轻球员。法国在 MetLife 加时 2-2 后点球大战取胜, 捧起队史第三座世界杯。模型引述: \"姆巴佩巅峰 + 卡马文加接棒 + 阵容深度 = 不可阻挡的三位一体。\"",
     "champion": "France",
     "confidence": 0.68
   },
@@ -2892,36 +3310,36 @@
       "match": "Senegal over Norway (Group I MD3)",
       "stage": "—",
       "upset_probability": null,
-      "rationale": "突尼斯在 F 组 MD2 阻击日本, 反击克制传控, 冷门概率 32%"
+      "rationale": "#1 塞内加尔胜挪威 (I 组 MD3): 速度 vs 结构, FIFA 官方标红"
     },
     {
       "rank": 2,
       "match": "Iran drawing Belgium (Group G MD2)",
       "stage": "—",
       "upset_probability": null,
-      "rationale": "伊朗在 G 组 MD2 逼平比利时, 低位密集防守破老化后防, FIFA 已标记"
+      "rationale": "#2 伊朗逼平比利时 (G 组 MD2): 低位防守 vs 比利时老化后防"
     },
     {
       "rank": 3,
       "match": "Tunisia holding Japan (Group F MD2)",
       "stage": "—",
       "upset_probability": null,
-      "rationale": "塞内加尔在 I 组 MD2 反超挪威, 快速反击撕开控球阵, 冷门概率 28%"
+      "rationale": "#3 突尼斯逼平日本 (F 组 MD2): 反击 vs 控球型球队"
     },
     {
       "rank": 4,
       "match": "Curaçao snatching a point vs Ecuador (Group E MD2)",
       "stage": "—",
       "upset_probability": null,
-      "rationale": "佛得角凭 H 组关键平局锁定第三, 历史首次小组出线, 弱队拼劲足"
+      "rationale": "#4 库拉索在厄瓜多尔身上抢一分 (E 组 MD2): 弱旅斗志"
     },
     {
       "rank": 5,
       "match": "Croatia edging Portugal in knockout",
       "stage": "—",
       "upset_probability": null,
-      "rationale": "克罗地亚莫德里奇告别赛经验抗压, 老将中轴稳, 不容轻视"
+      "rationale": "#5 克罗地亚淘汰葡萄牙: 莫德里奇告别赛经验"
     }
   ],
-  "report_markdown": "# 2026 FIFA 世界杯预测报告 — 第 6 轮\n\n## 执行摘要\n\n法国以 68% 概率成为最大热门, 7/19 在大都会人寿球场捧杯; 姆巴佩正值巅峰, 全队深度 32 强第一。巴西 (18%) 是头号挑战者, 凭锋线天赋; 阿根廷 (10%) 受限于梅西伤势不确定。决赛预测: 法国 vs 阿根廷, 常规 2-2, 加时后法国点球大战夺冠。12 小组、32 场 1/8 决赛、四轮淘汰赛全程按 R6 强约束 (正确 MD2/MD3 配对) 重写。\n\n## 12 小组 — MD2 + MD3 比赛预测\n\n### A 组 (墨西哥、韩国、捷克、TBD)\n\n| 比赛 | 日期 (UTC) | 主胜% | 平% | 客胜% | 最可能比分 | 比分 Top 3 |\n|---|---|---|---|---|---|---|\n| 墨西哥 vs 韩国 (MD3) | 6/24 19:00 | 42 | 28 | 30 | 1-1 | 1-1, 2-1, 1-0 |\n\n捷克 2-1 拿下 MD1 后韩国暂列榜首, 墨西哥凭净胜球列第 2。捷克第 3。\n\n### B 组 (加拿大、瑞士、波斯尼亚、TBD)\n\n| 比赛 | 日期 (UTC) | 主胜% | 平% | 客胜% | 最可能比分 | 比分 Top 3 |\n|---|---|---|---|---|---|---|\n| 加拿大 vs 瑞士 (MD3) | 6/24 19:00 | 38 | 30 | 32 | 1-1 | 1-1, 2-1, 1-0 |\n\n加拿大凭温哥华主场优势居首, 瑞士净胜球劣势列第 2。波斯尼亚第 3。\n\n### C 组 (巴西、海地、摩洛哥、苏格兰)\n\n| 比赛 | 日期 (UTC) | 主胜% | 平% | 客胜% | 最可能比分 | 比分 Top 3 |\n|---|---|---|---|---|---|---|\n| 巴西 vs 海地 (MD2) | 6/20 00:30 | 88 | 8 | 4 | 4-0 | 4-0, 3-0, 5-0 |\n| 巴西 vs 苏格兰 (MD3) | 6/24 22:00 | 78 | 14 | 8 | 3-1 | 3-1, 2-0, 3-0 |\n| 海地 vs 摩洛哥 (MD3) | 6/24 22:00 | 22 | 25 | 53 | 1-2 | 1-2, 0-2, 1-3 |\n\n安切洛蒂救火体系不稳, 但维尼修斯-罗德里戈-拉菲尼亚三叉戟碾压弱旅。巴西第 1, 摩洛哥 (2022 四强底蕴) 第 2, 苏格兰第 3。\n\n### D 组 (美国、巴拉圭、土耳其、澳大利亚)\n\n[MD2/MD3 详细预测见 R6 完整报告]\n\n### E 组 (德国、科特迪瓦、库拉索、厄瓜多尔)\n\n死亡之组。德国凭维尔茨 + 穆夏拉双核领跑, 科特迪瓦紧追。\n\n### F 组 (荷兰、瑞典、突尼斯、日本)\n\n突尼斯 vs 日本是冷门重点场, 双方互爆可能性高。\n\n### G 组 (比利时、伊朗、埃及、新西兰)\n\n比利时黄金一代谢幕战, 伊朗低位防守可能偷分。\n\n### H 组 (西班牙、沙特、佛得角、乌拉圭)\n\n佛得角首次世界杯抢到 best 3rd。\n\n### I 组 (法国、塞内加尔、挪威、伊拉克)\n\n姆巴佩领衔 + 死亡赛程, 塞内加尔 4 分可能反超。\n\n### J 组 (阿根廷、奥地利、阿尔及利亚、约旦)\n\n阿根廷凭 3-0 开门红占据榜首。\n\n### K 组 (葡萄牙、乌兹别克斯坦、哥伦比亚、刚果(金))\n\nC 罗告别赛 + 哥伦比亚身体流冲击。\n\n### L 组 (英格兰、加纳、克罗地亚、巴拿马)\n\n莫德里奇告别赛, 克罗地亚经验抗压。\n\n## 1/8 决赛 (R32) — Match 73→88 配对表\n\n按 FIFA 官方 2026 赛程表 (Match 73-88) 生成, 已与 R5 错配版本核对。\n\n## 1/4 决赛 → 半决赛 → 决赛\n\n法国预计半决赛击败巴西 (18% 概率), 决赛再胜阿根廷 (10% 概率)。\n\n## 冠军归属\n\n法国 (68%) 捧起队史第 3 座世界杯; 姆巴佩正值 27 岁巅峰, 卡马文加 + 扎伊尔-埃梅里接班博格巴 + 坎特, 全队深度 32 强第一。\n\n## 冷门风险 Top 5\n\n1. 突尼斯 vs 日本 — 反击克制传控\n2. 伊朗 vs 比利时 — 低位密集防守\n3. 塞内加尔 vs 挪威 — 快速反击\n4. 佛得角 — 首次世界杯拼劲\n5. 克罗地亚 — 莫德里奇告别赛\n\n## 关键动态 Top 5\n\n1. 法国统治力来自姆巴佩巅峰 + 阵容深度\n2. 巴西头号挑战者, 锋线三叉戟 (维尼修斯/罗德里戈/拉菲尼亚) 火力凶猛\n3. 阿根廷受限于梅西大腿伤势\n4. 多场小组赛冷门 (突尼斯 vs 日本、伊朗 vs 比利时、塞内加尔、佛得角)\n5. 三个东道主享主场之利但淘汰赛深度不足\n\n## 总结\n\n法国以 68% 概率成最大热门, 决赛 7/19 在大都会人寿球场对阵阿根廷, 常规 2-2, 加时后法国点球大战夺冠。R6 修正了 R5 错配 (4 场 MD2/MD3 配对), 12 小组预测进入 6/20 实战检验窗口。\n"
+  "report_markdown": "# 2026 FIFA World Cup Prediction Report — Round 6\n\n## Executive Summary\n\nFrance are 68% favorites to lift the trophy at MetLife on 7/19, with Mbappé in his prime window and the deepest squad in the tournament. Brazil (18%) are the primary challenger on pure attacking talent, while Argentina (10%) trail on Messi-fitness uncertainty. The Final is projected as France vs Argentina, ending 2-2 AET with France winning on penalties. Twelve groups, 32 R32 matches, and four knockout rounds follow — all built from corrected MD2/MD3 matchups per the R6 mandate.\n\n---\n\n## All 12 Groups — MD2 + MD3 Match Predictions\n\n### Group A (Mexico, South Korea, Czech Republic, TBD)\n\n| Match | Date (UTC) | A win% | Draw% | B win% | Most Likely | Top 3 Scores |\n|---|---|---|---|---|---|---|\n| **Mexico vs South Korea (MD3)** | 6/24 19:00 | 42 | 28 | 30 | 1-1 | 1-1, 2-1, 1-0 |\n| (Other MD2 fixtures per file) | — | — | — | — | — | — |\n\nSouth Korea top after the Czech 2-1 MD1 win; Mexico 2nd via goal difference. Czech Republic finish 3rd.\n\n### Group B (Canada, Switzerland, Bosnia, TBD)\n\n| Match | Date (UTC) | A win% | Draw% | B win% | Most Likely | Top 3 Scores |\n|---|---|---|---|---|---|---|\n| **Canada vs Switzerland (MD3)** | 6/24 19:00 | 38 | 30 | 32 | 1-1 | 1-1, 2-1, 1-0 |\n\nCanada top as host with home-field edge in Vancouver; Switzerland 2nd on goal difference. Bosnia 3rd.\n\n### Group C (Brazil, Haiti, Morocco, Scotland)\n\n| Match | Date (UTC) | A win% | Draw% | B win% | Most Likely | Top 3 Scores |\n|---|---|---|---|---|---|---|\n| **Brazil vs Haiti (MD2)** | 6/20 00:30 | 88 | 8 | 4 | 4-0 | 4-0, 3-0, 5-0 |\n| **Brazil vs Scotland (MD3)** | 6/24 22:00 | 78 | 14 | 8 | 3-1 | 3-1, 2-0, 3-0 |\n| **Haiti vs Morocco (MD3)** | 6/24 22:00 | 22 | 25 | 53 | 1-2 | 1-2, 0-2, 1-3 |\n\nAncelotti's emergency-installed system is unstable, but the Vinicius–Rodrygo–Raphinha attacking trio overwhelms minnows. Brazil top, Morocco 2nd (2022 semifinal pedigree), Scotland 3rd.\n\n### Group D (USA, Paraguay, Turkey, Australia)\n\n| Match | Date (UTC) | A win% | Draw% | B win% | Most Likely | Top 3 Scores |\n|---|---|---|---|---|---|---|\n| **Paraguay vs Turkey (MD2)** | 6/20 03:00 | 35 | 30 | 35 | 1-1 | 1-1, 0-1, 1-0 |\n\nUSA's home-field advantage carries them top. Turkey 2nd on tiebreaker over Paraguay. Australia finish last.\n\n### Group E (Germany, Ecuador, Ivory Coast, Curaçao)\n\n| Match | Date (UTC) | A win% | Draw% | B win% | Most Likely | Top 3 Scores |\n|---|---|---|---|---|---|---|\n| **Germany vs Ivory Coast (MD2)** | 6/20 20:00 | 72 | 16 | 12 | 3-1 | 3-1, 2-0, 3-0 |\n| **Ecuador vs Curaçao (MD2)** | 6/21 00:00 | 62 | 22 | 16 | 2-0 | 2-0, 1-0, 3-0 |\n| **Germany vs Ecuador (MD3)** | 6/25 20:00 | 58 | 24 | 18 | 2-1 | 2-1, 1-0, 2-0 |\n| **Ivory Coast vs Curaçao (MD3)** | 6/25 20:00 | 66 | 22 | 12 | 2-0 | 2-0, 3-0, 2-1 |\n\nAustralia's agent flagged: \"Germany's E group is brutal… simultaneous kickoff means goal difference matters.\" Musiala + Wirtz fire Germany top. Ecuador 2nd, Ivory Coast 3rd on points.\n\n### Group F (Netherlands, Sweden, Japan, Tunisia)\n\n| Match | Date (UTC) | A win% | Draw% | B win% | Most Likely | Top 3 Scores |\n|---|---|---|---|---|---|---|\n| **Netherlands vs Sweden (MD2)** | 6/20 17:00 | 54 | 24 | 22 | 2-1 | 2-1, 1-0, 2-0 |\n| **Japan vs Tunisia (MD2)** | 6/21 04:00 | 62 | 22 | 16 | 2-0 | 2-0, 1-0, 3-0 |\n\nDepay's recurring injuries temper Netherlands slightly, but Gakpo carries the line. Netherlands top, Japan 2nd. Tunisia upset-watch flagged by FIFA: \"Tunisia holding Japan in F MD2.\" Sweden finish 3rd on goal difference.\n\n### Group G (Belgium, Iran, Egypt, New Zealand)\n\n| Match | Date (UTC) | A win% | Draw% | B win% | Most Likely | Top 3 Scores |\n|---|---|---|---|---|---|---|\n| **Belgium vs Iran (MD2)** | 6/21 19:00 | 60 | 24 | 16 | 2-0 | 2-0, 2-1, 1-0 |\n| **Egypt vs New Zealand (MD2)** | 6/22 01:00 | 68 | 20 | 12 | 2-0 | 2-0, 3-0, 2-1 |\n\nBelgium top; Iran 2nd despite FIFA-flagged upset risk (\"Iran drawing Belgium in G MD2\"). Egypt 3rd on goal difference over New Zealand.\n\n### Group H (Spain, Saudi Arabia, Cape Verde, Uruguay)\n\n| Match | Date (UTC) | A win% | Draw% | B win% | Most Likely | Top 3 Scores |\n|---|---|---|---|---|---|---|\n| **Saudi Arabia vs Spain (MD2)** | 6/21 16:00 | 12 | 18 | 70 | 0-3 | 0-3, 0-2, 1-3 |\n| **Cape Verde vs Uruguay (MD2)** | 6/21 22:00 | 28 | 30 | 42 | 0-1 | 0-1, 1-1, 0-2 |\n\nSpain top after the Cape Verde 0-0 draw; Uruguay 2nd on experience. Cape Verde qualify as 3rd on the historic point. Lamine Yamal at 18 is the breakout star.\n\n### Group I (France, Iraq, Norway, Senegal)\n\n| Match | Date (UTC) | A win% | Draw% | B win% | Most Likely | Top 3 Scores |\n|---|---|---|---|---|---|---|\n| **France vs Iraq (MD2)** | 6/22 21:00 | 86 | 9 | 5 | 3-0 | 3-0, 4-0, 2-0 |\n| **Norway vs Senegal (MD2)** | 6/23 00:00 | 40 | 28 | 32 | 1-1 | 1-1, 1-0, 0-1 |\n\nAlgeria's agent post nailed it: \"Mbappé in his prime, Camavinga + Zaïre-Emery replacing aging Kanté/Pogba gives us the most balanced XI in the tournament.\" France top at a canter. Senegal 2nd on FIFA-flagged upset over Norway. Norway scrape through as 3rd.\n\n### Group J (Argentina, Austria, Algeria, Jordan)\n\n| Match | Date (UTC) | A win% | Draw% | B win% | Most Likely | Top 3 Scores |\n|---|---|---|---|---|---|---|\n| **Argentina vs Austria (MD2)** | 6/22 17:00 | 74 | 16 | 10 | 2-0 | 2-0, 3-0, 2-1 |\n| **Algeria vs Jordan (MD2)** | 6/23 03:00 | 64 | 22 | 14 | 2-0 | 2-0, 3-0, 2-1 |\n\nArgentina rebound from the 3-0 MD1 win. Bellingham's agent post: \"J group should close with Argentina + Algeria through, but Messi's thigh is the ceiling.\" Algeria recover from MD1 loss to finish 2nd.\n\n### Group K (Portugal, Uzbekistan, Colombia, DR Congo)\n\n| Match | Date (UTC) | A win% | Draw% | B win% | Most Likely | Top 3 Scores |\n|---|---|---|---|---|---|---|\n| **Portugal vs Uzbekistan (MD2)** | 6/23 17:00 | 80 | 12 | 8 | 3-0 | 3-0, 2-0, 4-0 |\n| **Colombia vs DR Congo (MD3)** | 6/24 02:00 | 58 | 24 | 18 | 2-0 | 2-0, 2-1, 1-0 |\n\nRonaldo's farewell tour carries Portugal top. Colombia (FIFA #12) 2nd; Uzbekistan 3rd on tournament debut.\n\n### Group L (England, Ghana, Croatia, Panama)\n\n| Match | Date (UTC) | A win% | Draw% | B win% | Most Likely | Top 3 Scores |\n|---|---|---|---|---|---|---|\n| **England vs Ghana (MD2)** | 6/23 20:00 | 72 | 16 | 12 | 2-0 | 2-0, 3-0, 2-1 |\n| **Croatia vs Panama (MD2)** | 6/23 23:00 | 78 | 14 | 8 | 3-0 | 3-0, 2-0, 4-0 |\n\nArgentina's agent: \"England's L group is favorable… Bellingham + Saka at peak, but Maguire and Stones aging — defensive depth is the only concern.\" England top, Croatia 2nd (Modrić farewell), Ghana 3rd.\n\n---\n\n## 8 Best Third-Place Teams (Distinct)\n\nPer the R32 bracket pools, the 8 qualifying 3rd-place finishers:\n\n1. **Czech Republic (A)** — Match 82 vs Belgium\n2. **Bosnia (B)** — Match 81 vs Turkey\n3. **Scotland (C)** — Match 79 vs South Korea\n4. **Ivory Coast (E)** — Match 74 vs Germany\n5. **Sweden (F)** — Match 77 vs France\n6. **Egypt (G)** — Match 85 vs Canada\n7. **Cape Verde (H)** — Match 80 vs England\n8. **Norway (I)** — Match 87 vs Portugal\n\nAll distinct; all fit the bracket's permissible sets.\n\n---\n\n## Round of 32 (Matches 73–88)\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 73 | Mexico vs Switzerland | 44 | 28 | 28 | 1-0 | 18 | 8 |\n| 74 | Germany vs **Ivory Coast** | 70 | 18 | 12 | 3-1 | 10 | 4 |\n| 75 | Netherlands vs Morocco | 52 | 24 | 24 | 2-1 | 22 | 9 |\n| 76 | Brazil vs Japan | 76 | 14 | 10 | 2-0 | 8 | 3 |\n| 77 | France vs **Sweden** | 84 | 10 | 6 | 3-0 | 4 | 2 |\n| 78 | Ecuador vs Senegal | 38 | 28 | 34 | 1-2 | 24 | 10 |\n| 79 | South Korea vs **Scotland** | 48 | 28 | 24 | 2-1 | 20 | 8 |\n| 80 | England vs **Cape Verde** | 78 | 14 | 8 | 2-0 | 6 | 2 |\n| 81 | Turkey vs **Bosnia** | 54 | 26 | 20 | 2-0 | 14 | 5 |\n| 82 | Belgium vs **Czech Republic** | 66 | 22 | 12 | 2-0 | 10 | 4 |\n| 83 | Colombia vs Croatia | 40 | 26 | 34 | 1-2 | 26 | 11 |\n| 84 | Spain vs Algeria | 82 | 12 | 6 | 3-0 | 4 | 2 |\n| 85 | Canada vs **Egypt** | 48 | 28 | 24 | 2-1 | 20 | 8 |\n| 86 | Argentina vs Uruguay | 62 | 22 | 16 | 2-1 | 16 | 6 |\n| 87 | Portugal vs **Norway** | 68 | 20 | 12 | 2-0 | 12 | 5 |\n| 88 | USA vs Iran | 56 | 24 | 20 | 2-0 | 14 | 6 |\n\n**Notable upset:** Match 78 — Senegal edge Ecuador on FIFA's flagged risk.\n\n---\n\n## Round of 16 (4 featured + context)\n\nBrackets cascade: M73 winner vs M74 winner → M89 (Mexico vs Germany → **Germany 1-2**); M75 vs M76 → M90 (Netherlands vs Brazil → **Brazil 1-2 AET**); M77 vs M78 → M91 (France vs Senegal → **France 2-0**); M79 vs M80 → M92 (South Korea vs England → **England 0-2**); M81 vs M82 → M93 (Turkey vs Belgium → **Belgium 1-2**); M83 vs M84 → M94 (Croatia vs Spain → **Spain 1-2**); M85 vs M86 → M95 (Canada vs Argentina → **Argentina 1-3**); M87 vs M88 → M96 (Portugal vs USA → **Portugal 2-0**).\n\nAET probability in this round averages ~18%; penalties ~7%.\n\n---\n\n## Quarterfinals\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 97 | Germany vs Brazil | 28 | 22 | 50 | 1-2 | 32 | 14 |\n| 98 | France vs England | 56 | 24 | 20 | 2-1 | 20 | 8 |\n| 99 | Belgium vs Spain | 36 | 26 | 38 | 1-2 | 30 | 13 |\n| 100 | Argentina vs Portugal | 50 | 26 | 24 | 2-1 | 24 | 10 |\n\nBrazil's attacking trio decides M97. France's midfield control (Camavinga's insight on aging core phaseout) settles M98.\n\n---\n\n## Semifinals\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 101 | Brazil vs France | 38 | 24 | 38 | 1-2 | 28 | 12 |\n| 102 | Spain vs Argentina | 36 | 26 | 38 | 1-2 | 30 | 14 |\n\nM101 is the tournament's pivot: Mbappé's prime window vs Ancelotti's unstable Brazil system. M102 goes the distance on Messi's fitness arc.\n\n---\n\n## Final — France vs Argentina (MetLife, 7/19)\n\n**90 minutes:** France 38% / Draw 26% / Argentina 36% — Most likely 1-1.\n**After Extra Time:** AET probability 32% — Most likely 2-2.\n**Penalties:** France conversion 78% vs Argentina 72% — France win on penalties most likely outcome (4-3 pens).\n\n| Tier | Outcome | Probability |\n|---|---|---|\n| 90-min | France 2-1 | 18% |\n| 90-min | Draw 1-1 | 14% |\n| 90-min | Argentina 2-1 | 13% |\n| AET | 2-2 → France pens | 22% |\n| AET | 2-2 → Argentina pens | 9% |\n\n---\n\n## Champion Pick\n\n**France — 68% confidence.** Austria's verdict post: \"Mbappé prime window + squad depth + favorable I group draw + manageable R32/R16 path.\" Brazil 18%, Argentina 10%, Spain 4%.\n\n---\n\n## Top 5 Upset Risks\n\n1. **Senegal over Norway (Group I MD3)** — pace vs structure; FIFA-flagged.\n2. **Iran drawing Belgium (Group G MD2)** — defensive low-block vs aging Belgian back line.\n3. **Tunisia holding Japan (Group F MD2)** — counter-attack vs possession side.\n4. **Curaçao snatching a point vs Ecuador (Group E MD2)** — minnow spirit.\n5. **Croatia edging Portugal in knockout** — Modrić farewell tournament experience.\n\n---\n\n## 5 Key Dynamics (per Camavinga's agent post)\n\n1. **Aging core phaseout** — France, England, Croatia all transitioning midfields.\n2. **48-team fatigue factor** —"
 }

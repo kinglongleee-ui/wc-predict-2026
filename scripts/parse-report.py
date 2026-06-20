@@ -99,6 +99,27 @@ def parse_group_table(md_text: str, group_letter: str) -> list:
 
     matches = []
 
+    # R6 style: | **TEAM_A vs TEAM_B (MDx)** | M/D HH:MM | A% | D% | B% | Score | Top3 |
+    # 7-column table with Date column inserted between Match and A%; bare integer pcts.
+    for row in re.finditer(
+        r"\|\s*\*\*([^*]+?)\s*vs\s+([^*]+?)\s*\(MD(\d+)(?:,\s*prior)?\)\*\*\s*\|\s*[^|]+?\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*([^|]+?)\s*\|",
+        section_text,
+    ):
+        team_a_full, team_b_full, md, a_pct, draw_pct, b_pct, score_raw = row.groups()
+        matches.append({
+            "stage": f"Group {group_letter}",
+            "matchday": int(md),
+            "team_a": team_a_full.strip(),
+            "team_b": team_b_full.strip(),
+            "team_a_win": parse_pct(a_pct + "%"),
+            "draw": parse_pct(draw_pct + "%"),
+            "team_b_win": parse_pct(b_pct + "%"),
+            "most_likely_score": parse_score(score_raw),
+        })
+
+    if matches:
+        return matches
+
     # R3 style: | **TEAM_A vs TEAM_B (MDx)** | A% | D% | B% | Score |
     for row in re.finditer(
         r"\|\s*\*\*([^*]+?)\s*vs\s+([^*]+?)\s*\(MD(\d+)(?:,\s*prior)?\)\*\*\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*([^|]+?)\s*\|",
@@ -457,6 +478,25 @@ def parse_best_thirds(md_text: str) -> list:
             "reason": reason.strip() if reason else None,
         })
 
+    if rows:
+        return rows
+
+    # R6 style: 1. **Czech Republic (A)** — Match 82 vs Belgium
+    for row in re.finditer(
+        r"(\d+)\.\s*\*\*([^*\n]+?)\s+\(([A-L])\)\*\*\s*[—\-–]\s*Match\s+(\d+)\s+vs\s+([^\n]+?)(?:\.|$)",
+        section_text,
+        re.MULTILINE,
+    ):
+        rank, team, group, match_num, opponent = row.groups()
+        rows.append({
+            "rank": int(rank),
+            "team": team.strip(),
+            "group": group.strip(),
+            "points": None,
+            "goal_difference": None,
+            "reason": f"M{match_num} vs {opponent.strip()}",
+        })
+
     return rows
 
 
@@ -486,7 +526,7 @@ def parse_upset_risks(md_text: str) -> list:
     R4 alt: | 1 | **Senegal (2I) vs Croatia (2L) — 55% upset risk:** "..."   (numbered list)
     R4: | Rank | Match | Context | Upset Prob |  (4 cols, no rationale, pct in **bold**)
     """
-    section_match = re.search(r"##\s*(?:\d+\.\s*)?Top\s+5\s+Upset-Risk", md_text)
+    section_match = re.search(r"##\s*(?:\d+\.\s*)?Top\s+5\s+Upset[-\s]Risk", md_text)
     if not section_match:
         return []
     start = section_match.end()
@@ -561,6 +601,26 @@ def parse_upset_risks(md_text: str) -> list:
             "stage": "—",
             "upset_probability": (100 - max(nums)) / 100.0,
             "rationale": rationale.strip(),
+        })
+
+    if risks:
+        return risks
+
+    # R6 numbered: 1. **Senegal over Norway (Group I MD3)** — pace vs structure; FIFA-flagged.
+    for row in re.finditer(
+        r"(\d+)\.\s*\*\*([^*\n]+?)\*\*\s*[—\-–]\s*([^\n]+)",
+        section_text,
+    ):
+        rank, match, rationale = row.groups()
+        # Skip R5-style entries (would have been caught above)
+        if "/" in match and "MD" not in match[:5]:
+            continue
+        risks.append({
+            "rank": int(rank),
+            "match": match.strip(),
+            "stage": "—",
+            "upset_probability": None,
+            "rationale": rationale.strip().rstrip("."),
         })
 
     return risks
@@ -653,6 +713,41 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
     matches = []
 
     if with_index:
+        # R6 style: | # | Mexico vs Switzerland | 44 | 28 | 28 | 1-0 | 18 | 8 |
+        # 8-column with bare-integer pcts, NO group/seed in team cells.
+        # R6 # column is 73-88 (Match 73-88); need 0-based sequential for frontend.
+        r6_rows = list(re.finditer(
+            r"\|\s*(\d+)\s*\|\s*([^|]+?)\s+vs\s+([^|]+?)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|",
+            section_text,
+        ))
+        for row in r6_rows:
+            idx, team_a_raw, team_b_raw, a_pct, d_pct, b_pct, score, aet_pct, pen_pct = row.groups()
+            if a_pct == "0" and d_pct == "0" and b_pct == "0":
+                continue
+            team_a, group_a, seed_a = _parse_team_with_seed(team_a_raw)
+            team_b, group_b, seed_b = _parse_team_with_seed(team_b_raw)
+            score_clean = score.strip()
+            winner_hint = _extract_winner_from_score(score_clean, team_a, team_b)
+            matches.append({
+                "bracket_idx": len(matches),  # sequential 0-based (R6 # col is 73-88, can't use idx-1)
+                "team_a": team_a,
+                "group_a": group_a,
+                "seed_a": seed_a,
+                "team_b": team_b,
+                "group_b": group_b,
+                "seed_b": seed_b,
+                "team_a_win": parse_pct(a_pct + "%"),
+                "draw": parse_pct(d_pct + "%"),
+                "team_b_win": parse_pct(b_pct + "%"),
+                "score": score_clean,
+                "aet_pct": parse_pct(aet_pct + "%"),
+                "pen_pct": parse_pct(pen_pct + "%"),
+                "winner": winner_hint or _winner_from_pct(a_pct + "%", b_pct + "%", d_pct + "%"),
+            })
+
+        if matches:
+            return matches
+
         # R5 style: | # | 1st A (Mexico) vs 2nd B (Canada) | 44 | 28 | 28 | 1-0 | 22 | 10 |
         # Best-3rd slot: | # | 1st E (Germany) vs 3rd (Scotland) | ... (group letter optional)
         r5_rows = list(re.finditer(
@@ -744,6 +839,40 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
                 "winner": _winner_from_pct(a_pct, b_pct, d_pct),
             })
     else:
+        # R6 style: | 97 | Germany vs Brazil | 28 | 22 | 50 | 1-2 | 32 | 14 | (QF/SF, bare # prefix)
+        r6_rows = list(re.finditer(
+            r"\|\s*(\d+)\s*\|\s*([^|]+?)\s+vs\s+([^|]+?)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|",
+            section_text,
+        ))
+        for row in r6_rows:
+            idx, team_a_raw, team_b_raw, a_pct, d_pct, b_pct, score, aet_pct, pen_pct = row.groups()
+            if a_pct == "0" and d_pct == "0" and b_pct == "0":
+                continue
+            team_a, group_a, seed_a = _parse_team_with_seed(team_a_raw)
+            team_b, group_b, seed_b = _parse_team_with_seed(team_b_raw)
+            score_clean = score.strip()
+            winner_hint = _extract_winner_from_score(score_clean, team_a, team_b)
+            matches.append({
+                "bracket_idx": int(idx) - 1,
+                "team_a": team_a,
+                "group_a": group_a,
+                "seed_a": seed_a,
+                "team_b": team_b,
+                "group_b": group_b,
+                "seed_b": seed_b,
+                "team_a_win": parse_pct(a_pct + "%"),
+                "draw": parse_pct(d_pct + "%"),
+                "team_b_win": parse_pct(b_pct + "%"),
+                "score": score_clean,
+                "aet_pct": parse_pct(aet_pct + "%"),
+                "pen_pct": parse_pct(pen_pct + "%"),
+                "winner": winner_hint or _winner_from_pct(a_pct + "%", b_pct + "%", d_pct + "%"),
+            })
+        for i, m in enumerate(matches):
+            m["bracket_idx"] = i
+        if matches:
+            return matches
+
         # R4 style: | Match | Matchup | A% | Draw | B% | Score | AET | Pen |
         # R5 style: | R16-1 | TeamA vs TeamB | 64 | 22 | 14 | 2-1 | 14 | 6 | (plain numbers, no %)
         r4_rows = list(re.finditer(
@@ -891,6 +1020,50 @@ def build_real_r32(groups: dict, best_thirds: list) -> list:
             "score": "待定", "aet_pct": None, "pen_pct": None, "winner": None,
         })
     return out
+
+
+def _fill_r32_seeds_from_real(bracket_r32: list, real_r32: list) -> int:
+    """R6 风格修复: MiroFish R32 配对已对 (按队名匹配 FIFA 规则), 但 R6 markdown
+    不在 team cell 里加 (A1)/(B3) 标签 → group/seed 字段全空.
+
+    这函数只补 group/seed, 不动 team_a/team_b/winner/score/probs.
+    用队名双向匹配 (case-insensitive + 去标点) 比对 MiroFish 输出 vs REAL_R32_RULES.
+
+    Returns: 实际补的 seed 字段数 (0..32). 0 表示 MiroFish 配对错位 → 应触发 full override.
+    """
+    def norm(s):
+        return (s or "").lower().replace(".", "").replace("'", "").replace("é", "e").strip()
+    def short(norm_name):
+        # 取首词 (e.g. "south korea" → "south", "bosnia and herzegovina" → "bosnia")
+        return norm_name.split()[0] if norm_name else ""
+
+    filled = 0
+    for real_m in real_r32:
+        ra = norm(real_m["team_a"])
+        rb = norm(real_m["team_b"])
+        sa = short(ra)
+        sb = short(rb)
+        for m in bracket_r32:
+            if m.get("bracket_idx") != real_m["bracket_idx"]:
+                continue
+            ma = norm(m.get("team_a"))
+            mb = norm(m.get("team_b"))
+            # MiroFish 队名要么完全匹配 real, 要么短名匹配 (兼容 "Czechia" vs "Czech Republic")
+            # 顺序也可能颠倒 (real A vs MiroFish B), 双向检查
+            match_ab = (ma == ra or sa in ma.split() or ra in ma) and (mb == rb or sb in mb.split() or rb in mb)
+            match_ba = (ma == rb or sb in ma.split() or rb in ma) and (mb == ra or sa in mb.split() or ra in mb)
+            if not (match_ab or match_ba):
+                continue  # MiroFish 这场配对 ≠ FIFA, 留给 caller 决定
+            # 配对正确, 补 group/seed (swap 如果顺序反了)
+            if match_ab:
+                m["group_a"] = real_m["group_a"]; m["seed_a"] = real_m["seed_a"]
+                m["group_b"] = real_m["group_b"]; m["seed_b"] = real_m["seed_b"]
+            else:
+                m["group_a"] = real_m["group_b"]; m["seed_a"] = real_m["seed_b"]
+                m["group_b"] = real_m["group_a"]; m["seed_b"] = real_m["seed_a"]
+            filled += 2
+            break
+    return filled
 
 
 def _parse_third_place(md_text: str, sf_start: int) -> Optional[dict]:
@@ -1182,6 +1355,117 @@ def _enrich_with_top3(matches, baseline):
     return matches, n
 
 
+# ----------------------------------------------------------------------
+# Bookmaker odds enrichment (draft #176 — fetch_odds.py + 30/70 blend)
+# ----------------------------------------------------------------------
+# Reads data/real/wc_2026_odds.json (DraftKings 1X2 via ESPN scoreboard).
+# For each MiroFish match, looks up the DraftKings implied prob and writes:
+#   m["odds"] = {
+#     provider, kickoff_utc, is_played,
+#     home_odds_american, draw_odds_american, away_odds_american,
+#     home_prob_raw, draw_prob_raw, away_prob_raw, overround,
+#     home_prob_norm, draw_prob_norm, away_prob_norm,  ← vig-removed
+#     blended_home, blended_draw, blended_away,         ← 30% odds + 70% MiroFish
+#     weight: 0.30,
+#   }
+# `blended_*` is the post-process weighted mix. LLM-side injection (the
+# "layer 2" half of task #176) happens in daily-update.sh's --requirement
+# string, not here.
+
+ODDS_PATH = ROOT / "data" / "real" / "wc_2026_odds.json"
+ODDS_BLEND_WEIGHT = 0.30  # 30% bookmaker + 70% MiroFish
+
+
+def load_odds() -> dict:
+    """Returns {(team_a_lc, team_b_lc): odds_match, ...} keyed by both orderings.
+    Empty dict on missing file or invalid JSON.
+    """
+    if not ODDS_PATH.exists():
+        return {}
+    try:
+        data = json.loads(ODDS_PATH.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    out: dict = {}
+    for m in data.get("matches", []):
+        a = (m.get("team_a") or "").strip().lower()
+        b = (m.get("team_b") or "").strip().lower()
+        if not a or not b:
+            continue
+        # Book on ESPN lists team_a = home, team_b = away. MiroFish may list in
+        # reverse. Store both orderings.
+        out[(a, b)] = m
+        out[(b, a)] = {**m, "team_a": m["team_b"], "team_b": m["team_a"]}
+    return out
+
+
+def _blend(a_mf: float, a_odds: float, w: float = ODDS_BLEND_WEIGHT) -> float:
+    """a_mf: MiroFish 概率; a_odds: bookmaker normalized 概率; w: bookmaker 权重."""
+    if a_mf is None or a_odds is None:
+        return a_mf if a_mf is not None else a_odds
+    return round((1.0 - w) * a_mf + w * a_odds, 4)
+
+
+def _enrich_with_odds(matches, odds_index) -> tuple:
+    """Attach odds + blended probabilities to each match that has a bookmaker line.
+
+    Skips matches that:
+      - are already played (no betting value)
+      - don't have a team pair match in the odds index
+
+    Returns (matches, n_enriched).
+    """
+    if not matches or not odds_index:
+        return matches, 0
+    n = 0
+    for m in matches:
+        if m.get("is_played"):
+            continue
+        a = (m.get("team_a") or "").strip()
+        b = (m.get("team_b") or "").strip()
+        if not a or not b:
+            continue
+        odds_match = odds_index.get((a.lower(), b.lower()))
+        if not odds_match:
+            continue
+        o = odds_match.get("odds", {})
+        if not o:
+            continue
+        # MiroFish probs (group match uses team_a_win/draw/team_b_win, bracket uses same)
+        mf_home = m.get("team_a_win")
+        mf_draw = m.get("draw")
+        mf_away = m.get("team_b_win")
+        if mf_home is None or mf_draw is None or mf_away is None:
+            continue
+        # If MiroFish row is the "reversed" ordering (we put swapped odds),
+        # swap the implied probs so they match.
+        swap = odds_match.get("team_a", "").lower() != a.lower()
+        od_home = o.get("away_prob_norm" if swap else "home_prob_norm")
+        od_draw = o.get("draw_prob_norm")
+        od_away = o.get("home_prob_norm" if swap else "away_prob_norm")
+        m["odds"] = {
+            "provider": o.get("provider"),
+            "kickoff_utc": odds_match.get("kickoff_utc"),
+            "is_played": odds_match.get("is_played"),
+            "home_odds_american": o.get("away_odds_american" if swap else "home_odds_american"),
+            "draw_odds_american": o.get("draw_odds_american"),
+            "away_odds_american": o.get("home_odds_american" if swap else "away_odds_american"),
+            "home_prob_raw": o.get("away_prob_raw" if swap else "home_prob_raw"),
+            "draw_prob_raw": o.get("draw_prob_raw"),
+            "away_prob_raw": o.get("home_prob_raw" if swap else "away_prob_raw"),
+            "overround": o.get("overround"),
+            "home_prob_norm": od_home,
+            "draw_prob_norm": od_draw,
+            "away_prob_norm": od_away,
+            "blended_home": _blend(mf_home, od_home),
+            "blended_draw": _blend(mf_draw, od_draw),
+            "blended_away": _blend(mf_away, od_away),
+            "weight": ODDS_BLEND_WEIGHT,
+        }
+        n += 1
+    return matches, n
+
+
 def parse_run(run_id: str, run_dir: Path) -> dict:
     report_md = (run_dir / "report" / "report.md").read_text(encoding="utf-8")
     verdict = json.loads((run_dir / "report" / "verdict.json").read_text(encoding="utf-8"))
@@ -1308,26 +1592,95 @@ def parse_run(run_id: str, run_dir: Path) -> dict:
 
     bracket = parse_bracket(report_md)
     # 134 兜底: 用 FIFA 真实 Match 73-88 规则覆盖 MiroFish 错配的 R32
-    # 只在 MiroFish 解析出 R32 但配对看起来错位时触发。R5 现在 R32 表格清晰,
-    # 解析出的 team_a_win/draw/team_b_win 概率应该用 MiroFish 的, 不用中性 0.5。
-    # 判断标准: MiroFish R32 第一个 entry 概率是否全 0 (134 兜底标志)
+    # 触发条件 (任何一条满足即覆盖):
+    #   A) MiroFish R32 第一个 entry 概率全 0 (134 兜底标志, 历史 R3/R4 标志)
+    #   B) R32[0] (M73) 配对 ≠ Runner-up A vs Runner-up B (A2 vs B2)
+    #   C) 扫 R32[1-15] 全部 best 3rd slot, 任一 group 不在 FIFA allowed 内
+    #   D) 扫 R32 全部 winner/runner_up slot, 任一 team 不在对应组 standings 内
     needs_override = False
+    # Gate: 134 兜底 — 有 R32 输出 + 12 组解析全 → 扫 needs_override (A/B/C/D 任一触发即覆盖)
+    # Gate 改 len > 0 (从 len >= 16): R4 只有 4/16 也需检测 (R3 16/16 + R5/R6 16/16 + R4 4/16 都覆盖)
     if bracket["r32"] and len(groups) == 12:
+        # Detect R6-style: 没有 group/seed (MiroFish R6 markdown 不在 team cell 里加 (A1)/(B3) 标签)
+        r6_style = all(
+            m.get("group_a") is None and m.get("seed_a") is None
+            and m.get("group_b") is None and m.get("seed_b") is None
+            for m in bracket["r32"]
+        )
+        # 条件 A
         first = bracket["r32"][0]
         if (first.get("team_a_win") in (None, 0.0)
             and first.get("draw") in (None, 0.0)
             and first.get("team_b_win") in (None, 0.0)):
             needs_override = True
-        # 或 MiroFish 报告含明显错位信号 (e.g. M73 不应该是 runner-up A vs runner-up B)
+        # 条件 B: M73 = Runner-up A vs Runner-up B (R6 风格无 group/seed 时跳过)
         m73 = next((m for m in bracket["r32"] if m.get("bracket_idx") == 0), None)
-        if m73:
-            a_team, a_group, a_seed = m73.get("team_a"), m73.get("group_a"), m73.get("seed_a")
-            b_team, b_group, b_seed = m73.get("team_b"), m73.get("group_b"), m73.get("seed_b")
-            # FIFA M73 = Runner-up A vs Runner-up B (a_seed=2,b_seed=2,a_group=A,b_group=B)
-            if not (a_seed == 2 and b_seed == 2 and a_group == "A" and b_group == "B"):
-                needs_override = True
+        if m73 and not r6_style and not (
+            m73.get("seed_a") == 2 and m73.get("seed_b") == 2
+            and m73.get("group_a") == "A" and m73.get("group_b") == "B"
+        ):
+            needs_override = True
+        # 条件 C+D: 扫 r32[0..15] 对齐 REAL_R32_RULES, 任一 slot 错就覆盖 (R6 风格跳过)
+        if not needs_override and not r6_style:
+            parsed_by_idx = {m.get("bracket_idx"): m for m in bracket["r32"]}
+            for idx, (_, k1, a1, k2, a2) in enumerate(REAL_R32_RULES):
+                pm = parsed_by_idx.get(idx)
+                if not pm:
+                    needs_override = True
+                    break
+                # 检查 slot 1
+                if k1 == "winner":
+                    expected_team = groups.get(a1, {}).get("standings", [{}])[0].get("team")
+                    if pm.get("group_a") != a1 or pm.get("seed_a") != 1 or (expected_team and pm.get("team_a") not in (expected_team, None)):
+                        needs_override = True
+                        break
+                elif k1 == "runner_up":
+                    st = groups.get(a1, {}).get("standings", [])
+                    expected_team = st[1].get("team") if len(st) > 1 else None
+                    if pm.get("group_a") != a1 or pm.get("seed_a") != 2 or (expected_team and pm.get("team_a") not in (expected_team, None)):
+                        needs_override = True
+                        break
+                elif k1 == "best3":
+                    if pm.get("group_a") not in a2:
+                        needs_override = True
+                        break
+                # 检查 slot 2
+                if k2 == "winner":
+                    expected_team = groups.get(a2, {}).get("standings", [{}])[0].get("team")
+                    if pm.get("group_b") != a2 or pm.get("seed_b") != 1 or (expected_team and pm.get("team_b") not in (expected_team, None)):
+                        needs_override = True
+                        break
+                elif k2 == "runner_up":
+                    st = groups.get(a2, {}).get("standings", [])
+                    expected_team = st[1].get("team") if len(st) > 1 else None
+                    if pm.get("group_b") != a2 or pm.get("seed_b") != 2 or (expected_team and pm.get("team_b") not in (expected_team, None)):
+                        needs_override = True
+                        break
+                elif k2 == "best3":
+                    if pm.get("group_b") not in a2:
+                        needs_override = True
+                        break
     if needs_override:
         bracket["r32"] = build_real_r32(groups, best_thirds)
+
+    # R6 风格补救 (与 needs_override 互斥): MiroFish R32 配对正确, 但 markdown 不带 (A1)/(B3) 标签
+    # → group/seed 全空. 尝试按 FIFA 规则只补 group/seed (不动 MiroFish 的 team/score/probs).
+    # 补到 <16/32 = 配对错位 → 走 needs_override 路径 full override.
+    elif r6_style and len(bracket["r32"]) == 16:
+        # 检查 standings 是否能解析 (134 兜底靠它, 没 standings 就无 real_r32 参照)
+        any_standings = any(groups.get(L, {}).get("standings") for L in "ABCDEFGHIJKL")
+        if not any_standings:
+            # R6 MiroFish 没写 standings 表格 → 134 无法比对, 信任 MiroFish 配对, 不动 R32
+            print(f"  [134-skip] R6-style + no standings → trust MiroFish R32 pairings (frontend teamSeedLabel 兜底)")
+        else:
+            real_r32 = build_real_r32(groups, best_thirds)
+            n_filled = _fill_r32_seeds_from_real(bracket["r32"], real_r32)
+            if n_filled == 32:
+                print(f"  [134-fix] R6-style: filled {n_filled}/32 R32 group/seed fields (MiroFish pairings correct)")
+            else:
+                # 配对错位, 退到 full override (重置 winner/score/probs 为中性)
+                print(f"  [134-override] R6-style pairings misaligned ({n_filled}/32 filled) → full override")
+                bracket["r32"] = real_r32
 
     # A+B 提分: 注入 Elo-Poisson top_3_scores 到所有 match
     # (MiroFish 未来输出新 top_3 字段会覆盖; 现在都是 fallback 兜底)
@@ -1342,6 +1695,21 @@ def parse_run(run_id: str, run_dir: Path) -> dict:
             n_top3 += n
     if n_top3 > 0:
         print(f"  [A+B] enriched {n_top3} matches with top_3_scores from Elo-Poisson baseline")
+
+    # #176 提分: 注入博彩赔率 (DraftKings via ESPN) + 30/70 加权混合
+    # 跳过已比赛比赛; LLM 侧注入在 daily-update.sh --requirement (层 2) 不在这里.
+    odds_index = load_odds()
+    n_odds = 0
+    if odds_index:
+        for letter, g in groups.items():
+            g["matches"], n = _enrich_with_odds(g["matches"], odds_index)
+            n_odds += n
+        for stage in ["r32", "r16", "qf", "sf"]:
+            if bracket.get(stage):
+                bracket[stage], n = _enrich_with_odds(bracket[stage], odds_index)
+                n_odds += n
+    if n_odds > 0:
+        print(f"  [odds] enriched {n_odds} matches with DraftKings 1X2 + 30% blended probs")
 
     return {
         "run_id": run_id,
