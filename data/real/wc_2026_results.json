@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-06-19T13:16:54Z",
-  "source": "ESPN scoreboard (fifa.world, dates=20260611-20260719, 28 played)",
-  "match_count": 28,
+  "fetched_at": "2026-06-21T01:24:29Z",
+  "source": "ESPN scoreboard (fifa.world, dates=20260611-20260719, 34 played)",
+  "match_count": 34,
   "matches": [
     {
       "group": "A",
@@ -94,6 +94,24 @@
       "source_wiki_page": "ESPN:fifa.world:760418"
     },
     {
+      "group": "C",
+      "team_a": "Scotland",
+      "score_a": 0,
+      "team_b": "Morocco",
+      "score_b": 1,
+      "date": "2026-06-19",
+      "source_wiki_page": "ESPN:fifa.world:760445"
+    },
+    {
+      "group": "C",
+      "team_a": "Brazil",
+      "score_a": 3,
+      "team_b": "Haiti",
+      "score_b": 0,
+      "date": "2026-06-20",
+      "source_wiki_page": "ESPN:fifa.world:760444"
+    },
+    {
       "group": "D",
       "team_a": "USA",
       "score_a": 4,
@@ -110,6 +128,24 @@
       "score_b": 0,
       "date": "2026-06-14",
       "source_wiki_page": "ESPN:fifa.world:760421"
+    },
+    {
+      "group": "D",
+      "team_a": "USA",
+      "score_a": 2,
+      "team_b": "Australia",
+      "score_b": 0,
+      "date": "2026-06-19",
+      "source_wiki_page": "ESPN:fifa.world:760442"
+    },
+    {
+      "group": "D",
+      "team_a": "Turkey",
+      "score_a": 0,
+      "team_b": "Paraguay",
+      "score_b": 1,
+      "date": "2026-06-20",
+      "source_wiki_page": "ESPN:fifa.world:760443"
     },
     {
       "group": "E",
@@ -130,6 +166,15 @@
       "source_wiki_page": "ESPN:fifa.world:760423"
     },
     {
+      "group": "E",
+      "team_a": "Germany",
+      "score_a": 2,
+      "team_b": "Ivory Coast",
+      "score_b": 1,
+      "date": "2026-06-20",
+      "source_wiki_page": "ESPN:fifa.world:760448"
+    },
+    {
       "group": "F",
       "team_a": "Netherlands",
       "score_a": 2,
@@ -146,6 +191,15 @@
       "score_b": 1,
       "date": "2026-06-15",
       "source_wiki_page": "ESPN:fifa.world:760424"
+    },
+    {
+      "group": "F",
+      "team_a": "Netherlands",
+      "score_a": 5,
+      "team_b": "Sweden",
+      "score_b": 1,
+      "date": "2026-06-20",
+      "source_wiki_page": "ESPN:fifa.world:760447"
     },
     {
       "group": "G",

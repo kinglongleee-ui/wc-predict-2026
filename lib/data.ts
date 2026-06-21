@@ -3,10 +3,11 @@
 
 import fs from "fs";
 import path from "path";
-import type { RunData } from "./types";
+import type { RunData, MeihuaPred, BracketMatch } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data", "runs");
 const REAL_DIR = path.join(process.cwd(), "data", "real");
+const MEIHUA_DIR = path.join(process.cwd(), "data", "meihua");
 
 export type RealMatch = {
   group: string;
@@ -331,4 +332,84 @@ export function buildGroupIndex(
 export function teamSeedLabel(run: RunData, team: string): string {
   const info = buildGroupIndex(run).get(team);
   return info ? `${info.group}${info.rank}` : "";
+}
+
+// ---------------------------------------------------------------------------
+// 梅花易数 (2026-06-20): 从 data/meihua/run_<id>_meihua.json 读卦象 + 注入到 BracketMatch
+// ---------------------------------------------------------------------------
+type MeihuaIndexKey = string;  // "{match_num}|{team_a}|{team_b}"
+function meihuaKey(matchNum: number, teamA: string, teamB: string): MeihuaIndexKey {
+  return `${matchNum}|${canonTeam(teamA)}|${canonTeam(teamB)}`;
+}
+
+export function loadMeihua(runId: string): Map<MeihuaIndexKey, MeihuaPred> {
+  // 2026-06-20 修: runId 已经含 "run_" 前缀 (如 "run_ea1419a0e22f"),
+  // 不要再拼 "run_", 实际文件名是 "run_<id>_meihua.json" = 双重 run_ 错
+  const safeId = runId.startsWith("run_") ? runId : `run_${runId}`;
+  const fp = path.join(MEIHUA_DIR, `${safeId}_meihua.json`);
+  const idx = new Map<MeihuaIndexKey, MeihuaPred>();
+  if (!fs.existsSync(fp)) return idx;
+  try {
+    const raw = JSON.parse(fs.readFileSync(fp, "utf-8")) as {
+      matches: Array<{
+        stage: string;
+        match_num?: number;
+        matchday?: number;
+        team_a: string;
+        team_b: string;
+        meihua: MeihuaPred | null;
+      }>;
+    };
+    for (const m of raw.matches) {
+      if (!m.meihua) continue;
+      // group 阶段用 matchday, 淘汰赛用 match_num (R32=73..88, R16=89..96, QF=97..100, SF=101..102, Final=103)
+      let num = m.match_num;
+      if (!num && typeof m.matchday === "number") {
+        // group stage: 用一个固定起点 (1000+) 避开与淘汰赛冲突
+        num = 1000 + m.matchday;
+      }
+      if (!num) continue;
+      const key = meihuaKey(num, m.team_a, m.team_b);
+      idx.set(key, m.meihua);
+    }
+  } catch {
+    // ignore — meihua optional
+  }
+  return idx;
+}
+
+// 把 loadMeihua 结果按 (stage, match_num) 注入到 run.bracket 各 stage 的每场 match 上
+export function injectMeihua(run: RunData): RunData {
+  const idx = loadMeihua(run.run_id);
+  if (idx.size === 0) return run;
+  const bracket = run.bracket;
+  if (!bracket) return run;
+
+  const applyToStage = (stage: "r32" | "r16" | "qf" | "sf", startMatchNum: number) => {
+    bracket[stage] = (bracket[stage] || []).map((m: BracketMatch, i: number) => {
+      const matchNum = startMatchNum + i;
+      const key = meihuaKey(matchNum, m.team_a, m.team_b);
+      let meihua = idx.get(key);
+      // 兜底: 顺序不匹配时按 (team_a, team_b) 反向查
+      if (!meihua) {
+        const reverseKey = meihuaKey(matchNum, m.team_b, m.team_a);
+        meihua = idx.get(reverseKey);
+      }
+      return meihua ? { ...m, meihua } : m;
+    });
+  };
+
+  applyToStage("r32", 73);
+  applyToStage("r16", 89);
+  applyToStage("qf", 97);
+  applyToStage("sf", 101);
+  // Final (match 103): 单场, 从 idx 找含 team_a/b 的 final 卦象
+  const finalPred = Array.from(idx.entries()).find(([k]) => k.startsWith("103|"));
+  if (finalPred && run.final?.matchup) {
+    // 注意: bracket.final 字段在 Bracket 类型里是 third_place, 没有 final match 字段;
+    // Final 卦象放到 final.meta.meihua 给 /report 页读 (暂不在 /bracket 显示)
+    (run.final as any).meihua = finalPred[1];
+  }
+
+  return { ...run, bracket };
 }

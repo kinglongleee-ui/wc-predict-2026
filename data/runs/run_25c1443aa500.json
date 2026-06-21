@@ -1,6 +1,6 @@
 {
   "run_id": "run_25c1443aa500",
-  "created_at": "2026-06-20T00:33:13.225619",
+  "created_at": "2026-06-20T10:41:00.359533",
   "verdict": {
     "prediction": "法国赢得 2026 国际足联世界杯冠军, 决赛常规 90 分钟 2-1 击败阿根廷 (常规 90 分钟 52% / 加时 28% / 点球 20%); 阿根廷 (18%)、德国 (14%) 为主要挑战者, 巴西因安切洛蒂麾下体系不稳被压至 9%, 克罗地亚 (8%) 凭\"最后一舞\"叙事保住一席之地。法国 I 组路径最干净, 姆巴佩处于巅峰, 卡马文加接棒卡马文加-楚阿梅尼中场。 最大冷门风险: MD2 克罗地亚-加纳 (方差最大); 摩洛哥/哥伦比亚被列为潜在冷门制造者。",
     "confidence": 0.58,
@@ -504,14 +504,14 @@
               "pct": 24.7
             },
             {
-              "home": 1,
-              "away": 0,
+              "home": 0,
+              "away": 1,
               "prob": 0.185,
               "pct": 18.5
             },
             {
-              "home": 0,
-              "away": 1,
+              "home": 1,
+              "away": 0,
               "prob": 0.1602,
               "pct": 16.0
             }
@@ -652,14 +652,14 @@
               "pct": 24.7
             },
             {
-              "home": 1,
-              "away": 0,
+              "home": 0,
+              "away": 1,
               "prob": 0.2365,
               "pct": 23.7
             },
             {
-              "home": 2,
-              "away": 0,
+              "home": 0,
+              "away": 2,
               "prob": 0.1134,
               "pct": 11.3
             }
@@ -899,8 +899,8 @@
           "played_date": "2026-06-14",
           "top_3_scores": [
             {
-              "home": 0,
-              "away": 1,
+              "home": 1,
+              "away": 0,
               "prob": 0.2509,
               "pct": 25.1
             },
@@ -911,8 +911,8 @@
               "pct": 24.7
             },
             {
-              "home": 0,
-              "away": 2,
+              "home": 2,
+              "away": 0,
               "prob": 0.1277,
               "pct": 12.8
             }
@@ -1411,14 +1411,14 @@
               "pct": 24.7
             },
             {
-              "home": 0,
-              "away": 1,
+              "home": 1,
+              "away": 0,
               "prob": 0.1776,
               "pct": 17.8
             },
             {
-              "home": 1,
-              "away": 0,
+              "home": 0,
+              "away": 1,
               "prob": 0.1677,
               "pct": 16.8
             }
@@ -1588,14 +1588,14 @@
               "pct": 24.7
             },
             {
-              "home": 1,
-              "away": 0,
+              "home": 0,
+              "away": 1,
               "prob": 0.1997,
               "pct": 20.0
             },
             {
-              "home": 0,
-              "away": 1,
+              "home": 1,
+              "away": 0,
               "prob": 0.1455,
               "pct": 14.6
             }
@@ -2347,14 +2347,14 @@
               "pct": 24.7
             },
             {
-              "home": 1,
-              "away": 0,
+              "home": 0,
+              "away": 1,
               "prob": 0.1949,
               "pct": 19.5
             },
             {
-              "home": 0,
-              "away": 1,
+              "home": 1,
+              "away": 0,
               "prob": 0.1504,
               "pct": 15.0
             }
@@ -2676,14 +2676,14 @@
               "pct": 24.7
             },
             {
-              "home": 1,
-              "away": 0,
+              "home": 0,
+              "away": 1,
               "prob": 0.1825,
               "pct": 18.3
             },
             {
-              "home": 0,
-              "away": 1,
+              "home": 1,
+              "away": 0,
               "prob": 0.1627,
               "pct": 16.3
             }
@@ -2923,8 +2923,8 @@
           "played_date": "2026-06-18",
           "top_3_scores": [
             {
-              "home": 0,
-              "away": 1,
+              "home": 1,
+              "away": 0,
               "prob": 0.2623,
               "pct": 26.2
             },
@@ -2935,8 +2935,8 @@
               "pct": 24.7
             },
             {
-              "home": 0,
-              "away": 2,
+              "home": 2,
+              "away": 0,
               "prob": 0.1395,
               "pct": 13.9
             }
@@ -3296,13 +3296,13 @@
         "team_b": "Canada",
         "group_b": "B",
         "seed_b": 2,
-        "team_a_win": 0.44,
-        "draw": 0.28,
-        "team_b_win": 0.28,
-        "score": "1-0",
-        "aet_pct": 0.22,
-        "pen_pct": 0.1,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 0,
@@ -3329,16 +3329,16 @@
         "team_a": "Germany",
         "group_a": "E",
         "seed_a": 1,
-        "team_b": "Scotland",
-        "group_b": null,
+        "team_b": "Czech Republic",
+        "group_b": "A",
         "seed_b": 3,
-        "team_a_win": 0.74,
-        "draw": 0.16,
-        "team_b_win": 0.1,
-        "score": "3-1",
-        "aet_pct": 0.1,
-        "pen_pct": 0.04,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 1,
@@ -3368,13 +3368,13 @@
         "team_b": "Morocco",
         "group_b": "C",
         "seed_b": 2,
-        "team_a_win": 0.52,
-        "draw": 0.26,
-        "team_b_win": 0.22,
-        "score": "2-1",
-        "aet_pct": 0.18,
-        "pen_pct": 0.08,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 0,
@@ -3404,13 +3404,13 @@
         "team_b": "Japan",
         "group_b": "F",
         "seed_b": 2,
-        "team_a_win": 0.58,
-        "draw": 0.24,
-        "team_b_win": 0.18,
-        "score": "2-1",
-        "aet_pct": 0.16,
-        "pen_pct": 0.08,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 0,
@@ -3437,22 +3437,22 @@
         "team_a": "France",
         "group_a": "I",
         "seed_a": 1,
-        "team_b": "Turkey",
-        "group_b": null,
+        "team_b": "Scotland",
+        "group_b": "C",
         "seed_b": 3,
-        "team_a_win": 0.81,
-        "draw": 0.12,
-        "team_b_win": 0.07,
-        "score": "3-0",
-        "aet_pct": 0.06,
-        "pen_pct": 0.03,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 1,
             "away": 0,
-            "prob": 0.2992,
-            "pct": 29.9
+            "prob": 0.2968,
+            "pct": 29.7
           },
           {
             "home": 0,
@@ -3463,8 +3463,8 @@
           {
             "home": 2,
             "away": 0,
-            "prob": 0.1815,
-            "pct": 18.1
+            "prob": 0.1786,
+            "pct": 17.9
           }
         ]
       },
@@ -3476,13 +3476,13 @@
         "team_b": "Senegal",
         "group_b": "I",
         "seed_b": 2,
-        "team_a_win": 0.32,
-        "draw": 0.28,
-        "team_b_win": 0.4,
-        "score": "1-2",
-        "aet_pct": 0.2,
-        "pen_pct": 0.09,
-        "winner": "b",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 0,
@@ -3509,16 +3509,16 @@
         "team_a": "Mexico",
         "group_a": "A",
         "seed_a": 1,
-        "team_b": "Bosnia",
-        "group_b": null,
+        "team_b": "Ivory Coast",
+        "group_b": "E",
         "seed_b": 3,
-        "team_a_win": 0.64,
-        "draw": 0.22,
-        "team_b_win": 0.14,
-        "score": "2-0",
-        "aet_pct": 0.1,
-        "pen_pct": 0.04,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 0,
@@ -3529,14 +3529,14 @@
           {
             "home": 1,
             "away": 0,
-            "prob": 0.2407,
-            "pct": 24.1
+            "prob": 0.2093,
+            "pct": 20.9
           },
           {
-            "home": 2,
-            "away": 0,
-            "prob": 0.1175,
-            "pct": 11.8
+            "home": 0,
+            "away": 1,
+            "prob": 0.1359,
+            "pct": 13.6
           }
         ]
       },
@@ -3545,22 +3545,22 @@
         "team_a": "England",
         "group_a": "L",
         "seed_a": 1,
-        "team_b": "Czech Republic",
-        "group_b": null,
+        "team_b": "Saudi Arabia",
+        "group_b": "H",
         "seed_b": 3,
-        "team_a_win": 0.78,
-        "draw": 0.14,
-        "team_b_win": 0.08,
-        "score": "3-0",
-        "aet_pct": 0.06,
-        "pen_pct": 0.03,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 1,
             "away": 0,
-            "prob": 0.2864,
-            "pct": 28.6
+            "prob": 0.3003,
+            "pct": 30.0
           },
           {
             "home": 0,
@@ -3571,8 +3571,8 @@
           {
             "home": 2,
             "away": 0,
-            "prob": 0.1663,
-            "pct": 16.6
+            "prob": 0.1829,
+            "pct": 18.3
           }
         ]
       },
@@ -3581,16 +3581,16 @@
         "team_a": "USA",
         "group_a": "D",
         "seed_a": 1,
-        "team_b": "Iran",
-        "group_b": null,
+        "team_b": "Bosnia",
+        "group_b": "B",
         "seed_b": 3,
-        "team_a_win": 0.52,
-        "draw": 0.26,
-        "team_b_win": 0.22,
-        "score": "2-1",
-        "aet_pct": 0.16,
-        "pen_pct": 0.07,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 0,
@@ -3601,14 +3601,14 @@
           {
             "home": 1,
             "away": 0,
-            "prob": 0.1973,
-            "pct": 19.7
+            "prob": 0.2344,
+            "pct": 23.4
           },
           {
-            "home": 0,
-            "away": 1,
-            "prob": 0.1479,
-            "pct": 14.8
+            "home": 2,
+            "away": 0,
+            "prob": 0.1114,
+            "pct": 11.1
           }
         ]
       },
@@ -3617,23 +3617,17 @@
         "team_a": "Belgium",
         "group_a": "G",
         "seed_a": 1,
-        "team_b": "Saudi Arabia",
+        "team_b": "best3(待定)",
         "group_b": null,
         "seed_b": 3,
-        "team_a_win": 0.84,
-        "draw": 0.11,
-        "team_b_win": 0.05,
-        "score": "3-0",
-        "aet_pct": 0.04,
-        "pen_pct": 0.02,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.2775,
-            "pct": 27.8
-          },
           {
             "home": 0,
             "away": 0,
@@ -3641,10 +3635,16 @@
             "pct": 24.7
           },
           {
-            "home": 2,
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
             "away": 0,
-            "prob": 0.1561,
-            "pct": 15.6
+            "prob": 0.1726,
+            "pct": 17.3
           }
         ]
       },
@@ -3656,13 +3656,13 @@
         "team_b": "Croatia",
         "group_b": "L",
         "seed_b": 2,
-        "team_a_win": 0.38,
-        "draw": 0.28,
-        "team_b_win": 0.34,
-        "score": "1-1 (Croatia pens)",
-        "aet_pct": 0.3,
-        "pen_pct": 0.14,
-        "winner": "b",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 0,
@@ -3692,13 +3692,13 @@
         "team_b": "Austria",
         "group_b": "J",
         "seed_b": 2,
-        "team_a_win": 0.64,
-        "draw": 0.22,
-        "team_b_win": 0.14,
-        "score": "2-1",
-        "aet_pct": 0.14,
-        "pen_pct": 0.06,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 1,
@@ -3725,16 +3725,16 @@
         "team_a": "Switzerland",
         "group_a": "B",
         "seed_a": 1,
-        "team_b": "Ivory Coast",
-        "group_b": null,
+        "team_b": "Sweden",
+        "group_b": "F",
         "seed_b": 3,
-        "team_a_win": 0.58,
-        "draw": 0.24,
-        "team_b_win": 0.18,
-        "score": "2-1",
-        "aet_pct": 0.14,
-        "pen_pct": 0.06,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 0,
@@ -3745,14 +3745,14 @@
           {
             "home": 1,
             "away": 0,
-            "prob": 0.1924,
-            "pct": 19.2
+            "prob": 0.1949,
+            "pct": 19.5
           },
           {
             "home": 0,
             "away": 1,
-            "prob": 0.1528,
-            "pct": 15.3
+            "prob": 0.1504,
+            "pct": 15.0
           }
         ]
       },
@@ -3764,13 +3764,13 @@
         "team_b": "Uruguay",
         "group_b": "H",
         "seed_b": 2,
-        "team_a_win": 0.56,
-        "draw": 0.26,
-        "team_b_win": 0.18,
-        "score": "2-1",
-        "aet_pct": 0.16,
-        "pen_pct": 0.08,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 1,
@@ -3797,22 +3797,22 @@
         "team_a": "Portugal",
         "group_a": "K",
         "seed_a": 1,
-        "team_b": "Egypt",
-        "group_b": null,
+        "team_b": "Turkey",
+        "group_b": "D",
         "seed_b": 3,
-        "team_a_win": 0.68,
-        "draw": 0.21,
-        "team_b_win": 0.11,
-        "score": "2-0",
-        "aet_pct": 0.1,
-        "pen_pct": 0.04,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 1,
             "away": 0,
-            "prob": 0.2469,
-            "pct": 24.7
+            "prob": 0.271,
+            "pct": 27.1
           },
           {
             "home": 0,
@@ -3823,8 +3823,8 @@
           {
             "home": 2,
             "away": 0,
-            "prob": 0.1236,
-            "pct": 12.4
+            "prob": 0.1489,
+            "pct": 14.9
           }
         ]
       },
@@ -3836,13 +3836,13 @@
         "team_b": "Iran",
         "group_b": "G",
         "seed_b": 2,
-        "team_a_win": 0.38,
-        "draw": 0.28,
-        "team_b_win": 0.34,
-        "score": "1-2",
-        "aet_pct": 0.18,
-        "pen_pct": 0.08,
-        "winner": "a",
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
         "top_3_scores": [
           {
             "home": 0,

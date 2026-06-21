@@ -1,6 +1,6 @@
 {
   "run_id": "run_b37f734df790",
-  "created_at": "2026-06-19T20:14:09.134941",
+  "created_at": "2026-06-20T19:27:31.987363",
   "verdict": {
     "prediction": "法国与阿根廷在 7 月 19 日决赛相遇, 法国加时赛 2-1 捧起队史第三座世界杯 (常规 90 分钟法国胜 48%, 加时 34%, 点球 18%); 上半区半决赛由德国与英格兰填补, 巴西因安切洛蒂麾下体系脆弱止步 1/4 决赛。",
     "confidence": 0.62,
@@ -271,7 +271,26 @@
               "prob": 0.1175,
               "pct": 11.8
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-25T01:00Z",
+            "is_played": false,
+            "home_odds_american": "+450",
+            "draw_odds_american": "+300",
+            "away_odds_american": "-155",
+            "home_prob_raw": 0.1818,
+            "draw_prob_raw": 0.25,
+            "away_prob_raw": 0.6078,
+            "overround": 1.0397,
+            "home_prob_norm": 0.1749,
+            "draw_prob_norm": 0.2405,
+            "away_prob_norm": 0.5847,
+            "blended_home": 0.5075,
+            "blended_draw": 0.2261,
+            "blended_away": 0.2664,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group A",
@@ -306,6 +325,101 @@
               "away": 0,
               "prob": 0.1114,
               "pct": 11.1
+            }
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-25T01:00Z",
+            "is_played": false,
+            "home_odds_american": "+250",
+            "draw_odds_american": "+275",
+            "away_odds_american": "+105",
+            "home_prob_raw": 0.2857,
+            "draw_prob_raw": 0.2667,
+            "away_prob_raw": 0.4878,
+            "overround": 1.0402,
+            "home_prob_norm": 0.2747,
+            "draw_prob_norm": 0.2564,
+            "away_prob_norm": 0.469,
+            "blended_home": 0.4324,
+            "blended_draw": 0.2659,
+            "blended_away": 0.3017,
+            "weight": 0.3
+          }
+        },
+        {
+          "stage": "Group A",
+          "matchday": 1,
+          "team_a": "Mexico",
+          "team_b": "South Africa",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-11",
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2659,
+              "pct": 26.6
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1433,
+              "pct": 14.3
+            }
+          ]
+        },
+        {
+          "stage": "Group A",
+          "matchday": 1,
+          "team_a": "South Korea",
+          "team_b": "Czech Republic",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "2-1",
+            "home": 2,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-12",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2045,
+              "pct": 20.5
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1407,
+              "pct": 14.1
             }
           ]
         }
@@ -401,14 +515,14 @@
               "pct": 24.7
             },
             {
-              "home": 0,
-              "away": 1,
+              "home": 1,
+              "away": 0,
               "prob": 0.1973,
               "pct": 19.7
             },
             {
-              "home": 1,
-              "away": 0,
+              "home": 0,
+              "away": 1,
               "prob": 0.1479,
               "pct": 14.8
             }
@@ -448,7 +562,26 @@
               "prob": 0.1312,
               "pct": 13.1
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-24T19:00Z",
+            "is_played": false,
+            "home_odds_american": "+145",
+            "draw_odds_american": "+210",
+            "away_odds_american": "+220",
+            "home_prob_raw": 0.4082,
+            "draw_prob_raw": 0.3226,
+            "away_prob_raw": 0.3125,
+            "overround": 1.0432,
+            "home_prob_norm": 0.3912,
+            "draw_prob_norm": 0.3092,
+            "away_prob_norm": 0.2995,
+            "blended_home": 0.3134,
+            "blended_draw": 0.2818,
+            "blended_away": 0.4048,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group B",
@@ -473,16 +606,111 @@
               "pct": 24.7
             },
             {
-              "home": 1,
-              "away": 0,
+              "home": 0,
+              "away": 1,
               "prob": 0.185,
               "pct": 18.5
             },
             {
-              "home": 0,
-              "away": 1,
+              "home": 1,
+              "away": 0,
               "prob": 0.1602,
               "pct": 16.0
+            }
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-24T19:00Z",
+            "is_played": false,
+            "home_odds_american": "-220",
+            "draw_odds_american": "+390",
+            "away_odds_american": "+550",
+            "home_prob_raw": 0.6875,
+            "draw_prob_raw": 0.2041,
+            "away_prob_raw": 0.1538,
+            "overround": 1.0454,
+            "home_prob_norm": 0.6576,
+            "draw_prob_norm": 0.1952,
+            "away_prob_norm": 0.1472,
+            "blended_home": 0.5333,
+            "blended_draw": 0.2546,
+            "blended_away": 0.2122,
+            "weight": 0.3
+          }
+        },
+        {
+          "stage": "Group B",
+          "matchday": 1,
+          "team_a": "Canada",
+          "team_b": "Bosnia & Herzegovina",
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-12",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1726,
+              "pct": 17.3
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1726,
+              "pct": 17.3
+            }
+          ]
+        },
+        {
+          "stage": "Group B",
+          "matchday": 1,
+          "team_a": "Qatar",
+          "team_b": "Switzerland",
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-13",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.2365,
+              "pct": 23.7
+            },
+            {
+              "home": 0,
+              "away": 2,
+              "prob": 0.1134,
+              "pct": 11.3
             }
           ]
         }
@@ -589,7 +817,26 @@
               "prob": 0.1931,
               "pct": 19.3
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-24T22:00Z",
+            "is_played": false,
+            "home_odds_american": "-500",
+            "draw_odds_american": "+600",
+            "away_odds_american": "+1500",
+            "home_prob_raw": 0.8333,
+            "draw_prob_raw": 0.1429,
+            "away_prob_raw": 0.0625,
+            "overround": 1.0387,
+            "home_prob_norm": 0.8023,
+            "draw_prob_norm": 0.1375,
+            "away_prob_norm": 0.0602,
+            "blended_home": 0.7167,
+            "blended_draw": 0.1812,
+            "blended_away": 0.1021,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group C",
@@ -608,8 +855,8 @@
           },
           "top_3_scores": [
             {
-              "home": 1,
-              "away": 0,
+              "home": 0,
+              "away": 1,
               "prob": 0.3104,
               "pct": 31.0
             },
@@ -620,8 +867,8 @@
               "pct": 24.7
             },
             {
-              "home": 2,
-              "away": 0,
+              "home": 0,
+              "away": 2,
               "prob": 0.1954,
               "pct": 19.5
             }
@@ -660,6 +907,82 @@
               "away": 2,
               "prob": 0.1395,
               "pct": 13.9
+            }
+          ]
+        },
+        {
+          "stage": "Group C",
+          "matchday": 1,
+          "team_a": "Brazil",
+          "team_b": "Morocco",
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-13",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1776,
+              "pct": 17.8
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1677,
+              "pct": 16.8
+            }
+          ]
+        },
+        {
+          "stage": "Group C",
+          "matchday": 1,
+          "team_a": "Haiti",
+          "team_b": "Scotland",
+          "team_a_win": 0.0,
+          "draw": 0.0,
+          "team_b_win": 1.0,
+          "most_likely_score": {
+            "raw": "0-1",
+            "home": 0,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-14",
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2509,
+              "pct": 25.1
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1277,
+              "pct": 12.8
             }
           ]
         }
@@ -730,7 +1053,26 @@
               "prob": 0.1131,
               "pct": 11.3
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-26T02:00Z",
+            "is_played": false,
+            "home_odds_american": "+210",
+            "draw_odds_american": "+310",
+            "away_odds_american": "+110",
+            "home_prob_raw": 0.3226,
+            "draw_prob_raw": 0.2439,
+            "away_prob_raw": 0.4762,
+            "overround": 1.0427,
+            "home_prob_norm": 0.3094,
+            "draw_prob_norm": 0.2339,
+            "away_prob_norm": 0.4567,
+            "blended_home": 0.3868,
+            "blended_draw": 0.2802,
+            "blended_away": 0.333,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group D",
@@ -766,7 +1108,26 @@
               "prob": 0.1479,
               "pct": 14.8
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-26T02:00Z",
+            "is_played": false,
+            "home_odds_american": "+185",
+            "draw_odds_american": "+130",
+            "away_odds_american": "+290",
+            "home_prob_raw": 0.3509,
+            "draw_prob_raw": 0.4348,
+            "away_prob_raw": 0.2564,
+            "overround": 1.0421,
+            "home_prob_norm": 0.3367,
+            "draw_prob_norm": 0.4172,
+            "away_prob_norm": 0.2461,
+            "blended_home": 0.367,
+            "blended_draw": 0.3492,
+            "blended_away": 0.2838,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group D",
@@ -819,6 +1180,82 @@
             "aet": false,
             "pens": false
           },
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1875,
+              "pct": 18.7
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1577,
+              "pct": 15.8
+            }
+          ]
+        },
+        {
+          "stage": "Group D",
+          "matchday": 1,
+          "team_a": "USA",
+          "team_b": "Paraguay",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "4-1",
+            "home": 4,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-13",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2407,
+              "pct": 24.1
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1175,
+              "pct": 11.8
+            }
+          ]
+        },
+        {
+          "stage": "Group D",
+          "matchday": 1,
+          "team_a": "Australia",
+          "team_b": "Turkey",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-14",
           "top_3_scores": [
             {
               "home": 0,
@@ -998,8 +1435,8 @@
           },
           "top_3_scores": [
             {
-              "home": 0,
-              "away": 1,
+              "home": 1,
+              "away": 0,
               "prob": 0.2944,
               "pct": 29.4
             },
@@ -1010,10 +1447,86 @@
               "pct": 24.7
             },
             {
-              "home": 0,
-              "away": 2,
+              "home": 2,
+              "away": 0,
               "prob": 0.1757,
               "pct": 17.6
+            }
+          ]
+        },
+        {
+          "stage": "Group E",
+          "matchday": 1,
+          "team_a": "Germany",
+          "team_b": "Curaçao",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "7-1",
+            "home": 7,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-14",
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2944,
+              "pct": 29.4
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1757,
+              "pct": 17.6
+            }
+          ]
+        },
+        {
+          "stage": "Group E",
+          "matchday": 1,
+          "team_a": "Ivory Coast",
+          "team_b": "Ecuador",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-14",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1776,
+              "pct": 17.8
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1677,
+              "pct": 16.8
             }
           ]
         }
@@ -1156,7 +1669,26 @@
               "prob": 0.1336,
               "pct": 13.4
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-21T04:00Z",
+            "is_played": false,
+            "home_odds_american": "+500",
+            "draw_odds_american": "+300",
+            "away_odds_american": "-170",
+            "home_prob_raw": 0.1667,
+            "draw_prob_raw": 0.25,
+            "away_prob_raw": 0.6296,
+            "overround": 1.0463,
+            "home_prob_norm": 0.1593,
+            "draw_prob_norm": 0.2389,
+            "away_prob_norm": 0.6018,
+            "blended_home": 0.4818,
+            "blended_draw": 0.2257,
+            "blended_away": 0.2925,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group F",
@@ -1191,6 +1723,101 @@
               "away": 2,
               "prob": 0.1196,
               "pct": 12.0
+            }
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-20T17:00Z",
+            "is_played": false,
+            "home_odds_american": "-140",
+            "draw_odds_american": "+310",
+            "away_odds_american": "+370",
+            "home_prob_raw": 0.5833,
+            "draw_prob_raw": 0.2439,
+            "away_prob_raw": 0.2128,
+            "overround": 1.04,
+            "home_prob_norm": 0.5609,
+            "draw_prob_norm": 0.2345,
+            "away_prob_norm": 0.2046,
+            "blended_home": 0.3433,
+            "blended_draw": 0.2663,
+            "blended_away": 0.3904,
+            "weight": 0.3
+          }
+        },
+        {
+          "stage": "Group F",
+          "matchday": 1,
+          "team_a": "Netherlands",
+          "team_b": "Japan",
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "2-2",
+            "home": 2,
+            "away": 2,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-14",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2187,
+              "pct": 21.9
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1266,
+              "pct": 12.7
+            }
+          ]
+        },
+        {
+          "stage": "Group F",
+          "matchday": 1,
+          "team_a": "Sweden",
+          "team_b": "Tunisia",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "5-1",
+            "home": 5,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-15",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.185,
+              "pct": 18.5
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1602,
+              "pct": 16.0
             }
           ]
         }
@@ -1333,7 +1960,26 @@
               "prob": 0.1508,
               "pct": 15.1
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-22T01:00Z",
+            "is_played": false,
+            "home_odds_american": "+450",
+            "draw_odds_american": "+320",
+            "away_odds_american": "-165",
+            "home_prob_raw": 0.1818,
+            "draw_prob_raw": 0.2381,
+            "away_prob_raw": 0.6226,
+            "overround": 1.0426,
+            "home_prob_norm": 0.1744,
+            "draw_prob_norm": 0.2284,
+            "away_prob_norm": 0.5972,
+            "blended_home": 0.5283,
+            "blended_draw": 0.2085,
+            "blended_away": 0.2632,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group G",
@@ -1368,6 +2014,101 @@
               "away": 1,
               "prob": 0.1131,
               "pct": 11.3
+            }
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-21T19:00Z",
+            "is_played": false,
+            "home_odds_american": "-225",
+            "draw_odds_american": "+360",
+            "away_odds_american": "+650",
+            "home_prob_raw": 0.6923,
+            "draw_prob_raw": 0.2174,
+            "away_prob_raw": 0.1333,
+            "overround": 1.043,
+            "home_prob_norm": 0.6637,
+            "draw_prob_norm": 0.2084,
+            "away_prob_norm": 0.1278,
+            "blended_home": 0.5491,
+            "blended_draw": 0.2445,
+            "blended_away": 0.2063,
+            "weight": 0.3
+          }
+        },
+        {
+          "stage": "Group G",
+          "matchday": 1,
+          "team_a": "Belgium",
+          "team_b": "Egypt",
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-15",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2365,
+              "pct": 23.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1134,
+              "pct": 11.3
+            }
+          ]
+        },
+        {
+          "stage": "Group G",
+          "matchday": 1,
+          "team_a": "Iran",
+          "team_b": "New Zealand",
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "2-2",
+            "home": 2,
+            "away": 2,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-16",
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2759,
+              "pct": 27.6
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1544,
+              "pct": 15.4
             }
           ]
         }
@@ -1409,16 +2150,18 @@
           "matchday": 1,
           "team_a": "Spain",
           "team_b": "Cape Verde",
-          "team_a_win": 0.78,
-          "draw": 0.15,
-          "team_b_win": 0.07,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
           "most_likely_score": {
-            "raw": "3-0",
-            "home": 3,
+            "raw": "0-0",
+            "home": 0,
             "away": 0,
             "aet": false,
             "pens": false
           },
+          "is_played": true,
+          "played_date": "2026-06-15",
           "top_3_scores": [
             {
               "home": 1,
@@ -1510,7 +2253,26 @@
               "prob": 0.1726,
               "pct": 17.3
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-27T00:00Z",
+            "is_played": false,
+            "home_odds_american": "+175",
+            "draw_odds_american": "+275",
+            "away_odds_american": "+140",
+            "home_prob_raw": 0.3636,
+            "draw_prob_raw": 0.2667,
+            "away_prob_raw": 0.4167,
+            "overround": 1.047,
+            "home_prob_norm": 0.3473,
+            "draw_prob_norm": 0.2547,
+            "away_prob_norm": 0.398,
+            "blended_home": 0.4192,
+            "blended_draw": 0.2864,
+            "blended_away": 0.2944,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group H",
@@ -1546,7 +2308,26 @@
               "prob": 0.1395,
               "pct": 13.9
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-27T00:00Z",
+            "is_played": false,
+            "home_odds_american": "+500",
+            "draw_odds_american": "+330",
+            "away_odds_american": "-185",
+            "home_prob_raw": 0.1667,
+            "draw_prob_raw": 0.2326,
+            "away_prob_raw": 0.6491,
+            "overround": 1.0483,
+            "home_prob_norm": 0.159,
+            "draw_prob_norm": 0.2218,
+            "away_prob_norm": 0.6192,
+            "blended_home": 0.3627,
+            "blended_draw": 0.2625,
+            "blended_away": 0.3748,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group H",
@@ -1581,6 +2362,63 @@
               "away": 0,
               "prob": 0.1942,
               "pct": 19.4
+            }
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-21T16:00Z",
+            "is_played": false,
+            "home_odds_american": "-1000",
+            "draw_odds_american": "+1000",
+            "away_odds_american": "+2500",
+            "home_prob_raw": 0.9091,
+            "draw_prob_raw": 0.0909,
+            "away_prob_raw": 0.0385,
+            "overround": 1.0385,
+            "home_prob_norm": 0.8754,
+            "draw_prob_norm": 0.0875,
+            "away_prob_norm": 0.037,
+            "blended_home": 0.3186,
+            "blended_draw": 0.1382,
+            "blended_away": 0.5431,
+            "weight": 0.3
+          }
+        },
+        {
+          "stage": "Group H",
+          "matchday": 1,
+          "team_a": "Saudi Arabia",
+          "team_b": "Uruguay",
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-15",
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2529,
+              "pct": 25.3
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1297,
+              "pct": 13.0
             }
           ]
         }
@@ -1687,7 +2525,26 @@
               "prob": 0.1376,
               "pct": 13.8
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-26T19:00Z",
+            "is_played": false,
+            "home_odds_american": "-330",
+            "draw_odds_american": "+450",
+            "away_odds_american": "+1000",
+            "home_prob_raw": 0.7674,
+            "draw_prob_raw": 0.1818,
+            "away_prob_raw": 0.0909,
+            "overround": 1.0402,
+            "home_prob_norm": 0.7378,
+            "draw_prob_norm": 0.1748,
+            "away_prob_norm": 0.0874,
+            "blended_home": 0.6553,
+            "blended_draw": 0.2204,
+            "blended_away": 0.1242,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group I",
@@ -1712,18 +2569,37 @@
               "pct": 24.7
             },
             {
-              "home": 1,
-              "away": 0,
+              "home": 0,
+              "away": 1,
               "prob": 0.1949,
               "pct": 19.5
             },
             {
-              "home": 0,
-              "away": 1,
+              "home": 1,
+              "away": 0,
               "prob": 0.1504,
               "pct": 15.0
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-23T00:00Z",
+            "is_played": false,
+            "home_odds_american": "+135",
+            "draw_odds_american": "+250",
+            "away_odds_american": "+195",
+            "home_prob_raw": 0.4255,
+            "draw_prob_raw": 0.2857,
+            "away_prob_raw": 0.339,
+            "overround": 1.0502,
+            "home_prob_norm": 0.4052,
+            "draw_prob_norm": 0.272,
+            "away_prob_norm": 0.3228,
+            "blended_home": 0.4156,
+            "blended_draw": 0.2776,
+            "blended_away": 0.3068,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group I",
@@ -1758,6 +2634,101 @@
               "away": 0,
               "prob": 0.1954,
               "pct": 19.5
+            }
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-22T21:00Z",
+            "is_played": false,
+            "home_odds_american": "-1200",
+            "draw_odds_american": "+1100",
+            "away_odds_american": "+2800",
+            "home_prob_raw": 0.9231,
+            "draw_prob_raw": 0.0833,
+            "away_prob_raw": 0.0345,
+            "overround": 1.0409,
+            "home_prob_norm": 0.8868,
+            "draw_prob_norm": 0.0801,
+            "away_prob_norm": 0.0331,
+            "blended_home": 0.861,
+            "blended_draw": 0.094,
+            "blended_away": 0.0449,
+            "weight": 0.3
+          }
+        },
+        {
+          "stage": "Group I",
+          "matchday": 1,
+          "team_a": "France",
+          "team_b": "Senegal",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "3-1",
+            "home": 3,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-16",
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2567,
+              "pct": 25.7
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1336,
+              "pct": 13.4
+            }
+          ]
+        },
+        {
+          "stage": "Group I",
+          "matchday": 1,
+          "team_a": "Iraq",
+          "team_b": "Norway",
+          "team_a_win": 0.0,
+          "draw": 0.0,
+          "team_b_win": 1.0,
+          "most_likely_score": {
+            "raw": "1-4",
+            "home": 1,
+            "away": 4,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-16",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2428,
+              "pct": 24.3
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1196,
+              "pct": 12.0
             }
           ]
         }
@@ -1794,42 +2765,6 @@
         "Jordan"
       ],
       "matches": [
-        {
-          "stage": "Group J",
-          "matchday": 1,
-          "team_a": "ARG",
-          "team_b": "Algeria",
-          "team_a_win": 0.75,
-          "draw": 0.15,
-          "team_b_win": 0.1,
-          "most_likely_score": {
-            "raw": "3-0",
-            "home": 3,
-            "away": 0,
-            "aet": false,
-            "pens": false
-          },
-          "top_3_scores": [
-            {
-              "home": 1,
-              "away": 0,
-              "prob": 0.2931,
-              "pct": 29.3
-            },
-            {
-              "home": 0,
-              "away": 0,
-              "prob": 0.2466,
-              "pct": 24.7
-            },
-            {
-              "home": 2,
-              "away": 0,
-              "prob": 0.1742,
-              "pct": 17.4
-            }
-          ]
-        },
         {
           "stage": "Group J",
           "matchday": 2,
@@ -1889,18 +2824,37 @@
               "pct": 24.7
             },
             {
-              "home": 1,
-              "away": 0,
+              "home": 0,
+              "away": 1,
               "prob": 0.1825,
               "pct": 18.3
             },
             {
-              "home": 0,
-              "away": 1,
+              "home": 1,
+              "away": 0,
               "prob": 0.1627,
               "pct": 16.3
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-28T02:00Z",
+            "is_played": false,
+            "home_odds_american": "+205",
+            "draw_odds_american": "+210",
+            "away_odds_american": "+155",
+            "home_prob_raw": 0.3279,
+            "draw_prob_raw": 0.3226,
+            "away_prob_raw": 0.3922,
+            "overround": 1.0426,
+            "home_prob_norm": 0.3145,
+            "draw_prob_norm": 0.3094,
+            "away_prob_norm": 0.3761,
+            "blended_home": 0.3393,
+            "blended_draw": 0.3028,
+            "blended_away": 0.3578,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group J",
@@ -1935,6 +2889,101 @@
               "away": 0,
               "prob": 0.1997,
               "pct": 20.0
+            }
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-28T02:00Z",
+            "is_played": false,
+            "home_odds_american": "+1300",
+            "draw_odds_american": "+650",
+            "away_odds_american": "-525",
+            "home_prob_raw": 0.0714,
+            "draw_prob_raw": 0.1333,
+            "away_prob_raw": 0.84,
+            "overround": 1.0448,
+            "home_prob_norm": 0.0684,
+            "draw_prob_norm": 0.1276,
+            "away_prob_norm": 0.804,
+            "blended_home": 0.0555,
+            "blended_draw": 0.1223,
+            "blended_away": 0.8222,
+            "weight": 0.3
+          }
+        },
+        {
+          "stage": "Group J",
+          "matchday": 1,
+          "team_a": "Argentina",
+          "team_b": "Algeria",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "3-0",
+            "home": 3,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-17",
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2931,
+              "pct": 29.3
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1742,
+              "pct": 17.4
+            }
+          ]
+        },
+        {
+          "stage": "Group J",
+          "matchday": 1,
+          "team_a": "Austria",
+          "team_b": "Jordan",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "3-1",
+            "home": 3,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-17",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.23,
+              "pct": 23.0
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1153,
+              "pct": 11.5
             }
           ]
         }
@@ -2077,7 +3126,26 @@
               "prob": 0.1627,
               "pct": 16.3
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-27T23:30Z",
+            "is_played": false,
+            "home_odds_american": "+110",
+            "draw_odds_american": "+265",
+            "away_odds_american": "+240",
+            "home_prob_raw": 0.4762,
+            "draw_prob_raw": 0.274,
+            "away_prob_raw": 0.2941,
+            "overround": 1.0443,
+            "home_prob_norm": 0.456,
+            "draw_prob_norm": 0.2624,
+            "away_prob_norm": 0.2816,
+            "blended_home": 0.4868,
+            "blended_draw": 0.2747,
+            "blended_away": 0.2385,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group K",
@@ -2112,6 +3180,101 @@
               "away": 1,
               "prob": 0.1383,
               "pct": 13.8
+            }
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-27T23:30Z",
+            "is_played": false,
+            "home_odds_american": "+265",
+            "draw_odds_american": "+250",
+            "away_odds_american": "+110",
+            "home_prob_raw": 0.274,
+            "draw_prob_raw": 0.2857,
+            "away_prob_raw": 0.4762,
+            "overround": 1.0359,
+            "home_prob_norm": 0.2645,
+            "draw_prob_norm": 0.2758,
+            "away_prob_norm": 0.4597,
+            "blended_home": 0.3593,
+            "blended_draw": 0.2927,
+            "blended_away": 0.3479,
+            "weight": 0.3
+          }
+        },
+        {
+          "stage": "Group K",
+          "matchday": 1,
+          "team_a": "Portugal",
+          "team_b": "DR Congo",
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-17",
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2791,
+              "pct": 27.9
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1579,
+              "pct": 15.8
+            }
+          ]
+        },
+        {
+          "stage": "Group K",
+          "matchday": 1,
+          "team_a": "Uzbekistan",
+          "team_b": "Colombia",
+          "team_a_win": 0.0,
+          "draw": 0.0,
+          "team_b_win": 1.0,
+          "most_likely_score": {
+            "raw": "1-3",
+            "home": 1,
+            "away": 3,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-18",
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2623,
+              "pct": 26.2
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1395,
+              "pct": 13.9
             }
           ]
         }
@@ -2254,7 +3417,26 @@
               "prob": 0.1613,
               "pct": 16.1
             }
-          ]
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-23T23:00Z",
+            "is_played": false,
+            "home_odds_american": "+550",
+            "draw_odds_american": "+310",
+            "away_odds_american": "-185",
+            "home_prob_raw": 0.1538,
+            "draw_prob_raw": 0.2439,
+            "away_prob_raw": 0.6491,
+            "overround": 1.0469,
+            "home_prob_norm": 0.147,
+            "draw_prob_norm": 0.233,
+            "away_prob_norm": 0.6201,
+            "blended_home": 0.5481,
+            "blended_draw": 0.1959,
+            "blended_away": 0.256,
+            "weight": 0.3
+          }
         },
         {
           "stage": "Group L",
@@ -2289,6 +3471,101 @@
               "away": 0,
               "prob": 0.1855,
               "pct": 18.6
+            }
+          ],
+          "odds": {
+            "provider": "DraftKings",
+            "kickoff_utc": "2026-06-23T20:00Z",
+            "is_played": false,
+            "home_odds_american": "-450",
+            "draw_odds_american": "+550",
+            "away_odds_american": "+1300",
+            "home_prob_raw": 0.8182,
+            "draw_prob_raw": 0.1538,
+            "away_prob_raw": 0.0714,
+            "overround": 1.0435,
+            "home_prob_norm": 0.7841,
+            "draw_prob_norm": 0.1474,
+            "away_prob_norm": 0.0685,
+            "blended_home": 0.6902,
+            "blended_draw": 0.1982,
+            "blended_away": 0.1115,
+            "weight": 0.3
+          }
+        },
+        {
+          "stage": "Group L",
+          "matchday": 1,
+          "team_a": "England",
+          "team_b": "Croatia",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "4-2",
+            "home": 4,
+            "away": 2,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-17",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2278,
+              "pct": 22.8
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1175,
+              "pct": 11.7
+            }
+          ]
+        },
+        {
+          "stage": "Group L",
+          "matchday": 1,
+          "team_a": "Ghana",
+          "team_b": "Panama",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-17",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1899,
+              "pct": 19.0
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1553,
+              "pct": 15.5
             }
           ]
         }
