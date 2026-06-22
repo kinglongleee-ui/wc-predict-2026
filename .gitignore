@@ -11,3 +11,5 @@ data/runs/.cache/
 __pycache__/
 *.pyc
 
+*.bak.*
+data/runs/*.bak.*
