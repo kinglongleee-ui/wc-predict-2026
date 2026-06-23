@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-06-19T12:12:36Z",
+    "generated_at": "2026-06-21T01:04:21Z",
     "mu": 1.4,
     "max_goals": 6,
     "model": "Elo-Poisson (independent, μ=1.4, neutral venue, no home adv)",
     "source_run": "run_d7c8d02bf376.json",
     "elo_source": "wc_2026_elo.json",
-    "match_count": 77
+    "match_count": 89
   },
   "matches": [
     {
@@ -136,6 +136,70 @@
       "win_a": 0.4834,
       "draw": 0.3597,
       "win_b": 0.1568
+    },
+    {
+      "key": "Group A|Mexico|South Africa",
+      "stage": "Group A",
+      "group": "A",
+      "team_a": "Mexico",
+      "team_b": "South Africa",
+      "lambda_a": 1.078,
+      "lambda_b": 0.322,
+      "top_3": [
+        {
+          "home": 1,
+          "away": 0,
+          "prob": 0.2659,
+          "pct": 26.6
+        },
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 2,
+          "away": 0,
+          "prob": 0.1433,
+          "pct": 14.3
+        }
+      ],
+      "win_a": 0.5501,
+      "draw": 0.3399,
+      "win_b": 0.1099
+    },
+    {
+      "key": "Group A|South Korea|Czech Republic",
+      "stage": "Group A",
+      "group": "A",
+      "team_a": "South Korea",
+      "team_b": "Czech Republic",
+      "lambda_a": 0.829,
+      "lambda_b": 0.571,
+      "top_3": [
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 1,
+          "away": 0,
+          "prob": 0.2045,
+          "pct": 20.5
+        },
+        {
+          "home": 0,
+          "away": 1,
+          "prob": 0.1407,
+          "pct": 14.1
+        }
+      ],
+      "win_a": 0.3886,
+      "draw": 0.3779,
+      "win_b": 0.2335
     },
     {
       "key": "Group B|Canada|Switzerland",
@@ -394,6 +458,70 @@
       "win_b": 0.5406
     },
     {
+      "key": "Group C|Brazil|Morocco",
+      "stage": "Group C",
+      "group": "C",
+      "team_a": "Brazil",
+      "team_b": "Morocco",
+      "lambda_a": 0.72,
+      "lambda_b": 0.68,
+      "top_3": [
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 1,
+          "away": 0,
+          "prob": 0.1776,
+          "pct": 17.8
+        },
+        {
+          "home": 0,
+          "away": 1,
+          "prob": 0.1677,
+          "pct": 16.8
+        }
+      ],
+      "win_a": 0.3206,
+      "draw": 0.3829,
+      "win_b": 0.2964
+    },
+    {
+      "key": "Group C|Haiti|Scotland",
+      "stage": "Group C",
+      "group": "C",
+      "team_a": "Haiti",
+      "team_b": "Scotland",
+      "lambda_a": 0.382,
+      "lambda_b": 1.018,
+      "top_3": [
+        {
+          "home": 0,
+          "away": 1,
+          "prob": 0.2509,
+          "pct": 25.1
+        },
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 0,
+          "away": 2,
+          "prob": 0.1277,
+          "pct": 12.8
+        }
+      ],
+      "win_a": 0.1372,
+      "draw": 0.3523,
+      "win_b": 0.5104
+    },
+    {
       "key": "Group D|USA|Paraguay",
       "stage": "Group D",
       "group": "D",
@@ -648,6 +776,70 @@
       "win_a": 0.5258,
       "draw": 0.3477,
       "win_b": 0.1263
+    },
+    {
+      "key": "Group E|Germany|Curaçao",
+      "stage": "Group E",
+      "group": "E",
+      "team_a": "Germany",
+      "team_b": "Curaçao",
+      "lambda_a": 1.194,
+      "lambda_b": 0.206,
+      "top_3": [
+        {
+          "home": 1,
+          "away": 0,
+          "prob": 0.2944,
+          "pct": 29.4
+        },
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 2,
+          "away": 0,
+          "prob": 0.1757,
+          "pct": 17.6
+        }
+      ],
+      "win_a": 0.6251,
+      "draw": 0.3112,
+      "win_b": 0.0635
+    },
+    {
+      "key": "Group E|Ivory Coast|Ecuador",
+      "stage": "Group E",
+      "group": "E",
+      "team_a": "Ivory Coast",
+      "team_b": "Ecuador",
+      "lambda_a": 0.68,
+      "lambda_b": 0.72,
+      "top_3": [
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 0,
+          "away": 1,
+          "prob": 0.1776,
+          "pct": 17.8
+        },
+        {
+          "home": 1,
+          "away": 0,
+          "prob": 0.1677,
+          "pct": 16.8
+        }
+      ],
+      "win_a": 0.2964,
+      "draw": 0.3829,
+      "win_b": 0.3206
     },
     {
       "key": "Group F|Netherlands|Japan",
@@ -1034,6 +1226,70 @@
       "win_b": 0.3085
     },
     {
+      "key": "Group H|Spain|Cape Verde",
+      "stage": "Group H",
+      "group": "H",
+      "team_a": "Spain",
+      "team_b": "Cape Verde",
+      "lambda_a": 1.255,
+      "lambda_b": 0.145,
+      "top_3": [
+        {
+          "home": 1,
+          "away": 0,
+          "prob": 0.3095,
+          "pct": 30.9
+        },
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 2,
+          "away": 0,
+          "prob": 0.1942,
+          "pct": 19.4
+        }
+      ],
+      "win_a": 0.6642,
+      "draw": 0.2935,
+      "win_b": 0.042
+    },
+    {
+      "key": "Group H|Saudi Arabia|Uruguay",
+      "stage": "Group H",
+      "group": "H",
+      "team_a": "Saudi Arabia",
+      "team_b": "Uruguay",
+      "lambda_a": 0.374,
+      "lambda_b": 1.026,
+      "top_3": [
+        {
+          "home": 0,
+          "away": 1,
+          "prob": 0.2529,
+          "pct": 25.3
+        },
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 0,
+          "away": 2,
+          "prob": 0.1297,
+          "pct": 13.0
+        }
+      ],
+      "win_a": 0.1335,
+      "draw": 0.3508,
+      "win_b": 0.5156
+    },
+    {
       "key": "Group I|France|Senegal",
       "stage": "Group I",
       "group": "I",
@@ -1290,6 +1546,70 @@
       "win_b": 0.2845
     },
     {
+      "key": "Group J|Argentina|Algeria",
+      "stage": "Group J",
+      "group": "J",
+      "team_a": "Argentina",
+      "team_b": "Algeria",
+      "lambda_a": 1.189,
+      "lambda_b": 0.211,
+      "top_3": [
+        {
+          "home": 1,
+          "away": 0,
+          "prob": 0.2931,
+          "pct": 29.3
+        },
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 2,
+          "away": 0,
+          "prob": 0.1742,
+          "pct": 17.4
+        }
+      ],
+      "win_a": 0.6218,
+      "draw": 0.3126,
+      "win_b": 0.0654
+    },
+    {
+      "key": "Group J|Austria|Jordan",
+      "stage": "Group J",
+      "group": "J",
+      "team_a": "Austria",
+      "team_b": "Jordan",
+      "lambda_a": 0.933,
+      "lambda_b": 0.467,
+      "top_3": [
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 1,
+          "away": 0,
+          "prob": 0.23,
+          "pct": 23.0
+        },
+        {
+          "home": 0,
+          "away": 1,
+          "prob": 0.1153,
+          "pct": 11.5
+        }
+      ],
+      "win_a": 0.455,
+      "draw": 0.3664,
+      "win_b": 0.1786
+    },
+    {
       "key": "Group K|Portugal|Colombia",
       "stage": "Group K",
       "group": "K",
@@ -1416,6 +1736,70 @@
       "win_a": 0.5208,
       "draw": 0.3493,
       "win_b": 0.1299
+    },
+    {
+      "key": "Group K|Portugal|DR Congo",
+      "stage": "Group K",
+      "group": "K",
+      "team_a": "Portugal",
+      "team_b": "DR Congo",
+      "lambda_a": 1.132,
+      "lambda_b": 0.268,
+      "top_3": [
+        {
+          "home": 1,
+          "away": 0,
+          "prob": 0.2791,
+          "pct": 27.9
+        },
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 2,
+          "away": 0,
+          "prob": 0.1579,
+          "pct": 15.8
+        }
+      ],
+      "win_a": 0.585,
+      "draw": 0.3274,
+      "win_b": 0.0875
+    },
+    {
+      "key": "Group K|Uzbekistan|Colombia",
+      "stage": "Group K",
+      "group": "K",
+      "team_a": "Uzbekistan",
+      "team_b": "Colombia",
+      "lambda_a": 0.336,
+      "lambda_b": 1.064,
+      "top_3": [
+        {
+          "home": 0,
+          "away": 1,
+          "prob": 0.2623,
+          "pct": 26.2
+        },
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 0,
+          "away": 2,
+          "prob": 0.1395,
+          "pct": 13.9
+        }
+      ],
+      "win_a": 0.1162,
+      "draw": 0.343,
+      "win_b": 0.5406
     },
     {
       "key": "Group L|England|Ghana",

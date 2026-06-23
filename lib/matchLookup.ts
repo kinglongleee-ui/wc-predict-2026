@@ -9,13 +9,14 @@
 
 import fs from "fs";
 import path from "path";
-import type { RunData, BracketMatch } from "./types";
-import { teamNameZh } from "./data";
+import type { RunData, BracketMatch, MeihuaPred } from "./types";
+import { teamNameZh, loadMeihua, playedKeyForMatch, teamSeedLabel, loadRun } from "./data";
 
 const RUN_FILES = {
   r3_old: "run_b37f734df790",
   r3_new: "run_d7c8d02bf376",
   r4:     "run_e667e173bb3f",
+  r6:     "run_ea1419a0e22f",  // 2026-06-20: 最新一轮 (含 Top3 比分 + 校准层 1 + 134 兜底兼容)
 } as const;
 
 type RunKey = keyof typeof RUN_FILES;
@@ -130,18 +131,20 @@ export function crossValidate(a: string, b: string): CrossValidation {
   const r3o = searchInRun(runs.r3_old, "r3_old", a, b);
   const r3n = searchInRun(runs.r3_new, "r3_new", a, b);
   const r4  = searchInRun(runs.r4,     "r4",     a, b);
-  // 优先保留 R3 新 > R4 > R3 旧 的"主"信息做 stage/group/matchday 推断
-  const matches = [...r3n, ...r4, ...r3o];
+  const r6  = searchInRun(runs.r6,     "r6",     a, b);
+  // 优先保留 R3 新 > R6 (最新校准) > R4 > R3 旧 的"主"信息做 stage/group/matchday 推断
+  const matches = [...r3n, ...r6, ...r4, ...r3o];
   const notes: string[] = [];
   if (!r3o.length) notes.push("R3 旧未模拟这场 (赛程跳过或 D 组等)");
   if (!r3n.length) notes.push("R3 新未模拟这场");
   if (!r4.length)  notes.push("R4 未模拟这场 (赛程跳过)");
+  if (!r6.length)  notes.push("R6 未模拟这场 (赛程跳过)");
 
   const found = matches.length;
   if (found === 0) {
     return {
       team_a: a, team_b: b,
-      round_found: { r3_old: !!r3o.length, r3_new: !!r3n.length, r4: !!r4.length },
+      round_found: { r3_old: !!r3o.length, r3_new: !!r3n.length, r4: !!r4.length, r6: !!r6.length },
       matches: [],
       calibrated: { a_win: 0, draw: 0, b_win: 0, modal: "—" },
       ranked_scores: [],
@@ -180,19 +183,92 @@ export function crossValidate(a: string, b: string): CrossValidation {
   // 备注
   if (found === 1) notes.push("⚠️ 单轮信号 — 置信度低于 2 轮交叉, 校准风险大");
   if (found === 2) notes.push("✅ 2 轮交叉验证");
-  if (found === 3) notes.push("✅ 3 轮交叉验证 (R3 旧 + R3 新 + R4)");
+  if (found === 3) notes.push("✅ 3 轮交叉验证");
+  if (found >= 4) notes.push(`✅ ${found} 轮交叉验证 (R3 旧 + R3 新 + R4 + R6)`);
   notes.push(aIsFav
     ? `${teamNameZh(a)} 被校准为热门 (+2pp), ${teamNameZh(b)} 冷门 (+1pp)`
     : `${teamNameZh(b)} 被校准为热门 (+2pp), ${teamNameZh(a)} 冷门 (+1pp)`);
 
   return {
     team_a: a, team_b: b,
-    round_found: { r3_old: !!r3o.length, r3_new: !!r3n.length, r4: !!r4.length },
+    round_found: { r3_old: !!r3o.length, r3_new: !!r3n.length, r4: !!r4.length, r6: !!r6.length },
     matches,
     calibrated: { a_win: aWin, draw: calD, b_win: bWin, modal },
     ranked_scores: ranked,
     notes,
   };
+}
+
+// 2026-06-20: 给 match 详情页用的 meihua 查找
+// - 小组赛: match_num = 1000 + matchday (从 R6 groups 反查, 不用 caller 传进来的 matchday, 因为不同 run 可能不一致)
+// - 淘汰赛: match_num = R32=73..88, R16=89..96, QF=97..100, SF=101..102, Final=103
+// 反查 data/meihua/run_<id>_meihua.json (idx_map 已用 canonTeam 归一化)
+export function loadMeihuaForMatch(
+  team_a: string,
+  team_b: string,
+  stage: "group" | "r32" | "r16" | "qf" | "sf" | "final",
+  group?: string,
+  matchday?: number,
+): MeihuaPred | null {
+  try {
+    const r6 = loadRun("run_ea1419a0e22f");
+    if (!r6) return null;
+    let targetNum: number;
+
+    if (stage === "group") {
+      // 重要: matchday 从 R6 groups 反查, 不信 caller 传的 (R3/R6 可能不一致)
+      let md = matchday;
+      if (group) {
+        const g = (r6.groups as any)?.[group];
+        if (g?.matches) {
+          const wantedSorted = [team_a.trim().toLowerCase(), team_b.trim().toLowerCase()].sort();
+          for (const m of g.matches) {
+            const mSorted = [m.team_a.trim().toLowerCase(), m.team_b.trim().toLowerCase()].sort();
+            if (mSorted[0] === wantedSorted[0] && mSorted[1] === wantedSorted[1]) {
+              md = m.matchday;
+              break;
+            }
+          }
+        }
+      }
+      if (!md) {
+        console.log(`[meihua] no md: stage=group group=${group} ${team_a} vs ${team_b}`);
+        return null;
+      }
+      targetNum = 1000 + md;
+    } else {
+      const stageStart: Record<string, number> = { r32: 73, r16: 89, qf: 97, sf: 101, final: 103 };
+      const bracket = (r6.bracket as any)?.[stage] as BracketMatch[] | undefined;
+      if (!bracket) return null;
+      const wantedSorted = [team_a.trim().toLowerCase(), team_b.trim().toLowerCase()].sort();
+      let idx = -1;
+      for (let i = 0; i < bracket.length; i++) {
+        const m = bracket[i];
+        const mSorted = [m.team_a.trim().toLowerCase(), m.team_b.trim().toLowerCase()].sort();
+        if (mSorted[0] === wantedSorted[0] && mSorted[1] === wantedSorted[1]) {
+          idx = i;
+          break;
+        }
+      }
+      if (idx === -1) return null;
+      targetNum = stageStart[stage] + idx;
+    }
+
+    // 加载 idx_map, 遍历 entries 找 match_num + (任意 team 顺序) 匹配
+    const idx_map = loadMeihua("run_ea1419a0e22f");
+    const wantedA = team_a.trim().toLowerCase();
+    const wantedB = team_b.trim().toLowerCase();
+    for (const [key, pred] of idx_map.entries()) {
+      const [numStr, aKey, bKey] = key.split("|");
+      if (parseInt(numStr, 10) !== targetNum) continue;
+      const aMatch = aKey === wantedA || aKey === wantedB;
+      const bMatch = bKey === wantedA || bKey === wantedB;
+      if (aMatch && bMatch && aKey !== bKey) return pred;
+    }
+    return null;
+  } catch {
+    return null;
+  }
 }
 
 // 给 match 详情页用的"本组其他比赛"查找 (R3 新为锚, R3 新覆盖最全)

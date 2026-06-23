@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-06-21T01:24:29Z",
-  "source": "ESPN scoreboard (fifa.world, dates=20260611-20260719, 34 played)",
-  "match_count": 34,
+  "fetched_at": "2026-06-22T02:00:45Z",
+  "source": "ESPN scoreboard (fifa.world, dates=20260611-20260719, 39 played)",
+  "match_count": 39,
   "matches": [
     {
       "group": "A",
@@ -175,6 +175,15 @@
       "source_wiki_page": "ESPN:fifa.world:760448"
     },
     {
+      "group": "E",
+      "team_a": "Ecuador",
+      "score_a": 0,
+      "team_b": "Curaçao",
+      "score_b": 0,
+      "date": "2026-06-21",
+      "source_wiki_page": "ESPN:fifa.world:760446"
+    },
+    {
       "group": "F",
       "team_a": "Netherlands",
       "score_a": 2,
@@ -202,6 +211,15 @@
       "source_wiki_page": "ESPN:fifa.world:760447"
     },
     {
+      "group": "F",
+      "team_a": "Tunisia",
+      "score_a": 0,
+      "team_b": "Japan",
+      "score_b": 4,
+      "date": "2026-06-21",
+      "source_wiki_page": "ESPN:fifa.world:760449"
+    },
+    {
       "group": "G",
       "team_a": "Belgium",
       "score_a": 1,
@@ -220,6 +238,15 @@
       "source_wiki_page": "ESPN:fifa.world:760427"
     },
     {
+      "group": "G",
+      "team_a": "Belgium",
+      "score_a": 0,
+      "team_b": "Iran",
+      "score_b": 0,
+      "date": "2026-06-21",
+      "source_wiki_page": "ESPN:fifa.world:760451"
+    },
+    {
       "group": "H",
       "team_a": "Spain",
       "score_a": 0,
@@ -236,6 +263,24 @@
       "score_b": 1,
       "date": "2026-06-15",
       "source_wiki_page": "ESPN:fifa.world:760429"
+    },
+    {
+      "group": "H",
+      "team_a": "Spain",
+      "score_a": 4,
+      "team_b": "Saudi Arabia",
+      "score_b": 0,
+      "date": "2026-06-21",
+      "source_wiki_page": "ESPN:fifa.world:760453"
+    },
+    {
+      "group": "H",
+      "team_a": "Uruguay",
+      "score_a": 2,
+      "team_b": "Cape Verde",
+      "score_b": 2,
+      "date": "2026-06-21",
+      "source_wiki_page": "ESPN:fifa.world:760450"
     },
     {
       "group": "I",

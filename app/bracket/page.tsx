@@ -1,31 +1,35 @@
 import Link from "next/link";
-import { getLatestRound3Run, teamFlag, teamNameZh, teamSeedLabel } from "@/lib/data";
+import { getLatestRound3Run, teamFlag, teamNameZh, teamSeedLabel, injectMeihua } from "@/lib/data";
 import { matchHref } from "@/lib/matchUrl";
-import type { BracketMatch } from "@/lib/types";
+import type { BracketMatch, MeihuaPred } from "@/lib/types";
 
 // 树状图几何参数:
 //   6 列: R32 上半 / R32 下半 / R16 / QF / SF / Final
 //   R32 上下半各 8 场, 平行; 后续 4 列从 R32 父子配对往中央汇聚
 const COL_W = 220;        // 单列宽度
 const COL_GAP = 36;       // 列间隙 (留给连线)
-const ROW_H = 52;         // R32 中每行间距 (留 12px 间隙, 不重叠)
+const ROW_H = 60;         // R32 中每行间距 (留 12px 间隙, 不重叠; 增大装梅花 Top3 行)
 const CARD_W = 200;
-const CARD_H = 40;        // R32 紧凑卡 (队名 + 概率 + seed)
+const CARD_H = 56;        // R32 紧凑卡 (队名 + 概率 + seed + 梅花 Top3)
 const CARD_H_FULL = 60;   // R16/QF/SF 完整卡 (含比分/AET/独立模拟徽章)
 const FINAL_COL_W = 240;  // 决赛列稍宽,放冠军大卡
 
 // 6 列轮次标签 — 跟 cols 数组顺序一致
 const ROUND_LABELS = ["32 强 (上半区)", "32 强 (下半区)", "16 强", "1/4 决赛", "半决赛", "决赛"];
 
+// 2026-06-20: 强制每次重新跑 server component (注入 meihua 数据是 fs 读取, 不能用 SSG 缓存)
+export const dynamic = "force-dynamic";
+
 export default function BracketPage() {
-  const r3 = getLatestRound3Run();
-  if (!r3) {
+  const baseRun = getLatestRound3Run();
+  if (!baseRun) {
     return (
       <div className="p-8 text-center text-gray-500">
         数据未找到。
       </div>
     );
   }
+  const r3 = injectMeihua(baseRun);
 
   const bracket = r3.bracket;
   if (!bracket || bracket.r32.length === 0) {
@@ -437,6 +441,15 @@ function MatchCard({
           🔁 独立模拟
         </div>
       )}
+      {/* 梅花易数徽章 (R32 顶部右上, 卦象 + 体用关系) */}
+      {match.meihua && stage === "r32" && (
+        <div
+          className="absolute -top-2 right-1 px-1.5 py-0.5 text-[8px] font-mono bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 rounded shadow-sm border border-amber-300 dark:border-amber-700"
+          title={`梅花易数 · ${match.meihua.trigram_upper}/${match.meihua.trigram_lower} 动${match.meihua.changing_line}爻 · ${match.meihua.five_element_relation}`}
+        >
+          ☯ {match.meihua.host_trigram}{match.meihua.five_element_relation}{match.meihua.guest_trigram}
+        </div>
+      )}
       {/* Team A 行 */}
       <div className="flex items-center justify-between px-2 h-[20px]">
         <Link
@@ -488,6 +501,12 @@ function MatchCard({
             {match.score}
             {isDraw && match.aet_pct ? ` · 加时 ${Math.round(match.aet_pct * 100)}%` : ""}
           </span>
+        </div>
+      )}
+      {/* 梅花易数 Top 3 比分 (R32 紧凑模式也显示, 写在卡片底部, 紧凑字号) */}
+      {match.meihua && stage === "r32" && (
+        <div className="px-2 mt-0.5 text-[9px] font-mono text-amber-700 dark:text-amber-300 truncate" title={`梅花易数 Top 3 · 体${match.meihua.host_trigram}(${match.meihua.host_element}) ${match.meihua.five_element_relation} 用${match.meihua.guest_trigram}(${match.meihua.guest_element})`}>
+          ☯ {match.meihua.top_3_scores.map((s) => `${s.home}-${s.away}(${s.pct}%)`).join(' · ')}
         </div>
       )}
     </div>

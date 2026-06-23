@@ -11,7 +11,7 @@
 
 import Link from "next/link";
 import { teamFlag, teamNameZh } from "@/lib/data";
-import { crossValidate, findRelatedMatchesInGroup } from "@/lib/matchLookup";
+import { crossValidate, findRelatedMatchesInGroup, loadMeihuaForMatch } from "@/lib/matchLookup";
 import { matchHref } from "@/lib/matchUrl";
 
 type Props = { params: { teamA: string; teamB: string } };
@@ -48,6 +48,12 @@ export default function MatchPage({ params }: Props) {
 
   // 取首条 match 推断 stage/group/matchday (R3 新优先)
   const m = cv.matches[0];
+  // 梅花易数 (R6): 走 stage + group + matchday 反查, 没查到返回 null
+  const meihua = loadMeihuaForMatch(
+    a, b,
+    m.stage as "group" | "r32" | "r16" | "qf" | "sf" | "final",
+    m.group, m.matchday,
+  );
   const stageLabel = m.stage === "group"
     ? `${m.group} 组 · 比赛日 ${m.matchday}`
     : STAGE_LABEL[m.stage] || m.stage;
@@ -98,7 +104,8 @@ export default function MatchPage({ params }: Props) {
         <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
           {stageLabel} ·{" "}
           <span className="text-emerald-700 dark:text-emerald-400 font-semibold">
-            {cv.matches.length === 3 ? "3 轮交叉验证" :
+            {cv.matches.length >= 4 ? `${cv.matches.length} 轮交叉验证 (含 R6)` :
+             cv.matches.length === 3 ? "3 轮交叉验证" :
              cv.matches.length === 2 ? "2 轮交叉验证" :
              "⚠️ 单轮信号"}
           </span>
@@ -168,6 +175,96 @@ export default function MatchPage({ params }: Props) {
           </table>
         </div>
       </section>
+
+      {/* 梅花易数 4 段解读 (2026-06-22) — M3 LLM 生成, 模板 fallback */}
+      {meihua && (meihua.llm_narrative || meihua.template_fallback) && (
+        <section className="rounded-2xl border border-amber-200 dark:border-amber-800 bg-gradient-to-br from-amber-50/40 via-white to-yellow-50/30 dark:from-amber-950/15 dark:via-black dark:to-yellow-950/10 p-5">
+          <div className="flex items-center justify-between mb-3">
+            <div className="text-xs uppercase tracking-widest text-amber-700 dark:text-amber-400">
+              ☯ 梅花易数 4 段解读
+            </div>
+            <div className="text-xs text-gray-500">
+              {meihua.llm_narrative ? "M3 生成" : "模板兜底"}
+            </div>
+          </div>
+          <pre className="font-sans text-sm leading-relaxed whitespace-pre-wrap text-gray-800 dark:text-gray-200">
+{meihua.llm_narrative || meihua.template_fallback}
+          </pre>
+        </section>
+      )}
+
+      {/* 梅花易数 (2026-06-20) — 时间起卦 + 体用生克 + Top3 比分 */}
+      {meihua && (
+        <section className="rounded-2xl border border-amber-300 dark:border-amber-700 bg-gradient-to-br from-amber-50/60 via-white to-yellow-50/40 dark:from-amber-950/20 dark:via-black dark:to-yellow-950/15 p-5">
+          <div className="text-xs uppercase tracking-widest text-amber-700 dark:text-amber-400 mb-3">
+            ☯ 梅花易数 — 时间起卦 (2026-06-20 接入)
+          </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            {/* 卦象 + 五行 */}
+            <div>
+              <div className="text-2xl font-black tracking-wider mb-2">
+                <span className="text-amber-700 dark:text-amber-300">{meihua.trigram_upper}</span>
+                <span className="mx-2 text-gray-400">/</span>
+                <span className="text-amber-700 dark:text-amber-300">{meihua.trigram_lower}</span>
+                <span className="ml-2 text-sm font-mono text-gray-500">
+                  动 {meihua.changing_line} 爻
+                </span>
+              </div>
+              <div className="text-sm space-y-1">
+                <div>
+                  <span className="text-gray-500">体卦 (主队):</span>{" "}
+                  <span className="font-bold">{teamFlag(a)} {teamNameZh(a)}</span>{" "}
+                  <span className="font-mono">{meihua.host_trigram} · {meihua.host_element}</span>
+                </div>
+                <div>
+                  <span className="text-gray-500">用卦 (客队):</span>{" "}
+                  <span className="font-bold">{teamFlag(b)} {teamNameZh(b)}</span>{" "}
+                  <span className="font-mono">{meihua.guest_trigram} · {meihua.guest_element}</span>
+                </div>
+                <div className="pt-2 border-t border-amber-200 dark:border-amber-800 mt-2">
+                  <span className="text-gray-500">五行关系:</span>{" "}
+                  <span className={`font-bold px-2 py-0.5 rounded text-sm ${relationColor(meihua.five_element_relation)}`}>
+                    {meihua.five_element_relation}
+                  </span>
+                  <span className="ml-2 text-xs text-gray-600 dark:text-gray-400">
+                    ({relationMeaning(meihua.five_element_relation)})
+                  </span>
+                </div>
+              </div>
+            </div>
+            {/* Top 3 比分 */}
+            <div>
+              <div className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                🎯 Top 3 最可能比分
+              </div>
+              <div className="space-y-1">
+                {meihua.top_3_scores?.map((s, i) => (
+                  <div
+                    key={i}
+                    className={`flex items-center justify-between rounded-md px-3 py-1.5 ${
+                      i === 0
+                        ? "bg-amber-100 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-700"
+                        : "bg-white/60 dark:bg-gray-950/40 border border-gray-200 dark:border-gray-800"
+                    }`}
+                  >
+                    <span className="font-mono font-bold text-base">
+                      <span className="text-gray-400 mr-2">#{i + 1}</span>
+                      {s.home}-{s.away}
+                    </span>
+                    <span className="font-mono text-sm text-amber-700 dark:text-amber-300">
+                      {s.pct?.toFixed(0) || (s.prob * 100).toFixed(0)}%
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="text-xs text-gray-500 mt-2">
+                中心分 {meihua.base_score?.home}-{meihua.base_score?.away} ·
+                动爻 {meihua.changing_line} 改变五行力量对比
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 我的预测 plain-text */}
       <section className="rounded-xl border border-gray-200 dark:border-gray-800 bg-gradient-to-br from-gray-50 to-white dark:from-gray-950 dark:to-black p-4">
@@ -280,6 +377,28 @@ export default function MatchPage({ params }: Props) {
       </p>
     </div>
   );
+}
+
+// 梅花易数五行关系 → 颜色 + 解读
+function relationColor(rel: string): string {
+  switch (rel) {
+    case "体生用": return "bg-yellow-200 dark:bg-yellow-900/50 text-yellow-900 dark:text-yellow-200"; // 主队耗损
+    case "用生体": return "bg-emerald-200 dark:bg-emerald-900/50 text-emerald-900 dark:text-emerald-200"; // 主队得利
+    case "体克用": return "bg-emerald-200 dark:bg-emerald-900/50 text-emerald-900 dark:text-emerald-200"; // 主队胜
+    case "用克体": return "bg-rose-200 dark:bg-rose-900/50 text-rose-900 dark:text-rose-200"; // 主队凶
+    case "比和":   return "bg-sky-200 dark:bg-sky-900/50 text-sky-900 dark:text-sky-200"; // 平局倾向
+    default:       return "bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300";
+  }
+}
+function relationMeaning(rel: string): string {
+  switch (rel) {
+    case "体生用": return "体卦生用卦, 主队耗损精力, 不利主队";
+    case "用生体": return "用卦生体卦, 客队助力主队, 大利主队";
+    case "体克用": return "体卦克用卦, 主队压制客队, 主胜";
+    case "用克体": return "用卦克体卦, 客队克制主队, 主凶";
+    case "比和":   return "体用比和, 势均力敌, 接近平局";
+    default:       return "";
+  }
 }
 
 // 单行渲染 (兼容"未模拟"状态)

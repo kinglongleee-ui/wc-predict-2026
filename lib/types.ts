@@ -120,6 +120,29 @@ export type RunData = {
   format?: string;
 };
 
+export type MeihuaPred = {
+  trigram_upper: string;        // 上卦 (e.g. "离")
+  trigram_lower: string;        // 下卦 (e.g. "坤")
+  changing_line: number;        // 动爻 1-6
+  host_trigram: string;         // 体卦 (主队)
+  guest_trigram: string;        // 用卦 (客队)
+  host_element: string;         // 金/木/水/火/土
+  guest_element: string;
+  five_element_relation:        // 体用生克关系
+    | "体生用" | "用生体" | "体克用" | "用克体" | "比和";
+  base_score: { home: number; away: number };  // 中心分
+  top_3_scores: TopScore[];     // 与 MiroFish top_3_scores 同 schema (3 个候选)
+  predicted_winner: "a" | "b" | null;
+  kickoff_utc_used: string;
+  // 4 段文本 (2026-06-22): M3 LLM 生成, 模板 fallback
+  basic?: string;                // 基础信息
+  hexagram_interpretation?: string;  // 卦象解读
+  score_hint?: string;           // 卦数附会
+  reality_check?: string;        // 客观现实
+  llm_narrative?: string | null;  // M3 4 段合并 markdown
+  template_fallback?: string;    // 模板版 4 段合并 markdown (永久兜底)
+};
+
 export type BracketMatch = {
   bracket_idx?: number;       // 0-based position within the round
   team_a: string;
@@ -139,6 +162,8 @@ export type BracketMatch = {
   // A+B (2026-06-19): same top-3 score list as group matches. Drives the
   // new "Top-1 exact score" + "Top-3 score" hit metrics on the homepage.
   top_3_scores?: TopScore[];
+  // 梅花易数 (2026-06-20): 时间起卦 + 五行生克 + 体用推分
+  meihua?: MeihuaPred;
 };
 
 export type ThirdPlace = {

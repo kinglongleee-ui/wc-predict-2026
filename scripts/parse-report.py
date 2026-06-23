@@ -1598,6 +1598,8 @@ def parse_run(run_id: str, run_dir: Path) -> dict:
     #   C) 扫 R32[1-15] 全部 best 3rd slot, 任一 group 不在 FIFA allowed 内
     #   D) 扫 R32 全部 winner/runner_up slot, 任一 team 不在对应组 standings 内
     needs_override = False
+    # R6-style 默认 False (bracket["r32"] 空或 groups 不全时, 跳过 134 兜底分支)
+    r6_style = False
     # Gate: 134 兜底 — 有 R32 输出 + 12 组解析全 → 扫 needs_override (A/B/C/D 任一触发即覆盖)
     # Gate 改 len > 0 (从 len >= 16): R4 只有 4/16 也需检测 (R3 16/16 + R5/R6 16/16 + R4 4/16 都覆盖)
     if bracket["r32"] and len(groups) == 12:
