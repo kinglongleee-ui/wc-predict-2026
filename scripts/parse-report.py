@@ -701,9 +701,14 @@ def _parse_team_with_seed(raw: str):
       R3: Mexico (1A)         → ('Mexico', 'A', 1)
       R4: Mexico (A1)         → ('Mexico', 'A', 1)
       R4: Mexico (1A-2)       → ('Mexico', 'A', 1)
+      R8 prefix-only: 'A2 South Korea' → ('South Korea', 'A', 2)
       No suffix              → (raw, None, None)
     """
     s = raw.strip().strip("*").strip()
+    # R8 prefix-only format: "A2 South Korea" / "E1 Germany" / "F1 Portugal"
+    pre = re.match(r"^([A-L])(\d+)\s+(.+)$", s)
+    if pre:
+        return (pre.group(3).strip(), pre.group(1), int(pre.group(2)))
     # 捕获队名 + 字母 (A-L)
     m = re.match(r"([^(]+?)\s*\((?:\d+)?([A-L])(?:\d+)?(?:-\w+)?\)", s)
     if not m:
@@ -801,17 +806,24 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
             score_clean = score.strip()
             winner_hint = _extract_winner_from_score(score_clean, team_a_clean, team_b_clean)
             # Extract team_a_win/draw/team_b_win from "TeamA N-M" (no A/D/B pcts in R8).
-            # Default neutral 0.5/0/0.5 when A/D/B not provided.
-            sm = re.match(r"(\d+)\s*[-:]\s*(\d+)", score_clean)
-            if sm and group_a and group_b and team_a_clean in score_clean and team_b_clean in score_clean:
+            # MiroFish score 习惯只写赢家 ("South Korea 2-1"), 不写输家, 所以不能用
+            # "输家在 score 字符串" 判断, 只看 group/seed 是否有 + 比分反推或 name-in-score。
+            sm = re.search(r"(\d+)\s*[-:]\s*(\d+)", score_clean)
+            if sm and group_a and group_b:
                 h, a_ = int(sm.group(1)), int(sm.group(2))
-                # 简单判断: 0-0=draw, 其他 winner
                 if h == a_:
                     team_a_win, draw, team_b_win = 0.0, 1.0, 0.0
                 else:
                     draw = 0.0
-                    team_a_win = 0.5 + (0.4 if h > a_ else -0.4)
-                    team_b_win = 0.5 + (0.4 if a_ > h else -0.4)
+                    # 优先 name-in-score (R8 写 "South Korea 2-1" 这种赢家名+比分)
+                    if team_a_clean and team_a_clean in score_clean:
+                        team_a_win, team_b_win = 0.9, 0.1
+                    elif team_b_clean and team_b_clean in score_clean:
+                        team_a_win, team_b_win = 0.1, 0.9
+                    else:
+                        # MiroFish 分数习惯高分=赢家, 用比分反推
+                        team_a_win = 0.5 + (0.4 if h > a_ else -0.4)
+                        team_b_win = 1.0 - team_a_win
             else:
                 team_a_win, draw, team_b_win = 0.5, 0.0, 0.5
             matches.append({
@@ -985,15 +997,22 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
             team_a_clean = re.sub(r"\s*\(.*?best 3rd.*?\)\s*", "", team_a_clean, flags=re.IGNORECASE).strip()
             team_b_clean = re.sub(r"\s*\(.*?best 3rd.*?\)\s*", "", team_b_clean, flags=re.IGNORECASE).strip()
             score_clean = score.strip()
-            sm = re.match(r"(\d+)\s*[-:]\s*(\d+)", score_clean)
+            sm = re.search(r"(\d+)\s*[-:]\s*(\d+)", score_clean)
             if sm:
                 h, a_ = int(sm.group(1)), int(sm.group(2))
                 if h == a_:
                     team_a_win, draw, team_b_win = 0.0, 1.0, 0.0
                 else:
                     draw = 0.0
-                    team_a_win = 0.5 + (0.4 if h > a_ else -0.4)
-                    team_b_win = 0.5 + (0.4 if a_ > h else -0.4)
+                    # 优先 name-in-score (R8 "Germany 2-0" 这种赢家名+比分)
+                    if team_a_clean and team_a_clean in score_clean:
+                        team_a_win, team_b_win = 0.9, 0.1
+                    elif team_b_clean and team_b_clean in score_clean:
+                        team_a_win, team_b_win = 0.1, 0.9
+                    else:
+                        # MiroFish 习惯高分=赢家, 比分反推
+                        team_a_win = 0.5 + (0.4 if h > a_ else -0.4)
+                        team_b_win = 1.0 - team_a_win
             else:
                 team_a_win, draw, team_b_win = 0.5, 0.0, 0.5
             matches.append({
@@ -1178,24 +1197,31 @@ def _resolve_r32_slot(groups: dict, best_thirds: list, kind: str, arg, used: set
     raise ValueError(f"unknown r32 slot kind: {kind}")
 
 
-def build_real_r32(groups: dict, best_thirds: list) -> list:
+def build_real_r32(groups: dict, best_thirds: list, preserve_probs: bool = False) -> list:
     """按 FIFA 真实 Match 73-88 规则生成 16 场 R32 (覆盖 MiroFish 错配)。
 
-    Returns list of 16 BracketMatch dicts 按 Match 73→88 升序。
-    概率字段重置为中性 (0.5/0.0/0.5, winner=null, score="待定"), 不沿用 MiroFish 错配的概率。
+    preserve_probs=False (默认, 历史): 概率字段重置为中性 (0.5/0/0.5, winner=null, score="待定"),
+        不沿用 MiroFish 错配的概率 — 用于 R3/R4 时代 MiroFish 配对错时一并清掉错概率。
+    preserve_probs=True (R5+ 推荐): 只覆盖配对字段 (team_a/b/group_a/b/seed_a/b),
+        score/win_prob/winner 留 None — 由 caller 在 134 兜底触发时合并 MiroFish 原数据
+        (按 bracket_idx 匹配, 保留 R8 LLM 给的 "South Korea 2-1" "France 3-0" 等预测)。
     """
     used_best3 = set()
     out = []
     for idx, (_, k1, a1, k2, a2) in enumerate(REAL_R32_RULES):
         s1 = _resolve_r32_slot(groups, best_thirds, k1, a1, used_best3)
         s2 = _resolve_r32_slot(groups, best_thirds, k2, a2, used_best3)
-        out.append({
+        entry = {
             "bracket_idx": idx,
             "team_a": s1["team"], "group_a": s1["group"], "seed_a": s1["seed"],
             "team_b": s2["team"], "group_b": s2["group"], "seed_b": s2["seed"],
-            "team_a_win": 0.5, "draw": 0.0, "team_b_win": 0.5,
-            "score": "待定", "aet_pct": None, "pen_pct": None, "winner": None,
-        })
+        }
+        if not preserve_probs:
+            entry.update({
+                "team_a_win": 0.5, "draw": 0.0, "team_b_win": 0.5,
+                "score": "待定", "aet_pct": None, "pen_pct": None, "winner": None,
+            })
+        out.append(entry)
     return out
 
 
@@ -1871,7 +1897,20 @@ def parse_run(run_id: str, run_dir: Path) -> dict:
                         needs_override = True
                         break
     if needs_override:
-        bracket["r32"] = build_real_r32(groups, best_thirds)
+        # R8+: MiroFish 配对错但 score/win_prob 有用, 走 preserve_probs=True
+        # (保留 R8 LLM 给的胜率/比分, 只覆盖 team/group/seed 配对)
+        real_r32 = build_real_r32(groups, best_thirds, preserve_probs=True)
+        # 按 bracket_idx 合并 MiroFish 原数据
+        mirofish_by_idx = {m.get("bracket_idx"): m for m in bracket["r32"]}
+        for entry in real_r32:
+            mf = mirofish_by_idx.get(entry["bracket_idx"])
+            if mf:
+                # 保留 MiroFish 的 score/win_prob/winner/aet/pen
+                for k in ("score", "team_a_win", "draw", "team_b_win",
+                         "winner", "aet_pct", "pen_pct"):
+                    if k in mf:
+                        entry[k] = mf[k]
+        bracket["r32"] = real_r32
 
     # R6 风格补救 (与 needs_override 互斥): MiroFish R32 配对正确, 但 markdown 不带 (A1)/(B3) 标签
     # → group/seed 全空. 尝试按 FIFA 规则只补 group/seed (不动 MiroFish 的 team/score/probs).

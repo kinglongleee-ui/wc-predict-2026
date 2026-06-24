@@ -40,18 +40,35 @@ if sf_head:
         # parse winner
         winner = "a"
         sm = re.search(r"(\d+)\s*[-:]\s*(\d+)", score)
+        # 置信度反推: 赢家 0.9, 输家 0.1, 平 1.0 (R8 不直接给胜率)
+        # MiroFish 写 "France 2-1 (AET)" (R8 SF1: Brazil vs France), 队名在 score 里的是胜方
         if sm:
             h, a_ = int(sm.group(1)), int(sm.group(2))
             if h == a_:
                 winner = None  # AET/Pen decided
+                win_a, win_b, draw = 0.0, 0.0, 1.0
+            elif ta and ta in score:
+                winner = "a"
+                win_a, win_b, draw = 0.9, 0.1, 0.0
+            elif tb and tb in score:
+                winner = "b"
+                win_a, win_b, draw = 0.1, 0.9, 0.0
+            elif h > a_:
+                # 都没出现在 score (如 "2-1 (AET)" 没队名) → 按 a 在前原则判 a 胜
+                winner = "a"
+                win_a, win_b, draw = 0.9, 0.1, 0.0
             else:
-                winner = "a" if h > a_ else "b"
+                winner = "b"
+                win_a, win_b, draw = 0.1, 0.9, 0.0
+        else:
+            winner = None
+            win_a, win_b, draw = 0.5, 0.5, 0.0
         sf_matches.append({
             "bracket_idx": len(sf_matches),
             "team_a": ta, "team_b": tb,
             "group_a": None, "seed_a": None,
             "group_b": None, "seed_b": None,
-            "team_a_win": 0.5, "draw": 0.0, "team_b_win": 0.5,
+            "team_a_win": win_a, "draw": draw, "team_b_win": win_b,
             "score": score, "aet_pct": None, "pen_pct": None,
             "winner": winner,
         })
@@ -73,20 +90,20 @@ if final_section_match:
         tier_text = tier_match.group(1)
         rows = re.findall(r"\|\s*([^|]+?)\s*\|\s*\*\*(\d+)%\*\*\s*\|", tier_text)
         if rows:
-            tier_labels = {
-                "argentina": ("90 min (阿根廷胜)", "阿根廷 90 分钟内取胜"),
-                "france": ("90 min (法国胜)", "法国 90 分钟内取胜"),
-                "aet": ("AET", "进入加时赛 (120 分钟)"),
-                "penalty": ("Penalties", "进入点球大战"),
-            }
             new_tiers = []
             for i, (label, pct) in enumerate(rows, start=1):
                 label_l = label.lower()
-                zh_label, zh_content = label, label
-                for k, (z, c) in tier_labels.items():
-                    if k in label_l:
-                        zh_label, zh_content = z, c
-                        break
+                # 显式 if/elif: AET/penalty 优先于 argentina/france (因为 tier 3 AET label 含 "Argentina or France")
+                if "aet" in label_l or "加时" in label_l:
+                    zh_label, zh_content = "加时赛", "进入加时赛 (120 分钟内分胜负)"
+                elif "penalt" in label_l or "点球" in label_l:
+                    zh_label, zh_content = "点球大战", "120 分钟战平, 通过点球大战决出冠军"
+                elif "argentina" in label_l and "france" not in label_l:
+                    zh_label, zh_content = "90 分钟 (阿根廷胜)", "阿根廷在 90 分钟内取胜"
+                elif "france" in label_l and "argentina" not in label_l:
+                    zh_label, zh_content = "90 分钟 (法国胜)", "法国在 90 分钟内取胜"
+                else:
+                    zh_label, zh_content = label.strip("*").strip(), label
                 new_tiers.append({
                     "tier": i, "label": zh_label, "content": zh_content,
                     "probability": int(pct) / 100,
