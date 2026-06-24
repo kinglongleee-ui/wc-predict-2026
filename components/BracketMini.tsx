@@ -15,9 +15,9 @@ import type { BracketMatch, RunData } from "@/lib/types";
 
 const COL_W = 180;       // 每列宽
 const COL_GAP = 32;      // 列间隙 (给连线留呼吸)
-const ROW_H = 60;        // 行高 (CARD_H=48, 留 12px 间隙)
+const ROW_H = 72;        // 行高 (CARD_H=66, 留 6px 间隙)
 const CARD_W = 180;      // 跟 /bracket (200) 接近, 留 20px 给概率%
-const CARD_H = 48;       // 紧凑卡 (两行 22px + padding)
+const CARD_H = 66;       // 紧凑卡 (两行 22px + footer 18px + padding)
 const FINAL_COL_W = 200; // 决赛列加宽给冠军徽章
 
 const ROUND_LABELS = ["32 强 (上半区)", "32 强 (下半区)", "16 强", "1/4 决赛", "半决赛", "决赛"];
@@ -460,7 +460,7 @@ function MiniR32Card({
         )}
       </div>
       {/* 预测比分 footer — 用 predictionLabel fallback */}
-      <div className="absolute -bottom-2 right-1 px-1.5 text-[9px] font-mono bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 rounded shadow-sm whitespace-nowrap">
+      <div className="px-2 h-[18px] flex items-center justify-end text-[11px] font-mono bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-200 border-t border-emerald-200 dark:border-emerald-900/50 rounded-b whitespace-nowrap">
         🔮 {predictionLabel(match)}
       </div>
     </div>
@@ -547,8 +547,8 @@ function MiniCard({
           {Math.round(match.team_b_win * 100)}%
         </span>
       </div>
-      {/* 预测比分 footer — 飘在卡外底部 (用 predictionLabel fallback) */}
-      <div className="absolute -bottom-2 right-1 px-1.5 text-[9px] font-mono bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 rounded shadow-sm flex items-center gap-1 whitespace-nowrap">
+      {/* 预测比分 footer — 改 relative 避免被 overflow-x 裁掉 */}
+      <div className="px-2 h-[18px] flex items-center justify-end text-[11px] font-mono bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-200 border-t border-emerald-200 dark:border-emerald-900/50 rounded-b flex items-center gap-1 whitespace-nowrap">
         <span>🔮 {predictionLabel(match)}</span>
         {overtimeTag && (
           <span className="text-orange-600 dark:text-orange-400">{overtimeTag}</span>
@@ -608,8 +608,8 @@ function MiniFinalCard({
           <span>{teamNameZh(teamB)}</span>
         </Link>
       </div>
-      {/* 预测比分 footer — 飘出卡底 */}
-      <div className="absolute -bottom-2 right-1 px-1.5 text-[9px] font-mono bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 rounded shadow-sm flex items-center gap-1 whitespace-nowrap">
+      {/* 预测比分 footer — inline, 不被 overflow-x 裁 */}
+      <div className="mx-2 mt-1 px-1.5 h-[18px] flex items-center justify-center text-[11px] font-mono bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-900/50 rounded whitespace-nowrap">
         🔮 {score}
       </div>
       {/* 三档比分概率 — 在冠军徽章之上挤一行 */}
