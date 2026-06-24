@@ -1,0 +1,2176 @@
+{
+  "run_id": "run_d1f74f4afe69",
+  "created_at": "2026-06-24T16:32:26.445396",
+  "verdict": {
+    "prediction": "Translate to simplified Chinese, preserve numbers, team names, etc.\n\n阿根廷在 2026 年国际足联世界杯决赛中以 51-49 险胜法国，冠军归属很可能要通过加时或点球决出；与此同时，头号种子球队（西班牙、葡萄牙、德国、巴西、英格兰）虽然在小组赛中顺利晋级，但在淘汰赛阶段都将面临严峻考验。",
+    "confidence": 0.62,
+    "key_dynamics": [
+      "西班牙, Uruguay→乌拉圭, Portugal→葡萄牙, UZB→乌兹别克斯坦, France→法国, IRQ→伊拉克, Norway→挪威, Cape Verde→佛得角, Bosnia→波黑, South Korea→韩国, Argentina→阿根廷)",
+      "3. Keep Markdown formatting",
+      "4. Quotes verbatim",
+      "5. Use specific football terminology translations",
+      "6. Format: key_dynamics (5 short narratives starting with -)",
+      "7. Only output the translation, no explanations",
+      "Let me translate each bullet:",
+      "1. \"Top seeds dominate group stage but seeding mismatches create dangerous R32 ties (e.g., Spain vs H2 Uruguay)\"",
+      "种子队在小组赛占据主导地位，但分组抽签错位制造了危险的 1/16 决赛对决（例如，西班牙对阵 H 组第二乌拉圭）",
+      "Wait, \"H2\" likely means \"H组第二\" or \"2nd place in Group H\". Let me re-read. \"Spain vs H2 Uruguay\" means Spain vs Group H runner-up Uruguay. So translation: \"西班牙对阵 H 组第二名乌拉圭\"",
+      "2. \"Elo-Poisson baseline calibrated on 6/22-6/23 results favors offensive teams (Portugal 5-0 UZB, France 3-0 IRQ)\"",
+      "基于 6/22-6/23 赛果校准的 Elo-Poisson 基准模型更看好进攻型球队（葡萄牙 5-0 乌兹别克斯坦，法国 3-0 伊拉克）",
+      "3. \"Upset-risk clusters around Norway (G1), Cape Verde (best 3rd), Bosnia (B2), and South Korea (A2)\"",
+      "冷门风险集中在挪威（G1）、佛得角（成绩最好的小组第三）、波黑（B2）和韩国（A2）周围",
+      "4. \"Argentina's J1 seeding secures a favorable R32 path, while France's I1 sets up a Spain/France QF blockbuster\"",
+      "阿根廷的 J1 种子位确保了有利的 1/16 决赛晋级路线，而法国的 I1 位则铺垫了一场西班牙/法国 1/4 决赛的重磅对决",
+      "5. \"Penalties/AET heavily featured in knockout projections due to compressed Elo margins among elite teams\"",
+      "由于精英球队之间 Elo 差距被压缩，淘汰赛预测中点球/加时赛出现频率极高",
+      "Let me check terminology:",
+      "\"top seeds\" = 种子队/头号种子",
+      "\"group stage\" = 小组赛",
+      "\"seeding mismatches\" = 分组抽签错位/种子错位",
+      "\"R32\" = 1/16 决赛",
+      "\"Elo-Poisson baseline\" = Elo-Poisson 基准模型",
+      "\"calibrated on\" = 基于...校准",
+      "\"offensive teams\" = 进攻型球队",
+      "\"Upset-risk\" = 冷门风险",
+      "\"best 3rd\" = 成绩最好的小组第三",
+      "\"seeding\" = 种子位/种子身份",
+      "\"favorable R32 path\" = 有利的 1/16 决赛晋级路线",
+      "\"QF\" = 1/4 决赛",
+      "\"blockbuster\" = 重磅对决",
+      "\"Penalties/AET\" = 点球/加时 (AET = After Extra Time)",
+      "\"knockout projections\" = 淘汰赛预测",
+      "\"compressed Elo margins\" = Elo 差距压缩/被压缩的 Elo 差距",
+      "\"elite teams\" = 精英球队/顶级球队",
+      "Let me refine:",
+      "1. 头号种子队在小组赛占据主导地位，但种子分组错位制造了危险的 1/16 决赛对决（例如，西班牙对阵 H 组第二名乌拉圭）",
+      "2. 基于 6/22-6/23 赛果校准的 Elo-Poisson 基准模型更看好进攻型球队（葡萄牙 5-0 乌兹别克斯坦，法国 3-0 伊拉克）",
+      "3. 冷门风险集中在挪威（G1）、佛得角（成绩最佳的小组第三）、波黑（B2）和韩国（A2）身上",
+      "4. 阿根廷的 J1 种子身份确保了有利的 1/16 决赛晋级路径，而法国的 I1 位则铺垫出一场西班牙/法国 1/4 决赛的重磅对决",
+      "5. 由于精英球队之间 Elo 差距被压缩，淘汰赛预测中点球/加时赛出现频率极高",
+      "Let me double-check the team names:",
+      "Spain = 西班牙 ✓",
+      "Uruguay = 乌拉圭 ✓",
+      "Portugal = 葡萄牙 ✓",
+      "UZB = 乌兹别克斯坦 ✓",
+      "France = 法国 ✓",
+      "IRQ = 伊拉克 ✓",
+      "Norway = 挪威 ✓",
+      "Cape Verde = 佛得角 ✓",
+      "Bosnia = 波黑 (commonly used for 波斯尼亚) ✓",
+      "South Korea = 韩国 ✓",
+      "Argentina = 阿根廷 ✓",
+      "The output should be just the translation, no explanations, in Markdown with the bullet points.",
+      "Let me format properly with the - at the start as requested.",
+      "头号种子队在小组赛占据主导，但种子分组错位制造出危险的 1/16 决赛对阵（例如，西班牙对阵 H 组第二名乌拉圭）",
+      "基于 6/22-6/23 赛果校准的 Elo-Poisson 基准模型更看好进攻型球队（葡萄牙 5-0 乌兹别克斯坦，法国 3-0 伊拉克）",
+      "冷门风险集中在挪威（G1）、佛得角（成绩最佳的小组第三）、波黑（B2）和韩国（A2）身上",
+      "阿根廷的 J1 种子身份确保了有利的 1/16 决赛晋级路径，而法国的 I1 位则铺垫出一场西班牙/法国 1/4 决赛的重磅对决",
+      "由于精英球队之间 Elo 差距被压缩，淘汰赛预测中点球/加时赛出现频率极高"
+    ],
+    "signals": [
+      {
+        "signal": "Argentina tops Group J with 9 points, scoring 6 goals across 3 matches",
+        "direction": "positive",
+        "strength": 0.78
+      },
+      {
+        "signal": "France tops Group I with 9 points but faces deeper midfield rotation risk",
+        "direction": "positive",
+        "strength": 0.72
+      },
+      {
+        "signal": "Final projected at 51-49 split, indicating razor-thin Elo margin between ARG and FRA",
+        "direction": "mixed",
+        "strength": 0.85
+      },
+      {
+        "signal": "Upset risks in 5 flagged matches (Norway, Cape Verde, Bosnia, South Korea, plus MD3 Switzerland-Bosnia draw) inject variance into knockout bracket",
+        "direction": "mixed",
+        "strength": 0.65
+      },
+      {
+        "signal": "Top-tier seeds (Spain, Portugal, Germany, Brazil, England) all projected to win groups, suggesting bracket integrity holds",
+        "direction": "positive",
+        "strength": 0.7
+      }
+    ]
+  },
+  "summary": {
+    "rounds": 5,
+    "node_count": 73,
+    "edge_count": 146,
+    "total_actions": 20,
+    "top_agents": [
+      {
+        "agent_id": 21,
+        "agent_name": "FIFA",
+        "total_actions": 6,
+        "twitter_actions": 3,
+        "reddit_actions": 3,
+        "action_types": {
+          "CREATE_POST": 6
+        },
+        "first_action_time": "2026-06-24T16:01:03.025259",
+        "last_action_time": "2026-06-24T16:01:03.231161"
+      },
+      {
+        "agent_id": 0,
+        "agent_name": "Algeria",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-24T16:01:03.025149",
+        "last_action_time": "2026-06-24T16:01:03.230715"
+      },
+      {
+        "agent_id": 1,
+        "agent_name": "Argentina",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-24T16:01:03.025207",
+        "last_action_time": "2026-06-24T16:01:03.230770"
+      },
+      {
+        "agent_id": 5,
+        "agent_name": "Bellingham",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-24T16:01:03.025308",
+        "last_action_time": "2026-06-24T16:01:03.230866"
+      },
+      {
+        "agent_id": 2,
+        "agent_name": "Australia",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-24T16:01:03.025357",
+        "last_action_time": "2026-06-24T16:01:03.230910"
+      },
+      {
+        "agent_id": 10,
+        "agent_name": "Carlo Ancelotti",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-24T16:01:03.025405",
+        "last_action_time": "2026-06-24T16:01:03.230955"
+      },
+      {
+        "agent_id": 16,
+        "agent_name": "Depay",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-24T16:01:03.025504",
+        "last_action_time": "2026-06-24T16:01:03.231052"
+      },
+      {
+        "agent_id": 3,
+        "agent_name": "Austria",
+        "total_actions": 2,
+        "twitter_actions": 1,
+        "reddit_actions": 1,
+        "action_types": {
+          "CREATE_POST": 2
+        },
+        "first_action_time": "2026-06-24T16:01:03.025565",
+        "last_action_time": "2026-06-24T16:01:03.231111"
+      }
+    ]
+  },
+  "groups": {
+    "A": {
+      "letter": "A",
+      "teams": [
+        "Mexico",
+        "South Korea",
+        "South Africa",
+        "Czech Republic"
+      ],
+      "matches": [
+        {
+          "stage": "Group A",
+          "matchday": 1,
+          "team_a": "Mexico",
+          "team_b": "South Africa",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-11",
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2659,
+              "pct": 26.6
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1433,
+              "pct": 14.3
+            }
+          ]
+        },
+        {
+          "stage": "Group A",
+          "matchday": 1,
+          "team_a": "South Korea",
+          "team_b": "Czech Republic",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "2-1",
+            "home": 2,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-12",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2045,
+              "pct": 20.5
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1407,
+              "pct": 14.1
+            }
+          ]
+        }
+      ],
+      "standings": [
+        {
+          "team": "Mexico",
+          "points": 7,
+          "note": null
+        },
+        {
+          "team": "South Korea",
+          "points": 6,
+          "note": null
+        },
+        {
+          "team": "Czech Republic",
+          "points": 3,
+          "note": null
+        },
+        {
+          "team": "South Africa",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "B": {
+      "letter": "B",
+      "teams": [
+        "Canada",
+        "Bosnia",
+        "Switzerland",
+        "Qatar"
+      ],
+      "matches": [
+        {
+          "stage": "Group B",
+          "matchday": 1,
+          "team_a": "Canada",
+          "team_b": "Bosnia",
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-12",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.185,
+              "pct": 18.5
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1602,
+              "pct": 16.0
+            }
+          ]
+        },
+        {
+          "stage": "Group B",
+          "matchday": 1,
+          "team_a": "Qatar",
+          "team_b": "Switzerland",
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-13",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2365,
+              "pct": 23.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1134,
+              "pct": 11.3
+            }
+          ]
+        }
+      ],
+      "standings": [
+        {
+          "team": "Switzerland",
+          "points": 7,
+          "note": null
+        },
+        {
+          "team": "Bosnia",
+          "points": 4,
+          "note": null
+        },
+        {
+          "team": "Canada",
+          "points": 4,
+          "note": null
+        },
+        {
+          "team": "Qatar",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "C": {
+      "letter": "C",
+      "teams": [
+        "Brazil",
+        "Morocco",
+        "Croatia",
+        "Haiti"
+      ],
+      "matches": [
+        {
+          "stage": "Group C",
+          "matchday": 1,
+          "team_a": "Brazil",
+          "team_b": "Morocco",
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-13",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1776,
+              "pct": 17.8
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1677,
+              "pct": 16.8
+            }
+          ]
+        }
+      ],
+      "standings": [
+        {
+          "team": "Brazil",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "Morocco",
+          "points": 6,
+          "note": null
+        },
+        {
+          "team": "Croatia",
+          "points": 3,
+          "note": null
+        },
+        {
+          "team": "Haiti",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "D": {
+      "letter": "D",
+      "teams": [
+        "USA",
+        "Australia",
+        "Scotland",
+        "Panama"
+      ],
+      "matches": [],
+      "standings": [
+        {
+          "team": "USA",
+          "points": 7,
+          "note": null
+        },
+        {
+          "team": "Scotland",
+          "points": 5,
+          "note": null
+        },
+        {
+          "team": "Australia",
+          "points": 3,
+          "note": null
+        },
+        {
+          "team": "Panama",
+          "points": 1,
+          "note": null
+        }
+      ]
+    },
+    "E": {
+      "letter": "E",
+      "teams": [
+        "Germany",
+        "Ecuador",
+        "Curaçao",
+        "Ivory Coast"
+      ],
+      "matches": [
+        {
+          "stage": "Group E",
+          "matchday": 1,
+          "team_a": "Germany",
+          "team_b": "Curaçao",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "7-1",
+            "home": 7,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-14",
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2944,
+              "pct": 29.4
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1757,
+              "pct": 17.6
+            }
+          ]
+        },
+        {
+          "stage": "Group E",
+          "matchday": 1,
+          "team_a": "Ivory Coast",
+          "team_b": "Ecuador",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-14",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1776,
+              "pct": 17.8
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1677,
+              "pct": 16.8
+            }
+          ]
+        }
+      ],
+      "standings": [
+        {
+          "team": "Germany",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "Ecuador",
+          "points": 4,
+          "note": null
+        },
+        {
+          "team": "Curaçao",
+          "points": 2,
+          "note": null
+        },
+        {
+          "team": "Ivory Coast",
+          "points": 1,
+          "note": null
+        }
+      ]
+    },
+    "F": {
+      "letter": "F",
+      "teams": [
+        "Portugal",
+        "Belgium",
+        "Iran",
+        "Uzbekistan"
+      ],
+      "matches": [],
+      "standings": [
+        {
+          "team": "Portugal",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "Belgium",
+          "points": 6,
+          "note": null
+        },
+        {
+          "team": "Iran",
+          "points": 3,
+          "note": null
+        },
+        {
+          "team": "Uzbekistan",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "G": {
+      "letter": "G",
+      "teams": [
+        "Norway",
+        "Senegal",
+        "Egypt",
+        "New Zealand"
+      ],
+      "matches": [],
+      "standings": [
+        {
+          "team": "Norway",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "Egypt",
+          "points": 4,
+          "note": null
+        },
+        {
+          "team": "Senegal",
+          "points": 3,
+          "note": null
+        },
+        {
+          "team": "New Zealand",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "H": {
+      "letter": "H",
+      "teams": [
+        "Spain",
+        "Uruguay",
+        "Saudi Arabia",
+        "Cape Verde"
+      ],
+      "matches": [
+        {
+          "stage": "Group H",
+          "matchday": 1,
+          "team_a": "Spain",
+          "team_b": "Cape Verde",
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "0-0",
+            "home": 0,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-15",
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.3095,
+              "pct": 30.9
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1942,
+              "pct": 19.4
+            }
+          ]
+        },
+        {
+          "stage": "Group H",
+          "matchday": 1,
+          "team_a": "Saudi Arabia",
+          "team_b": "Uruguay",
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "1-1",
+            "home": 1,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-15",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.2529,
+              "pct": 25.3
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 0,
+              "away": 2,
+              "prob": 0.1297,
+              "pct": 13.0
+            }
+          ]
+        }
+      ],
+      "standings": [
+        {
+          "team": "Spain",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "Uruguay",
+          "points": 6,
+          "note": null
+        },
+        {
+          "team": "Cape Verde",
+          "points": 3,
+          "note": null
+        },
+        {
+          "team": "Saudi Arabia",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "I": {
+      "letter": "I",
+      "teams": [
+        "France",
+        "Croatia",
+        "Iraq",
+        "?"
+      ],
+      "matches": [],
+      "standings": [
+        {
+          "team": "France",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "Croatia",
+          "points": 6,
+          "note": null
+        },
+        {
+          "team": "Iraq",
+          "points": 3,
+          "note": null
+        }
+      ]
+    },
+    "J": {
+      "letter": "J",
+      "teams": [
+        "Argentina",
+        "Austria",
+        "Algeria",
+        "Jordan"
+      ],
+      "matches": [
+        {
+          "stage": "Group J",
+          "matchday": 1,
+          "team_a": "Argentina",
+          "team_b": "Algeria",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "3-0",
+            "home": 3,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-17",
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.2931,
+              "pct": 29.3
+            },
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1742,
+              "pct": 17.4
+            }
+          ]
+        },
+        {
+          "stage": "Group J",
+          "matchday": 1,
+          "team_a": "Austria",
+          "team_b": "Jordan",
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": {
+            "raw": "3-1",
+            "home": 3,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          },
+          "is_played": true,
+          "played_date": "2026-06-17",
+          "top_3_scores": [
+            {
+              "home": 0,
+              "away": 0,
+              "prob": 0.2466,
+              "pct": 24.7
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.23,
+              "pct": 23.0
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.1153,
+              "pct": 11.5
+            }
+          ]
+        }
+      ],
+      "standings": [
+        {
+          "team": "Argentina",
+          "points": 9,
+          "note": null
+        },
+        {
+          "team": "Austria",
+          "points": 3,
+          "note": null
+        },
+        {
+          "team": "Algeria",
+          "points": 3,
+          "note": null
+        },
+        {
+          "team": "Jordan",
+          "points": 0,
+          "note": null
+        }
+      ]
+    },
+    "K": {
+      "letter": "K",
+      "teams": [
+        "Colombia",
+        "DR Congo",
+        "Japan",
+        "?"
+      ],
+      "matches": [],
+      "standings": [
+        {
+          "team": "Colombia",
+          "points": 7,
+          "note": null
+        },
+        {
+          "team": "DR Congo",
+          "points": 4,
+          "note": null
+        },
+        {
+          "team": "Japan",
+          "points": 3,
+          "note": null
+        }
+      ]
+    },
+    "L": {
+      "letter": "L",
+      "teams": [
+        "England",
+        "Netherlands",
+        "Ghana",
+        "?"
+      ],
+      "matches": [],
+      "standings": [
+        {
+          "team": "England",
+          "points": 7,
+          "note": null
+        },
+        {
+          "team": "Netherlands",
+          "points": 6,
+          "note": null
+        },
+        {
+          "team": "Ghana",
+          "points": 3,
+          "note": null
+        }
+      ]
+    }
+  },
+  "best_thirds": [
+    {
+      "rank": 1,
+      "team": "Cape Verde",
+      "group": "H",
+      "points": 3,
+      "goal_difference": 1,
+      "reason": "R8 numbered best 3rd"
+    },
+    {
+      "rank": 2,
+      "team": "Algeria",
+      "group": "J",
+      "points": 3,
+      "goal_difference": 0,
+      "reason": "R8 numbered best 3rd"
+    },
+    {
+      "rank": 3,
+      "team": "Ghana",
+      "group": "L",
+      "points": 3,
+      "goal_difference": 0,
+      "reason": "R8 numbered best 3rd"
+    },
+    {
+      "rank": 4,
+      "team": "Japan",
+      "group": "K",
+      "points": 3,
+      "goal_difference": 0,
+      "reason": "R8 numbered best 3rd"
+    },
+    {
+      "rank": 6,
+      "team": "Egypt",
+      "group": "G",
+      "points": 3,
+      "goal_difference": -1,
+      "reason": "R8 numbered best 3rd"
+    },
+    {
+      "rank": 7,
+      "team": "Senegal",
+      "group": "G",
+      "points": 3,
+      "goal_difference": 1,
+      "reason": "R8 numbered best 3rd"
+    },
+    {
+      "rank": 8,
+      "team": "Bosnia",
+      "group": "B",
+      "points": 4,
+      "goal_difference": 1,
+      "reason": "R8 numbered best 3rd"
+    }
+  ],
+  "bracket": {
+    "r32": [
+      {
+        "bracket_idx": 0,
+        "team_a": "South Korea",
+        "group_a": "A",
+        "seed_a": 2,
+        "team_b": "Bosnia",
+        "group_b": "B",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.2117,
+            "pct": 21.2
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1336,
+            "pct": 13.4
+          }
+        ]
+      },
+      {
+        "bracket_idx": 1,
+        "team_a": "Germany",
+        "group_a": "E",
+        "seed_a": 1,
+        "team_b": "Bosnia",
+        "group_b": "B",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.2623,
+            "pct": 26.2
+          },
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 2,
+            "away": 0,
+            "prob": 0.1395,
+            "pct": 13.9
+          }
+        ]
+      },
+      {
+        "bracket_idx": 2,
+        "team_a": "Portugal",
+        "group_a": "F",
+        "seed_a": 1,
+        "team_b": "Morocco",
+        "group_b": "C",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1801,
+            "pct": 18.0
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1652,
+            "pct": 16.5
+          }
+        ]
+      },
+      {
+        "bracket_idx": 3,
+        "team_a": "Brazil",
+        "group_a": "C",
+        "seed_a": 1,
+        "team_b": "Belgium",
+        "group_b": "F",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1825,
+            "pct": 18.3
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1627,
+            "pct": 16.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 4,
+        "team_a": "France",
+        "group_a": "I",
+        "seed_a": 1,
+        "team_b": "Cape Verde",
+        "group_b": "H",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.3086,
+            "pct": 30.9
+          },
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 2,
+            "away": 0,
+            "prob": 0.1931,
+            "pct": 19.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 5,
+        "team_a": "Ecuador",
+        "group_a": "E",
+        "seed_a": 2,
+        "team_b": "Croatia",
+        "group_b": "I",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.2187,
+            "pct": 21.9
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1266,
+            "pct": 12.7
+          }
+        ]
+      },
+      {
+        "bracket_idx": 6,
+        "team_a": "Mexico",
+        "group_a": "A",
+        "seed_a": 1,
+        "team_b": "best3(待定)",
+        "group_b": null,
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 7,
+        "team_a": "England",
+        "group_a": "L",
+        "seed_a": 1,
+        "team_b": "Algeria",
+        "group_b": "J",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.2791,
+            "pct": 27.9
+          },
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 2,
+            "away": 0,
+            "prob": 0.1579,
+            "pct": 15.8
+          }
+        ]
+      },
+      {
+        "bracket_idx": 8,
+        "team_a": "USA",
+        "group_a": "D",
+        "seed_a": 1,
+        "team_b": "best3(待定)",
+        "group_b": null,
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 9,
+        "team_a": "Norway",
+        "group_a": "G",
+        "seed_a": 1,
+        "team_b": "best3(待定)",
+        "group_b": null,
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 10,
+        "team_a": "DR Congo",
+        "group_a": "K",
+        "seed_a": 2,
+        "team_b": "Netherlands",
+        "group_b": "L",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.2743,
+            "pct": 27.4
+          },
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 2,
+            "prob": 0.1526,
+            "pct": 15.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 11,
+        "team_a": "Spain",
+        "group_a": "H",
+        "seed_a": 1,
+        "team_b": "Austria",
+        "group_b": "J",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.2864,
+            "pct": 28.6
+          },
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 2,
+            "away": 0,
+            "prob": 0.1663,
+            "pct": 16.6
+          }
+        ]
+      },
+      {
+        "bracket_idx": 12,
+        "team_a": "Switzerland",
+        "group_a": "B",
+        "seed_a": 1,
+        "team_b": "Egypt",
+        "group_b": "G",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1924,
+            "pct": 19.2
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1528,
+            "pct": 15.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 13,
+        "team_a": "Argentina",
+        "group_a": "J",
+        "seed_a": 1,
+        "team_b": "Uruguay",
+        "group_b": "H",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.2641,
+            "pct": 26.4
+          },
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 2,
+            "away": 0,
+            "prob": 0.1414,
+            "pct": 14.1
+          }
+        ]
+      },
+      {
+        "bracket_idx": 14,
+        "team_a": "Colombia",
+        "group_a": "K",
+        "seed_a": 1,
+        "team_b": "Ghana",
+        "group_b": "L",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.2659,
+            "pct": 26.6
+          },
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 2,
+            "away": 0,
+            "prob": 0.1433,
+            "pct": 14.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 15,
+        "team_a": "Scotland",
+        "group_a": "D",
+        "seed_a": 2,
+        "team_b": "Egypt",
+        "group_b": "G",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1997,
+            "pct": 20.0
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1455,
+            "pct": 14.6
+          }
+        ]
+      }
+    ],
+    "r16": [
+      {
+        "team_a": "W73 (Korea)",
+        "group_a": null,
+        "seed_a": null,
+        "team_b": "W74 (Germany)",
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "Germany 2-0",
+        "aet_pct": 0.15,
+        "pen_pct": 0.05,
+        "winner": null,
+        "bracket_idx": 0,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "team_a": "W75 (Portugal)",
+        "group_a": null,
+        "seed_a": null,
+        "team_b": "W76 (Brazil)",
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "Brazil 1-0",
+        "aet_pct": 0.3,
+        "pen_pct": 0.15,
+        "winner": null,
+        "bracket_idx": 1,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "team_a": "W77 (France)",
+        "group_a": null,
+        "seed_a": null,
+        "team_b": "W78 (Croatia)",
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "France 2-1",
+        "aet_pct": 0.25,
+        "pen_pct": 0.12,
+        "winner": null,
+        "bracket_idx": 2,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "team_a": "W79 (Mexico)",
+        "group_a": null,
+        "seed_a": null,
+        "team_b": "W80 (England)",
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "England 1-0",
+        "aet_pct": 0.3,
+        "pen_pct": 0.15,
+        "winner": null,
+        "bracket_idx": 3,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "team_a": "W81 (USA)",
+        "group_a": null,
+        "seed_a": null,
+        "team_b": "W82 (Norway)",
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "Norway 2-1",
+        "aet_pct": 0.25,
+        "pen_pct": 0.12,
+        "winner": null,
+        "bracket_idx": 4,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "team_a": "W83 (Netherlands)",
+        "group_a": null,
+        "seed_a": null,
+        "team_b": "W84 (Spain)",
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "Spain 2-0",
+        "aet_pct": 0.2,
+        "pen_pct": 0.08,
+        "winner": null,
+        "bracket_idx": 5,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "team_a": "W85 (Switzerland)",
+        "group_a": null,
+        "seed_a": null,
+        "team_b": "W86 (Argentina)",
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "Argentina 2-0",
+        "aet_pct": 0.15,
+        "pen_pct": 0.05,
+        "winner": null,
+        "bracket_idx": 6,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "team_a": "W87 (Colombia)",
+        "group_a": null,
+        "seed_a": null,
+        "team_b": "W88 (Scotland)",
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "Colombia 1-0",
+        "aet_pct": 0.3,
+        "pen_pct": 0.18,
+        "winner": null,
+        "bracket_idx": 7,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      }
+    ],
+    "qf": [
+      {
+        "team_a": "Germany",
+        "group_a": null,
+        "seed_a": null,
+        "team_b": "Brazil",
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "Brazil 2-1 (AET)",
+        "aet_pct": 0.35,
+        "pen_pct": 0.2,
+        "winner": null,
+        "bracket_idx": 0,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.185,
+            "pct": 18.5
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1602,
+            "pct": 16.0
+          }
+        ]
+      },
+      {
+        "team_a": "France",
+        "group_a": null,
+        "seed_a": null,
+        "team_b": "England",
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "France 1-0",
+        "aet_pct": 0.3,
+        "pen_pct": 0.18,
+        "winner": null,
+        "bracket_idx": 1,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1924,
+            "pct": 19.2
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1528,
+            "pct": 15.3
+          }
+        ]
+      },
+      {
+        "team_a": "Norway",
+        "group_a": null,
+        "seed_a": null,
+        "team_b": "Spain",
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "Spain 2-1",
+        "aet_pct": 0.28,
+        "pen_pct": 0.15,
+        "winner": null,
+        "bracket_idx": 2,
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.2743,
+            "pct": 27.4
+          },
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 2,
+            "prob": 0.1526,
+            "pct": 15.3
+          }
+        ]
+      },
+      {
+        "team_a": "Argentina",
+        "group_a": null,
+        "seed_a": null,
+        "team_b": "Colombia",
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "Argentina 2-0",
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": null,
+        "bracket_idx": 3,
+        "top_3_scores": [
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.2548,
+            "pct": 25.5
+          },
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 2,
+            "away": 0,
+            "prob": 0.1317,
+            "pct": 13.2
+          }
+        ]
+      }
+    ],
+    "sf": [
+      {
+        "bracket_idx": 0,
+        "team_a": "Brazil",
+        "team_b": "France",
+        "group_a": null,
+        "seed_a": null,
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "France 2-1 (AET)",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": "a"
+      },
+      {
+        "bracket_idx": 1,
+        "team_a": "Spain",
+        "team_b": "Argentina",
+        "group_a": null,
+        "seed_a": null,
+        "group_b": null,
+        "seed_b": null,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "Argentina 2-1",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": "a"
+      }
+    ],
+    "third_place": null
+  },
+  "final": {
+    "matchup": "Argentina vs France (MetLife Stadium, 7/19)",
+    "tiers": [
+      {
+        "tier": 1,
+        "label": "90 min (阿根廷胜)",
+        "content": "阿根廷 90 分钟内取胜",
+        "probability": 0.28
+      },
+      {
+        "tier": 2,
+        "label": "90 min (法国胜)",
+        "content": "法国 90 分钟内取胜",
+        "probability": 0.22
+      },
+      {
+        "tier": 3,
+        "label": "90 min (阿根廷胜)",
+        "content": "阿根廷 90 分钟内取胜",
+        "probability": 0.3
+      },
+      {
+        "tier": 4,
+        "label": "**Penalties**",
+        "content": "**Penalties**",
+        "probability": 0.2
+      }
+    ],
+    "combined_text": null,
+    "champion": "Argentina",
+    "confidence": 0.62
+  },
+  "upset_risks": [
+    {
+      "rank": 1,
+      "match": "R32 — Norway (G1) vs Ecuador (best 3rd)",
+      "stage": "R32",
+      "upset_probability": 0.15,
+      "rationale": "Norway's Haaland-led attack vs Ecuador's high-press style. Australia's tweet flagged Norway as upset-risk, and Senegal was the highest-Elo African side to fall in the sim"
+    },
+    {
+      "rank": 2,
+      "match": "R32 — USA vs Cape Verde",
+      "stage": "R32",
+      "upset_probability": 0.18,
+      "rationale": "Cape Verde's \"debut energy\" (Cape Verde's own interview) gives them belief against a US side whose progression depends on Pulisic carrying creative load"
+    },
+    {
+      "rank": 3,
+      "match": "Group A MD3 — South Korea vs Mexico",
+      "stage": "Group A",
+      "upset_probability": 0.35,
+      "rationale": "Australia's tweet: \"South Korea's pace may trouble Mexico.\" Could flip A1/A2"
+    },
+    {
+      "rank": 4,
+      "match": "R32 — DR Congo vs Netherlands",
+      "stage": "R32",
+      "upset_probability": 0.12,
+      "rationale": "DR Congo's physical profile in transition; Netherlands' 6 points in group stage could mask squad fatigue"
+    },
+    {
+      "rank": 5,
+      "match": "Group B — Switzerland vs Bosnia",
+      "stage": "Group B",
+      "upset_probability": 0.25,
+      "rationale": "Australia's tweet: \"Bosnia (FIFA 26) could shock Switzerland.\" Could flip B1/B2 seeding"
+    }
+  ],
+  "report_markdown": "国际足联世界杯\n- Executive Summary = 执行摘要\n- Elo-Poisson baseline = Elo-Poisson 基线模型\n- knockout = 淘汰赛\n- bracket = 半区\n- upset = 冷门\n- 90 minutes result = 常规 90 分钟\n- extra time = 加时\n- penalties = 点球\n- group stage = 小组赛\n- semifinal = 半决赛\n- quarterfinal = 1/4 决赛\n- final = 决赛\n- matchday = 比赛日\n- goal difference = 净胜球\n- head-to-head = 相互战绩\n- tiebreaker = (同分)裁决\n- confidence = 置信度\n- champion = 冠军\n- rotation = 轮换\n- regeneration = 新老交替\n- firepower = 火力\n\nTeam names:\n- Mexico = 墨西哥\n- South Korea = 韩国\n- South Africa = 南非\n- Czech Republic = 捷克\n- Canada = 加拿大\n- Bosnia = 波斯尼亚\n- Switzerland = 瑞士\n- Qatar = 卡塔尔\n- Brazil = 巴西\n- Morocco = 摩洛哥\n- Croatia = 克罗地亚\n- Haiti = 海地\n- USA = 美国\n- Australia = 澳大利亚\n- Scotland = 苏格兰\n- Panama = 巴拿马\n- Germany = 德国\n- Ecuador = 厄瓜多尔\n- Curaçao = 库拉索\n- Ivory Coast = 科特迪瓦\n- Portugal = 葡萄牙\n- Belgium = 比利时\n- Iran = 伊朗\n- Uzbekistan = 乌兹别克斯坦\n- Norway = 挪威\n- Senegal = 塞内加尔\n- Egypt = 埃及\n- New Zealand = 新西兰\n- Spain = 西班牙\n- Uruguay = 乌拉圭\n- Saudi Arabia = 沙特阿拉伯\n- Cape Verde = 佛得角\n- Argentina = 阿根廷\n- France = 法国\n- Austria = 奥地利\n- Iraq = 伊拉克\n- Algeria = 阿尔及利亚\n- Jordan = 约旦\n- England = 英格兰\n- Ghana = 加纳\n- Algeria = 阿尔及利亚\n- Uzbekistan = 乌兹别克斯坦\n\nPlayer names: I'll keep them in their original form (or transliterate to Chinese convention for some)\n- Son = 孙兴慜\n- Sánchez = 桑切斯\n- Xhaka = 扎卡\n- Embolo = 恩博洛\n- Džeko = 哲科\n- Ancelotti = 安切洛蒂\n- Rodrygo = 罗德里戈\n- Vinicius = 维尼修斯\n- Achraf = 阿什拉夫\n- En-Nesyri = 恩内斯里\n- Modrić = 莫德里奇\n- Pulisic = 普利西奇\n- McGinn = 麦金\n- McTominay = 麦克托米奈\n- Musiala = 穆西亚拉\n- Wirtz = 维尔茨\n- La Tri = 厄瓜多尔队\n- CR7 = C罗\n- De Bruyne = 德布劳内\n- Lukaku = 卢卡库\n- Depay = 德佩\n- Taremi = 塔雷米\n- Salah = 萨拉赫\n- Haaland = 哈兰德\n- Mane = 马内\n- Pedri = 佩德里\n- Yamal = 亚马尔\n- McGinn = 麦金\n\nLet me write the full translation now. I need to preserve all numbers, percentages, scores, and Markdown formatting exactly.\n\n# 2026 国际足联世界杯 — 完整赛事预测报告\n\n**执行摘要:** 基于 6/22–6/23 比赛结果(NZ 1-3 EGY、ARG 2-0 AUT、FRA 3-0 IRQ、NOR 3-2 SEN、ALG 2-1 JOR、POR 5-0 UZB、ENG 0-0 GHA)校准的 Elo-Poisson 基线模型,本报告预测了所有剩余小组赛、8 个成绩最佳的小组第三晋级球队、严格遵循国际足联半区规则的 1/8 决赛(M73–M88)、1/4 决赛、半决赛以及一场阿根廷对阵法国的决赛。种子队保持强势,但冷门风险集中在挪威、佛得角、波斯尼亚和韩国身上。阿根廷在决赛中以 51–49 险胜法国,冠军归属大概率要由加时赛或点球大战决定。\n\n---\n\n## 小组赛预测(MD2 + MD3)— 全部 12 组\n\n### A 组(墨西哥、韩国、南非、捷克)\n- **MD2 — 墨西哥 1-1 韩国** (35/30/35): 紧凑的低位防守战。孙兴慜的速度让桑切斯头疼。最可能 1-1。\n- **MD2 — 南非 0-2 捷克** (25/25/50): 捷克在输给韩国后完成反弹。\n- **MD3 — 韩国 1-0 南非** (60/20/20): 孙兴慜扛着太极军团前进。\n- **MD3 — 墨西哥 1-0 捷克** (55/25/20): 东道主小组头名出线。\n- **最终排名:** 1) 墨西哥 7 分,2) 韩国 6 分,3) 捷克 3 分,4) 南非 0 分。\n\n### B 组(加拿大、波斯尼亚、瑞士、卡塔尔)\n- **MD2 — 加拿大 1-2 瑞士** (35/25/40): 扎卡-恩博洛中轴线力克东道主。\n- **MD2 — 波斯尼亚 2-0 卡塔尔** (60/20/20): 哲科领衔的老将经验主导比赛。\n- **MD3 — 瑞士 1-1 波斯尼亚** (40/30/30): 双方战平,均陷入胶着的收官。\n- **MD3 — 加拿大 2-0 卡塔尔** (60/20/20): 东道主荣誉之战。\n- **最终排名:** 1) 瑞士 7 分,2) 波斯尼亚 4 分,3) 加拿大 4 分(凭净胜球晋级),4) 卡塔尔 0 分。\n\n### C 组(巴西、摩洛哥、克罗地亚、海地)\n- **MD2 — 巴西 2-0 克罗地亚** (55/25/20): 尽管安切洛蒂称\"体系尚不稳定\",罗德里戈-维尼修斯的优势依然稳固。\n- **MD2 — 摩洛哥 3-1 海地** (65/20/15): 阿什拉夫与恩内斯里的实力尽显。\n- **MD3 — 巴西 3-1 摩洛哥** (60/20/20): 锁定 16 强种子席位。\n- **MD3 — 克罗地亚 2-0 海地** (70/15/15): 莫德里奇的告别进球。\n- **最终排名:** 1) 巴西 9 分,2) 摩洛哥 6 分,3) 克罗地亚 3 分,4) 海地 0 分。\n\n### D 组(美国、澳大利亚、苏格兰、巴拿马)\n- **MD2 — 美国 2-1 澳大利亚** (45/30/25): 普利西奇一锤定音。\n- **MD2 — 苏格兰 2-0 巴拿马** (60/25/15): 麦金-麦克托米奈中场掌控比赛。\n- **MD3 — 澳大利亚 1-0 巴拿马** (55/25/20): 袋鼠军团挽回颜面。\n- **MD3 — 美国 1-1 苏格兰** (35/30/35): 普利西奇对麦金,双方携手晋级。\n- **最终排名:** 1) 美国 7 分,2) 苏格兰 5 分,3) 澳大利亚 3 分,4) 巴拿马 1 分。\n\n### E 组(德国、厄瓜多尔、库拉索、科特迪瓦)\n- **MD2 — 德国 3-0 厄瓜多尔** (75/15/10): 穆西亚拉-维尔茨中轴线过于锐利。\n- **MD2 — 库拉索 1-1 科特迪瓦** (30/35/35): 黑马童话继续。\n- **MD3 — 德国 2-0 库拉索** (80/12/8): 锁定种子 E1 身份。\n- **MD3 — 厄瓜多尔 2-1 科特迪瓦** (45/30/25): 厄瓜多尔队强势反弹。\n- **最终排名:** 1) 德国 9 分,2) 厄瓜多尔 4 分,3) 库拉索 2 分,4) 科特迪瓦 1 分。\n\n### F 组(葡萄牙、比利时、伊朗、乌兹别克斯坦)\n- **MD2 — 葡萄牙 3-0 伊朗** (75/15/10): C罗逼近历史射手榜榜首。\n- **MD2 — 比利时 4-0 乌兹别克斯坦** (80/12/8): 德布劳内-卢卡库黄金一代的最后一舞。\n- **MD3 — 葡萄牙 2-1 比利时** (45/30/25): 德佩\"强势发挥\"的判断成立。\n- **MD3 — 伊朗 2-0 乌兹别克斯坦** (55/25/20): 塔雷米完美告别。\n- **最终排名:** 1) 葡萄牙 9 分,2) 比利时 6 分,3) 伊朗 3 分,4) 乌兹别克斯坦 0 分。\n\n### G 组(挪威、塞内加尔、埃及、新西兰)\n- **MD2 — 埃及 3-1 新西兰** (60/20/20) — 已结束;萨拉赫扩大比分。\n- **MD2 — 挪威 3-2 塞内加尔** (45/30/25) — 已结束;哈兰德梅开二度。\n- **MD3 — 挪威 2-1 埃及** (50/25/25): 哈兰德与萨拉赫对决决定 G1 归属。\n- **MD3 — 塞内加尔 3-0 新西兰** (75/15/10): 马内强势反弹。\n- **最终排名:** 1) 挪威 9 分,2) 埃及 4 分,3) 塞内加尔 3 分(在第三名同分裁决中凭净胜球晋级),4) 新西兰 0 分。\n\n### H 组(西班牙、乌拉圭、沙特阿拉伯、佛得角)\n- **MD2 — 西班牙 2-0 佛得角** (70/18/12): 佩德里-亚马尔的创造力差距明显。\n- **MD2 — 乌拉圭 2-0 沙特\n法国, Brazil→巴西, etc.)\n3. Keep Markdown table/header/link syntax\n4. Keep quotes as-is\n5. Use specific football terminology translations\n6. Output only the translation, no explanation\n\nLet me carefully translate this. It's a long markdown report about FIFA World Cup predictions.\n\nLet me go through it systematically:\n\n- Group I (France, Croatia, Iraq, ?)\n- France → 法国\n- Croatia → 克罗地亚\n- Iraq → 伊拉克\n- Uruguay → 乌拉圭\n- Spain → 西班牙\n- Cape Verde → 佛得角\n- Saudi Arabia → 沙特阿拉伯\n- Australia → 澳大利亚\n- Argentina → 阿根廷\n- Austria → 奥地利\n- Algeria → 阿尔及利亚\n- Jordan → 约旦\n- Colombia → 哥伦比亚\n- DR Congo → 刚果民主共和国 (or 民主刚果)\n- Japan → 日本\n- England → 英格兰\n- Netherlands → 荷兰\n- Ghana → 加纳\n- South Korea → 韩国\n- Bosnia → 波黑 (Bosnia and Herzegovina)\n- Germany → 德国\n- Portugal → 葡萄牙\n- Morocco → 摩洛哥\n- Brazil → 巴西\n- Belgium → 比利时\n- Ecuador → 厄瓜多尔\n- Mexico → 墨西哥\n- USA → 美国\n- Norway → 挪威\n- DR Congo → 民主刚果\n- Switzerland → 瑞士\n- Senegal → 塞内加尔\n- Egypt → 埃及\n- Scotland → 苏格兰\n\nFootball terms:\n- knockout = 淘汰赛\n- bracket = 半区\n- upset = 冷门\n- 90 minutes result = 常规 90 分钟\n- extra time = 加时\n- penalties = 点球\n- group stage = 小组赛\n- semifinal = 半决赛\n- quarterfinal = 1/4 决赛\n- final = 决赛\n- matchday = 比赛日\n- goal difference = 净胜球\n- head-to-head = 相互战绩\n- tiebreaker = (同分)裁决\n- confidence = 置信度\n- champion = 冠军\n- rotation = 轮换\n- regeneration = 新老交替\n- firepower = 火力\n\nThe report uses:\n- MD = Matchday (比赛日)\n- GD = Goal Difference (净胜球)\n- AET = After Extra Time (加时)\n- Pen = Penalties (点球)\n- pts = points (积分)\n\nLet me also note \"Regeneration\" appears as \"新老交替\" - this is interesting, the list says \"regeneration\" → \"新老交替\"\n\nLet me translate carefully:\n\n**abia** (65/20/15): Núñez-Valverde in form.\n- **abia** (65/20/15)：努涅斯-巴尔韦德状态正佳。\n\nWait, \"abia\" seems to be a typo or abbreviation. Looking at context, this appears to be a Match 3 for Group H, which based on the final standings is \"Spain 1-0 Uruguay\" - so abia might be a placeholder. Let me look more carefully...\n\nActually, looking again, the structure seems to be that the first line \"abia** (65/20/15): Núñez-Valverde in form.\" might be MD3 for Uruguay vs another team. And then \"MD3 — Spain 1-0 Uruguay\" is the next match. The structure is confusing.\n\nActually, re-reading: Group H has Spain, Uruguay, Cape Verde, Saudi Arabia. So the matches would be:\n- MD2: Uruguay vs Cape Verde (Núñez-Valverde in form)\n- MD3: Spain 1-0 Uruguay\n- MD3: Cape Verde 2-1 Saudi Arabia\n\nSo \"abia\" might be a typo or \"Cape Verde\" abbreviated wrongly, or it could be the previous match (MD2) for Uruguay vs Cape Verde.\n\nWait, looking at the abia line - this might be Uruguay's MD2 against Cape Verde, but then \"MD3 — Spain 1-0 Uruguay\" follows. The structure suggests abia is actually a team name placeholder that got corrupted. Let me just translate it as is since the user asked to keep the structure.\n\nActually, I think \"abia\" might be \"H2\" (Uruguay) vs something - but the text shows it's likely a team name. Let me just keep it as is, perhaps it's a typo for Cape Verde (佛得角) or something.\n\nHmm, on closer inspection, this looks like it could be from a previous chunk and \"abia\" might just be a placeholder or typo. I'll keep it as-is since I should preserve the original content.\n\nWait, let me re-read the system prompt: \"只输出翻译结果, 不要任何解释。\" - Only output the translation, no explanation.\n\nSo I should just translate. Let me do my best.\n\nLet me go through the full text now:\n\n**abia** (65/20/15): Núñez-Valverde in form.\n- This seems incomplete. Probably a fixture label. I'll just translate as is.\n\nNúñez-Valverde = 努涅斯-巴尔韦德\nMbappé = 姆巴佩\nCamavinga-Zaëre-Emery = 卡马文加-扎伊尔-埃梅里\nMessi = 梅西\nDíaz = 迪亚斯\nBellingham = 贝林厄姆\nDepay = 德佩\nSalzburg = 萨尔茨堡\n\nLet me start translating:\n\n```\nabia** (65/20/15)：努涅斯-巴尔韦德状态正佳。\n- **MD3 — 西班牙 1-0 乌拉圭** (45/30/25)：对 H1 种子顺位具决定意义。\n- **MD3 — 佛得角 2-1 沙特阿拉伯** (40/30/30)：佛得角的\"首秀能量\"兑现, 印证澳大利亚的冷门预警。\n- **最终排名：** 1) 西班牙 9, 2) 乌拉圭 6, 3) 佛得角 3 (以最佳第 3 出线), 4) 沙特阿拉伯 0。\n\n### I 组 (法国, 克罗地亚, 伊拉克, ?)\n- **MD2 — 法国 3-0 伊拉克** (75/15/10) — 已赛; 姆巴佩梅开二度。\n- **MD2 — 克罗地亚 1-0 (第 4 队)** (60/25/15)。\n- **MD3 — 法国 2-1 克罗地亚** (50/30/20)：卡马文加-扎伊尔-埃梅里中场组合致胜。\n- **MD3 — 伊拉克 2-0 (第 4 队)** (50/25/25)。\n- **最终排名：** 1) 法国 9, 2) 克罗地亚 6, 3) 伊拉克 3, 4) 0。\n\n### J 组 (阿根廷, 奥地利, 阿尔及利亚, 约旦)\n- **MD2 — 阿根廷 2-0 奥地利** (70/18/12) — 已赛; 梅西助攻。\n- **MD2 — 阿尔及利亚 2-1 约旦** (55/25/20) — 已赛。\n- **MD3 — 阿根廷 2-0 约旦** (80/12/8)：确认 J1 种子顺位 (M86 vs H2)。\n- **MD3 — 奥地利 1-0 阿尔及利亚** (40/30/30)：萨尔茨堡核心小胜北非球队。\n- **最终排名：** 1) 阿根廷 9, 2) 奥地利 3, 3) 阿尔及利亚 3 (出线 — 最佳第 3), 4) 约旦 0。\n\n### K 组 (哥伦比亚, 民主刚果, 日本, ?)\n- **MD2 — 哥伦比亚 2-1 日本** (50/30/20)：迪亚斯一锤定音。\n- **MD2 — 民主刚果 1-0 (第 4 队)** (50/25/25)。\n- **MD3 — 哥伦比亚 1-1 民主刚果** (40/30/30)：双双出线。\n- **MD3 — 日本 2-0 (第 4 队)** (65/20/15)。\n- **最终排名：** 1) 哥伦比亚 7, 2) 民主刚果 4, 3) 日本 3 (在第 3 名池中出线), 4) 0。\n\n### L 组 (英格兰, 荷兰, 加纳, ?)\n- **MD2 — 英格兰 0-0 加纳** (60/25/15) — 已赛; 贝林厄姆赛后反思时刻。\n- **MD2 — 荷兰 2-0 (第 4 队)** (70/18/12)：德佩里程碑式破门。\n- **MD3 — 英格兰 1-0 荷兰** (45/30/25)：贝林厄姆制胜; L1 锁定。\n- **MD3 — 加纳 2-0 (第 4 队)** (60/25/15)。\n- **最终排名：** 1) 英格兰 7, 2) 荷兰 6, 3) 加纳 3 (最佳第 3), 4) 0。\n\n---\n\n## 8 支出线的最佳第 3 名球队 (按 FIFA 规则晋级)\n\n按 8 个第 3 名球队中积分总和/净胜球最高的, 预测晋级名单:\n\n1. **佛得角 (H, 3 分, +1 净胜球)** — 首次登上大舞台。\n2. **阿尔及利亚 (J, 3 分, +0 净胜球)**\n3. **加纳 (L, 3 分, +0 净胜球)**\n4. **日本 (K, 3 分, +0 净胜球)**\n5. **厄瓜多尔 (E, 2 分, -1 净胜球 — 凭系数 (同分)裁决惊险晋级)**\n6. **埃及 (G, 3 分, -1 净胜球)** — 等一下, G2 是埃及, 不是第 3。复核: 塞内加尔以 3 分 +1 净胜球居第 3。\n7. **塞内加尔 (G, 3 分, +1 净胜球)**\n8. **波黑 (B, 4 分, +1 净胜球)**\n\n修订后的 8 强最佳第 3：**波黑 (B), 佛得角 (H), 阿尔及利亚 (J), 塞内加尔 (G), 日本 (K), 加纳 (L), 摩洛哥 (C 第 3 若克罗地亚掉队, 但 C 是克罗地亚 3 分), 厄瓜多尔 (E)**。最终 8 强 = **波黑, 佛得角, 阿尔及利亚, 塞内加尔, 日本, 加纳, 克罗地亚, 厄瓜多尔**。\n\n---\n\n## 1/8 决赛 (M73–M88, FIFA 半区规则)\n\n| 比赛 | 对阵 | 最可能结果 | 加时% | 点球% |\n|---|---|---|---|---|\n| **M73** | A2 韩国 vs B2 波黑 | **韩国 2-1** | 25% | 15% |\n| **M74** | E1 德国 vs 波黑 (最佳第 3) — 见注 | **德国 3-0** | 10% | 5% |\n| **M75** | F1 葡萄牙 vs C2 摩洛哥 | **葡萄牙 2-1** | 20% | 10% |\n| **M76** | C1 巴西 vs F2 比利时 | **巴西 2-1** | 25% | 12% |\n| **M77** | I1 法国 vs 加纳 (最佳第 3) | **法国 3-1** | 15% | 5% |\n| **M78** | E2 厄瓜多尔 vs I2 克罗地亚 | **克罗地亚 1-0** | 30% | 18% |\n| **M79** | A1 墨西哥 vs 克罗地亚 (最佳第 3) | **墨西哥 1-0** | 20% | 10% |\n| **M80** | L1 英格兰 vs 阿尔及利亚 (最佳第 3) | **英格兰 2-0** | 15% | 5% |\n| **M81** | D1 美国 vs 佛得角 (最佳第 3) | **美国 2-1** | 25% | 12% |\n| **M82** | G1 挪威 vs 厄瓜多尔 (最佳第 3) | **挪威 2-0** | 15% | 5% |\n| **M83** | K2 民主刚果 vs L2 荷兰 | **荷兰 2-0** | 15% | 5% |\n| **M84** | H1 西班牙 vs J2 奥地利 | **西班牙 3-1** | 12% | 5% |\n| **M85** | B1 瑞士 vs 日本 (最佳第 3) | **瑞士 1-0** | 30% | 18% |\n| **M86** | J1 阿根廷 vs H2 乌拉圭 | **阿根廷 2-1** | 22% | 10% |\n| **M87** | K1 哥伦比亚 vs 塞内加尔 (最佳第 3) | **哥伦比亚 2-1** | 25% | 12% |\n| **M88** | D2 苏格兰 vs G2 埃及 | **苏\n```\n\nWait, I need to keep \"abia\" as is since the user wants me to preserve all text. But \"abia\" doesn't seem to be a recognizable team. It might be a typo. Let me just keep it.\n\nActually, looking at the text more carefully, the \"abia\" likely is a label and might just need to be preserved as is. I'll keep it.\n\nAlso, I should check the table syntax - the original has `|---|---|---|---|---|` with 5 columns. The user wants me to keep the markdown structure.\n\nLet me also check \"tiebreak\" - the user specified \"tiebreaker\" = \"(同分)裁决\" - I should use this term. \"coefficient tiebreak\" could be \"系数 (同分)裁决\" or \"系数持平裁决\". I'll use \"系数 (同分)裁决\".\n\nAlso, the original says \"debut energy\" which I kept in quotes. \"debut on stage\" is a phrase meaning first time on the big stage.\n\nLet me also think about \"Ecuador (E, 2 pts, -1 GD — sneaks in on coefficient tiebreak)\" - this might be wrong because 2 points would be lower than others with 3 points. This is mentioned in the note \"Re-check\". I'll translate as is.\n\nLet me also note:\n- \"post-mortem moment\" = 赛后反思时刻 / 复盘时刻\n- \"Salzburg core edges North Africans\" = 萨尔茨堡核心小胜北非球队\n- \"Best Third-Place Teams\" = 8 支出线的最佳第 3 名球队\n- \"advancing per FIFA rules\" = 按 FIFA 规则晋级\n- \"highest combined point totals/GD\" = 积分总和/净胜球最高\n- \"debut on stage\" = 首次登上大舞台\n- \"on 3rd pool\" = 在第 3 名池中\n\nLet me re-check my translation and make sure it flows well. I'll also check for any team name issues.\n\nDR Congo = 刚果民主共和国 or 民主刚果 or 刚果(金). The standard is 刚果民主共和国 or 民主刚果. I'll use 民主刚果 (DR Congo is typically translated as 刚果民主共和国 or 民主刚果 in Chinese).\n\nActually, the most common short form is 民主刚果 or 刚果(金) or DR 刚果. I'll use 民主刚果.\n\nFor Bosnia, the full name is Bosnia and Herzegovina = 波斯尼亚和黑塞哥维那, but commonly shortened to 波黑. The text says \"Bosnia\" so 波黑 is fine.\n\nFor Cape Verde, this is 佛得角 in Chinese.\n\nLet me finalize the translation. I'll also need to keep \"abia\" as it appears in the original.\n\nActually, on second thought, \"abia\" might be the name of an unknown team or it could be a typo. I'll just keep it as is.\n\nLet me also think about \"coefficient tiebreak\" - this is unusual. In football, \"coefficient\" usually refers to FIFA coefficient ranking, used to break ties. \"Coefficient tiebreak\" would be the tiebreaker based on coefficients. I'll translate as \"系数 (同分)裁决\".\n\nWait, actually the original says \"sneaks in on coefficient tiebreak\" - this means they get in via coefficient tiebreak. So 凭系数 (同分)裁决惊险晋级 or 凭系数比较惊险晋级.\n\nLet me also check \"Round of 32\" - in Chinese this is 1/8 决赛. Yes, that's correct.\n\n\"Most Likely\" = 最可能结果\n\"AET\" = 加时 (After Extra Time)\n\"Pen\" = 点球 (Penalties)\n\"Most Likely\" column should be translated.\n\nLet me also note the typo \"abia\" - I think this is supposed to be a team name or fixture. Looking at the context of Group H, the teams are Spain, Uruguay, Cape Verde, Saudi Arabia. So abia could be... hmm, it doesn't match any of them. Let me just keep it.\n\nActually, looking at the structure again, the original might have been something like \"H2\" or a team name. The fact that the next lines are MD3 matches suggests this might be Uruguay's MD3 result. But then it would be \"MD3 — Uruguay\" or similar. The \"abia\" is strange.\n\nLet me just keep it as is in the translation.\n\nNow let me write out the final translation:\n\n```\nabia** (65/20/15)：努涅斯-巴尔韦德状态正佳。\n- **MD3 — 西班牙 1-0 乌拉圭** (45/30/25)：对 H1 种子顺位具决定意义。\n- **MD3 — 佛得角 2-1 沙特阿拉伯** (40/30/30)：佛得角的\"debut energy\"如澳大利亚冷门预警所述收到回报。\n- **最终排名：** 1) 西班牙 9, 2) 乌拉圭 6, 3) 佛得角 3 (以最佳第 3 出线), 4) 沙特阿拉伯 0。\n\n### I 组 (法国, 克罗地亚, 伊拉克, ?)\n- **MD2 — 法国 3-0 伊拉克** (75/15/10) — 已赛; 姆巴佩梅开二度。\n- **MD2 — 克罗地亚 1-0 (第 4 队)** (60/25/15)。\n- **MD3 — 法国 2-1 克罗地亚** (50/30/20)：卡马文加-扎伊尔-埃梅里中场组合决定胜局。\n- **MD3 — 伊拉克 2-0 (第 4 队)** (50/25/25)。\n- **最终排名：** 1) 法国 9, 2) 克罗地亚 6, 3) 伊拉克 3, 4) 0。\n```\n\nWait, the user said \"引号原文照抄\" - keep quotes as in the original. So \"debut energy\" and \"debut on stage\" should be kept in quotes. But the user also wants a translation. Let me re-read: \"引号原文照抄\" - keep quoted text as is in the original. So if it's in English in the original, keep it in English. But \"debut energy\" is a phrase that was made up here, so it might be fine to keep in English. Actually, the rule says \"引号原文照抄\" which means preserve the quoted text as is.\n\nHmm, but the user also said \"翻译成简体中文\". So the main text should be in Chinese, but quoted text should be kept as original (English). So I'll keep \"debut energy\" in English in the translation.\n\nWait, looking at the rule again: \"引号原文照抄\" = \"copy quoted text as is in the original\". This is a common translation rule - quoted brand names, technical terms, etc. are kept in original. So I'll keep \"debut energy\" and \"debut on stage\" in English.\n\nActually, re-reading the original: \n\"Cape Verde's \"debut energy\" pays off per Australia's upset-risk note.\"\n\"debut on stage.\"\n\nThese phrases are in quotes, so per the rule, they should stay in English. But the user wants Simplified Chinese translation. Let me think about this.\n\nThe rule says \"引号原文照抄\" which means the quoted text is preserved as is. This is because some terms are proper nouns or specific terms. So in this case, \"debut energy\" and \"debut on stage\" should stay in English.\n\nLet me adjust:\n\n```\n- **MD3 — 佛得角 2-1 沙特阿拉伯** (40/30/30)：佛得角的\"debut energy\"如澳大利亚冷门预警所述, 收到回报。\n```\n\nAnd:\n```\n1. **佛得角 (H, 3 分, +1 净胜球)** — \"debut on stage\"。\n```\n\nHmm, but the user wants Simplified Chinese. Maybe the intent is to keep specific terms in English. Let me keep them as in the original.\n\nActually, on reflection, the rule is \"引号原文照抄\" - keep the quoted text as is. So I'll keep these phrases in English.\n\nLet me also think about \"upset\" - I was told to translate \"upset\" as \"冷门\". So \"upset-risk note\" = \"冷门预警\" (or \"冷门风险笔记\" but 预警 is more natural).\n\nOK let me finalize the translation now.\n\nLet me also check: \"Camavinga-Zaëre-Emery\" - this is likely a typo for \"Camavinga-Zaïre-Emery\" referring to Eduardo Camavinga and Warren Zaïre-Emery, both PSG/Real Madrid midfielders. The \"Zaëre\" is a misspelling. I'll keep it as 卡马文加-扎伊尔-埃梅里 in the translation, normalizing the spelling. Actually, since the user wants me to preserve the original, I should keep \"Zaëre\" but the Chinese translation can use the correct spelling. Hmm, but player names should be transliterated consistently. Let me use 卡马文加-扎伊尔-埃梅里.\n\nActually, looking at the original more carefully, the Chinese transliteration of Zaïre-Emery is 扎伊尔-埃梅里 (Zhāyī'ěr-Āiméilǐ). I'll use this.\n\nAlso \"Núñez-Valverde\" - Núñez is 努涅斯, Valverde is 巴尔韦德 (Federico Valverde of Uruguay/Real Madrid). So 努涅斯-巴尔韦德 makes sense as Darwin Núñez and Federico Valverde. They're both from Uruguay/Real Madrid context.\n\nLet me also think about \"Díaz\" - this could be Luis Díaz (Colombia) or other Díaz. Given the context (Colombia), it's Luis Díaz. 迪亚斯 is the Chinese transliteration.\n\nOK let me finalize. Let me also be careful about the \"Re-check\" part - this is a self-correction in the original, so I'll translate it accordingly.\n\n\"Re-check: Senegal 3rd with 3 pts, +1 GD.\" - 复核: 塞内加尔以 3 分, +1 净胜球居第 3。\n\nActually, looking at this more carefully, the text has a self-correction embedded:\n\"6. **Egypt (G, 3 pts, -1 GD)** — wait, G2 is Egypt, not 3rd. Re-check: Senegal 3rd with 3 pts, +1 GD.\"\n\nSo this is the author's note-to-self. I'll translate it accordingly.\n\nThen \"Revised top 8 best 3rd:\" - 修订后的 8 强最佳第 3：\n\nAnd the list of best 3rd place teams - I need to be careful with the names. \"Morocco (C 3rd if Croatia drops, but C is Croatia 3 pts)\" - this is checking if Morocco is the C 3rd, but C is actually Croatia with 3 pts, so Morocco isn't a 3rd place team. The author is noting this confusion.\n\nLet me write out the full translation now. I'll structure it carefully.\n\nOne more thing - \"M73–M88\" is the match numbers. I'll keep them as is.\n\nAlso \"D2\" \"G2\" etc. are group position labels. I'll keep them.\n\nFinal translation:\n\n```\nabia** (65/20/15)：努涅斯-巴尔韦德状态正佳。\n- **MD3 — 西班牙 1-0 乌拉圭** (45/30/25)：对 H1 种子顺位具决定意义。\n- **MD3 — 佛得角 2-1 沙特阿拉伯** (40/30/30)：佛得角的\"debut energy\"如澳大利亚冷门预警所述收到回报。\n- **最终排名：** 1) 西班牙 9, 2) 乌拉圭 6, 3) 佛得角 3 (以最佳第 3 出线), 4) 沙特阿拉伯 0。\n\n### I 组 (法国, 克罗地亚, 伊拉克, ?)\n- **MD2 — 法国 3-0 伊拉克** (75/15/10) — 已赛; 姆巴佩梅开二度。\n- **MD2 — 克罗地亚 1-0 (第 4 队)** (60/25/15)。\n- **MD3 — 法国 2-1 克罗地亚** (50/30/20)：卡马文加-扎伊尔-埃梅里中场组合决定胜局。\n- **MD3 — 伊拉克 2-0 (第 4 队)** (50/25/25)。\n- **最终排名：** 1) 法国 9, 2) 克罗地亚 6, 3) 伊拉克 3, 4) 0。\n\n### J 组 (阿根廷, 奥地利, 阿尔及利亚, 约旦)\n- **MD2 — 阿根廷 2-0 奥地利** (70/18/12) — 已赛; 梅西助攻。\n- **MD2 — 阿尔及利亚 2-1 约旦** (55/25/20) — 已赛。\n- **MD3 — 阿根廷 2-0 约旦** (80/12/8)：确认 J1 种子顺位 (M86 vs H2)。\n- **MD3 — 奥地利 1-0 阿尔及利亚** (40/30/30)：萨尔茨堡核心小胜北非球队。\n- **最终排名：** 1) 阿根廷 9, 2) 奥地利 3, 3) 阿尔及利亚 3 (出线 — 最佳第 3), 4) 约旦 0。\n\n### K 组 (哥伦比亚, 民主刚果, 日本, ?)\n- **MD2 — 哥伦比亚 2-1 日本** (50/30/20)：迪亚斯一锤定音。\n- **MD2 — 民主刚果 1-0 (第 4 队)** (50/25/25)。\n- **MD3 — 哥伦比亚 1-1 民主刚果** (40/30/30)：双双出线。\n- **MD3 — 日本 2-0 (第 4 队)** (65/20/15)。\n- **最终排名：** 1) 哥伦比亚 7, 2) 民主刚果 4, 3) 日本 3 (在第 3 名池中出线), 4) 0。\n\n### L 组 (英格兰, 荷兰, 加纳, ?)\n- **MD2 — 英格兰 0-0 加纳** (60/25/15) — 已赛; 贝林厄姆赛后复盘时刻。\n- **MD2 — 荷兰 2-0 (第 4 队)** (70/18/12)：德佩里程碑破门。\n- **MD3 — 英格兰 1-0 荷兰** (45/30/25)：贝林厄姆制胜; L1 锁定。\n- **MD3 — 加纳 2-0 (第 4 队)** (60/25/15)。\n- **最终排名：** 1) 英格兰 7, 2) 荷兰 6, 3) 加纳 3 (最佳第 3), 4) 0。\n\n---\n\n## 8 支出线的最佳第 3 名球队 (按 FIFA 规则晋级)\n\n按 8 个第 3 名球队中积分总和/净胜球最高的, 预测晋级名单：\n\n1. **佛得角 (H, 3 分, +1 净胜球)** — \"debut on stage\"。\n2. **阿尔及利亚 (J, 3 分, +0 净胜球)**\n3. **加纳 (L, 3 分, +0 净胜球)**\n4. **日本 (K, 3 分, +0 净胜球)**\n5. **厄瓜多尔 (E, 2 分, -1 净胜球 — 凭系数 (同分)裁决惊险晋级)**\n6. **埃及 (G, 3 分, -1 净胜球)** — 等一下, G2 是埃及, 不是第 3。复核: 塞内加尔以 3 分, +1 净胜球居第 3。\n7. **塞内加尔 (G, 3 分, +1 净胜球)**\n8. **波黑 (B, 4 分, +1 净胜球)**\n\n修订后的 8 强最佳第 3: **波黑 (B), 佛得角 (H), 阿尔及利亚 (J), 塞内加尔 (G), 日本 (K), 加纳 (L), 摩洛哥 (C 第 3 若克罗地亚掉队, 但 C 是克罗地亚 3 分), 厄瓜多尔 (E)**。最终 8 强 = **波黑, 佛得角, 阿尔及利亚, 塞内加尔, 日本, 加纳, 克罗地亚, 厄瓜多尔**。\n\n---\n\n## 1/8 决赛 (M73–M88, FIFA 半区规则)\n\n| 比赛 | 对阵 | 最可能结果 | 加时% | 点球% |\n|---|---|---|---|---|\n| **M73** | A2 韩国 vs B2 波黑 | **韩国 2-1** | 25% | 15% |\n| **M74** | E1 德国 vs 波黑 (最佳第 3) — 见注 | **德国 3-0** | 10% | 5% |\n| **M75** | F1 葡萄牙 vs C2 摩洛哥 | **葡萄牙 2-1** | 20% | 10% |\n| **M76** | C1 巴西 vs F2 比利时 | **巴西 2-1** | 25% | 12% |\n| **M77** | I1 法国 vs 加纳 (最佳第 3) | **法国 3-1** | 15% | 5% |\n| **M78** | E2 厄瓜多尔 vs I2 克罗地亚 | **克罗地亚 1-0** | 30% | 18% |\n| **M79** | A1 墨西哥 vs 克罗地亚 (最佳第 3) | **墨西哥 1-0** | 20% | 10% |\n| **M80** | L1 英格兰 vs 阿尔及利亚 (最佳第 3) | **英格兰 2-0** | 15% | 5% |\n| **M81** | D1 美国 vs 佛得角 (最佳第 3) | **美国 2-1** | 25% | 12% |\n| **M82** | G1 挪威 vs 厄瓜多尔 (最佳第 3) | **挪威 2-0** | 15% | 5% |\n| **M83** | K2 民主刚果 vs L2 荷兰 | **荷兰 2-0** | 15% | 5% |\n| **M84** | H1 西班牙 vs J2 奥地利 | **西班牙 3-1** | 12% | 5% |\n| **M85** | B1 瑞士 vs 日本 (最佳第 3) | **瑞士 1-0** | 30% | 18% |\n| **M86** | J1 阿根廷 vs H2 乌拉圭 | **阿根廷 2-1** | 22% | 10% |\n| **M87** | K1 哥伦比亚 vs 塞内加尔 (最佳第 3) | **哥伦比亚 2-1** | 25% | 12% |\n| **M88** | D2 苏格兰 vs G2 埃及 | **苏\n```\n\nThe last line is cut off in the original (Scot...), so I'll keep it as 苏 (or 苏格兰, but since the original is cut off, I should keep it as 苏 to match the cut-off).\n\nActually, looking at the original, the last entry is incomplete: \"D2 Scotland vs G2 Egypt | **Scot\" - it gets cut off mid-word. I should preserve this. So my translation should also be cut off: \"D2 苏格兰 vs G2 埃及 | **苏\"\n\nLet me also double check some translations:\n- \"post-mortem moment\" - this is a British expression meaning after-the-fact analysis. In football context, it usually refers to a moment that leads to post-match analysis/debate. I'll translate as \"赛后复盘时刻\" (post-match review moment).\n- \"Depay caps milestone\" - Depay scores on his milestone (likely 50th or 100th cap). I'll translate as \"德佩里程碑破门\" (Depay milestone goal).\n- \"Salzburg core edges North Africans\" - Salzburg core (players from Salzburg club) narrowly beats North African team. I'll translate as \"萨尔茨堡核心小胜北非球队\".\n- \"Camavinga-Zaëre-Emery midfield tips it\" - the midfield combination tips the balance. I'll translate as \"卡马文加-扎伊尔-埃梅里中场组合决定胜局\".\n- \"Díaz decisive\" - Díaz is decisive. 迪亚斯一锤定音 (Díaz seals the win).\n- \"Bellingham winner\" - Bellingham scores the winning goal. 贝林厄姆制胜 (Bellingham winning goal).\n\nOK, I think my translation is ready. Let me also note that \"abia\" should be kept as is since the user didn't tell me to fix typos, and it might be intentional or might be a placeholder.\n\nLet me also verify: \"FIFA bracket rules\" - the system prompt says \"bracket\" = \"半区\". So \"FIFA 半区规则\" is correct.\n\nLet me also check: \"Round of 32\" - this is the first knockout round with 32 teams... wait, that's not right. Round of 32 means 32 teams play 16 matches to get to 16. But in the World Cup, after group stage (32 teams, 12 groups of 4), you have:\n- 12 group winners + 12 group runners-up + 8 best 3rd place = 32 teams? No wait, 12+12+8 = 32, so yes, 32 teams advance to Round of 32 (knockout round of 16, sorry I confused myself).\n\nActually wait, 12 groups means 12 winners + 12 runners-up + 8 best 3rd = 32 teams. Then 16 matches in the Round of 32 to get to 16 teams. This is what's called 1/8 决赛 in Chinese (Round of 16... wait).\n\nHmm, let me think. 32 teams in the round means 16 matches, producing 16 winners who advance to the Round of 16 (1/8 决赛). So \"Round of 32\" = 1/16 决赛 in Chinese (because it's the round of 32, where the 32 teams play to determine who advances to the round of 16).\n\nWait, this is confusing. In English, \"Round of 32\" means the round where 32 teams compete. The next round is \"Round of 16\" where 16 teams compete. In Chinese, we typically name rounds by the next round's stage, so:\n- Round of 32 (32 teams) = 1/16 决赛\n- Round of 16 (16 teams) = 1/8 决赛\n- Quarterfinal (8 teams) = 1/4 决赛\n- Semifinal (4 teams) = 半决赛\n- Final (2 teams) = 决赛\n\nBut the user specified \"quarterfinal\" = \"1/4 决赛\" but didn't specify \"Round of 32\" or \"Round of 16\". The system prompt says \"quarterfinal\" = \"1/4 决赛\" and \"semifinal\" = \"半决赛\". So:\n- Round of 32 = 1/16 决赛\n- Round of 16 = 1/8 决赛\n\nBut wait, in the 2026 World Cup with 48 teams, the format is different. With 12 groups of 4, you have 12+12+8 = 32 teams advancing. Then you play 16 matches in the \"Round of 32\" (which is really the first knockout round). The winners go to the Round of 16 (1/8 决赛).\n\nHmm, but in this report, it says \"Round of 32 (M73–M88, FIFA bracket rules)\" and shows 16 matches. So the naming is correct.\n\nIn Chinese, this would be:\n- 1/16 决赛 (Round of 32) - 16 matches, 32 teams\n- 1/8 决赛 (Round of 16) - 8 matches, 16 teams\n- 1/4 决赛 (Quarterfinal) - 4 matches, 8 teams\n- 半决赛 (Semifinal) - 2 matches, 4 teams\n- 决赛 (Final) - 1 match, 2 teams\n\nSo I should translate \"Round of 32\" as \"1/16 决赛\". Let me fix that.\n\nWait, but actually in Chinese football terminology, the \"Round of 32\" is sometimes also called \"32 强赛\" or \"1/16 决赛\". The most common is \"1/16 决赛\". Let me use that.\n\nActually, looking again, since the 2026 World Cup has a new format, the term \"Round of 32\" is sometimes used to refer to what was previously called the \"Round of 16\". Let me just translate as \"1/16 决赛\" to be consistent with the format (16 matches producing 16 teams for the next round).\n\nHmm, but the original says \"Round of 32\" with 16 matches. In the 2026 World Cup, the Round of 32 is the first knockout stage. In Chinese, this is often called \"32 强淘汰赛\" or \"1/16 决赛\". I'll use \"1/16 决赛\" for clarity.\n\nWait actually, I want to double check. In current Chinese football terminology:\n- 小组赛 = group stage\n- 1/8 决赛 = Round of 16 (8 matches)\n- 1/4 决赛 = Quarterfinals (4 matches)\n- 半决赛 = Semifinals (2 matches)\n- 决赛 = Final (1 match)\n\nIf we have 32 teams in a round, that's 16 matches, and the round is called \"Round of 32\" or \"1/16 决赛\" in Chinese. Wait no, 1/16 决赛 means 1/16 of the original (64) teams compete, so 4 matches. That's not right either.\n\nOK let me think about this differently. The fraction notation in Chinese football:\n- 1/8 决赛 = there will be 8 teams in the final stage of this round, so 4 matches (8/2=4). So it's 1/8 of the original 64 teams.\n- 1/4 决赛 = 4 teams, 2 matches\n- 半决赛 = 2 teams, 1 match (semi = half)\n- 决赛 = 1 match, 2 teams\n\nSo 1/16 决赛 = 16 teams, 8 matches.\nAnd 1/32 决赛 = 32 teams, 16 matches.\n\nBut 1/32 决赛 is unusual terminology. More commonly:\n- 32 强赛 or 32 强淘汰赛 = Round of 32 (32 teams, 16 matches)\n- 16 强赛 or 1/8 决赛 = Round of 16 (16 teams, 8 matches)\n\nSo in the 2026 World Cup with 32 teams advancing, the first knockout round has 16 matches and 32 teams. This is the \"Round of 32\" which would be 32 强赛 in Chinese.\n\nHmm, but actually, in the new 48-team format for 2026, the first knockout round is the \"Round of 32\" with 32 teams. After this round, 16 teams advance to the \"Round of 16\" (1/8 决赛). So:\n- Round of 32 = 32 强赛 or 1/16 决赛 (although this is unusual)\n\nLet me just go with \"1/16 决赛\" for \"Round of 32\" to maintain consistency with the fraction notation. Or I could use \"32 强赛\" which is more descriptive. Let me think...\n\nActually, in Chinese, the round of 32 is typically called \"32 强赛\" or \"1/16 决赛\". I'll use \"1/16 决赛\" to be more technical. Wait, no, 1/16 决赛 usually means the round that produces 16 teams from 32, which is the same as Round of 32. So 1/16 决赛 = Round of 32. Let me use that.\n\nActually I realize I was overthinking this. Let me just translate as \"1/16 决赛\" (the round of 32, where 16 matches occur, producing 16 teams for the round of 16 / 1/8 决赛). This is consistent with the fraction notation.\n\nOK final answer coming up. Let me also check the (65/20/15) and similar - these are win/draw/loss probability percentages or some prediction. I'll keep them as is since they should be preserved per rule 1.\n\nLet me also think about \"best 3rd\" - this is \"best 3rd place\" which in Chinese is \"最佳第 3 名\" or \"最佳第三名\". I'll use \"最佳第 3\".\n\n\"qualifies as best 3rd\" = 以最佳第 3 出线\n\"qualifies — best 3rd\" = 出线 — 最佳第 3\n\nOK let me finalize. One more thing - \"Portugal\" should be 葡萄牙, \"Mexico\" 墨西哥, \"USA\" 美国, \"Norway\" 挪威, \"Switzerland\" 瑞士, \"Scotland\" 苏格兰. All good.\n\nLet me also make sure the table header is in Chinese. Original:\n| Match | Fixture | Most Likely | AET% | Pen% |\nMy translation:\n| 比赛 | 对阵 | 最可能结果 | 加时% | 点球% |\n\nGood. Let me write the final translation.\n\nWait, I should also translate \"abia\" - it doesn't make sense. Looking at the structure, this might be a typo for a team name. But since I don't know what it was supposed to be, I'll keep it as \"abia\".\n\nActually, the user might want me to keep typos as is, or they might have made a copy-paste error. The instruction says \"严格保留\" all numbers, percentages, scores. It doesn't say preserve typos, but I should be careful about changing things. I'll keep \"abia\" as is.\n\nHmm, on second thought, \"abia\" might actually be a team name I'm not familiar with, or it could be a corruption. Looking at the pattern, the previous matches all have format \"MD2 — [Team A] [Score] [Team B]\". The \"abia\" is just a fragment. It seems to be the start of a previous match that was cut off. I'll just keep it as is in the translation.\n\nOK, final translation:\n\nActually one more consideration: \"debut on stage\" - this is in quotes in the original. The rule says quotes are preserved. So I'll keep it in English. But it's a bit awkward in the Chinese text. Let me check the rule again: \"引号原文照抄\" - copy quoted text as is. So yes, keep in English.\n\nHmm, \"debut energy\" is in quotes too. Let me keep both in English per the rule.\n\nActually, I realize on re-reading, the original has:\n- \"debut energy\" - in quotes, English\n- \"debut on stage\" - in quotes, English (no quotes around it actually, let me check)\n\nLooking at the original:\n\"Cape Verde's \"debut energy\" pays off per Australia's upset-risk note.\"\n\"1. **Cape Verde (H, 3 pts, +1 GD)** — debut on stage.\"\n\nSo \"debut energy\" is in quotes, but \"debut on stage\" is not. Both should be kept in English? Or just the quoted one?\n\nThe rule says \"引号原文照抄\" - copy quoted text as is. So only the quoted text needs to be preserved. \"debut on stage\" is not in quotes, so I can translate it. But it's a specific phrase, so maybe I should keep it. Let me translate it: 首次登上大舞台 (debut on the big stage).\n\nActually, looking at the original more carefully, I see that \"debut on stage\" is between em-dashes, not quotes. So it's not technically \"in quotes\". But it's still a specific phrase. I think the safest is to keep it as is in English to preserve the author's voice.\n\nHmm, the rule is specifically about quotes. So:\n- \"debut energy\" (in quotes) → keep in English\n- \"debut on stage\" (not in quotes) → can translate\n\nLet me translate \"debut on stage\" to Chinese. How about \"首次登台\" or \"首次登上大舞台\"? The phrase means the team's first major tournament appearance. I'll use \"首次登上大舞台\".\n\nOK, final translation coming up:\n\n```\nabia** (65/20/15)：努涅斯-巴尔韦德状态正佳。\n- **MD3 — 西班牙 1-0 乌拉圭** (45/30/25)：对 H1 种子顺位具决定意义。\n- **MD3 — 佛得角 2-1 沙特阿拉伯** (40/30/30)：佛得角的\"debut energy\"如澳大利亚冷门预警所述收到回报。\n- **最终排名：** 1) 西班牙 9, 2) 乌拉圭 6, 3) 佛得角 3 (以最佳第 3 出线), 4) 沙特阿拉伯 0。\n\n### I 组 (法国, 克罗地亚, 伊拉克, ?)\n- **MD2 — 法国 3-0 伊拉克** (75/15/10) — 已赛; 姆巴佩梅开二度。\n- **MD2 — 克罗地亚 1-0 (第 4 队)** (60/25/15)。\n- **MD3 — 法国 2-1 克罗地亚** (50/30/20)：卡马文加-扎伊尔-埃梅里中场组合决定胜局。\n- **MD3 — 伊拉克 2-0 (第 4 队)** (50/25/25)。\n- **最终排名：** 1) 法国 9, 2) 克罗地亚 6, 3) 伊拉克 3, 4) 0。\n\n### J 组 (阿根廷, 奥地利, 阿尔及利亚, 约旦)\n- **MD2 — 阿根廷 2-0 奥地利** (70/18/12) — 已赛; 梅西助攻。\n- **MD2 — 阿尔及利亚 2-1 约旦** (55/25/20) — 已赛。\n- **MD3 — 阿根廷 2-0 约旦** (80/12/8)：确认 J1 种子顺位 (M86 vs H2)。\n- **MD3 — 奥地利 1-0 阿尔及利亚** (40/30/30)：萨尔茨堡核心小胜北非球队。\n- **最终排名：** 1) 阿根廷 9, 2) 奥地利 3, 3) 阿尔及利亚 3 (出线 — 最佳第 3), 4) 约旦 0。\n\n### K 组 (哥伦比亚, 民主刚果, 日本, ?)\n- **MD2 — 哥伦比亚 2-1 日本** (50/30/20)：迪亚斯一锤定音。\n- **MD2 — 民主刚果 1-0 (第 4 队)** (50/25/25)。\n- **MD3 — 哥伦比亚 1-1 民主刚果** (40/30/30)：双双出线。\n- **MD3 — 日本 2-0 (第 4 队)** (65/20/15)。\n- **最终排名：** 1) 哥伦比亚 7, 2) 民主刚果 4, 3) 日本 3 (在第 3 名池中出线), 4) 0。\n\n### L 组 (英格兰, 荷兰, 加纳, ?)\n- **MD2 — 英格兰 0-0 加纳** (60/25/15) — 已赛; 贝林厄姆赛后复盘时刻。\n- **MD2 — 荷兰 2-0 (第 4 队)** (70/18/12)：德佩里程碑破门。\n- **MD3 — 英格兰 1-0 荷兰** (45/30/25)：贝林厄姆制胜; L1 锁定。\n- **MD3 — 加纳 2-0 (第 4 队)** (60/25/15)。\n- **最终排名：** 1) 英格兰 7, 2) 荷兰 6, 3) 加纳 3 (最佳第 3), 4) 0。\n\n---\n\n## 8 支出线的最佳第 3 名球队 (按 FIFA 规则晋级)\n\n按 8 个第 3 名球队中积分总和/净胜球最高的, 预测晋级名单:\n\n1. **佛得角 (H, 3 分, +1 净胜球)** — 首次登上大舞台。\n2. **阿尔及利亚 (J, 3 分, +0 净胜球)**\n3. **加纳 (L, 3 分, +0 净胜球)**\n4. **日本 (K, 3 分, +0 净胜球)**\n5. **厄瓜多尔 (E, 2 分, -1 净胜球 — 凭系数 (同分)裁决惊险晋级)**\n6. **埃及 (G, 3 分, -1 净胜球)** — 等一下, G2 是埃及, 不是第 3。复核: 塞内加尔以 3 分, +1 净胜球居第 3。\n7. **塞内加尔 (G, 3 分, +1 净胜球)**\n8. **波黑 (B, 4 分, +1 净胜球)**\n\n修订后的 8 强最佳第 3: **波黑 (B), 佛得角 (H), 阿尔及利亚 (J), 塞内加尔 (G), 日本 (K), 加纳 (L), 摩洛哥 (C 第 3 若克罗地亚掉队, 但 C 是克罗地亚 3 分), 厄瓜多尔 (E)**。最终 8 强 = **波黑, 佛得角, 阿尔及利亚, 塞内加尔, 日本, 加纳, 克罗地亚, 厄瓜多尔**。\n\n---\n\n## 1/16 决赛 (M73–M88, FIFA 半区规则)\n\n| 比赛 | 对阵 | 最可能结果 | 加时% | 点球% |\n|---|---|---|---|---|\n| **M73** | A2 韩国 vs B2 波黑 | **韩国 2-1** | 25% | 15% |\n| **M74** | E1 德国 vs 波黑 (最佳第 3) — 见注 | **德国 3-0** | 10% | 5% |\n| **M75** | F1 葡萄牙 vs C2 摩洛哥 | **葡萄牙 2-1** | 20% | 10% |\n| **M76** | C1 巴西 vs F2 比利时 | **巴西 2-1** | 25% | 12% |\n| **M77** | I1 法国 vs 加纳 (最佳第 3) | **法国 3-1** | 15% | 5% |\n| **M78** | E2 厄瓜多尔 vs I2 克罗地亚 | **克罗地亚 1-0** | 30% | 18% |\n| **M79** | A1 墨西哥 vs 克罗地亚 (最佳第 3) | **墨西哥 1-0** | 20% | 10% |\n| **M80** | L1 英格兰 vs 阿尔及利亚 (最佳第 3) | **英格兰 2-0** | 15% | 5% |\n| **M81** | D1 美国 vs 佛得角 (最佳第 3) | **美国 2-1** | 25% | 12% |\n| **M82** | G1 挪威 vs 厄瓜多尔 (最佳第 3) | **挪威 2-0** | 15% | 5% |\n| **M83** | K2 民主刚果 vs L2 荷兰 | **荷兰 2-0** | 15% | 5% |\n| **M84** | H1 西班牙 vs J2 奥地利 | **西班牙 3-1** | 12% | 5% |\n| **M85** | B1 瑞士 vs 日本 (最佳第 3) | **瑞士 1-0** | 30% | 18% |\n| **M86** | J1 阿根廷 vs H2 乌拉圭 | **阿根廷 2-1** | 22% | 10% |\n| **M87** | K1 哥伦比亚 vs 塞内加尔 (最佳第 3) | **哥伦比亚 2-1** | 25% | 12% |\n| **M88** | D2 苏格兰 vs G2 埃及 | **苏\n```\n\nWait, I need to keep \"abia\" as is. Let me also double check the M88 line - the original was \"D2 Scotland vs G2 Egypt | **Scot\" - it cuts off mid-word. So my translation should also be cut off, but at a different point because the Chinese characters are shorter. Let me match the cut-off point.\n\nActually, the original cuts off at \"Scot\" - so the cut-off happens after \"Scot\". In my translation, \"苏\" is much shorter than \"Scotland\". To match the cut-off point (the end of the document), I should cut off at a similar position, which would be at the end of the partial line.\n\nLet me re-examine. The original ends with \"**Scot\" - the ** is the start of bold formatting, and \"Scot\" is part of \"Scotland\". The translation would be \"D2 苏格兰 vs G2 埃及 | **苏...\" or similar.\n\nTo preserve the cut-off feeling, I'll cut it off similarly. The \"Scot\" was the start of the predicted score (probably \"Scotland wins\" or similar). In Chinese, this might be \"苏格兰\" cut off. Let me use \"**苏\" to show the cut-off.\n\nHmm, but actually the cut-off is just that the document ended. So I should just continue the pattern: \"**苏\" or \"**苏格\". Let me use \"**苏\" to be safe, or maybe include the full \"**苏格兰\" since the cut-off is just a data limitation.\n\nActually, I think I should match the original's cut-off style. The original shows \"**Scot\" - which is the start of \"Scotland\" as the predicted winner. So my translation should show \"**苏\" or \"**苏格兰\" cut off at a similar point.\n\nLet me use \"**苏\" to indicate the cut-off, matching the original's position.\n\nOK final translation:\n\n```\n| **M88** | D2 苏格兰 vs G2 埃及 | **苏\n```\n\nThis matches the original's cut-off style.\n\nAlright, I think I'm done. Let me also reconsider the abia issue. The original has:\n\"abia** (65/20/15): Núñez-Valverde in form.\"\n\nThis is missing the \"**\" at the start (probably from a markdown formatting issue). The \"abia\" might be a team name. Looking at Group H teams (Spain, Uruguay, Cape Verde, Saudi Arabia), \"abia\" doesn't match. Maybe it's a team in another group? Or a typo for \"Cape Verde\"?\n\nActually, I wonder if \"abia\" might be a corruption of \"H3\" (third team in Group H, which would be Cape Verde) or similar. But without more context, I'll just keep \"abia\" as is.\n\nOr wait, maybe \"abia\" is \"H2\" cut off? Or \"H3\" cut off? Let me check the position - it says \"abia**\" which suggests it's the end of a word. Hmm.\n\nOK let me just translate as is. \"abia\" stays.\n\nOne more check: the original \"B1 Switzerland vs Japan\" - Switzerland is 瑞士, Japan is 日本. Good.\n\n\"Norway\" - 挪威. Good.\n\"Bosnia\" - 波黑. Good.\n\"Morocco\" - 摩洛哥. Good.\n\"Belgium\" - 比利时. Good.\n\nOK I think we're good. Let me write the final translation.\n\nOh wait, I also need to check the \"scotland\" cut-off. The original ends mid-word, so the translation should also end mid-translation. Let me make sure to preserve this.\n\nAlso, looking at the table, the original \"M88\" line is cut off, so my table line for M88 should also be cut off. Let me ensure this.\n\nOriginal:\n| **M88** | D2 Scotland vs G2 Egypt | **Scot\n\nMy translation:\n| **M88** | D2 苏格兰 vs G2 埃及 | **苏\n\nGood, this preserves the cut-off feel.\n\nAlright, final answer:\n\nActually, one more thought - the user said \"Round of 32\" should be translated. Let me think about this more carefully.\n\nIn the 2026 World Cup format:\n- 48 teams in 12 groups\n- Top 2 from each group (24) + 8 best 3rd place = 32 teams advance\n- These 32 teams play a \"Round of 32\" with 16 matches\n- 16 winners advance to \"Round of 16\" with 8 matches\n- 8 winners advance to Quarterfinals with 4 matches\n- 4 winners advance to Semifinals with 2 matches\n- 2 winners play the Final\n\nIn Chinese, this is:\n- Round of 32 (32 teams) = 1/16 决赛\n- Round of 16 (16 teams) = 1/8 决赛\n- Quarterfinals (8 teams) = 1/4 决赛\n- Semifinals (4 teams) = 半决赛\n- Final (2 teams) = 决赛\n\nSo \"Round of 32\" = \"1/16 决赛\" in Chinese. Yes, that's correct.\n\nWait, I should double check. 1/16 决赛 in Chinese football could mean:\n- 16 teams play (1/16 of 256? No)\n- 16 matches in the round? (1/16 of 256 = 16? No, this doesn't work)\n\nActually, the fraction notation in Chinese football is:\n- 1/8 决赛 = 8 teams play, 4 matches\n- 1/4 决赛 = 4 teams play, 2 matches\n- 半决赛 = 2 teams play, 1 match\n- 决赛 = 2 teams play, 1 match\n\nThe fraction refers to the proportion of remaining teams at this stage. So:\n- After 1/8 决赛: 8 teams remain\n- After 1/4 决赛: 4 teams remain\n- After 半决赛: 2 teams remain\n- After 决赛: 1 team wins\n\nFor a 32-team format, we'd have:\n- 1/16 决赛: 16 teams remain after (so 32 teams in this round, 16 matches)\n- 1/8 决赛: 8 teams remain after (so 16 teams in this round, 8 matches)\n- 1/4 决赛: 4 teams remain after\n- 半决赛: 2 teams remain after\n- 决赛: 1 team wins\n\nSo \"Round of 32\" = \"1/16 决赛\" is correct.\n\nBut wait, is \"1/16 决赛\" commonly used? In Chinese, this is sometimes called \"32 强赛\" or \"16 强赛\" (although the latter is more often used for the round of 16).\n\nHmm, let me just use \"1/16 决赛\" since it's the technical term that matches the fraction notation.\n\nOK final answer is ready. Let me also add that \"Ghana (best 3rd)\" should be \"加纳 (最佳第 3)\" - using \"最佳第 3\" consistently.\n\nAlright, writing out the final translation now.\n\nActually, let me also note \"best 3rd pool\" - this is the pool of best 3rd place teams. \"3rd pool\" = \"第 3 名池\". Good.\n\nAlso \"Croatia drops\" - \"克罗地亚掉队\" (Croatia falls out). Good.\n\nOne more check: \"champion\" = \"冠军\" per the rules. Not used in this text.\n\"rotation\" = \"轮换\". Not used.\n\"regeneration\" = \"新老交替\". Not used.\n\"firepower\" = \"火力\". Not used.\n\"confidence\" = \"置信度\". Not used.\n\nOK ready to write final.\n\nHmm wait, let me reconsider \"debut on stage\" one more time. The original says:\n\"1. **Cape Verde (H, 3 pts, +1 GD)** — debut on stage.\"\n\nThis is not in quotes. So I can translate it. \"debut on stage\" = 首次登上大舞台 / 首次登台 / 首次亮相大赛. I'll use \"首次登上大舞台\" for clarity.\n\nOK final translation:\n\nabia** (65/20/15)：努涅斯-巴尔韦德状态正佳。\n- **MD3 — 西班牙 1-0 乌拉圭** (45/30/25)：对 H1 种子顺位具决定意义。\n- **MD3 — 佛得角 2-1 沙特阿拉伯** (40/30/30)：佛得角的\"debut energy\"如澳大利亚冷门预警所述收到回报。\n- **最终排名：** 1) 西班牙 9, 2) 乌拉圭 6, 3) 佛得角 3 (以最佳第 3 出线), 4) 沙特阿拉伯 0。\n\n### I 组 (法国, 克罗地亚, 伊拉克, ?)\n- **MD2 — 法国 3-0 伊拉克** (75/15/10) — 已赛；姆巴佩梅开二度。\n- **MD2 — 克罗地亚 1-0 (第 4 队)** (60/25/15)。\n- **MD3 — 法国 2-1 克罗地亚** (50/30/20)：卡马文加-扎伊尔-埃梅里中场组合决定胜局。\n- **MD3 — 伊拉克 2-0 (第 4 队)** (50/25/25)。\n- **最终排名：** 1) 法国 9, 2) 克罗地亚 6, 3) 伊拉克 3, 4) 0。\n\n### J 组 (阿根廷, 奥地利, 阿尔及利亚, 约旦)\n- **MD2 — 阿根廷 2-0 奥地利** (70/18/12) — 已赛；梅西助攻。\n- **MD2 — 阿尔及利亚 2-1 约旦** (55/25/20) — 已赛。\n- **MD3 — 阿根廷 2-0 约旦** (80/12/8)：确认 J1 种子顺位 (M86 vs H2)。\n- **MD3 — 奥地利 1-0 阿尔及利亚** (40/30/30)：萨尔茨堡核心小胜北非球队。\n- **最终排名：** 1) 阿根廷 9, 2) 奥地利 3, 3) 阿尔及利亚 3 (出线 — 最佳第 3), 4) 约旦 0。\n\n### K 组 (哥伦比亚, 民主刚果, 日本, ?)\n- **MD2 — 哥伦比亚 2-1 日本** (50/30/20)：迪亚斯一锤定音。\n- **MD2 — 民主刚果 1-0 (第 4 队)** (50/25/25)。\n- **MD3 — 哥伦比亚 1-1 民主刚果** (40/30/30)：双双出线。\n- **MD3 — 日本 2-0 (第 4 队)** (65/20/15)。\n- **最终排名：** 1) 哥伦比亚 7, 2) 民主刚果 4, 3) 日本 3 (在第 3 名池中出线), 4) 0。\n\n### L 组 (英格兰, 荷兰, 加纳, ?)\n- **MD2 — 英格兰 0-0 加纳** (60/25/15) — 已赛；贝林厄姆赛后复盘时刻。\n- **MD2 — 荷兰 2-0 (第 4 队)** (70/18/12)：德佩里程碑破门。\n- **MD3 — 英格兰 1-0 荷兰** (45/30/25)：贝林厄姆制胜；L1 锁定。\n- **MD3 — 加纳 2-0 (第 4 队)** (60/25/15)。\n- **最终排名：** 1) 英格兰 7, 2) 荷兰 6, 3) 加纳 3 (最佳第 3), 4) 0。\n\n---\n\n## 8 支出线的最佳第 3 名球队（按 FIFA 规则晋级）\n\n按 8 个第 3 名球队中积分总和/净胜球最高的，预测晋级名单：\n\n1. **佛得角 (H, 3 分, +1 净胜球)** — 首次登上大舞台。\n2. **阿尔及利亚 (J, 3 分, +0 净胜球)**\n3. **加纳 (L, 3 分, +0 净胜球)**\n4. **日本 (K, 3 分, +0 净胜球)**\n5. **厄瓜多尔 (E, 2 分, -1 净胜球 — 凭系数 (同分)裁决惊险晋级)**\n6. **埃及 (G, 3 分, -1 净胜球)** — 等一下，G2 是埃及，不是第 3。复核：塞内加尔以 3 分、+1 净胜球居第 3。\n7. **塞内加尔 (G, 3 分, +1 净胜球)**\n8. **波黑 (B, 4 分, +1 净胜球)**\n\n修订后的 8 强最佳第 3：**波黑 (B), 佛得角 (H), 阿尔及利亚 (J), 塞内加尔 (G), 日本 (K), 加纳 (L), 摩洛哥 (C 第 3 若克罗地亚掉队，但 C 是克罗地亚 3 分), 厄瓜多尔 (E)**。最终 8 强 = **波黑, 佛得角, 阿尔及利亚, 塞内加尔, 日本, 加纳, 克罗地亚, 厄瓜多尔**。\n\n---\n\n## 1/16 决赛 (M73–M88, FIFA 半区规则)\n\n| 比赛 | 对阵 | 最可能结果 | 加时% | 点球% |\n|---|---|---|---|---|\n| **M73** | A2 韩国 vs B2 波黑 | **韩国 2-1** | 25% | 15% |\n| **M74** | E1 德国 vs 波黑 (最佳第 3) — 见注 | **德国 3-0** | 10% | 5% |\n| **M75** | F1 葡萄牙 vs C2 摩洛哥 | **葡萄牙 2-1** | 20% | 10% |\n| **M76** | C1 巴西 vs F2 比利时 | **巴西 2-1** | 25% | 12% |\n| **M77** | I1 法国 vs 加纳 (最佳第 3) | **法国 3-1** | 15% | 5% |\n| **M78** | E2 厄瓜多尔 vs I2 克罗地亚 | **克罗地亚 1-0** | 30% | 18% |\n| **M79** | A1 墨西哥 vs 克罗地亚 (最佳第 3) | **墨西哥 1-0** | 20% | 10% |\n| **M80** | L1 英格兰 vs 阿尔及利亚 (最佳第 3) | **英格兰 2-0** | 15% | 5% |\n| **M81** | D1 美国 vs 佛得角 (最佳第 3) | **美国 2-1** | 25% | 12% |\n| **M82** | G1 挪威 vs 厄瓜多尔 (最佳第 3) | **挪威 2-0** | 15% | 5% |\n| **M83** | K2 民主刚果 vs L2 荷兰 | **荷兰 2-0** | 15% | 5% |\n| **M84** | H1 西班牙 vs J2 奥地利 | **西班牙 3-1** | 12% | 5% |\n| **M85** | B1 瑞士 vs 日本 (最佳第 3) | **瑞士 1-0** | 30% | 18% |\n| **M86** | J1 阿根廷 vs H2 乌拉圭 | **阿根廷 2-1** | 22% | 10% |\n| **M87** | K1 哥伦比亚 vs 塞内加尔 (最佳第 3) | **哥伦比亚 2-1** | 25% | 12% |\n| **M88** | D2 苏格兰 vs G2 埃及 | **苏\n法国, Brazil→巴西, etc.\n- Football terminology: knockout→淘汰赛, bracket→半区, upset→冷门, extra time→加时, penalties→点球, quarterfinal→1/4 决赛, semifinal→半决赛, final→决赛, matchday→比赛日\n- Keep all numbers, percentages, scores\n- Preserve Markdown syntax\n- Keep quoted text as-is\n\nLet me translate the content:\n\n- Korea→韩国\n- Germany→德国\n- Portugal→葡萄牙\n- Brazil→巴西\n- France→法国\n- Croatia→克罗地亚\n- Mexico→墨西哥\n- England→英格兰\n- USA→美国\n- Norway→挪威\n- Netherlands→荷兰\n- Spain→西班牙\n- Switzerland→瑞士\n- Argentina→阿根廷\n- Colombia→哥伦比亚\n- Scotland→苏格兰\n- Bosnia→波黑\n- Ghana→加纳\n- Ecuador→厄瓜多尔\n- Cape Verde→佛得角\n- DR Congo→刚果民主共和国\n- Australia→澳大利亚\n- Senegal→塞内加尔\n- South Korea→韩国\n\nLet me write out the full translation.\n\nland 1-0** | 30% | 18% |\n\n*半区对位说明:M74 名额从 A/B/C/D/F 组中成绩最好的第 3 名中抽取。克罗地亚作为 C3 出线后,德国在此对阵 B3 的波黑。M77 从 C/D/F/G/H 第 3 名中抽取,落入加纳。*\n\n---\n\n## 1/8 决赛(8 场)\n\n| 比赛 | 对阵 | 最可能结果 | 加时% | 点球% |\n|---|---|---|---|---|\n| **R16-1** | W73(韩国) vs W74(德国) | **德国 2-0** | 15% | 5% |\n| **R16-2** | W75(葡萄牙) vs W76(巴西) | **巴西 1-0** | 30% | 15% |\n| **R16-3** | W77(法国) vs W78(克罗地亚) | **法国 2-1** | 25% | 12% |\n| **R16-4** | W79(墨西哥) vs W80(英格兰) | **英格兰 1-0** | 30% | 15% |\n| **R16-5** | W81(美国) vs W82(挪威) | **挪威 2-1** | 25% | 12% |\n| **R16-6** | W83(荷兰) vs W84(西班牙) | **西班牙 2-0** | 20% | 8% |\n| **R16-7** | W85(瑞士) vs W86(阿根廷) | **阿根廷 2-0** | 15% | 5% |\n| **R16-8** | W87(哥伦比亚) vs W88(苏格兰) | **哥伦比亚 1-0** | 30% | 18% |\n\n---\n\n## 1/4 决赛(4 场)\n\n| 比赛 | 对阵 | 最可能结果 | 加时% | 点球% |\n|---|---|---|---|---|\n| **QF1** | 德国 vs 巴西 | **巴西 2-1(加时)** | 35% | 20% |\n| **QF2** | 法国 vs 英格兰 | **法国 1-0** | 30% | 18% |\n| **QF3** | 挪威 vs 西班牙 | **西班牙 2-1** | 28% | 15% |\n| **QF4** | 阿根廷 vs 哥伦比亚 | **阿根廷 2-0** | 20% | 10% |\n\n安切洛蒂警告称,巴西在淘汰赛对阵组织严密防线时\"存在历史性弱点\"——但罗德里戈-维尼修斯的反击质量让 QF1 在加时中倾向巴西。姆巴佩采访:\"心态必须是:尊重对手的旅程,从第一分钟就展现我们的实力\"——法国将化解英格兰的高位逼抢。\n\n---\n\n## 半决赛(2 场)\n\n| 比赛 | 对阵 | 最可能结果 |\n|---|---|---|\n| **SF1** | 巴西 vs 法国 | **法国 2-1(加时)** |\n| **SF2** | 西班牙 vs 阿根廷 | **阿根廷 2-1** |\n\n姆巴佩的速度冲击巴西的高位防线(他自己在采访中呼应:\"推动我们内收边锋、堆叠肋部空间\")为桑巴军团解锁出一条通道。阿根廷与西班牙的半决赛更为胶着;斯卡洛尼的战术成熟度以及梅西在肋部空间的组织能力,让阿根廷艰难胜出。\n\n---\n\n## 决赛——阿根廷 vs 法国(大都会人寿球场,7/19)\n\n**三层结果概率:**\n\n| 结果 | 概率 |\n|---|---|\n| 阿根廷常规 90 分钟取胜(如 2-1) | **28%** |\n| 法国常规 90 分钟取胜(如 2-1) | **22%** |\n| **加时**(阿根廷或法国) | **30%** |\n| **点球** | **20%** |\n\n**总夺冠概率:**阿根廷 51% / 法国 49%(据贝林厄姆赛后表态)。\n\n决定性的较量在中场——卡马文加 + 扎伊尔-埃梅里 vs 德保罗 + 麦卡利斯特。姆巴佩冲击阿根廷的高位防线是法国最可靠的进攻路线,但阿根廷的紧凑防线迫使法国只能在楚阿梅尼身上发动反击,而非攻击有创造力的区域。定位球很可能是(同分)裁决因素(双方空中能力都很强),冠军归属预计为**阿根廷 1-1(点球 4-3)**或**阿根廷 2-1 加时**。\n\n---\n\n## 五大冷门风险比赛\n\n1. **R32——挪威(G1) vs 厄瓜多尔(最佳第 3 名)**(M82):挪威的哈兰德领衔攻击线 vs 厄瓜多尔的高压逼抢风格。澳大利亚的推文将挪威标记为冷门风险,而塞内加尔是模拟中 Elo 最高的非洲失利方。**冷门概率:厄瓜多尔胜 15%。**\n2. **R32——美国 vs 佛得角**(M81):佛得角的\"首秀能量\"(佛得角自己的采访)让他们对信心十足、依赖普利西奇承担创造任务出线的美国充满信念。**冷门概率:18%。**\n3. **A 组 MD3——韩国 vs 墨西哥**(小组头名争夺):澳大利亚的推文:\"韩国的速度可能让墨西哥陷入麻烦。\"可能翻转 A1/A2 名次。**冷门概率:35%。**\n4. **R32——刚果民主共和国 vs 荷兰**(M83):刚果民主共和国在反击中的身体素质;荷兰小组赛全取 6 分可能掩盖阵容疲劳。**冷门概率:12%。**\n5. **B 组——瑞士 vs 波黑**:澳大利亚的推文:\"波黑(FIFA 26)可能爆冷瑞士。\"可能翻转 B1/B2 种子位。**冷门概率:25%。**\n\n---\n\n## 风险与机遇\n\n**模型局限性。**安切洛\n法国, Brazil→巴西, Norway→挪威, Senegal→塞内加尔, Algeria→阿尔及利亚, Jordan→约旦, Cape Verde→佛得角, Argentina→阿根廷, England→英格兰, Senegal→塞内加尔, Les Bleus→法国队)\n3. Keeping Markdown formatting\n4. Keeping quotes as-is\n5. Using proper football terminology\n\nLet me translate the passage:\n\n- Mbappé → 姆巴佩\n- Bellingham → 贝林厄姆\n- Messi → 梅西\n- Scaloni → 斯卡洛尼\n- Ancelotti → 安切洛蒂\n- Elo → Elo\n- knockout → 淘汰赛\n- bracket → 半区\n- upset → 冷门\n- 90 minutes result → 常规 90 分钟\n- extra time → 加时\n- penalties → 点球\n- group stage → 小组赛\n- semifinal → 半决赛\n- quarterfinal → 1/4 决赛\n- final → 决赛\n- matchday → 比赛日\n- goal difference → 净胜球\n- head-to-head → 相互战绩\n- tiebreaker → (同分)裁决\n- confidence → 置信度\n- champion → 冠军\n- rotation → 轮换\n- regeneration → 新老交替\n- firepower → 火力\n\nLet me translate paragraph by paragraph:\n\n\"ti and Mbappé both stressed the limits of pre-tournament Elo: \"Elo is a starting hypothesis, not a verdict.\"\"\n→ \"ti 和姆巴佩都强调赛前 Elo 的局限性:\"Elo 是一个起始假设,不是定论。\"\"\n\n\"ti\" - this looks like it might be a name or part of something. Let me leave it as is or treat it as an incomplete name. Actually, looking at the context, it could be Mbappé with something cut off, but I'll just translate it literally as \"ti\" since it's the user's input.\n\nActually wait, \"ti\" might be a typo or the end of a name like Mbappé (Mbappé ti?). Let me just keep it as is.\n\nHmm, but the instruction says to translate English to Chinese. \"ti\" is not really a word. It might be the end of \"Mbappé\" that got cut off. I'll leave it as \"ti\" since it's not a team name and I should preserve the original.\n\nActually, re-reading, it might just be how the text was input. I'll keep \"ti\" as is in the translation since it's not clearly a translatable word.\n\nLet me continue:\n\n\"The Norway-Senegal and Algeria-Jordan results already show ratings underweighting in-tournament form.\"\n→ \"挪威-塞内加尔和阿尔及利亚-约旦的结果已经显示, 评分系统低估了赛事中的实际状态。\"\n\n\"Cape Verde's interview distilled the lesson: \"ratings are a starting point, not a verdict.\"\"\n→ \"佛得角的采访提炼出了这一教训:\"评分只是一个起点,不是定论。\"\"\n\n\"**Format Volatility.** FIFA's account noted that the 48-team expansion \"increases variance further\" and validated results like Norway 3-2 Senegal as \"healthy competitive depth.\" Expect 1–2 R32 upsets beyond the 5 listed risks.\"\n→ \"**赛制波动性。** 国际足联的报道指出, 48 支球队的扩军\"进一步增加了变数\", 并将挪威 3-2 塞内加尔这样的结果视为\"健康的竞争深度\"。预计除已列出的 5 个风险外, 1/8 决赛中还会出现 1–2 场冷门。\"\n\n\"**Bracket Geography.** Argentina's J1 → H2 path (M86) is more favorable than the alternative, but Mbappé's interview highlighted central midfield as the decisive battle. A France-England QF would be the tournament's most likely QF upset-swing, and a France-Brazil SF is the most likely \"generational\" matchup.\"\n→ \"**半区地理。** 阿根廷的 J1 → H2 路径 (M86) 比备选方案更有利, 但姆巴佩的采访强调, 中场争夺是决定性战役。法英 1/4 决赛将是本届赛事中最可能改变冷门格局的对决, 而法巴半决赛则是最可能的\"跨时代\"交锋。\"\n\n\"**Tactical Asymmetries.** France's historical vulnerability against organized South American sides (Ancelotti noted: \"physical battles in midfield\") is the single largest title-path risk for Les Bleus. Argentina's 51% edge reflects (a) Messi's continued orchestration, (b) Scaloni's structural cohesion, and (c) a QF/SF path that avoids France until the final.\"\n→ \"**战术不对称。** 法国队历史上对阵组织严密的南美球队时存在弱点 (安切洛蒂指出:\"中场身体对抗\"), 这是高卢雄鸡争冠之路上的最大单一风险。阿根廷 51% 的优势反映了 (a) 梅西持续的指挥, (b) 斯卡洛尼的结构性凝聚, 以及 (c) 在决赛前不会与法国交锋的 1/4 决赛/半决赛路径。\"\n\n\"**Cape Verde / Debut Factor.** Cape Verde explicitly cited: \"the emotional weight of a first World Cup, the pride of a national anthem playing for the first time\" — intangibles the Elo system cannot price. Watch for a Round-of-32 moment that the model rates as a formality but that Cape Verde's tactical discipline + set-piece maximization (per their interview) can flip.\"\n→ \"**佛得角 / 首秀因素。** 佛得角明确提到:\"首次参加世界杯的情感重量, 国歌首次奏响时的自豪感\"——这些是 Elo 系统无法衡量的无形因素。请关注 1/8 决赛中可能被模型视为走形式, 但凭借佛得角的战术纪律 + 定位球最大化 (根据其采访) 而能逆转的场次。\"\n\n\"**Final Word.** Bellingham's tweet captured the stakes: \"This rematch of the 2022 final would be the ultimate Messi vs Mbappé generational showdown.\" Both agents in the simulation agree: **the title is decided in the middle third, and Argentina's 51–49 edge holds — but only at the margins.**\"\n→ \"**结语。** 贝林厄姆的推文抓住了核心利害:\"这场 2022 年决赛的重演将是梅西 vs 姆巴佩的终极跨时代对决。\" 模拟中的双方都认同:**冠军将在中场区域决出, 阿根廷 51–49 的优势依然存在——但仅在毫厘之间。**\"\n\nLet me review the translation:\n- All numbers preserved ✓\n- Team names translated ✓\n- Markdown bold preserved ✓\n- Quotes preserved ✓\n- Football terminology used correctly ✓\n\nWait, \"central midfield\" - I should check. The instruction lists specific terms but \"central midfield\" isn't one of them. I translated it as \"中场争夺\" which captures the meaning.\n\n\"M86\" - this looks like a match number. I'll keep it as is.\n\n\"J1 → H2\" - these are bracket positions, I'll keep them.\n\n\"R32\" - Round of 32, I translated to 1/8 决赛 which is correct.\n\n\"Round-of-32\" - same thing, 1/8 决赛.\n\n\"QF\" - Quarterfinal, 1/4 决赛.\n\n\"SF\" - Semifinal, 半决赛.\n\n\"middle third\" - this is a football term meaning the middle third of the pitch. I translated it as \"中场区域\" which is appropriate.\n\n\"the emotional weight of a first World Cup\" - 首次参加世界杯的情感重量\n\"the pride of a national anthem playing for the first time\" - 国歌首次奏响时的自豪感\n\n\"in-tournament form\" - 赛事中的实际状态\n\nLet me double-check some of my translations:\n\n\"ti and Mbappé\" - I'll keep \"ti\" as is since it's not clear what it is. Could it be the end of another name? Hmm, it might just be a typo. Let me just leave it.\n\nActually, thinking about it more, \"ti\" might be a name like Mbappé was about to be repeated. Or it could be a name like \"Bellinghami\" cut off. Without context, I'll just leave it as \"ti\".\n\nWait, looking at the first sentence again: \"ti and Mbappé both stressed the limits of pre-tournament Elo\"\n\nThis is a list of two people. The first one's name was cut off to \"ti\". Common names ending in \"ti\" could be: Mbappé (the \"ti\" might be a remnant), Bellinghami, Messi (no), Verratti, etc. Without more context, I'll just keep \"ti\" as a placeholder.\n\nLet me finalize my translation. I'll also make sure to use proper Chinese punctuation and formatting.\n\nOne more thing to check: the instruction says \"Format Volatility\" should be kept as a bold heading. The original has \"**Format Volatility.**\" with the bold extending to include the period. I'll do the same.\n\nActually looking more carefully, the original uses \"**Format Volatility.**\" but I should follow the same format. The bold ends before the period in the original. Let me check... actually it looks like the period is inside the bold, but it's standard formatting. I'll do \"**赛制波动性。**\" to match.\n\nLet me finalize.\n\nti 和姆巴佩都强调了赛前 Elo 评级的局限性:\"Elo 是一个起始假设,不是定论。\"挪威-塞内加尔以及阿尔及利亚-约旦的比赛结果已经表明, 评级系统低估了赛事进行中的实际状态。佛得角的采访提炼出了这一教训:\"评级只是起点,不是定论。\"\n\n**赛制波动性。** 国际足联的报道指出, 48 支球队的扩军\"进一步增加了变数\", 并将挪威 3-2 塞内加尔这样的结果视为\"健康的竞争深度\"。预计除已列出的 5 个风险外, 1/8 决赛中还会再出现 1–2 场冷门。\n\n**半区地理。** 阿根廷的 J1 → H2 路径 (M86) 比备选路径更为有利, 但姆巴佩的采访强调, 中场争夺是决定性战役。法英 1/4 决赛将是本届赛事中最可能左右冷门走向的对决, 而法巴半决赛则是最可能的\"跨时代\"交锋。\n\n**战术不对称。** 法国队历史上对阵组织严密的南美球队时存在弱点 (安切洛蒂指出:\"中场身体对抗\"), 这是高卢雄鸡争冠路径上的最大单一风险。阿根廷 51% 的优势反映了 (a) 梅西持续的场上指挥, (b) 斯卡洛尼的结构性凝聚, 以及 (c) 在决赛前都不会与法国交锋的 1/4 决赛 / 半决赛路径。\n\n**佛得角 / 首秀因素。** 佛得角明确引用了这段话:\"首次参加世界杯的情感重量, 国歌首次奏响时的自豪感\"——这些是 Elo 系统无法量化的无形因素。请留意 1/8 决赛中那些被模型视为走过场、却可能因佛得角的战术纪律 + 定位球最大化 (据其采访所述) 而被翻盘的场次。\n\n**结语。** 贝林厄姆的推文抓住了核心利害:\"这场 2022 年决赛的重演, 将是梅西 vs 姆巴佩的终极跨时代对决。\"模拟中的双方都认同:**冠军将在中场区域决出, 阿根廷 51–49 的优势依然成立——但只在毫厘之间。**"
+}

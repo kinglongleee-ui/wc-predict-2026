@@ -358,6 +358,24 @@ def parse_standings(md_text: str, group_letter: str) -> list:
                 })
             return standings
 
+    # R8 style: **Final standings:** 1) Mexico 7, 2) South Korea 6, 3) Czech Republic 3, 4) South Africa 0.
+    # No "pts" suffix; just comma-separated "1) Team N, 2) Team N, ...".
+    r8_match = re.search(r"\*\*Final\s+standings:\*\*\s*([^\n]+)", section_text)
+    if r8_match:
+        text = r8_match.group(1).strip().rstrip(".")
+        # Strip trailing sentence after the last number, e.g. "(qualifies — best 3rd)" / "(advances on GD)".
+        # Then extract pairs: "1) Team <pts>" possibly followed by note in parens.
+        entries = re.findall(r"\d+\)\s*([^\d,]+?)\s+(\d+)(?:\s*\([^)]*\))?", text)
+        if entries:
+            standings = []
+            for team, pts in entries:
+                standings.append({
+                    "team": team.strip().rstrip(","),
+                    "points": int(pts),
+                    "note": None,
+                })
+            return standings
+
     # Match R3: **Final: ...** or **Final standings: ...** (slash-delimited)
     final_match = re.search(r"\*\*Final(?:\s+standings)?:\s*([^*]+?)\*\*", section_text)
     if not final_match:
@@ -463,6 +481,27 @@ def parse_best_thirds(md_text: str) -> list:
     if rows:
         return rows
 
+    # R8 numbered: 1. **Cape Verde (H, 3 pts, +1 GD)** — debut on stage.
+    # Note: R8 uses "(H, 3 pts, +1 GD)" not "Group H" and "+1 GD" (space before GD).
+    for row in re.finditer(
+        r"(\d+)\.\s*\*\*([^*\n]+?)\s*\(([A-L]),\s*(\d+)\s*pts,\s*([+\-]?\d+)\s*GD\)\*\*",
+        section_text,
+    ):
+        rank, full, group, pts, gd = row.groups()
+        # full = "Cape Verde" (or "Cape Verde — note"; extract just the team name)
+        team = re.split(r"\s*[—\-–]\s*", full)[0].strip()
+        rows.append({
+            "rank": int(rank),
+            "team": team,
+            "group": group.strip(),
+            "points": int(pts),
+            "goal_difference": int(gd),
+            "reason": "R8 numbered best 3rd",
+        })
+
+    if rows:
+        return rows
+
     # R4 simplified: 1. **Cape Verde (H)** — 3 pts, +1 GD (upset specialist)
     for row in re.finditer(
         r"(\d+)\.\s*\*\*([^*\n]+?)\s*\(([A-L])\)\*\*\s*[—\-–]\s*(\d+)\s*pts,\s*([+\-]?\d+)\s*GD(?:\s*\(([^)]+)\))?",
@@ -497,6 +536,25 @@ def parse_best_thirds(md_text: str) -> list:
             "reason": f"M{match_num} vs {opponent.strip()}",
         })
 
+    # R8 style: "Final 8 = **Bosnia, Cape Verde, Algeria, Senegal, Japan, Ghana, Croatia, Ecuador**."
+    # or: "Top 8 best 3rd: Bosnia (B), Cape Verde (H), ..."
+    r8_match = re.search(r"(?:Final\s+8|Top\s+8\s+best\s+3rd|8\s+best\s+third[-\s]place)[:=]?\s*([^*\n]+?)(?:\.|\n)", section_text, re.IGNORECASE)
+    if r8_match:
+        text = r8_match.group(1)
+        # Extract "Team (X)" pairs, where X is a group letter A-L.
+        pairs = re.findall(r"([A-Za-z][A-Za-z\s.]+?)\s*\(([A-L])\)", text)
+        if pairs:
+            for i, (team, group) in enumerate(pairs, start=1):
+                rows.append({
+                    "rank": i,
+                    "team": team.strip().rstrip(","),
+                    "group": group.strip(),
+                    "points": None,
+                    "goal_difference": None,
+                    "reason": "R8 narrative best 3rd list",
+                })
+
+    return rows
     return rows
 
 
@@ -607,11 +665,12 @@ def parse_upset_risks(md_text: str) -> list:
         return risks
 
     # R6 numbered: 1. **Senegal over Norway (Group I MD3)** — pace vs structure; FIFA-flagged.
+    # R8 style also: 1. **R32 — Norway (G1) vs Ecuador (best 3rd)** (M82): ... **Upset probability: 15% Ecuador win.**
     for row in re.finditer(
-        r"(\d+)\.\s*\*\*([^*\n]+?)\*\*\s*[—\-–]\s*([^\n]+)",
+        r"(\d+)\.\s*\*\*([^*\n]+?)\*\*\s*[—\-–]\s*([^\n]+?)(?:\*\*\s*Upset\s+probability:\s*(\d+)%[^*\n]*)?",
         section_text,
     ):
-        rank, match, rationale = row.groups()
+        rank, match, rationale, upset_pct = row.groups()
         # Skip R5-style entries (would have been caught above)
         if "/" in match and "MD" not in match[:5]:
             continue
@@ -619,9 +678,11 @@ def parse_upset_risks(md_text: str) -> list:
             "rank": int(rank),
             "match": match.strip(),
             "stage": "—",
-            "upset_probability": None,
+            "upset_probability": parse_pct((upset_pct or "0") + "%") if upset_pct else None,
             "rationale": rationale.strip().rstrip("."),
         })
+    if risks:
+        return risks
 
     return risks
 
@@ -713,6 +774,65 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
     matches = []
 
     if with_index:
+        # R8 style: | **M73** | A2 South Korea vs B2 Bosnia | **South Korea 2-1** | 25% | 15% |
+        # 5-column: Match, Fixture, Most Likely, AET%, Pen%. No A/D/B pcts, no separate score col.
+        # Fixture cell has group/seed like "A2 South Korea" and "B2 Bosnia" → parse (group, seed).
+        # Use line-split approach (regex with optional `**` asterisks is fragile).
+        for line in section_text.split("\n"):
+            cells = [c.strip() for c in line.split("|")]
+            if len(cells) < 7 or not cells[1]:
+                continue
+            m_label = re.match(r"\*\*M?(\d+)\*\*", cells[1])
+            if not m_label:
+                continue
+            match_num = int(m_label.group(1))
+            if " vs " not in cells[2]:
+                continue
+            team_a_raw, team_b_raw = cells[2].split(" vs ", 1)
+            score = cells[3].strip().strip("*").strip()
+            aet_pct = cells[4].rstrip("%").strip()
+            pen_pct = cells[5].rstrip("%").strip()
+            idx, team_a_raw, team_b_raw, score, aet_pct, pen_pct = (
+                match_num, team_a_raw, team_b_raw, score, aet_pct, pen_pct
+            )
+            bracket_idx = idx - 73
+            team_a_clean, group_a, seed_a = _parse_team_with_seed(team_a_raw.strip())
+            team_b_clean, group_b, seed_b = _parse_team_with_seed(team_b_raw.strip())
+            score_clean = score.strip()
+            winner_hint = _extract_winner_from_score(score_clean, team_a_clean, team_b_clean)
+            # Extract team_a_win/draw/team_b_win from "TeamA N-M" (no A/D/B pcts in R8).
+            # Default neutral 0.5/0/0.5 when A/D/B not provided.
+            sm = re.match(r"(\d+)\s*[-:]\s*(\d+)", score_clean)
+            if sm and group_a and group_b and team_a_clean in score_clean and team_b_clean in score_clean:
+                h, a_ = int(sm.group(1)), int(sm.group(2))
+                # 简单判断: 0-0=draw, 其他 winner
+                if h == a_:
+                    team_a_win, draw, team_b_win = 0.0, 1.0, 0.0
+                else:
+                    draw = 0.0
+                    team_a_win = 0.5 + (0.4 if h > a_ else -0.4)
+                    team_b_win = 0.5 + (0.4 if a_ > h else -0.4)
+            else:
+                team_a_win, draw, team_b_win = 0.5, 0.0, 0.5
+            matches.append({
+                "bracket_idx": bracket_idx,
+                "team_a": team_a_clean,
+                "group_a": group_a,
+                "seed_a": seed_a,
+                "team_b": team_b_clean,
+                "group_b": group_b,
+                "seed_b": seed_b,
+                "team_a_win": team_a_win,
+                "draw": draw,
+                "team_b_win": team_b_win,
+                "score": score_clean,
+                "aet_pct": parse_pct(aet_pct + "%"),
+                "pen_pct": parse_pct(pen_pct + "%"),
+                "winner": winner_hint,
+            })
+        if matches:
+            return matches
+
         # R6 style: | # | Mexico vs Switzerland | 44 | 28 | 28 | 1-0 | 18 | 8 |
         # 8-column with bare-integer pcts, NO group/seed in team cells.
         # R6 # column is 73-88 (Match 73-88); need 0-based sequential for frontend.
@@ -839,6 +959,63 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
                 "winner": _winner_from_pct(a_pct, b_pct, d_pct),
             })
     else:
+        # R8 style: | **R16-1** | W73 (Korea) vs W74 (Germany) | **Germany 2-0** | 15% | 5% |
+        # 5-column: Match, Fixture, Most Likely, AET%, Pen%.
+        # Line-split approach (same as R32 R8 block).
+        for line in section_text.split("\n"):
+            cells = [c.strip() for c in line.split("|")]
+            if len(cells) < 6 or not cells[1]:
+                continue
+            m_label = re.match(r"\*\*(R\d+-\d+|QF\d+|SF\d+)\*\*", cells[1])
+            if not m_label:
+                continue
+            if " vs " not in cells[2]:
+                continue
+            team_a_raw, team_b_raw = cells[2].split(" vs ", 1)
+            score = cells[3].strip().strip("*").strip()
+            # R16/QF may have only 3 cols (Match, Fixture, Most Likely) without AET%/Pen%
+            aet_pct = cells[4].rstrip("%").strip() if len(cells) > 4 and cells[4] else ""
+            pen_pct = cells[5].rstrip("%").strip() if len(cells) > 5 and cells[5] else ""
+            label, team_a_raw, team_b_raw, score, aet_pct, pen_pct = (
+                m_label.group(1), team_a_raw, team_b_raw, score, aet_pct, pen_pct
+            )
+            # Strip "(W73)" winner-ref from team names
+            team_a_clean = re.sub(r"\s*\(W\d+\)\s*", "", team_a_raw).strip()
+            team_b_clean = re.sub(r"\s*\(W\d+\)\s*", "", team_b_raw).strip()
+            team_a_clean = re.sub(r"\s*\(.*?best 3rd.*?\)\s*", "", team_a_clean, flags=re.IGNORECASE).strip()
+            team_b_clean = re.sub(r"\s*\(.*?best 3rd.*?\)\s*", "", team_b_clean, flags=re.IGNORECASE).strip()
+            score_clean = score.strip()
+            sm = re.match(r"(\d+)\s*[-:]\s*(\d+)", score_clean)
+            if sm:
+                h, a_ = int(sm.group(1)), int(sm.group(2))
+                if h == a_:
+                    team_a_win, draw, team_b_win = 0.0, 1.0, 0.0
+                else:
+                    draw = 0.0
+                    team_a_win = 0.5 + (0.4 if h > a_ else -0.4)
+                    team_b_win = 0.5 + (0.4 if a_ > h else -0.4)
+            else:
+                team_a_win, draw, team_b_win = 0.5, 0.0, 0.5
+            matches.append({
+                "team_a": team_a_clean,
+                "group_a": None,
+                "seed_a": None,
+                "team_b": team_b_clean,
+                "group_b": None,
+                "seed_b": None,
+                "team_a_win": team_a_win,
+                "draw": draw,
+                "team_b_win": team_b_win,
+                "score": score_clean,
+                "aet_pct": parse_pct(aet_pct + "%") if aet_pct else None,
+                "pen_pct": parse_pct(pen_pct + "%") if pen_pct else None,
+                "winner": _extract_winner_from_score(score_clean, team_a_clean, team_b_clean),
+            })
+        for i, m in enumerate(matches):
+            m["bracket_idx"] = i
+        if matches:
+            return matches
+
         # R6 style: | 97 | Germany vs Brazil | 28 | 22 | 50 | 1-2 | 32 | 14 | (QF/SF, bare # prefix)
         r6_rows = list(re.finditer(
             r"\|\s*(\d+)\s*\|\s*([^|]+?)\s+vs\s+([^|]+?)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|",
@@ -1204,29 +1381,60 @@ def parse_final(md_text: str, verdict: Optional[dict] = None) -> dict:
     # R5 style: | Outcome Tier | Probability | Score |
     #   | 90-minute decision | **52%** | France 2–1 Argentina |
     if not tiers:
-        # Match rows like "| <label> | **<pct>%** | <score> |"
-        for i, trow in enumerate(re.finditer(
-            r"\|\s*([^|*]+?)\s*\|\s*\*\*(\d+)%\*\*\s*\|\s*([^|\n]+?)\s*\|",
+        # R8 style: 2-col table "| Outcome | Probability |" (4 rows: ARG 90min, FRA 90min, AET, Penalties)
+        for trow in re.finditer(
+            r"\|\s*([^*\n]+?)\s*\|\s*\*\*(\d+)%\*\*\s*\|",
             section_text,
-        ), start=1):
-            label_raw, pct, score_raw = trow.groups()
-            label_raw = label_raw.strip()
-            if label_raw.lower() in {"outcome tier", "tier", "score", "probability"}:
-                continue  # header row
-            label_zh_map = {
-                "90-minute decision": "90 min",
-                "after extra time": "AET",
-                "penalties": "Penalties",
-                "90 minutes (regulation)": "90 min",
-                "after extra time (aet)": "AET",
-            }
-            label_zh = label_zh_map.get(label_raw.lower(), label_raw)
+        ):
+            label, pct = trow.groups()
+            label = label.strip()
+            if label.lower() in {"outcome", "probability", "tier", "score", "outcome tier"}:
+                continue
+            label_l = label.lower()
+            if "argentina" in label_l and ("90" in label_l or "minutes" in label_l):
+                zh_label, zh_content = "90 min (阿根廷胜)", "90 分钟内阿根廷取胜"
+            elif "france" in label_l and ("90" in label_l or "minutes" in label_l):
+                zh_label, zh_content = "90 min (法国胜)", "90 分钟内法国取胜"
+            elif "aet" in label_l or "extra time" in label_l:
+                zh_label, zh_content = "AET", "进入加时赛 (120 分钟)"
+            elif "penalty" in label_l or "penalties" in label_l:
+                zh_label, zh_content = "Penalties", "进入点球大战"
+            else:
+                zh_label, zh_content = label, label
             tiers.append({
-                "tier": i,
-                "label": label_zh,
-                "content": score_raw.strip(),
+                "tier": len(tiers) + 1,
+                "label": zh_label,
+                "content": zh_content,
                 "probability": int(pct) / 100,
             })
+        if tiers:
+            # 4 tier rows from R8 → re-tier to 1, 2, 3, 4
+            for i, t in enumerate(tiers, start=1):
+                t["tier"] = i
+        else:
+            # Match rows like "| <label> | **<pct>%** | <score> |"
+            for i, trow in enumerate(re.finditer(
+                r"\|\s*([^|*]+?)\s*\|\s*\*\*(\d+)%\*\*\s*\|\s*([^|\n]+?)\s*\|",
+                section_text,
+            ), start=1):
+                label_raw, pct, score_raw = trow.groups()
+                label_raw = label_raw.strip()
+                if label_raw.lower() in {"outcome tier", "tier", "score", "probability"}:
+                    continue  # header row
+                label_zh_map = {
+                    "90-minute decision": "90 min",
+                    "after extra time": "AET",
+                    "penalties": "Penalties",
+                    "90 minutes (regulation)": "90 min",
+                    "after extra time (aet)": "AET",
+                }
+                label_zh = label_zh_map.get(label_raw.lower(), label_raw)
+                tiers.append({
+                    "tier": i,
+                    "label": label_zh,
+                    "content": score_raw.strip(),
+                    "probability": int(pct) / 100,
+                })
 
     # Combined probability / aggregated outcome
     combined_match = re.search(r"(?:Combined[^:]*:|Final\s+Aggregated\s+Outcome:?)\s*([^\n]+)", section_text)
