@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getLatestRound3Run, loadRealResults, loadOdds, lookupOdds, fmtAmericanOdds, type OddsBlock, teamFlag, teamNameZh, predictOutcome, formatPct } from "@/lib/data";
+import { getLatestRound3Run, loadRealResults, loadOdds, lookupOdds, fmtAmericanOdds, loadCorrectScores, lookupCorrectScore, topCorrectScores, type OddsBlock, type CorrectScoreBlock, teamFlag, teamNameZh, predictOutcome, formatPct } from "@/lib/data";
 
 // R4 (run_e667) 用 FIFA 三字代码 (MEX/CZE), 真实数据 + R3 用全称 (Mexico/Czech Republic)。
 // R5 偶有全名变体 (Bosnia and Herzegovina vs ESPN Bosnia)。归一化函数让 lookup 跟
@@ -180,6 +180,7 @@ export function PlayedVsPredicted() {
   const r3 = getLatestRound3Run();
   const real = loadRealResults();
   const odds = loadOdds();
+  const cs = loadCorrectScores();
 
   if (!r3 || !real || real.matches.length === 0) {
     return (
@@ -209,6 +210,7 @@ export function PlayedVsPredicted() {
     real_date?: string;       // 真实比赛日期 (ISO YYYY-MM-DD), 来自 ESPN, 用于排序
     odds?: OddsBlock;         // DraftKings 赛前盘 (post-game ESPN 不返 odds, 大部分已比赛无)
     odds_provider?: string;
+    correct_score?: CorrectScoreBlock;  // Flashscore 波胆 (Bet365 + 5 家最佳赔率), pre-game only
   };
   const rows: Row[] = [];
   for (const rm of real.matches) {
@@ -239,6 +241,7 @@ export function PlayedVsPredicted() {
         simulated: false,
         odds: lookupOdds(odds, rm.group, rm.team_a, rm.team_b)?.odds,
         odds_provider: lookupOdds(odds, rm.group, rm.team_a, rm.team_b)?.odds.provider,
+        correct_score: lookupCorrectScore(cs, rm.group, rm.team_a, rm.team_b)?.cs,
       });
       continue;
     }
@@ -256,6 +259,7 @@ export function PlayedVsPredicted() {
     const top1_hit = !!top1 && top1.home === rm.score_a && top1.away === rm.score_b;
     const top3_hit = !!top3 && top3.some((s) => s.home === rm.score_a && s.away === rm.score_b);
     const oddsLookup = lookupOdds(odds, rm.group, rm.team_a, rm.team_b);
+    const csLookup = lookupCorrectScore(cs, rm.group, rm.team_a, rm.team_b);
     rows.push({
       group: rm.group,
       team_a: rm.team_a,
@@ -278,6 +282,7 @@ export function PlayedVsPredicted() {
       real_date: rm.date ?? undefined,
       odds: oddsLookup?.odds,
       odds_provider: oddsLookup?.odds.provider,
+      correct_score: csLookup?.cs,
     });
   }
 
@@ -302,6 +307,7 @@ export function PlayedVsPredicted() {
     top_3?: { home: number; away: number; prob: number; pct?: number }[];
     odds?: OddsBlock;
     odds_provider?: string;
+    correct_score?: CorrectScoreBlock;
   };
   const playedRows = rows.slice().sort(
     (a, b) => (a.real_date ?? "").localeCompare(b.real_date ?? "") || a.groupLetter.localeCompare(b.groupLetter),
@@ -337,6 +343,7 @@ export function PlayedVsPredicted() {
     const sched = lookupMatchDate(g, a, b);
     // odds 的 date 优先 (更准), fallback ESPN_MATCH_SCHEDULE 表
     const oddsByPair = lookupOdds(odds, g, a, b);
+    const csByPair = lookupCorrectScore(cs, g, a, b);
     const date = sched?.date ?? oddsByPair?.match.date ?? approxMatchDate(g, m?.matchday ?? 1);
     const time_utc = sched?.time_utc ?? (oddsByPair?.match.kickoff_utc ? oddsByPair.match.kickoff_utc.slice(11, 16) : "—");
     const real_md = realMDFromDate(date);
@@ -362,6 +369,7 @@ export function PlayedVsPredicted() {
       top_3: m?.top_3_scores && m.top_3_scores.length > 0 ? m.top_3_scores : undefined,
       odds: oddsByPair?.odds,
       odds_provider: oddsByPair?.odds.provider,
+      correct_score: csByPair?.cs,
     });
   }
   for (const [gLetter, g] of Object.entries(r3.groups)) {
@@ -419,7 +427,9 @@ export function PlayedVsPredicted() {
         </a>
         为准。<br />
         <span className="font-bold">💰 赔率</span> =
-        DraftKings American odds (归一化扣 vig, 含大小球线),仅赛前盘 (ESPN scoreboard 不返 post-game odds, 已比赛不显示赔率)。
+        DraftKings American odds (1X2 主/平/客, 归一化扣 vig, 含大小球线),仅赛前盘 (ESPN scoreboard 不返 post-game odds)。
+        <span className="font-bold">🎯 波胆</span> =
+        Flashscore 抓 Bet365 + 5 家最佳赔率综合, decimal → American, 已扣 vig, 仅赛前盘 (已比赛不显示)。
       </div>
 
       <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
@@ -533,6 +543,28 @@ export function PlayedVsPredicted() {
                         </span>
                       </div>
                     )}
+                    {r.correct_score && (() => {
+                      const top = topCorrectScores(r.correct_score, 5);
+                      if (top.length === 0) return null;
+                      return (
+                        <div className="flex items-center gap-1 mt-0.5" title={`${r.correct_score.provider} 赛前波胆 (90 min, 已扣 vig)\n点击查看 MiroFish 预测对比`}>
+                          <span className="text-[10px] text-gray-500">波胆:</span>
+                          {top.map((s, i) => (
+                            <span
+                              key={i}
+                              className={`text-[10px] font-mono px-1 rounded ${
+                                i === 0
+                                  ? "bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-200 font-bold"
+                                  : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+                              }`}
+                              title={`${s.home}-${s.away} · 博彩 ${s.odds_american} · 已归一化 ${(s.prob_norm * 100).toFixed(1)}% (扣 vig) · ${s.n_bookmakers} 家最佳赔率`}
+                            >
+                              {s.home}-{s.away} {s.odds_american} {(s.prob_norm * 100).toFixed(0)}%
+                            </span>
+                          ))}
+                        </div>
+                      );
+                    })()}
                   </div>
                 </Link>
               );

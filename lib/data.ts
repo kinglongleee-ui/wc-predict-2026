@@ -84,6 +84,87 @@ export function loadOdds(): OddsData {
   }
 }
 
+// ---------------------------------------------------------------------------
+// 波胆赔率 (Flashscore 抓 DraftKings/Bet365/Pinnacle 等 6 家最佳赔率, 2026-06-24 起)
+// 文件: data/real/wc_2026_correct_score.json
+// ---------------------------------------------------------------------------
+export type CorrectScoreEntry = {
+  home: number;
+  away: number;
+  odds_decimal: number;
+  odds_american: string;
+  prob_norm: number;
+  n_bookmakers: number;
+  prev_decimal: number;
+};
+
+export type CorrectScoreBlock = {
+  provider: string;
+  scores: CorrectScoreEntry[];
+};
+
+export type CorrectScoreMatch = {
+  group: string | null;
+  team_a: string;
+  team_b: string;
+  date: string | null;
+  kickoff_utc: string | null;
+  is_played: boolean | null;
+  source_url?: string;
+  correct_score: CorrectScoreBlock;
+};
+
+export type CorrectScoreData = {
+  fetched_at: string;
+  source: string;
+  scraper?: string;
+  match_count: number;
+  matches: CorrectScoreMatch[];
+} | null;
+
+export function loadCorrectScores(): CorrectScoreData {
+  const fp = path.join(REAL_DIR, "wc_2026_correct_score.json");
+  if (!fs.existsSync(fp)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(fp, "utf-8")) as CorrectScoreData;
+  } catch {
+    return null;
+  }
+}
+
+// 给 (group, team_a, team_b) 查 correct_score (跟 lookupOdds 同语义: 不分主客)
+export type CorrectScoreLookup = { match: CorrectScoreMatch; cs: CorrectScoreBlock } | null;
+export function lookupCorrectScore(
+  cs: CorrectScoreData,
+  group: string | null | undefined,
+  team_a: string,
+  team_b: string,
+): CorrectScoreLookup {
+  if (!cs) return null;
+  const a = canonTeam(team_a);
+  const b = canonTeam(team_b);
+  const wantKey = [a, b].sort().join("|");
+  for (const m of cs.matches) {
+    if (group && m.group && m.group !== group) continue;
+    const ma = canonTeam(m.team_a);
+    const mb = canonTeam(m.team_b);
+    const k = [ma, mb].sort().join("|");
+    if (k === wantKey) return { match: m, cs: m.correct_score };
+  }
+  return null;
+}
+
+// 取 top N 最高概率的比分 (返回 [{home, away, prob, odds_american}, ...])
+export function topCorrectScores(
+  cs: CorrectScoreBlock | null | undefined,
+  n = 5,
+): CorrectScoreEntry[] {
+  if (!cs || !cs.scores) return [];
+  return [...cs.scores]
+    .sort((x, y) => y.prob_norm - x.prob_norm)
+    .slice(0, n);
+}
+
 // 给 (group, team_a, team_b) 排序无关查 odds (跟 playedKeyForMatch 同语义)。
 // 返回 {match, odds} 或 null — PlayedVsPredicted 直接渲染。
 export type OddsLookup = { match: OddsMatch; odds: OddsBlock } | null;
