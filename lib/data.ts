@@ -36,6 +36,83 @@ export function loadRealResults(): RealResults {
   }
 }
 
+// ---------------------------------------------------------------------------
+// 博彩赔率 (DraftKings via ESPN, 2026-06-24 起): 仅赛前盘 (state=post 的 event ESPN 不再返 odds)
+// ---------------------------------------------------------------------------
+export type OddsBlock = {
+  home_odds_american: string;
+  draw_odds_american: string;
+  away_odds_american: string;
+  home_prob_raw: number;
+  draw_prob_raw: number;
+  away_prob_raw: number;
+  overround: number;
+  home_prob_norm: number;
+  draw_prob_norm: number;
+  away_prob_norm: number;
+  over_under: number | null;
+  provider: string;
+};
+
+export type OddsMatch = {
+  group: string;
+  team_a: string;
+  team_b: string;
+  date: string | null;
+  kickoff_utc: string | null;
+  is_played: boolean;
+  odds: OddsBlock;
+};
+
+export type OddsData = {
+  fetched_at: string;
+  source: string;
+  window: string;
+  match_count: number;
+  pre_count: number;
+  post_count: number;
+  matches: OddsMatch[];
+} | null;
+
+export function loadOdds(): OddsData {
+  const fp = path.join(REAL_DIR, "wc_2026_odds.json");
+  if (!fs.existsSync(fp)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(fp, "utf-8")) as OddsData;
+  } catch {
+    return null;
+  }
+}
+
+// 给 (group, team_a, team_b) 排序无关查 odds (跟 playedKeyForMatch 同语义)。
+// 返回 {match, odds} 或 null — PlayedVsPredicted 直接渲染。
+export type OddsLookup = { match: OddsMatch; odds: OddsBlock } | null;
+export function lookupOdds(
+  odds: OddsData,
+  group: string,
+  team_a: string,
+  team_b: string,
+): OddsLookup {
+  if (!odds) return null;
+  const a = canonTeam(team_a);
+  const b = canonTeam(team_b);
+  const wantKey = [a, b].sort().join("|");
+  for (const m of odds.matches) {
+    if (m.group !== group) continue;
+    const ma = canonTeam(m.team_a);
+    const mb = canonTeam(m.team_b);
+    const k = [ma, mb].sort().join("|");
+    if (k === wantKey) return { match: m, odds: m.odds };
+  }
+  return null;
+}
+
+// 美国式赔数 → 中文 "主/平/客" 标签: 直接返原串 (-185 / +300 / +600)
+export function fmtAmericanOdds(s: string | null | undefined): string {
+  if (!s) return "—";
+  return s.startsWith("+") || s.startsWith("-") ? s : `+${s}`;
+}
+
 // Build a lookup key from (group, team_a, team_b) regardless of who is home/away.
 // Used by /bracket and /groups to colour matches that have already been played.
 export type PlayedKey = string; // "{group}|{team_a_canonical}|{team_b_canonical}"

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getLatestRound3Run, loadRealResults, teamFlag, teamNameZh, predictOutcome, formatPct } from "@/lib/data";
+import { getLatestRound3Run, loadRealResults, loadOdds, lookupOdds, fmtAmericanOdds, type OddsBlock, teamFlag, teamNameZh, predictOutcome, formatPct } from "@/lib/data";
 
 // R4 (run_e667) 用 FIFA 三字代码 (MEX/CZE), 真实数据 + R3 用全称 (Mexico/Czech Republic)。
 // R5 偶有全名变体 (Bosnia and Herzegovina vs ESPN Bosnia)。归一化函数让 lookup 跟
@@ -179,6 +179,7 @@ function approxMatchDate(group: string, matchday: number): string {
 export function PlayedVsPredicted() {
   const r3 = getLatestRound3Run();
   const real = loadRealResults();
+  const odds = loadOdds();
 
   if (!r3 || !real || real.matches.length === 0) {
     return (
@@ -206,6 +207,8 @@ export function PlayedVsPredicted() {
     simulated: boolean;       // MiroFish 是否模拟了这场
     top_3?: { home: number; away: number; prob: number; pct?: number }[];
     real_date?: string;       // 真实比赛日期 (ISO YYYY-MM-DD), 来自 ESPN, 用于排序
+    odds?: OddsBlock;         // DraftKings 赛前盘 (post-game ESPN 不返 odds, 大部分已比赛无)
+    odds_provider?: string;
   };
   const rows: Row[] = [];
   for (const rm of real.matches) {
@@ -234,6 +237,8 @@ export function PlayedVsPredicted() {
         mirofish_conf: 0,
         groupLetter: rm.group,
         simulated: false,
+        odds: lookupOdds(odds, rm.group, rm.team_a, rm.team_b)?.odds,
+        odds_provider: lookupOdds(odds, rm.group, rm.team_a, rm.team_b)?.odds.provider,
       });
       continue;
     }
@@ -250,6 +255,7 @@ export function PlayedVsPredicted() {
     const top1 = top3?.[0];
     const top1_hit = !!top1 && top1.home === rm.score_a && top1.away === rm.score_b;
     const top3_hit = !!top3 && top3.some((s) => s.home === rm.score_a && s.away === rm.score_b);
+    const oddsLookup = lookupOdds(odds, rm.group, rm.team_a, rm.team_b);
     rows.push({
       group: rm.group,
       team_a: rm.team_a,
@@ -270,6 +276,8 @@ export function PlayedVsPredicted() {
       simulated: true,
       top_3: top3,
       real_date: rm.date ?? undefined,
+      odds: oddsLookup?.odds,
+      odds_provider: oddsLookup?.odds.provider,
     });
   }
 
@@ -292,6 +300,8 @@ export function PlayedVsPredicted() {
     pred_score: string;
     mirofish_conf: number;
     top_3?: { home: number; away: number; prob: number; pct?: number }[];
+    odds?: OddsBlock;
+    odds_provider?: string;
   };
   const playedRows = rows.slice().sort(
     (a, b) => (a.real_date ?? "").localeCompare(b.real_date ?? "") || a.groupLetter.localeCompare(b.groupLetter),
@@ -313,36 +323,57 @@ export function PlayedVsPredicted() {
   }
 
   const upcomingRows: UpcomingRow[] = [];
+  // 已收集的 (group, sorted pair) 用于去重 — MiroFish + odds 可能都有同一场
+  const seenUpcomingKeys = new Set<string>();
+  function pushUpcoming(g: string, a: string, b: string, m?: {
+    top_3_scores?: { home: number; away: number; prob: number; pct?: number }[];
+    most_likely_score?: { home: number | null; away: number | null };
+    team_a_win: number; draw: number; team_b_win: number; matchday: number;
+  }) {
+    const key = `${g}|${[normalizeTeam(a), normalizeTeam(b)].sort().join("|")}`;
+    if (realKeys.has(key.split("|").slice(1).join("|"))) return;
+    if (seenUpcomingKeys.has(key)) return;
+    seenUpcomingKeys.add(key);
+    const sched = lookupMatchDate(g, a, b);
+    // odds 的 date 优先 (更准), fallback ESPN_MATCH_SCHEDULE 表
+    const oddsByPair = lookupOdds(odds, g, a, b);
+    const date = sched?.date ?? oddsByPair?.match.date ?? approxMatchDate(g, m?.matchday ?? 1);
+    const time_utc = sched?.time_utc ?? (oddsByPair?.match.kickoff_utc ? oddsByPair.match.kickoff_utc.slice(11, 16) : "—");
+    const real_md = realMDFromDate(date);
+    const cst = toCst(date, time_utc);
+    const top1 = m?.top_3_scores?.[0];
+    upcomingRows.push({
+      group: g,
+      team_a: a,
+      team_b: b,
+      matchday: real_md,
+      approx_date: date,
+      time_utc,
+      sort_key: `${date} ${time_utc}`,
+      cst_date: cst.date,
+      cst_time: cst.time,
+      cst_sort_key: `${cst.date} ${cst.time}`,
+      pred_score: top1
+        ? `${top1.home}-${top1.away}`
+        : (m?.most_likely_score?.home != null && m?.most_likely_score?.away != null
+            ? `${m.most_likely_score.home}-${m.most_likely_score.away}`
+            : "—"),
+      mirofish_conf: m ? Math.max(m.team_a_win, m.draw, m.team_b_win) : 0,
+      top_3: m?.top_3_scores && m.top_3_scores.length > 0 ? m.top_3_scores : undefined,
+      odds: oddsByPair?.odds,
+      odds_provider: oddsByPair?.odds.provider,
+    });
+  }
   for (const [gLetter, g] of Object.entries(r3.groups)) {
     for (const m of g.matches) {
-      const a = normalizeTeam(m.team_a);
-      const b = normalizeTeam(m.team_b);
-      const key = [a, b].sort().join("|");
-      if (realKeys.has(key)) continue; // 已比赛 → 跳过
-      // 精确查表 (per-matchup), 查不到 fallback 近似 (同组同 MD 内最早日期)
-      const sched = lookupMatchDate(gLetter, m.team_a, m.team_b);
-      const date = sched?.date ?? approxMatchDate(gLetter, m.matchday);
-      const time_utc = sched?.time_utc ?? "—";
-      const real_md = realMDFromDate(date);
-      const cst = toCst(date, time_utc);
-      const top1 = m.top_3_scores?.[0];
-      upcomingRows.push({
-        group: gLetter,
-        team_a: m.team_a,
-        team_b: m.team_b,
-        matchday: real_md,                // 用真实 MD, 不用 MiroFish 错位的
-        approx_date: date,
-        time_utc,
-        sort_key: `${date} ${time_utc}`,
-        cst_date: cst.date,
-        cst_time: cst.time,
-        cst_sort_key: `${cst.date} ${cst.time}`,
-        pred_score: top1
-          ? `${top1.home}-${top1.away}`
-          : `${m.most_likely_score.home ?? "—"}-${m.most_likely_score.away ?? "—"}`,
-        mirofish_conf: Math.max(m.team_a_win, m.draw, m.team_b_win),
-        top_3: m.top_3_scores && m.top_3_scores.length > 0 ? m.top_3_scores : undefined,
-      });
+      pushUpcoming(gLetter, m.team_a, m.team_b, m);
+    }
+  }
+  // 兜底: odds 里有但 MiroFish 没模拟的 (R7 只跑了已比赛 46 场, 25 场 pre-game
+  // odds 全没 R7 数据; 用 odds 反推一张"赔率 + 时间"卡, 让用户能看到博彩预期)
+  if (odds) {
+    for (const om of odds.matches) {
+      pushUpcoming(om.group, om.team_a, om.team_b);
     }
   }
   upcomingRows.sort(
@@ -386,7 +417,9 @@ export function PlayedVsPredicted() {
         >
           FIFA 官方赛事页
         </a>
-        为准。
+        为准。<br />
+        <span className="font-bold">💰 赔率</span> =
+        DraftKings American odds (归一化扣 vig, 含大小球线),仅赛前盘 (ESPN scoreboard 不返 post-game odds, 已比赛不显示赔率)。
       </div>
 
       <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
@@ -486,6 +519,20 @@ export function PlayedVsPredicted() {
                         ))}
                       </div>
                     )}
+                    {r.odds && (
+                      <div className="flex items-center gap-1 mt-0.5" title={`${r.odds_provider ?? "博彩"} 赛前盘 (American odds, 归一化扣 vig)\nO/U = ${r.odds.over_under ?? "—"}`}>
+                        <span className="text-[10px] text-gray-500">赔率:</span>
+                        <span className="text-[10px] font-mono px-1 rounded bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-200">
+                          主 {fmtAmericanOdds(r.odds.home_odds_american)} {(r.odds.home_prob_norm * 100).toFixed(0)}%
+                        </span>
+                        <span className="text-[10px] font-mono px-1 rounded bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                          平 {fmtAmericanOdds(r.odds.draw_odds_american)} {(r.odds.draw_prob_norm * 100).toFixed(0)}%
+                        </span>
+                        <span className="text-[10px] font-mono px-1 rounded bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                          客 {fmtAmericanOdds(r.odds.away_odds_american)} {(r.odds.away_prob_norm * 100).toFixed(0)}%
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </Link>
               );
@@ -571,6 +618,20 @@ export function PlayedVsPredicted() {
                             </span>
                           );
                         })}
+                      </div>
+                    )}
+                    {r.odds && (
+                      <div className="flex items-center gap-1 mt-0.5" title={`${r.odds_provider ?? "博彩"} 赛前盘 (American odds, 归一化扣 vig)\nO/U = ${r.odds.over_under ?? "—"}`}>
+                        <span className="text-[10px] text-gray-500">赔率:</span>
+                        <span className="text-[10px] font-mono px-1 rounded bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-200">
+                          主 {fmtAmericanOdds(r.odds.home_odds_american)} {(r.odds.home_prob_norm * 100).toFixed(0)}%
+                        </span>
+                        <span className="text-[10px] font-mono px-1 rounded bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                          平 {fmtAmericanOdds(r.odds.draw_odds_american)} {(r.odds.draw_prob_norm * 100).toFixed(0)}%
+                        </span>
+                        <span className="text-[10px] font-mono px-1 rounded bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                          客 {fmtAmericanOdds(r.odds.away_odds_american)} {(r.odds.away_prob_norm * 100).toFixed(0)}%
+                        </span>
                       </div>
                     )}
                   </>
