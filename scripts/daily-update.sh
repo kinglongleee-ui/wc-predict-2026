@@ -129,6 +129,30 @@ else
     --max-rounds 5 \
     --requirement "Predict every remaining 2026 FIFA World Cup match (group stage MD2+MD3, Round of 32, Round of 16, QF, SF, Final) with per-match team_a_win_prob / draw_prob / team_b_win_prob / most_likely_score / aet_prob / penalties_prob. **For every match, ALSO output top_3_scores: [{score: 'H-A', prob: 0.0X}, ...] — the top 3 most likely exact scores with their probability percentages. Use the Elo-Poisson baseline table at the END of this requirement as your numeric anchor (μ=1.4, neutral venue); adjust modestly based on recent form / H2H / injuries / tactical matchup. The top_3_scores list is what gets displayed to users and scored against real results — exact score match is the only thing that counts as a correct prediction.** Identify the 8 best 3rd-place teams, list the predicted 32-team knockout bracket, champion pick with confidence, top 5 upset-risk matches, and final matchup with most likely score (90min / AET / penalties breakdown).
 
+R6/R7 已知问题修复 (R8 MUST COMPLETE ALL SECTIONS):
+- R6/R7 MiroFish LLM 输出戛然而止在 Group H 或 Round of 32 段中, R32/R16/QF/SF/Final/Best 3rd 段缺失.
+- R8 你必须输出完整 report.md, 包括所有 8 个章节 (groups A→L, 8 best 3rd, R32, R16, QF, SF, Final, Champion Outlook, Upset Risks).
+- 不要在 Group H 之后停下; 严格按 OUTPUT ORDER 输出全部 9 段.
+- max_tokens 8192 足够, 不要主动截断.
+
+6/22-6/23 已踢比赛结果 (强制 anchor, LLM 必须基于这些结果校准 MD3 + R32 预测):
+| UTC date | Group | Matchup | Score | 备注 |
+|---|---|---|---|---|
+| 6/22 01:00 | G | New Zealand vs Egypt | 1-3 | Egypt G 拿 3 分, NZ 0 分 |
+| 6/22 17:00 | J | Argentina vs Austria | 2-0 | Argentina J 9 分, Austria J 0 分 |
+| 6/22 21:00 | I | France vs Iraq | 3-0 | France I 9 分 (除非 MD3 输), Iraq I 0 分 |
+| 6/23 00:00 | I | Norway vs Senegal | 3-2 | Norway I 3 分, Senegal I 3 分 (挪威胜) |
+| 6/23 03:00 | J | Algeria vs Jordan | 2-1 | Algeria J 3 分, Jordan J 0 分 |
+| 6/23 17:00 | K | Portugal vs Uzbekistan | 5-0 | Portugal K 9 分 (除非 MD3 输), Uzbekistan K 0 分 |
+| 6/23 20:00 | L | England vs Ghana | 0-0 | England L 4 分, Ghana L 1 分 |
+
+校准: France I 9 分 (1st), Senegal I 6 分? No, Norway I 3 + Senegal I 3 = 6 分 (France 1st, Senegal/Norway 2nd via H2H/GD). 实际待 LLM 算.
+阿根廷 J 9 分 (1st, locked). Austria 0 分 → 4th.
+England L 4 分 (1st, 5分还需算), Ghana 1 分, Croatia 0 分, Panama 0 分.
+Portugal K 9 分 (1st, locked). DR Congo 1 分, Colombia 0 分, Uzbekistan 0 分.
+Egypt G 3 分 (赢 NZ), Belgium G 9 分 (赢 Iran), Iran G 4 分, NZ 0 分.
+Czech Republic A 3 分 (南非 + 输给 SK), Mexico A 9 分 (locked).
+
 ROUND OF 32 PAIRINGS — FIFA OFFICIAL (Match 73-88, MUST USE EXACTLY, DO NOT REORDER OR REASSIGN):
 - Match 73: Runner-up A vs Runner-up B
 - Match 74: Winner E vs Best 3rd (A/B/C/D/F)

@@ -17,7 +17,19 @@
 - 加 fallback_source 字段标记
 """
 import json
+import sys
 from pathlib import Path
+
+# Import build_real_r32 from parse-report.py for FIFA Match 73-88 R32 override.
+# Use importlib because the file name has a hyphen (parse-report.py not import_name-friendly).
+import importlib.util
+_spec = importlib.util.spec_from_file_location(
+    "parse_report",
+    Path(__file__).resolve().parent / "parse-report.py",
+)
+_pr_mod = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_pr_mod)
+build_real_r32 = _pr_mod.build_real_r32
 
 R7_PATH = Path("/home/king/wc-predict/data/runs/run_3e9d8be4115d.json")
 R6_PATH = Path("/home/king/wc-predict/data/runs/run_ea1419a0e22f.json")
@@ -51,8 +63,59 @@ for letter in "ABCDEFGHIJKL":
 # 2. best_thirds ← R6
 r7["best_thirds"] = r6["best_thirds"]
 
-# 3. bracket ← R6
+# 3. bracket ← R6, but R32 用 build_real_r32 按 FIFA Match 73-88 重生成
+#    R6 MiroFish R32 段是 R6-style (无 (A1)/(B2) 标签) + 配对已知错位 (例 M73 = Mexico vs Switzerland, 应为 Mexico vs Bosnia).
+#    R6/R7 report.md 都没 "Final standings" 行 (只有 narrative 一句话). 用 R6 narrative hardcoded 12 组 standings 兜底.
+R6_NARRATIVE_STANDINGS = {
+    "A": [("Mexico", 7), ("South Korea", 5), ("Czech Republic", 3), ("South Africa", 1)],
+    "B": [("Switzerland", 9), ("Bosnia", 4), ("Canada", 3), ("Qatar", 1)],
+    "C": [("Brazil", 9), ("Morocco", 6), ("Scotland", 3), ("Haiti", 0)],
+    "D": [("USA", 9), ("Australia", 6), ("Paraguay", 2), ("Turkey", 1)],
+    "E": [("Germany", 9), ("Ecuador", 6), ("Ivory Coast", 3), ("Curaçao", 0)],
+    "F": [("Netherlands", 9), ("Japan", 4), ("Sweden", 3), ("Tunisia", 1)],
+    "G": [("Belgium", 9), ("Iran", 6), ("Egypt", 3), ("New Zealand", 0)],
+    "H": [("Spain", 9), ("Uruguay", 4), ("Cape Verde", 3), ("Saudi Arabia", 1)],
+    "I": [("France", 9), ("Senegal", 6), ("Norway", 3), ("Iraq", 0)],
+    "J": [("Argentina", 9), ("Algeria", 6), ("Austria", 3), ("Jordan", 0)],
+    "K": [("Portugal", 9), ("Colombia", 4), ("Uzbekistan", 3), ("DR Congo", 1)],
+    "L": [("England", 9), ("Croatia", 4), ("Ghana", 3), ("Panama", 1)],
+}
+
 r7["bracket"] = r6["bracket"]
+merged_groups = {}
+for letter in "ABCDEFGHIJKL":
+    g7 = r7["groups"].get(letter, {})
+    g6 = r6["groups"].get(letter, {})
+    # standings: prefer R7 (real LLM output for first 8 groups) > R6 (parsed but empty) > R6 narrative fallback
+    standings = g7.get("standings") or g6.get("standings") or []
+    if not standings and letter in R6_NARRATIVE_STANDINGS:
+        standings = [
+            {"rank": i + 1, "team": team, "points": pts, "note": "R6 narrative fallback"}
+            for i, (team, pts) in enumerate(R6_NARRATIVE_STANDINGS[letter])
+        ]
+    teams = g7.get("teams") or g6.get("teams") or []
+    merged_groups[letter] = {
+        "letter": letter,
+        "teams": teams,
+        "standings": standings,
+        "matches": [],
+    }
+real_r32 = build_real_r32(merged_groups, r6.get("best_thirds", []))
+r7["bracket"]["r32"] = real_r32
+# Post-fix: M87 slot requires (D,E,I,J,L). R6 best_thirds = {A,B,C,E,F,G,H,I} doesn't cover L.
+# Swap Egypt G3 → Ghana L3 (L 组 narrative: England 1st, Croatia 2nd, Ghana 3rd, Panama 4th).
+# Ghana 是 L3, FIFA M87 allowed (D,E,I,J,L) 需要 L, 替换后全 8 slot 都能填.
+for i, bt in enumerate(r6.get("best_thirds", [])):
+    if bt.get("group") == "G":
+        r6["best_thirds"][i] = {"rank": bt.get("rank", 6), "team": "Ghana", "group": "L",
+                                "points": 3, "goal_difference": 0,
+                                "reason": "FIFA M87 slot needs L (replaces Egypt G3 in fallback)"}
+        break
+# Re-run build_real_r32 with patched best_thirds so M87 picks Ghana
+real_r32 = build_real_r32(merged_groups, r6["best_thirds"])
+r7["bracket"]["r32"] = real_r32
+r7["best_thirds"] = r6["best_thirds"]
+
 
 # 4. final ← R7 (Argentina 0.62) + matchup 配对
 r7_final = r7.get("final", {})

@@ -2516,11 +2516,11 @@
     },
     {
       "rank": 6,
-      "team": "Egypt",
-      "group": "G",
-      "points": null,
-      "goal_difference": null,
-      "reason": "rank 6 埃及 (G): M85 对加拿大"
+      "team": "Ghana",
+      "group": "L",
+      "points": 3,
+      "goal_difference": 0,
+      "reason": "FIFA M87 slot needs L (replaces Egypt G3 in fallback)"
     },
     {
       "rank": 7,
@@ -2543,579 +2543,259 @@
     "r32": [
       {
         "bracket_idx": 0,
-        "team_a": "Mexico",
-        "group_a": null,
-        "seed_a": null,
-        "team_b": "Switzerland",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.44,
-        "draw": 0.28,
-        "team_b_win": 0.28,
-        "score": "1-0",
-        "aet_pct": 0.18,
-        "pen_pct": 0.08,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.1899,
-            "pct": 19.0
-          },
-          {
-            "home": 0,
-            "away": 1,
-            "prob": 0.1553,
-            "pct": 15.5
-          }
-        ]
+        "team_a": "South Korea",
+        "group_a": "A",
+        "seed_a": 2,
+        "team_b": "Bosnia",
+        "group_b": "B",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 1,
         "team_a": "Germany",
-        "group_a": null,
-        "seed_a": null,
-        "team_b": "Ivory Coast",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.7,
-        "draw": 0.18,
-        "team_b_win": 0.12,
-        "score": "3-1",
-        "aet_pct": 0.1,
-        "pen_pct": 0.04,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.2344,
-            "pct": 23.4
-          },
-          {
-            "home": 2,
-            "away": 0,
-            "prob": 0.1114,
-            "pct": 11.1
-          }
-        ]
+        "group_a": "E",
+        "seed_a": 1,
+        "team_b": "Czech Republic",
+        "group_b": "A",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 2,
         "team_a": "Netherlands",
-        "group_a": null,
-        "seed_a": null,
+        "group_a": "F",
+        "seed_a": 1,
         "team_b": "Morocco",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.52,
-        "draw": 0.24,
-        "team_b_win": 0.24,
-        "score": "2-1",
-        "aet_pct": 0.22,
-        "pen_pct": 0.09,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 0,
-            "away": 1,
-            "prob": 0.1726,
-            "pct": 17.3
-          },
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.1726,
-            "pct": 17.3
-          }
-        ]
+        "group_b": "C",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 3,
         "team_a": "Brazil",
-        "group_a": null,
-        "seed_a": null,
+        "group_a": "C",
+        "seed_a": 1,
         "team_b": "Japan",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.76,
-        "draw": 0.14,
-        "team_b_win": 0.1,
-        "score": "2-0",
-        "aet_pct": 0.08,
-        "pen_pct": 0.03,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.2233,
-            "pct": 22.3
-          },
-          {
-            "home": 0,
-            "away": 1,
-            "prob": 0.122,
-            "pct": 12.2
-          }
-        ]
+        "group_b": "F",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 4,
         "team_a": "France",
-        "group_a": null,
-        "seed_a": null,
-        "team_b": "Sweden",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.84,
-        "draw": 0.1,
-        "team_b_win": 0.06,
-        "score": "3-0",
-        "aet_pct": 0.04,
-        "pen_pct": 0.02,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.2836,
-            "pct": 28.4
-          },
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 2,
-            "away": 0,
-            "prob": 0.163,
-            "pct": 16.3
-          }
-        ]
+        "group_a": "I",
+        "seed_a": 1,
+        "team_b": "Scotland",
+        "group_b": "C",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 5,
         "team_a": "Ecuador",
-        "group_a": null,
-        "seed_a": null,
+        "group_a": "E",
+        "seed_a": 2,
         "team_b": "Senegal",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.38,
-        "draw": 0.28,
-        "team_b_win": 0.34,
-        "score": "1-2",
-        "aet_pct": 0.24,
-        "pen_pct": 0.1,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 0,
-            "away": 1,
-            "prob": 0.2045,
-            "pct": 20.5
-          },
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.1407,
-            "pct": 14.1
-          }
-        ]
+        "group_b": "I",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 6,
-        "team_a": "South Korea",
-        "group_a": null,
-        "seed_a": null,
-        "team_b": "Scotland",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.48,
-        "draw": 0.28,
-        "team_b_win": 0.24,
-        "score": "2-1",
-        "aet_pct": 0.2,
-        "pen_pct": 0.08,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.2045,
-            "pct": 20.5
-          },
-          {
-            "home": 0,
-            "away": 1,
-            "prob": 0.1407,
-            "pct": 14.1
-          }
-        ]
+        "team_a": "Mexico",
+        "group_a": "A",
+        "seed_a": 1,
+        "team_b": "Ivory Coast",
+        "group_b": "E",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 7,
         "team_a": "England",
-        "group_a": null,
-        "seed_a": null,
+        "group_a": "L",
+        "seed_a": 1,
         "team_b": "Cape Verde",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.78,
-        "draw": 0.14,
-        "team_b_win": 0.08,
-        "score": "2-0",
-        "aet_pct": 0.06,
-        "pen_pct": 0.02,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.3003,
-            "pct": 30.0
-          },
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 2,
-            "away": 0,
-            "prob": 0.1829,
-            "pct": 18.3
-          }
-        ]
+        "group_b": "H",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 8,
-        "team_a": "Turkey",
-        "group_a": null,
-        "seed_a": null,
+        "team_a": "USA",
+        "group_a": "D",
+        "seed_a": 1,
         "team_b": "Bosnia",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.54,
-        "draw": 0.26,
-        "team_b_win": 0.2,
-        "score": "2-0",
-        "aet_pct": 0.14,
-        "pen_pct": 0.05,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.1751,
-            "pct": 17.5
-          },
-          {
-            "home": 0,
-            "away": 1,
-            "prob": 0.1701,
-            "pct": 17.0
-          }
-        ]
+        "group_b": "B",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 9,
         "team_a": "Belgium",
-        "group_a": null,
-        "seed_a": null,
-        "team_b": "Czech Republic",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.66,
-        "draw": 0.22,
-        "team_b_win": 0.12,
-        "score": "2-0",
-        "aet_pct": 0.1,
-        "pen_pct": 0.04,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.2586,
-            "pct": 25.9
-          },
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 2,
-            "away": 0,
-            "prob": 0.1356,
-            "pct": 13.6
-          }
-        ]
+        "group_a": "G",
+        "seed_a": 1,
+        "team_b": "Norway",
+        "group_b": "I",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 10,
         "team_a": "Colombia",
-        "group_a": null,
-        "seed_a": null,
+        "group_a": "K",
+        "seed_a": 2,
         "team_b": "Croatia",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.4,
-        "draw": 0.26,
-        "team_b_win": 0.34,
-        "score": "1-2",
-        "aet_pct": 0.26,
-        "pen_pct": 0.11,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 0,
-            "away": 1,
-            "prob": 0.1801,
-            "pct": 18.0
-          },
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.1652,
-            "pct": 16.5
-          }
-        ]
+        "group_b": "L",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 11,
         "team_a": "Spain",
-        "group_a": null,
-        "seed_a": null,
+        "group_a": "H",
+        "seed_a": 1,
         "team_b": "Algeria",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.82,
-        "draw": 0.12,
-        "team_b_win": 0.06,
-        "score": "3-0",
-        "aet_pct": 0.04,
-        "pen_pct": 0.02,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.2918,
-            "pct": 29.2
-          },
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 2,
-            "away": 0,
-            "prob": 0.1727,
-            "pct": 17.3
-          }
-        ]
+        "group_b": "J",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 12,
-        "team_a": "Canada",
-        "group_a": null,
-        "seed_a": null,
-        "team_b": "Egypt",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.48,
-        "draw": 0.28,
-        "team_b_win": 0.24,
-        "score": "2-1",
-        "aet_pct": 0.2,
-        "pen_pct": 0.08,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 0,
-            "away": 1,
-            "prob": 0.1949,
-            "pct": 19.5
-          },
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.1504,
-            "pct": 15.0
-          }
-        ]
+        "team_a": "Switzerland",
+        "group_a": "B",
+        "seed_a": 1,
+        "team_b": "Sweden",
+        "group_b": "F",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 13,
         "team_a": "Argentina",
-        "group_a": null,
-        "seed_a": null,
+        "group_a": "J",
+        "seed_a": 1,
         "team_b": "Uruguay",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.62,
-        "draw": 0.22,
-        "team_b_win": 0.16,
-        "score": "2-1",
-        "aet_pct": 0.16,
-        "pen_pct": 0.06,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.2641,
-            "pct": 26.4
-          },
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 2,
-            "away": 0,
-            "prob": 0.1414,
-            "pct": 14.1
-          }
-        ]
+        "group_b": "H",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 14,
         "team_a": "Portugal",
-        "group_a": null,
-        "seed_a": null,
-        "team_b": "Norway",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.68,
-        "draw": 0.2,
-        "team_b_win": 0.12,
-        "score": "2-0",
-        "aet_pct": 0.12,
-        "pen_pct": 0.05,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.2344,
-            "pct": 23.4
-          },
-          {
-            "home": 2,
-            "away": 0,
-            "prob": 0.1114,
-            "pct": 11.1
-          }
-        ]
+        "group_a": "K",
+        "seed_a": 1,
+        "team_b": "Ghana",
+        "group_b": "L",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       },
       {
         "bracket_idx": 15,
-        "team_a": "USA",
-        "group_a": null,
-        "seed_a": null,
+        "team_a": "Australia",
+        "group_a": "D",
+        "seed_a": 2,
         "team_b": "Iran",
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.56,
-        "draw": 0.24,
-        "team_b_win": 0.2,
-        "score": "2-0",
-        "aet_pct": 0.14,
-        "pen_pct": 0.06,
-        "winner": "a",
-        "top_3_scores": [
-          {
-            "home": 0,
-            "away": 0,
-            "prob": 0.2466,
-            "pct": 24.7
-          },
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.1973,
-            "pct": 19.7
-          },
-          {
-            "home": 0,
-            "away": 1,
-            "prob": 0.1479,
-            "pct": 14.8
-          }
-        ]
+        "group_b": "G",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null
       }
     ],
     "r16": [],
@@ -3385,7 +3065,7 @@
       "rationale": "#5 克罗地亚淘汰葡萄牙: 莫德里奇告别赛经验"
     }
   ],
-  "report_markdown": "# 2026 FIFA World Cup — Full Bracket Prediction Report\n\n## Executive Summary\n\nUsing the Elo-Poisson baseline (μ=1.4, neutral) blended ~30/70 with DraftKings 1X2 priors, **Argentina is the predicted champion (~14% lift), defeating France 2-1 in AET** in the Final. Brazil and England are early exits in the QF and SF respectively, while the model highlights five genuine upset-risk R32 ties — most notably **Argentina vs Uruguay (M86)** and **Colombia vs Croatia (M83)**. As Algeria posted in R0: *\"Elo-Poisson baseline (μ=1.4, neutral venue) blended 30/70 with DraftKings 1X2 priors\"* anchors the entire pipeline. Ancelotti flagged: *\"Group I is the clear Group of Death — France, Norway, Senegal, Iraq\"*; the model concurs, projecting France to top the group at ~58%.\n\n---\n\n## All 12 Groups — MD2 + MD3 Predictions\n\nFormat: `Matchup | A% / D% / B% | Most-likely | Top-3 scores`\n\n### Group A (Mexico · South Korea · Czech Republic · South Africa)\n- MD2: South Korea vs Czech Republic → **KOR 0.45 / D 0.28 / CZE 0.27** | 1-1 | (1-1 14.2%, 1-0 12.8%, 0-1 11.4%)\n- MD2: Mexico vs South Africa → **MEX 0.74 / D 0.16 / RSA 0.10** | 2-0 | (2-0 16.8%, 1-0 14.1%, 3-0 9.7%)\n- MD3: **Mexico vs South Korea** → MEX 0.50 / D 0.27 / KOR 0.23 | 1-1 | (1-1 13.1%, 1-0 12.4%, 0-0 8.6%)\n- MD3: Czech Republic vs South Africa → CZE 0.55 / D 0.25 / RSA 0.20 | 1-0 | (1-0 14.6%, 2-0 11.2%, 1-1 9.8%)\n- **Final standings:** 1) Mexico 7pts  2) South Korea 5pts  3) Czech Republic 3pts  4) South Africa 1pt\n\n### Group B (Canada · Switzerland · Qatar · Bosnia and Herzegovina)\n- MD2: Switzerland vs Qatar → SUI 0.68 / D 0.19 / QAT 0.13 | 2-0 | (2-0 15.7%, 1-0 13.4%, 3-0 8.9%)\n- MD2: Canada vs Bosnia → CAN 0.40 / D 0.30 / BIH 0.30 | 1-1 | (1-1 14.8%, 1-0 11.7%, 0-1 10.2%)\n- MD3: **Canada vs Switzerland** → CAN 0.30 / D 0.26 / SUI 0.44 | 1-1 | (1-1 13.5%, 0-1 12.0%, 1-2 8.4%)\n- MD3: Bosnia vs Qatar → BIH 0.50 / D 0.27 / QAT 0.23 | 1-0 | (1-0 14.2%, 2-0 10.6%, 1-1 9.1%)\n- **Final standings:** 1) Switzerland 9pts  2) Bosnia 4pts  3) Canada 3pts  4) Qatar 1pt\n\n### Group C (Brazil · Morocco · Scotland · Haiti)\n- MD2: **Brazil vs Haiti** → BRA 0.86 / D 0.09 / HAI 0.05 | 3-0 | (3-0 18.2%, 2-0 16.4%, 4-0 9.1%)\n- MD2: Morocco vs Scotland → MAR 0.52 / D 0.26 / SCO 0.22 | 1-0 | (1-0 13.8%, 2-1 9.6%, 1-1 8.9%)\n- MD3: **Brazil vs Scotland** → BRA 0.80 / D 0.13 / SCO 0.07 | 2-0 | (2-0 16.9%, 3-0 12.3%, 1-0 11.7%)\n- MD3: **Haiti vs Morocco** → MAR 0.78 / D 0.14 / HAI 0.08 | 2-0 | (2-0 15.4%, 3-0 10.8%, 1-0 10.2%)\n- **Final standings:** 1) Brazil 9pts  2) Morocco 6pts  3) Scotland 3pts  4) Haiti 0pts\n- Bellingham noted: *\"Group C draw is sneaky. Brazil are overwhelming favorites, but Morocco (2022 semifinal pedigree) + Scotland (organized, physical)\"* — confirmed by the runner-up spread (2-goal goal-diff swing for MAR/SCO).\n\n### Group D (USA · Paraguay · Australia · Turkey)\n- MD2: **Paraguay vs Turkey** → PAR 0.38 / D 0.28 / TUR 0.34 | 1-1 | (1-1 13.9%, 1-0 12.1%, 0-1 11.7%)\n- MD2: USA vs Australia → USA 0.55 / D 0.24 / AUS 0.21 | 1-0 | (1-0 14.1%, 2-0 11.8%, 1-1 9.3%)\n- MD3: USA vs Turkey → USA 0.55 / D 0.24 / TUR 0.21 | 2-1 | (2-1 10.4%, 1-0 13.7%, 2-0 9.2%)\n- MD3: Australia vs Paraguay → AUS 0.48 / D 0.27 / PAR 0.25 | 1-0 | (1-0 13.2%, 1-1 10.1%, 2-0 9.7%)\n- **Final standings:** 1) USA 9pts  2) Australia 6pts  3) Paraguay 2pts  4) Turkey 1pt\n\n### Group E (Germany · Ecuador · Ivory Coast · Curaçao)\n- MD2: **Germany vs Ivory Coast** → GER 0.72 / D 0.17 / CIV 0.11 | 2-0 | (2-0 16.1%, 1-0 13.7%, 3-0 9.8%)\n- MD2: **Ecuador vs Curaçao** → ECU 0.78 / D 0.15 / CUR 0.07 | 2-0 | (2-0 16.8%, 3-0 11.4%, 1-0 12.6%)\n- MD3: **Germany vs Ecuador** → GER 0.65 / D 0.21 / ECU 0.14 | 2-1 | (2-1 11.7%, 1-0 13.9%, 2-0 9.4%)\n- MD3: **Ivory Coast vs Curaçao** → CIV 0.66 / D 0.20 / CUR 0.14 | 2-0 | (2-0 14.6%, 1-0 13.2%, 3-0 8.7%)\n- **Final standings:** 1) Germany 9pts  2) Ecuador 6pts  3) Ivory Coast 3pts  4) Curaçao 0pts\n\n### Group F (Netherlands · Sweden · Japan · Tunisia)\n- MD2: **Netherlands vs Sweden** → NED 0.62 / D 0.21 / SWE 0.17 | 2-0 | (2-0 14.8%, 1-0 13.5%, 2-1 9.3%)\n- MD2: **Japan vs Tunisia** → JPN 0.55 / D 0.24 / TUN 0.21 | 1-0 | (1-0 14.0%, 2-0 10.9%, 1-1 9.7%)\n- MD3: Netherlands vs Japan → NED 0.50 / D 0.26 / JPN 0.24 | 1-0 | (1-0 13.1%, 2-1 9.8%, 1-1 9.0%)\n- MD3: Sweden vs Tunisia → SWE 0.55 / D 0.25 / TUN 0.20 | 1-0 | (1-0 13.6%, 2-0 10.4%, 1-1 9.5%)\n- **Final standings:** 1) Netherlands 9pts  2) Japan 4pts  3) Sweden 3pts  4) Tunisia 1pt\n\n### Group G (Belgium · Iran · Egypt · New Zealand)\n- MD2: **Belgium vs Iran** → BEL 0.65 / D 0.20 / IRN 0.15 | 2-0 | (2-0 14.5%, 1-0 13.0%, 2-1 8.7%)\n- MD2: **Egypt vs New Zealand** → EGY 0.81 / D 0.13 / NZL 0.06 | 2-0 | (2-0 16.4%, 3-0 11.7%, 1-0 12.0%)\n- MD3: Belgium vs Egypt → BEL 0.60 / D 0.23 / EGY 0.17 | 2-0 | (2-0 13.7%, 1-0 13.1%, 2-1 8.3%)\n- MD3: Iran vs New Zealand → IRN 0.78 / D 0.14 / NZL 0.08 | 2-0 | (2-0 15.9%, 3-0 10.6%, 1-0 11.5%)\n- **Final standings:** 1) Belgium 9pts  2) Iran 6pts  3) Egypt 3pts  4) New Zealand 0pts\n\n### Group H (Spain · Uruguay · Saudi Arabia · Cape Verde)\n- MD2: **Saudi Arabia vs Spain** → ESP\n\n---\n\n## ⚠️ R7 报告说明 (LLM 输出截断)\n\nR7 MiroFish LLM 模拟因 `max_tokens` 默认值限制, 报告输出截断在 Group H MD2 处 (5091 字符)。\n本轮采用**混合策略**:\n\n- **小组赛 (12 组 standings + matches)**: 优先采用 R7 输出 (R7 matches 损坏 fallback 至 R6)\n- **淘汰赛 R32/R16/QF/SF/Final**: 采用 R6 fallback 数据 (R7 未输出)\n- **冠军预测**: R7 verdict (`Argentina 2-1 France AET, 62% confidence`)\n\nR8 将于明天 cron 9 AM 重跑 (修复后),届时 LLM 完整输出将覆盖本轮 partial 状态。\n\n---\n\n## 🔁 R6 fallback 补充段 (R32 配对 + 冠军预测)\n\n## Round of 32 (Matches 73–88)\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 73 | Mexico vs Switzerland | 44 | 28 | 28 | 1-0 | 18 | 8 |\n| 74 | Germany vs **Ivory Coast** | 70 | 18 | 12 | 3-1 | 10 | 4 |\n| 75 | Netherlands vs Morocco | 52 | 24 | 24 | 2-1 | 22 | 9 |\n| 76 | Brazil vs Japan | 76 | 14 | 10 | 2-0 | 8 | 3 |\n| 77 | France vs **Sweden** | 84 | 10 | 6 | 3-0 | 4 | 2 |\n| 78 | Ecuador vs Senegal | 38 | 28 | 34 | 1-2 | 24 | 10 |\n| 79 | South Korea vs **Scotland** | 48 | 28 | 24 | 2-1 | 20 | 8 |\n| 80 | England vs **Cape Verde** | 78 | 14 | 8 | 2-0 | 6 | 2 |\n| 81 | Turkey vs **Bosnia** | 54 | 26 | 20 | 2-0 | 14 | 5 |\n| 82 | Belgium vs **Czech Republic** | 66 | 22 | 12 | 2-0 | 10 | 4 |\n| 83 | Colombia vs Croatia | 40 | 26 | 34 | 1-2 | 26 | 11 |\n| 84 | Spain vs Algeria | 82 | 12 | 6 | 3-0 | 4 | 2 |\n| 85 | Canada vs **Egypt** | 48 | 28 | 24 | 2-1 | 20 | 8 |\n| 86 | Argentina vs Uruguay | 62 | 22 | 16 | 2-1 | 16 | 6 |\n| 87 | Portugal vs **Norway** | 68 | 20 | 12 | 2-0 | 12 | 5 |\n| 88 | USA vs Iran | 56 | 24 | 20 | 2-0 | 14 | 6 |\n\n**Notable upset:** Match 78 — Senegal edge Ecuador on FIFA's flagged risk.\n\n---\n\n## Round of 16 (4 featured + context)\n\nBrackets cascade: M73 winner vs M74 winner → M89 (Mexico vs Germany → **Germany 1-2**); M75 vs M76 → M90 (Netherlands vs Brazil → **Brazil 1-2 AET**); M77 vs M78 → M91 (France vs Senegal → **France 2-0**); M79 vs M80 → M92 (South Korea vs England → **England 0-2**); M81 vs M82 → M93 (Turkey vs Belgium → **Belgium 1-2**); M83 vs M84 → M94 (Croatia vs Spain → **Spain 1-2**); M85 vs M86 → M95 (Canada vs Argentina → **Argentina 1-3**); M87 vs M88 → M96 (Portugal vs USA → **Portugal 2-0**).\n\nAET probability in this round averages ~18%; penalties ~7%.\n\n---\n\n## Quarterfinals\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 97 | Germany vs Brazil | 28 | 22 | 50 | 1-2 | 32 | 14 |\n| 98 | France vs England | 56 | 24 | 20 | 2-1 | 20 | 8 |\n| 99 | Belgium vs Spain | 36 | 26 | 38 | 1-2 | 30 | 13 |\n| 100 | Argentina vs Portugal | 50 | 26 | 24 | 2-1 | 24 | 10 |\n\nBrazil's attacking trio decides M97. France's midfield control (Camavinga's insight on aging core phaseout) settles M98.\n\n---\n\n## Semifinals\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 101 | Brazil vs France | 38 | 24 | 38 | 1-2 | 28 | 12 |\n| 102 | Spain vs Argentina | 36 | 26 | 38 | 1-2 | 30 | 14 |\n\nM101 is the tournament's pivot: Mbappé's prime window vs Ancelotti's unstable Brazil system. M102 goes the distance on Messi's fitness arc.\n\n---\n\n## Final — France vs Argentina (MetLife, 7/19)\n\n**90 minutes:** France 38% / Draw 26% / Argentina 36% — Most likely 1-1.\n**After Extra Time:** AET probability 32% — Most likely 2-2.\n**Penalties:** France conversion 78% vs Argentina 72% — France win on penalties most likely outcome (4-3 pens).\n\n| Tier | Outcome | Probability |\n|---|---|---|\n| 90-min | France 2-1 | 18% |\n| 90-min | Draw 1-1 | 14% |\n| 90-min | Argentina 2-1 | 13% |\n| AET | 2-2 → France pens | 22% |\n| AET | 2-2 → Argentina pens | 9% |\n\n---\n\n## Champion Pick\n\n**France — 68% confidence.** Austria's verdict post: \"Mbappé prime window + squad depth + favorable I group draw + manageable R32/R16 path.\" Brazil 18%, Argentina 10%, Spain 4%.\n\n---",
+  "report_markdown": "# 2026 FIFA World Cup — Full Bracket Prediction Report\n\n## Executive Summary\n\nUsing the Elo-Poisson baseline (μ=1.4, neutral) blended ~30/70 with DraftKings 1X2 priors, **Argentina is the predicted champion (~14% lift), defeating France 2-1 in AET** in the Final. Brazil and England are early exits in the QF and SF respectively, while the model highlights five genuine upset-risk R32 ties — most notably **Argentina vs Uruguay (M86)** and **Colombia vs Croatia (M83)**. As Algeria posted in R0: *\"Elo-Poisson baseline (μ=1.4, neutral venue) blended 30/70 with DraftKings 1X2 priors\"* anchors the entire pipeline. Ancelotti flagged: *\"Group I is the clear Group of Death — France, Norway, Senegal, Iraq\"*; the model concurs, projecting France to top the group at ~58%.\n\n---\n\n## All 12 Groups — MD2 + MD3 Predictions\n\nFormat: `Matchup | A% / D% / B% | Most-likely | Top-3 scores`\n\n### Group A (Mexico · South Korea · Czech Republic · South Africa)\n- MD2: South Korea vs Czech Republic → **KOR 0.45 / D 0.28 / CZE 0.27** | 1-1 | (1-1 14.2%, 1-0 12.8%, 0-1 11.4%)\n- MD2: Mexico vs South Africa → **MEX 0.74 / D 0.16 / RSA 0.10** | 2-0 | (2-0 16.8%, 1-0 14.1%, 3-0 9.7%)\n- MD3: **Mexico vs South Korea** → MEX 0.50 / D 0.27 / KOR 0.23 | 1-1 | (1-1 13.1%, 1-0 12.4%, 0-0 8.6%)\n- MD3: Czech Republic vs South Africa → CZE 0.55 / D 0.25 / RSA 0.20 | 1-0 | (1-0 14.6%, 2-0 11.2%, 1-1 9.8%)\n- **Final standings:** 1) Mexico 7pts  2) South Korea 5pts  3) Czech Republic 3pts  4) South Africa 1pt\n\n### Group B (Canada · Switzerland · Qatar · Bosnia and Herzegovina)\n- MD2: Switzerland vs Qatar → SUI 0.68 / D 0.19 / QAT 0.13 | 2-0 | (2-0 15.7%, 1-0 13.4%, 3-0 8.9%)\n- MD2: Canada vs Bosnia → CAN 0.40 / D 0.30 / BIH 0.30 | 1-1 | (1-1 14.8%, 1-0 11.7%, 0-1 10.2%)\n- MD3: **Canada vs Switzerland** → CAN 0.30 / D 0.26 / SUI 0.44 | 1-1 | (1-1 13.5%, 0-1 12.0%, 1-2 8.4%)\n- MD3: Bosnia vs Qatar → BIH 0.50 / D 0.27 / QAT 0.23 | 1-0 | (1-0 14.2%, 2-0 10.6%, 1-1 9.1%)\n- **Final standings:** 1) Switzerland 9pts  2) Bosnia 4pts  3) Canada 3pts  4) Qatar 1pt\n\n### Group C (Brazil · Morocco · Scotland · Haiti)\n- MD2: **Brazil vs Haiti** → BRA 0.86 / D 0.09 / HAI 0.05 | 3-0 | (3-0 18.2%, 2-0 16.4%, 4-0 9.1%)\n- MD2: Morocco vs Scotland → MAR 0.52 / D 0.26 / SCO 0.22 | 1-0 | (1-0 13.8%, 2-1 9.6%, 1-1 8.9%)\n- MD3: **Brazil vs Scotland** → BRA 0.80 / D 0.13 / SCO 0.07 | 2-0 | (2-0 16.9%, 3-0 12.3%, 1-0 11.7%)\n- MD3: **Haiti vs Morocco** → MAR 0.78 / D 0.14 / HAI 0.08 | 2-0 | (2-0 15.4%, 3-0 10.8%, 1-0 10.2%)\n- **Final standings:** 1) Brazil 9pts  2) Morocco 6pts  3) Scotland 3pts  4) Haiti 0pts\n- Bellingham noted: *\"Group C draw is sneaky. Brazil are overwhelming favorites, but Morocco (2022 semifinal pedigree) + Scotland (organized, physical)\"* — confirmed by the runner-up spread (2-goal goal-diff swing for MAR/SCO).\n\n### Group D (USA · Paraguay · Australia · Turkey)\n- MD2: **Paraguay vs Turkey** → PAR 0.38 / D 0.28 / TUR 0.34 | 1-1 | (1-1 13.9%, 1-0 12.1%, 0-1 11.7%)\n- MD2: USA vs Australia → USA 0.55 / D 0.24 / AUS 0.21 | 1-0 | (1-0 14.1%, 2-0 11.8%, 1-1 9.3%)\n- MD3: USA vs Turkey → USA 0.55 / D 0.24 / TUR 0.21 | 2-1 | (2-1 10.4%, 1-0 13.7%, 2-0 9.2%)\n- MD3: Australia vs Paraguay → AUS 0.48 / D 0.27 / PAR 0.25 | 1-0 | (1-0 13.2%, 1-1 10.1%, 2-0 9.7%)\n- **Final standings:** 1) USA 9pts  2) Australia 6pts  3) Paraguay 2pts  4) Turkey 1pt\n\n### Group E (Germany · Ecuador · Ivory Coast · Curaçao)\n- MD2: **Germany vs Ivory Coast** → GER 0.72 / D 0.17 / CIV 0.11 | 2-0 | (2-0 16.1%, 1-0 13.7%, 3-0 9.8%)\n- MD2: **Ecuador vs Curaçao** → ECU 0.78 / D 0.15 / CUR 0.07 | 2-0 | (2-0 16.8%, 3-0 11.4%, 1-0 12.6%)\n- MD3: **Germany vs Ecuador** → GER 0.65 / D 0.21 / ECU 0.14 | 2-1 | (2-1 11.7%, 1-0 13.9%, 2-0 9.4%)\n- MD3: **Ivory Coast vs Curaçao** → CIV 0.66 / D 0.20 / CUR 0.14 | 2-0 | (2-0 14.6%, 1-0 13.2%, 3-0 8.7%)\n- **Final standings:** 1) Germany 9pts  2) Ecuador 6pts  3) Ivory Coast 3pts  4) Curaçao 0pts\n\n### Group F (Netherlands · Sweden · Japan · Tunisia)\n- MD2: **Netherlands vs Sweden** → NED 0.62 / D 0.21 / SWE 0.17 | 2-0 | (2-0 14.8%, 1-0 13.5%, 2-1 9.3%)\n- MD2: **Japan vs Tunisia** → JPN 0.55 / D 0.24 / TUN 0.21 | 1-0 | (1-0 14.0%, 2-0 10.9%, 1-1 9.7%)\n- MD3: Netherlands vs Japan → NED 0.50 / D 0.26 / JPN 0.24 | 1-0 | (1-0 13.1%, 2-1 9.8%, 1-1 9.0%)\n- MD3: Sweden vs Tunisia → SWE 0.55 / D 0.25 / TUN 0.20 | 1-0 | (1-0 13.6%, 2-0 10.4%, 1-1 9.5%)\n- **Final standings:** 1) Netherlands 9pts  2) Japan 4pts  3) Sweden 3pts  4) Tunisia 1pt\n\n### Group G (Belgium · Iran · Egypt · New Zealand)\n- MD2: **Belgium vs Iran** → BEL 0.65 / D 0.20 / IRN 0.15 | 2-0 | (2-0 14.5%, 1-0 13.0%, 2-1 8.7%)\n- MD2: **Egypt vs New Zealand** → EGY 0.81 / D 0.13 / NZL 0.06 | 2-0 | (2-0 16.4%, 3-0 11.7%, 1-0 12.0%)\n- MD3: Belgium vs Egypt → BEL 0.60 / D 0.23 / EGY 0.17 | 2-0 | (2-0 13.7%, 1-0 13.1%, 2-1 8.3%)\n- MD3: Iran vs New Zealand → IRN 0.78 / D 0.14 / NZL 0.08 | 2-0 | (2-0 15.9%, 3-0 10.6%, 1-0 11.5%)\n- **Final standings:** 1) Belgium 9pts  2) Iran 6pts  3) Egypt 3pts  4) New Zealand 0pts\n\n### Group H (Spain · Uruguay · Saudi Arabia · Cape Verde)\n- MD2: **Saudi Arabia vs Spain** → ESP\n\n---\n\n## ⚠️ R7 报告说明 (LLM 输出截断)\n\nR7 MiroFish LLM 模拟因 `max_tokens` 默认值限制, 报告输出截断在 Group H MD2 处 (5091 字符)。\n本轮采用**混合策略**:\n\n- **小组赛 (12 组 standings + matches)**: 优先采用 R7 输出 (R7 matches 损坏 fallback 至 R6)\n- **淘汰赛 R32/R16/QF/SF/Final**: 采用 R6 fallback 数据 (R7 未输出)\n- **冠军预测**: R7 verdict (`Argentina 2-1 France AET, 62% confidence`)\n\nR8 将于明天 cron 9 AM 重跑 (修复后),届时 LLM 完整输出将覆盖本轮 partial 状态。\n\n---\n\n## 🔁 R6 fallback 补充段 (R32 配对 + 冠军预测)\n\n## Round of 32 (Matches 73–88)\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 73 | Mexico vs Switzerland | 44 | 28 | 28 | 1-0 | 18 | 8 |\n| 74 | Germany vs **Ivory Coast** | 70 | 18 | 12 | 3-1 | 10 | 4 |\n| 75 | Netherlands vs Morocco | 52 | 24 | 24 | 2-1 | 22 | 9 |\n| 76 | Brazil vs Japan | 76 | 14 | 10 | 2-0 | 8 | 3 |\n| 77 | France vs **Sweden** | 84 | 10 | 6 | 3-0 | 4 | 2 |\n| 78 | Ecuador vs Senegal | 38 | 28 | 34 | 1-2 | 24 | 10 |\n| 79 | South Korea vs **Scotland** | 48 | 28 | 24 | 2-1 | 20 | 8 |\n| 80 | England vs **Cape Verde** | 78 | 14 | 8 | 2-0 | 6 | 2 |\n| 81 | Turkey vs **Bosnia** | 54 | 26 | 20 | 2-0 | 14 | 5 |\n| 82 | Belgium vs **Czech Republic** | 66 | 22 | 12 | 2-0 | 10 | 4 |\n| 83 | Colombia vs Croatia | 40 | 26 | 34 | 1-2 | 26 | 11 |\n| 84 | Spain vs Algeria | 82 | 12 | 6 | 3-0 | 4 | 2 |\n| 85 | Canada vs **Egypt** | 48 | 28 | 24 | 2-1 | 20 | 8 |\n| 86 | Argentina vs Uruguay | 62 | 22 | 16 | 2-1 | 16 | 6 |\n| 87 | Portugal vs **Norway** | 68 | 20 | 12 | 2-0 | 12 | 5 |\n| 88 | USA vs Iran | 56 | 24 | 20 | 2-0 | 14 | 6 |\n\n**Notable upset:** Match 78 — Senegal edge Ecuador on FIFA's flagged risk.\n\n---\n\n## Round of 16 (4 featured + context)\n\nBrackets cascade: M73 winner vs M74 winner → M89 (Mexico vs Germany → **Germany 1-2**); M75 vs M76 → M90 (Netherlands vs Brazil → **Brazil 1-2 AET**); M77 vs M78 → M91 (France vs Senegal → **France 2-0**); M79 vs M80 → M92 (South Korea vs England → **England 0-2**); M81 vs M82 → M93 (Turkey vs Belgium → **Belgium 1-2**); M83 vs M84 → M94 (Croatia vs Spain → **Spain 1-2**); M85 vs M86 → M95 (Canada vs Argentina → **Argentina 1-3**); M87 vs M88 → M96 (Portugal vs USA → **Portugal 2-0**).\n\nAET probability in this round averages ~18%; penalties ~7%.\n\n---\n\n## Quarterfinals\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 97 | Germany vs Brazil | 28 | 22 | 50 | 1-2 | 32 | 14 |\n| 98 | France vs England | 56 | 24 | 20 | 2-1 | 20 | 8 |\n| 99 | Belgium vs Spain | 36 | 26 | 38 | 1-2 | 30 | 13 |\n| 100 | Argentina vs Portugal | 50 | 26 | 24 | 2-1 | 24 | 10 |\n\nBrazil's attacking trio decides M97. France's midfield control (Camavinga's insight on aging core phaseout) settles M98.\n\n---\n\n## Semifinals\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 101 | Brazil vs France | 38 | 24 | 38 | 1-2 | 28 | 12 |\n| 102 | Spain vs Argentina | 36 | 26 | 38 | 1-2 | 30 | 14 |\n\nM101 is the tournament's pivot: Mbappé's prime window vs Ancelotti's unstable Brazil system. M102 goes the distance on Messi's fitness arc.\n\n---\n\n## Final — France vs Argentina (MetLife, 7/19)\n\n**90 minutes:** France 38% / Draw 26% / Argentina 36% — Most likely 1-1.\n**After Extra Time:** AET probability 32% — Most likely 2-2.\n**Penalties:** France conversion 78% vs Argentina 72% — France win on penalties most likely outcome (4-3 pens).\n\n| Tier | Outcome | Probability |\n|---|---|---|\n| 90-min | France 2-1 | 18% |\n| 90-min | Draw 1-1 | 14% |\n| 90-min | Argentina 2-1 | 13% |\n| AET | 2-2 → France pens | 22% |\n| AET | 2-2 → Argentina pens | 9% |\n\n---\n\n## Champion Pick\n\n**France — 68% confidence.** Austria's verdict post: \"Mbappé prime window + squad depth + favorable I group draw + manageable R32/R16 path.\" Brazil 18%, Argentina 10%, Spain 4%.\n\n---\n\n---\n\n## ⚠️ R7 报告说明 (LLM 输出截断)\n\nR7 MiroFish LLM 模拟因 `max_tokens` 默认值限制, 报告输出截断在 Group H MD2 处 (5091 字符)。\n本轮采用**混合策略**:\n\n- **小组赛 (12 组 standings + matches)**: 优先采用 R7 输出 (R7 matches 损坏 fallback 至 R6)\n- **淘汰赛 R32/R16/QF/SF/Final**: 采用 R6 fallback 数据 (R7 未输出)\n- **冠军预测**: R7 verdict (`Argentina 2-1 France AET, 62% confidence`)\n\nR8 将于明天 cron 9 AM 重跑 (修复后),届时 LLM 完整输出将覆盖本轮 partial 状态。\n\n---\n\n## 🔁 R6 fallback 补充段 (R32 配对 + 冠军预测)\n\n## Round of 32 (Matches 73–88)\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 73 | Mexico vs Switzerland | 44 | 28 | 28 | 1-0 | 18 | 8 |\n| 74 | Germany vs **Ivory Coast** | 70 | 18 | 12 | 3-1 | 10 | 4 |\n| 75 | Netherlands vs Morocco | 52 | 24 | 24 | 2-1 | 22 | 9 |\n| 76 | Brazil vs Japan | 76 | 14 | 10 | 2-0 | 8 | 3 |\n| 77 | France vs **Sweden** | 84 | 10 | 6 | 3-0 | 4 | 2 |\n| 78 | Ecuador vs Senegal | 38 | 28 | 34 | 1-2 | 24 | 10 |\n| 79 | South Korea vs **Scotland** | 48 | 28 | 24 | 2-1 | 20 | 8 |\n| 80 | England vs **Cape Verde** | 78 | 14 | 8 | 2-0 | 6 | 2 |\n| 81 | Turkey vs **Bosnia** | 54 | 26 | 20 | 2-0 | 14 | 5 |\n| 82 | Belgium vs **Czech Republic** | 66 | 22 | 12 | 2-0 | 10 | 4 |\n| 83 | Colombia vs Croatia | 40 | 26 | 34 | 1-2 | 26 | 11 |\n| 84 | Spain vs Algeria | 82 | 12 | 6 | 3-0 | 4 | 2 |\n| 85 | Canada vs **Egypt** | 48 | 28 | 24 | 2-1 | 20 | 8 |\n| 86 | Argentina vs Uruguay | 62 | 22 | 16 | 2-1 | 16 | 6 |\n| 87 | Portugal vs **Norway** | 68 | 20 | 12 | 2-0 | 12 | 5 |\n| 88 | USA vs Iran | 56 | 24 | 20 | 2-0 | 14 | 6 |\n\n**Notable upset:** Match 78 — Senegal edge Ecuador on FIFA's flagged risk.\n\n---\n\n## Round of 16 (4 featured + context)\n\nBrackets cascade: M73 winner vs M74 winner → M89 (Mexico vs Germany → **Germany 1-2**); M75 vs M76 → M90 (Netherlands vs Brazil → **Brazil 1-2 AET**); M77 vs M78 → M91 (France vs Senegal → **France 2-0**); M79 vs M80 → M92 (South Korea vs England → **England 0-2**); M81 vs M82 → M93 (Turkey vs Belgium → **Belgium 1-2**); M83 vs M84 → M94 (Croatia vs Spain → **Spain 1-2**); M85 vs M86 → M95 (Canada vs Argentina → **Argentina 1-3**); M87 vs M88 → M96 (Portugal vs USA → **Portugal 2-0**).\n\nAET probability in this round averages ~18%; penalties ~7%.\n\n---\n\n## Quarterfinals\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 97 | Germany vs Brazil | 28 | 22 | 50 | 1-2 | 32 | 14 |\n| 98 | France vs England | 56 | 24 | 20 | 2-1 | 20 | 8 |\n| 99 | Belgium vs Spain | 36 | 26 | 38 | 1-2 | 30 | 13 |\n| 100 | Argentina vs Portugal | 50 | 26 | 24 | 2-1 | 24 | 10 |\n\nBrazil's attacking trio decides M97. France's midfield control (Camavinga's insight on aging core phaseout) settles M98.\n\n---\n\n## Semifinals\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 101 | Brazil vs France | 38 | 24 | 38 | 1-2 | 28 | 12 |\n| 102 | Spain vs Argentina | 36 | 26 | 38 | 1-2 | 30 | 14 |\n\nM101 is the tournament's pivot: Mbappé's prime window vs Ancelotti's unstable Brazil system. M102 goes the distance on Messi's fitness arc.\n\n---\n\n## Final — France vs Argentina (MetLife, 7/19)\n\n**90 minutes:** France 38% / Draw 26% / Argentina 36% — Most likely 1-1.\n**After Extra Time:** AET probability 32% — Most likely 2-2.\n**Penalties:** France conversion 78% vs Argentina 72% — France win on penalties most likely outcome (4-3 pens).\n\n| Tier | Outcome | Probability |\n|---|---|---|\n| 90-min | France 2-1 | 18% |\n| 90-min | Draw 1-1 | 14% |\n| 90-min | Argentina 2-1 | 13% |\n| AET | 2-2 → France pens | 22% |\n| AET | 2-2 → Argentina pens | 9% |\n\n---\n\n## Champion Pick\n\n**France — 68% confidence.** Austria's verdict post: \"Mbappé prime window + squad depth + favorable I group draw + manageable R32/R16 path.\" Brazil 18%, Argentina 10%, Spain 4%.\n\n---\n\n---\n\n## ⚠️ R7 报告说明 (LLM 输出截断)\n\nR7 MiroFish LLM 模拟因 `max_tokens` 默认值限制, 报告输出截断在 Group H MD2 处 (5091 字符)。\n本轮采用**混合策略**:\n\n- **小组赛 (12 组 standings + matches)**: 优先采用 R7 输出 (R7 matches 损坏 fallback 至 R6)\n- **淘汰赛 R32/R16/QF/SF/Final**: 采用 R6 fallback 数据 (R7 未输出)\n- **冠军预测**: R7 verdict (`Argentina 2-1 France AET, 62% confidence`)\n\nR8 将于明天 cron 9 AM 重跑 (修复后),届时 LLM 完整输出将覆盖本轮 partial 状态。\n\n---\n\n## 🔁 R6 fallback 补充段 (R32 配对 + 冠军预测)\n\n## Round of 32 (Matches 73–88)\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 73 | Mexico vs Switzerland | 44 | 28 | 28 | 1-0 | 18 | 8 |\n| 74 | Germany vs **Ivory Coast** | 70 | 18 | 12 | 3-1 | 10 | 4 |\n| 75 | Netherlands vs Morocco | 52 | 24 | 24 | 2-1 | 22 | 9 |\n| 76 | Brazil vs Japan | 76 | 14 | 10 | 2-0 | 8 | 3 |\n| 77 | France vs **Sweden** | 84 | 10 | 6 | 3-0 | 4 | 2 |\n| 78 | Ecuador vs Senegal | 38 | 28 | 34 | 1-2 | 24 | 10 |\n| 79 | South Korea vs **Scotland** | 48 | 28 | 24 | 2-1 | 20 | 8 |\n| 80 | England vs **Cape Verde** | 78 | 14 | 8 | 2-0 | 6 | 2 |\n| 81 | Turkey vs **Bosnia** | 54 | 26 | 20 | 2-0 | 14 | 5 |\n| 82 | Belgium vs **Czech Republic** | 66 | 22 | 12 | 2-0 | 10 | 4 |\n| 83 | Colombia vs Croatia | 40 | 26 | 34 | 1-2 | 26 | 11 |\n| 84 | Spain vs Algeria | 82 | 12 | 6 | 3-0 | 4 | 2 |\n| 85 | Canada vs **Egypt** | 48 | 28 | 24 | 2-1 | 20 | 8 |\n| 86 | Argentina vs Uruguay | 62 | 22 | 16 | 2-1 | 16 | 6 |\n| 87 | Portugal vs **Norway** | 68 | 20 | 12 | 2-0 | 12 | 5 |\n| 88 | USA vs Iran | 56 | 24 | 20 | 2-0 | 14 | 6 |\n\n**Notable upset:** Match 78 — Senegal edge Ecuador on FIFA's flagged risk.\n\n---\n\n## Round of 16 (4 featured + context)\n\nBrackets cascade: M73 winner vs M74 winner → M89 (Mexico vs Germany → **Germany 1-2**); M75 vs M76 → M90 (Netherlands vs Brazil → **Brazil 1-2 AET**); M77 vs M78 → M91 (France vs Senegal → **France 2-0**); M79 vs M80 → M92 (South Korea vs England → **England 0-2**); M81 vs M82 → M93 (Turkey vs Belgium → **Belgium 1-2**); M83 vs M84 → M94 (Croatia vs Spain → **Spain 1-2**); M85 vs M86 → M95 (Canada vs Argentina → **Argentina 1-3**); M87 vs M88 → M96 (Portugal vs USA → **Portugal 2-0**).\n\nAET probability in this round averages ~18%; penalties ~7%.\n\n---\n\n## Quarterfinals\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 97 | Germany vs Brazil | 28 | 22 | 50 | 1-2 | 32 | 14 |\n| 98 | France vs England | 56 | 24 | 20 | 2-1 | 20 | 8 |\n| 99 | Belgium vs Spain | 36 | 26 | 38 | 1-2 | 30 | 13 |\n| 100 | Argentina vs Portugal | 50 | 26 | 24 | 2-1 | 24 | 10 |\n\nBrazil's attacking trio decides M97. France's midfield control (Camavinga's insight on aging core phaseout) settles M98.\n\n---\n\n## Semifinals\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 101 | Brazil vs France | 38 | 24 | 38 | 1-2 | 28 | 12 |\n| 102 | Spain vs Argentina | 36 | 26 | 38 | 1-2 | 30 | 14 |\n\nM101 is the tournament's pivot: Mbappé's prime window vs Ancelotti's unstable Brazil system. M102 goes the distance on Messi's fitness arc.\n\n---\n\n## Final — France vs Argentina (MetLife, 7/19)\n\n**90 minutes:** France 38% / Draw 26% / Argentina 36% — Most likely 1-1.\n**After Extra Time:** AET probability 32% — Most likely 2-2.\n**Penalties:** France conversion 78% vs Argentina 72% — France win on penalties most likely outcome (4-3 pens).\n\n| Tier | Outcome | Probability |\n|---|---|---|\n| 90-min | France 2-1 | 18% |\n| 90-min | Draw 1-1 | 14% |\n| 90-min | Argentina 2-1 | 13% |\n| AET | 2-2 → France pens | 22% |\n| AET | 2-2 → Argentina pens | 9% |\n\n---\n\n## Champion Pick\n\n**France — 68% confidence.** Austria's verdict post: \"Mbappé prime window + squad depth + favorable I group draw + manageable R32/R16 path.\" Brazil 18%, Argentina 10%, Spain 4%.\n\n---\n\n---\n\n## ⚠️ R7 报告说明 (LLM 输出截断)\n\nR7 MiroFish LLM 模拟因 `max_tokens` 默认值限制, 报告输出截断在 Group H MD2 处 (5091 字符)。\n本轮采用**混合策略**:\n\n- **小组赛 (12 组 standings + matches)**: 优先采用 R7 输出 (R7 matches 损坏 fallback 至 R6)\n- **淘汰赛 R32/R16/QF/SF/Final**: 采用 R6 fallback 数据 (R7 未输出)\n- **冠军预测**: R7 verdict (`Argentina 2-1 France AET, 62% confidence`)\n\nR8 将于明天 cron 9 AM 重跑 (修复后),届时 LLM 完整输出将覆盖本轮 partial 状态。\n\n---\n\n## 🔁 R6 fallback 补充段 (R32 配对 + 冠军预测)\n\n## Round of 32 (Matches 73–88)\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 73 | Mexico vs Switzerland | 44 | 28 | 28 | 1-0 | 18 | 8 |\n| 74 | Germany vs **Ivory Coast** | 70 | 18 | 12 | 3-1 | 10 | 4 |\n| 75 | Netherlands vs Morocco | 52 | 24 | 24 | 2-1 | 22 | 9 |\n| 76 | Brazil vs Japan | 76 | 14 | 10 | 2-0 | 8 | 3 |\n| 77 | France vs **Sweden** | 84 | 10 | 6 | 3-0 | 4 | 2 |\n| 78 | Ecuador vs Senegal | 38 | 28 | 34 | 1-2 | 24 | 10 |\n| 79 | South Korea vs **Scotland** | 48 | 28 | 24 | 2-1 | 20 | 8 |\n| 80 | England vs **Cape Verde** | 78 | 14 | 8 | 2-0 | 6 | 2 |\n| 81 | Turkey vs **Bosnia** | 54 | 26 | 20 | 2-0 | 14 | 5 |\n| 82 | Belgium vs **Czech Republic** | 66 | 22 | 12 | 2-0 | 10 | 4 |\n| 83 | Colombia vs Croatia | 40 | 26 | 34 | 1-2 | 26 | 11 |\n| 84 | Spain vs Algeria | 82 | 12 | 6 | 3-0 | 4 | 2 |\n| 85 | Canada vs **Egypt** | 48 | 28 | 24 | 2-1 | 20 | 8 |\n| 86 | Argentina vs Uruguay | 62 | 22 | 16 | 2-1 | 16 | 6 |\n| 87 | Portugal vs **Norway** | 68 | 20 | 12 | 2-0 | 12 | 5 |\n| 88 | USA vs Iran | 56 | 24 | 20 | 2-0 | 14 | 6 |\n\n**Notable upset:** Match 78 — Senegal edge Ecuador on FIFA's flagged risk.\n\n---\n\n## Round of 16 (4 featured + context)\n\nBrackets cascade: M73 winner vs M74 winner → M89 (Mexico vs Germany → **Germany 1-2**); M75 vs M76 → M90 (Netherlands vs Brazil → **Brazil 1-2 AET**); M77 vs M78 → M91 (France vs Senegal → **France 2-0**); M79 vs M80 → M92 (South Korea vs England → **England 0-2**); M81 vs M82 → M93 (Turkey vs Belgium → **Belgium 1-2**); M83 vs M84 → M94 (Croatia vs Spain → **Spain 1-2**); M85 vs M86 → M95 (Canada vs Argentina → **Argentina 1-3**); M87 vs M88 → M96 (Portugal vs USA → **Portugal 2-0**).\n\nAET probability in this round averages ~18%; penalties ~7%.\n\n---\n\n## Quarterfinals\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 97 | Germany vs Brazil | 28 | 22 | 50 | 1-2 | 32 | 14 |\n| 98 | France vs England | 56 | 24 | 20 | 2-1 | 20 | 8 |\n| 99 | Belgium vs Spain | 36 | 26 | 38 | 1-2 | 30 | 13 |\n| 100 | Argentina vs Portugal | 50 | 26 | 24 | 2-1 | 24 | 10 |\n\nBrazil's attacking trio decides M97. France's midfield control (Camavinga's insight on aging core phaseout) settles M98.\n\n---\n\n## Semifinals\n\n| # | Matchup | A win% | Draw% | B win% | Most Likely | AET% | Pen% |\n|---|---|---|---|---|---|---|---|\n| 101 | Brazil vs France | 38 | 24 | 38 | 1-2 | 28 | 12 |\n| 102 | Spain vs Argentina | 36 | 26 | 38 | 1-2 | 30 | 14 |\n\nM101 is the tournament's pivot: Mbappé's prime window vs Ancelotti's unstable Brazil system. M102 goes the distance on Messi's fitness arc.\n\n---\n\n## Final — France vs Argentina (MetLife, 7/19)\n\n**90 minutes:** France 38% / Draw 26% / Argentina 36% — Most likely 1-1.\n**After Extra Time:** AET probability 32% — Most likely 2-2.\n**Penalties:** France conversion 78% vs Argentina 72% — France win on penalties most likely outcome (4-3 pens).\n\n| Tier | Outcome | Probability |\n|---|---|---|\n| 90-min | France 2-1 | 18% |\n| 90-min | Draw 1-1 | 14% |\n| 90-min | Argentina 2-1 | 13% |\n| AET | 2-2 → France pens | 22% |\n| AET | 2-2 → Argentina pens | 9% |\n\n---\n\n## Champion Pick\n\n**France — 68% confidence.** Austria's verdict post: \"Mbappé prime window + squad depth + favorable I group draw + manageable R32/R16 path.\" Brazil 18%, Argentina 10%, Spain 4%.\n\n---",
   "fallback_source": {
     "reason": "R7 MiroFish LLM output truncated at Group H MD2 (max_tokens limit)",
     "r7_partial_fields": [
