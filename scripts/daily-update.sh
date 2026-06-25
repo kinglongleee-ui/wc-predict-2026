@@ -135,7 +135,7 @@ R6/R7 已知问题修复 (R8 MUST COMPLETE ALL SECTIONS):
 - 不要在 Group H 之后停下; 严格按 OUTPUT ORDER 输出全部 9 段.
 - max_tokens 8192 足够, 不要主动截断.
 
-6/22-6/23 已踢比赛结果 (强制 anchor, LLM 必须基于这些结果校准 MD3 + R32 预测):
+6/22-6/25 已踢比赛结果 (强制 anchor, LLM 必须基于这些结果校准 MD3 + R32 预测):
 | UTC date | Group | Matchup | Score | 备注 |
 |---|---|---|---|---|
 | 6/22 01:00 | G | New Zealand vs Egypt | 1-3 | Egypt G 拿 3 分, NZ 0 分 |
@@ -145,13 +145,26 @@ R6/R7 已知问题修复 (R8 MUST COMPLETE ALL SECTIONS):
 | 6/23 03:00 | J | Algeria vs Jordan | 2-1 | Algeria J 3 分, Jordan J 0 分 |
 | 6/23 17:00 | K | Portugal vs Uzbekistan | 5-0 | Portugal K 9 分 (除非 MD3 输), Uzbekistan K 0 分 |
 | 6/23 20:00 | L | England vs Ghana | 0-0 | England L 4 分, Ghana L 1 分 |
+| 6/24 02:00 | K | Colombia vs DR Congo | 1-0 | Colombia K 6 分 (1st, locked, GD+5), DR Congo K 1 分 |
+| 6/24 19:00 | A | Mexico vs South Korea | 2-0 | Mexico A 9 分 (1st, locked), South Korea A 3 分 |
+| 6/24 19:00 | B | Canada vs Switzerland | 1-2 | Canada B 1 分, Switzerland B 6 分 (1st) |
+| 6/24 22:00 | C | Brazil vs Scotland | 3-1 | Brazil C 9 分 (1st, locked), Scotland C 3 分 |
+| 6/24 22:00 | C | Haiti vs Morocco | 2-4 | Haiti C 0 分, Morocco C 3 分 |
+| 6/25 01:00 | A | Czech Republic vs South Africa | 0-3 | CZE A 3 分 (输球), RSA A 3 分 (赢球). A: MEX 9, KOR 3, RSA 3, CZE 3 — KOR/RSA/CZE 算 GD 决 2nd, CZE GD -1, RSA GD 0, KOR GD 0 (KOR/RSA 决) |
+| 6/25 01:00 | A | South Korea vs South Africa | 0-1 | RSA A 6 分 (2nd, locked, GD+1), KOR A 3 分 (3rd). A 终: MEX 9, RSA 6, KOR 3, CZE 0 |
 
-校准: France I 9 分 (1st), Senegal I 6 分? No, Norway I 3 + Senegal I 3 = 6 分 (France 1st, Senegal/Norway 2nd via H2H/GD). 实际待 LLM 算.
-阿根廷 J 9 分 (1st, locked). Austria 0 分 → 4th.
-England L 4 分 (1st, 5分还需算), Ghana 1 分, Croatia 0 分, Panama 0 分.
-Portugal K 9 分 (1st, locked). DR Congo 1 分, Colombia 0 分, Uzbekistan 0 分.
-Egypt G 3 分 (赢 NZ), Belgium G 9 分 (赢 Iran), Iran G 4 分, NZ 0 分.
-Czech Republic A 3 分 (南非 + 输给 SK), Mexico A 9 分 (locked).
+校准: France I 9 分 (1st, locked), Senegal I 3 分, Norway I 3 分, Iraq I 0. I: France 1st, Norway/Senegal 2nd 算 H2H/GD.
+Argentina J 9 分 (1st, locked). Austria 0 分 → 4th. Algeria J 3, Jordan J 0.
+England L 4 分 (赢 Ghana 0-0 + 之前赢 Croatia), Ghana 1 分, Croatia 0 分, Panama 0 分. England 1st locked, Ghana 2nd locked.
+Portugal K 9 分 (1st, locked). Colombia K 6 (赢 1-0 + 之前 5-0 vs Uzb), DR Congo K 1, Uzbekistan K 0. 2nd = Colombia.
+Brazil C 9 分 (1st, locked), Morocco C 3 (赢 Haiti), Scotland C 3 (输巴西), Haiti C 0. 2nd = Morocco (GD) 或 Scotland (GD 需算: MAR GD+3 - SCO GD-1 → MAR 2nd).
+Egypt G 3 (赢 NZ), Belgium G 9 (赢 Iran), Iran G 4, NZ 0. Belgium 1st, Egypt/Iran 2nd 算 GD (EGY GD+2 - IRN GD? 待算). 8 best 3rd candidate: Iran / Egypt.
+Mexico A 9 (1st, locked), South Africa A 6 (2nd, locked). 8 best 3rd: South Korea A 3, CZE A 0 (排除).
+Switzerland B 6 (1st, locked), Canada B 1. 2nd 待算 (B 还在踢, 6/25 23:00Z 还有 2 场). 8 best 3rd candidate: 待 B 决出.
+
+D 组 (USA, Paraguay, Australia, Turkey) MD3 还有 2 场: 6/26 02:00Z Paraguay vs Australia + Turkey vs USA. D 不锁.
+E 组 (Germany, Ecuador, Ivory Coast, Curaçao) MD3 6/25 20:00Z: Germany vs Ecuador + Ivory Coast vs Curaçao. 6/25 已部分踢, 但 odds 文件看是 pre-game. E 不锁.
+F 组 (Netherlands, Sweden, Japan, Tunisia) MD3 6/25 23:00Z: Japan vs Sweden + Tunisia vs Netherlands. F 不锁.
 
 ROUND OF 32 PAIRINGS — FIFA OFFICIAL (Match 73-88, MUST USE EXACTLY, DO NOT REORDER OR REASSIGN):
 - Match 73: Runner-up A vs Runner-up B
@@ -201,6 +214,16 @@ The 24 group-stage matches below MUST appear in your group tables at the correct
 | 6/24 22:00 | 6/25 06:00 | C | Haiti vs Morocco | MD3 |
 | 6/25 20:00 | 6/26 04:00 | E | Germany vs Ecuador | MD3 |
 | 6/25 20:00 | 6/26 04:00 | E | Ivory Coast vs Curaçao | MD3 |
+| 6/25 23:00 | 6/26 07:00 | F | Japan vs Sweden | MD3 |
+| 6/25 23:00 | 6/26 07:00 | F | Tunisia vs Netherlands | MD3 |
+| 6/26 02:00 | 6/26 10:00 | D | Paraguay vs Australia | MD3 |
+| 6/26 02:00 | 6/26 10:00 | D | Turkey vs USA | MD3 |
+| 6/26 19:00 | 6/27 03:00 | I | Norway vs France | MD3 |
+| 6/26 19:00 | 6/27 03:00 | I | Senegal vs Iraq | MD3 |
+| 6/26 22:00 | 6/27 06:00 | L | England vs Croatia | MD3 |
+| 6/26 22:00 | 6/27 06:00 | L | Ghana vs Panama | MD3 |
+| 6/27 01:00 | 6/27 09:00 | G | Egypt vs Belgium | MD3 |
+| 6/27 01:00 | 6/27 09:00 | G | Iran vs New Zealand | MD3 |
 
 OUTPUT ORDER (CRITICAL — DO NOT REORDER — UI renders groups→QF→SF→Final→Champion in this exact order):
   ① 12 组 final standings (A→L)
