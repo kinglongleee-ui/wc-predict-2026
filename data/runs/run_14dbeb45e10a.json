@@ -1,6 +1,6 @@
 {
   "run_id": "run_14dbeb45e10a",
-  "created_at": "2026-06-25T17:30:00",
+  "created_at": "2026-06-25T18:27:29",
   "summary": {
     "rounds": 5,
     "total_actions": 0,
@@ -76,7 +76,8 @@
           "most_likely_score": "1-0",
           "top_3_scores": [
             {
-              "score": "1-0",
+              "home": 1,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -96,7 +97,8 @@
           "most_likely_score": "1-1",
           "top_3_scores": [
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -116,7 +118,8 @@
           "most_likely_score": "3-0",
           "top_3_scores": [
             {
-              "score": "3-0",
+              "home": 3,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -136,7 +139,8 @@
           "most_likely_score": "0-1",
           "top_3_scores": [
             {
-              "score": "0-1",
+              "home": 0,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -156,7 +160,8 @@
           "most_likely_score": "2-0",
           "top_3_scores": [
             {
-              "score": "2-0",
+              "home": 2,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -176,7 +181,8 @@
           "most_likely_score": "2-1",
           "top_3_scores": [
             {
-              "score": "2-1",
+              "home": 2,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -253,7 +259,8 @@
           "most_likely_score": "1-2",
           "top_3_scores": [
             {
-              "score": "1-2",
+              "home": 1,
+              "away": 2,
               "prob": 1.0
             }
           ],
@@ -273,15 +280,18 @@
           "most_likely_score": "1-1",
           "top_3_scores": [
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 0.14
             },
             {
-              "score": "1-0",
+              "home": 1,
+              "away": 0,
               "prob": 0.1
             },
             {
-              "score": "0-1",
+              "home": 0,
+              "away": 1,
               "prob": 0.09
             }
           ],
@@ -301,7 +311,8 @@
           "most_likely_score": "6-0",
           "top_3_scores": [
             {
-              "score": "6-0",
+              "home": 6,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -321,15 +332,18 @@
           "most_likely_score": "2-1",
           "top_3_scores": [
             {
-              "score": "2-1",
+              "home": 2,
+              "away": 1,
               "prob": 0.14
             },
             {
-              "score": "2-0",
+              "home": 2,
+              "away": 0,
               "prob": 0.1
             },
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 0.09
             }
           ],
@@ -349,15 +363,18 @@
           "most_likely_score": "2-1",
           "top_3_scores": [
             {
-              "score": "2-1",
+              "home": 2,
+              "away": 1,
               "prob": 0.14
             },
             {
-              "score": "2-0",
+              "home": 2,
+              "away": 0,
               "prob": 0.1
             },
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 0.09
             }
           ],
@@ -377,7 +394,8 @@
           "most_likely_score": "1-1",
           "top_3_scores": [
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -454,7 +472,8 @@
           "most_likely_score": "3-0",
           "top_3_scores": [
             {
-              "score": "3-0",
+              "home": 3,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -474,7 +493,8 @@
           "most_likely_score": "4-2",
           "top_3_scores": [
             {
-              "score": "4-2",
+              "home": 4,
+              "away": 2,
               "prob": 1.0
             }
           ],
@@ -494,7 +514,8 @@
           "most_likely_score": "1-1",
           "top_3_scores": [
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -514,7 +535,8 @@
           "most_likely_score": "1-0",
           "top_3_scores": [
             {
-              "score": "1-0",
+              "home": 1,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -534,7 +556,8 @@
           "most_likely_score": "3-0",
           "top_3_scores": [
             {
-              "score": "3-0",
+              "home": 3,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -554,7 +577,8 @@
           "most_likely_score": "0-1",
           "top_3_scores": [
             {
-              "score": "0-1",
+              "home": 0,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -631,15 +655,18 @@
           "most_likely_score": "2-1",
           "top_3_scores": [
             {
-              "score": "2-1",
+              "home": 2,
+              "away": 1,
               "prob": 0.14
             },
             {
-              "score": "2-0",
+              "home": 2,
+              "away": 0,
               "prob": 0.1
             },
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 0.09
             }
           ],
@@ -659,15 +686,18 @@
           "most_likely_score": "2-1",
           "top_3_scores": [
             {
-              "score": "2-1",
+              "home": 2,
+              "away": 1,
               "prob": 0.14
             },
             {
-              "score": "2-0",
+              "home": 2,
+              "away": 0,
               "prob": 0.1
             },
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 0.09
             }
           ],
@@ -687,15 +717,18 @@
           "most_likely_score": "2-1",
           "top_3_scores": [
             {
-              "score": "2-1",
+              "home": 2,
+              "away": 1,
               "prob": 0.14
             },
             {
-              "score": "2-0",
+              "home": 2,
+              "away": 0,
               "prob": 0.1
             },
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 0.09
             }
           ],
@@ -715,15 +748,18 @@
           "most_likely_score": "2-1",
           "top_3_scores": [
             {
-              "score": "2-1",
+              "home": 2,
+              "away": 1,
               "prob": 0.14
             },
             {
-              "score": "2-0",
+              "home": 2,
+              "away": 0,
               "prob": 0.1
             },
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 0.09
             }
           ],
@@ -743,15 +779,18 @@
           "most_likely_score": "2-1",
           "top_3_scores": [
             {
-              "score": "2-1",
+              "home": 2,
+              "away": 1,
               "prob": 0.14
             },
             {
-              "score": "2-0",
+              "home": 2,
+              "away": 0,
               "prob": 0.1
             },
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 0.09
             }
           ],
@@ -769,7 +808,23 @@
           "draw": 0.4251,
           "team_b_win": 0.2333,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 2,
+              "prob": 0.14
+            },
+            {
+              "home": 1,
+              "away": 1,
+              "prob": 0.1
+            },
+            {
+              "home": 0,
+              "away": 2,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         }
       ]
@@ -841,7 +896,23 @@
           "draw": 0.1993,
           "team_b_win": 0.1739,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 2,
+              "away": 1,
+              "prob": 0.14
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 1,
+              "away": 1,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         },
         {
@@ -856,7 +927,23 @@
           "draw": 0.1135,
           "team_b_win": 0.0508,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 2,
+              "away": 1,
+              "prob": 0.14
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 1,
+              "away": 1,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         },
         {
@@ -873,7 +960,8 @@
           "most_likely_score": "2-1",
           "top_3_scores": [
             {
-              "score": "2-1",
+              "home": 2,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -893,7 +981,8 @@
           "most_likely_score": "0-0",
           "top_3_scores": [
             {
-              "score": "0-0",
+              "home": 0,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -913,7 +1002,8 @@
           "most_likely_score": "7-1",
           "top_3_scores": [
             {
-              "score": "7-1",
+              "home": 7,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -933,7 +1023,8 @@
           "most_likely_score": "0-1",
           "top_3_scores": [
             {
-              "score": "0-1",
+              "home": 0,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -1010,7 +1101,8 @@
           "most_likely_score": "5-1",
           "top_3_scores": [
             {
-              "score": "5-1",
+              "home": 5,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -1030,7 +1122,8 @@
           "most_likely_score": "4-0",
           "top_3_scores": [
             {
-              "score": "4-0",
+              "home": 4,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -1050,7 +1143,8 @@
           "most_likely_score": "2-2",
           "top_3_scores": [
             {
-              "score": "2-2",
+              "home": 2,
+              "away": 2,
               "prob": 1.0
             }
           ],
@@ -1070,7 +1164,8 @@
           "most_likely_score": "5-1",
           "top_3_scores": [
             {
-              "score": "5-1",
+              "home": 5,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -1088,7 +1183,23 @@
           "draw": 0.0869,
           "team_b_win": 0.0368,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 2,
+              "away": 1,
+              "prob": 0.14
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 1,
+              "away": 1,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         },
         {
@@ -1103,7 +1214,23 @@
           "draw": 0.2712,
           "team_b_win": 0.5149,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 2,
+              "prob": 0.14
+            },
+            {
+              "home": 1,
+              "away": 1,
+              "prob": 0.1
+            },
+            {
+              "home": 0,
+              "away": 2,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         }
       ]
@@ -1177,7 +1304,8 @@
           "most_likely_score": "0-0",
           "top_3_scores": [
             {
-              "score": "0-0",
+              "home": 0,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -1197,7 +1325,8 @@
           "most_likely_score": "3-1",
           "top_3_scores": [
             {
-              "score": "3-1",
+              "home": 3,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -1217,7 +1346,8 @@
           "most_likely_score": "1-1",
           "top_3_scores": [
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -1237,7 +1367,8 @@
           "most_likely_score": "2-2",
           "top_3_scores": [
             {
-              "score": "2-2",
+              "home": 2,
+              "away": 2,
               "prob": 1.0
             }
           ],
@@ -1255,7 +1386,23 @@
           "draw": 0.1201,
           "team_b_win": 0.0565,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 3,
+              "away": 0,
+              "prob": 0.14
+            },
+            {
+              "home": 3,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         },
         {
@@ -1270,7 +1417,23 @@
           "draw": 0.3627,
           "team_b_win": 0.3844,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 1,
+              "prob": 0.14
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         }
       ]
@@ -1342,7 +1505,23 @@
           "draw": 0.2282,
           "team_b_win": 0.1278,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.14
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         },
         {
@@ -1357,7 +1536,23 @@
           "draw": 0.2831,
           "team_b_win": 0.385,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 1,
+              "away": 1,
+              "prob": 0.14
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 0,
+              "away": 1,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         },
         {
@@ -1374,7 +1569,8 @@
           "most_likely_score": "4-0",
           "top_3_scores": [
             {
-              "score": "4-0",
+              "home": 4,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -1394,7 +1590,8 @@
           "most_likely_score": "2-2",
           "top_3_scores": [
             {
-              "score": "2-2",
+              "home": 2,
+              "away": 2,
               "prob": 1.0
             }
           ],
@@ -1414,7 +1611,8 @@
           "most_likely_score": "0-0",
           "top_3_scores": [
             {
-              "score": "0-0",
+              "home": 0,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -1434,7 +1632,8 @@
           "most_likely_score": "1-1",
           "top_3_scores": [
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -1509,7 +1708,23 @@
           "draw": 0.2178,
           "team_b_win": 0.1997,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 3,
+              "away": 0,
+              "prob": 0.14
+            },
+            {
+              "home": 3,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         },
         {
@@ -1524,7 +1739,23 @@
           "draw": 0.1368,
           "team_b_win": 0.0798,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.14
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 1,
+              "away": 0,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         },
         {
@@ -1541,7 +1772,8 @@
           "most_likely_score": "3-1",
           "top_3_scores": [
             {
-              "score": "3-1",
+              "home": 3,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -1561,7 +1793,8 @@
           "most_likely_score": "4-1",
           "top_3_scores": [
             {
-              "score": "4-1",
+              "home": 4,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -1581,7 +1814,8 @@
           "most_likely_score": "3-0",
           "top_3_scores": [
             {
-              "score": "3-0",
+              "home": 3,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -1601,7 +1835,8 @@
           "most_likely_score": "3-2",
           "top_3_scores": [
             {
-              "score": "3-2",
+              "home": 3,
+              "away": 2,
               "prob": 1.0
             }
           ],
@@ -1678,7 +1913,8 @@
           "most_likely_score": "2-0",
           "top_3_scores": [
             {
-              "score": "2-0",
+              "home": 2,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -1698,7 +1934,8 @@
           "most_likely_score": "2-1",
           "top_3_scores": [
             {
-              "score": "2-1",
+              "home": 2,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -1718,7 +1955,8 @@
           "most_likely_score": "3-0",
           "top_3_scores": [
             {
-              "score": "3-0",
+              "home": 3,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -1738,7 +1976,8 @@
           "most_likely_score": "3-1",
           "top_3_scores": [
             {
-              "score": "3-1",
+              "home": 3,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -1756,7 +1995,23 @@
           "draw": 0.1373,
           "team_b_win": 0.0687,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 3,
+              "away": 0,
+              "prob": 0.14
+            },
+            {
+              "home": 3,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         },
         {
@@ -1771,7 +2026,23 @@
           "draw": 0.4264,
           "team_b_win": 0.2429,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 2,
+              "away": 1,
+              "prob": 0.14
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 1,
+              "away": 1,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         }
       ]
@@ -1843,7 +2114,23 @@
           "draw": 0.2565,
           "team_b_win": 0.229,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 2,
+              "away": 1,
+              "prob": 0.14
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 1,
+              "away": 1,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         },
         {
@@ -1858,7 +2145,23 @@
           "draw": 0.2278,
           "team_b_win": 0.2225,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 2,
+              "away": 1,
+              "prob": 0.14
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 1,
+              "away": 1,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         },
         {
@@ -1875,7 +2178,8 @@
           "most_likely_score": "1-1",
           "top_3_scores": [
             {
-              "score": "1-1",
+              "home": 1,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -1895,7 +2199,8 @@
           "most_likely_score": "3-1",
           "top_3_scores": [
             {
-              "score": "3-1",
+              "home": 3,
+              "away": 1,
               "prob": 1.0
             }
           ],
@@ -1915,7 +2220,8 @@
           "most_likely_score": "5-0",
           "top_3_scores": [
             {
-              "score": "5-0",
+              "home": 5,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -1935,7 +2241,8 @@
           "most_likely_score": "1-0",
           "top_3_scores": [
             {
-              "score": "1-0",
+              "home": 1,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -2012,7 +2319,8 @@
           "most_likely_score": "4-2",
           "top_3_scores": [
             {
-              "score": "4-2",
+              "home": 4,
+              "away": 2,
               "prob": 1.0
             }
           ],
@@ -2032,7 +2340,8 @@
           "most_likely_score": "1-0",
           "top_3_scores": [
             {
-              "score": "1-0",
+              "home": 1,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -2052,7 +2361,8 @@
           "most_likely_score": "0-0",
           "top_3_scores": [
             {
-              "score": "0-0",
+              "home": 0,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -2072,7 +2382,8 @@
           "most_likely_score": "1-0",
           "top_3_scores": [
             {
-              "score": "1-0",
+              "home": 1,
+              "away": 0,
               "prob": 1.0
             }
           ],
@@ -2090,7 +2401,23 @@
           "draw": 0.1198,
           "team_b_win": 0.0639,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 3,
+              "away": 0,
+              "prob": 0.14
+            },
+            {
+              "home": 3,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         },
         {
@@ -2105,7 +2432,23 @@
           "draw": 0.2825,
           "team_b_win": 0.1746,
           "most_likely_score": "待定",
-          "top_3_scores": [],
+          "top_3_scores": [
+            {
+              "home": 3,
+              "away": 0,
+              "prob": 0.14
+            },
+            {
+              "home": 3,
+              "away": 0,
+              "prob": 0.1
+            },
+            {
+              "home": 2,
+              "away": 0,
+              "prob": 0.09
+            }
+          ],
           "source": "ODDS"
         }
       ]
@@ -2231,15 +2574,18 @@
         "score": "1-2",
         "top_3_scores": [
           {
-            "score": "1-2",
+            "home": 1,
+            "away": 2,
             "prob": 0.14
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.1
           },
           {
-            "score": "0-2",
+            "home": 0,
+            "away": 2,
             "prob": 0.09
           }
         ],
@@ -2264,15 +2610,18 @@
         "score": "2-1",
         "top_3_scores": [
           {
-            "score": "2-1",
+            "home": 2,
+            "away": 1,
             "prob": 0.14
           },
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.09
           }
         ],
@@ -2297,15 +2646,18 @@
         "score": "1-1",
         "top_3_scores": [
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.14
           },
           {
-            "score": "1-0",
+            "home": 1,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "0-1",
+            "home": 0,
+            "away": 1,
             "prob": 0.09
           }
         ],
@@ -2330,15 +2682,18 @@
         "score": "2-1",
         "top_3_scores": [
           {
-            "score": "2-1",
+            "home": 2,
+            "away": 1,
             "prob": 0.14
           },
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.09
           }
         ],
@@ -2363,15 +2718,18 @@
         "score": "3-0",
         "top_3_scores": [
           {
-            "score": "3-0",
+            "home": 3,
+            "away": 0,
             "prob": 0.14
           },
           {
-            "score": "3-0",
+            "home": 3,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.09
           }
         ],
@@ -2396,15 +2754,18 @@
         "score": "1-2",
         "top_3_scores": [
           {
-            "score": "1-2",
+            "home": 1,
+            "away": 2,
             "prob": 0.14
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.1
           },
           {
-            "score": "0-2",
+            "home": 0,
+            "away": 2,
             "prob": 0.09
           }
         ],
@@ -2429,15 +2790,18 @@
         "score": "2-0",
         "top_3_scores": [
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.14
           },
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "1-0",
+            "home": 1,
+            "away": 0,
             "prob": 0.09
           }
         ],
@@ -2462,15 +2826,18 @@
         "score": "3-0",
         "top_3_scores": [
           {
-            "score": "3-0",
+            "home": 3,
+            "away": 0,
             "prob": 0.14
           },
           {
-            "score": "3-0",
+            "home": 3,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.09
           }
         ],
@@ -2495,15 +2862,18 @@
         "score": "2-1",
         "top_3_scores": [
           {
-            "score": "2-1",
+            "home": 2,
+            "away": 1,
             "prob": 0.14
           },
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.09
           }
         ],
@@ -2528,15 +2898,18 @@
         "score": "1-1",
         "top_3_scores": [
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.14
           },
           {
-            "score": "1-0",
+            "home": 1,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "0-1",
+            "home": 0,
+            "away": 1,
             "prob": 0.09
           }
         ],
@@ -2561,15 +2934,18 @@
         "score": "3-0",
         "top_3_scores": [
           {
-            "score": "3-0",
+            "home": 3,
+            "away": 0,
             "prob": 0.14
           },
           {
-            "score": "3-0",
+            "home": 3,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.09
           }
         ],
@@ -2594,15 +2970,18 @@
         "score": "3-0",
         "top_3_scores": [
           {
-            "score": "3-0",
+            "home": 3,
+            "away": 0,
             "prob": 0.14
           },
           {
-            "score": "3-0",
+            "home": 3,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.09
           }
         ],
@@ -2627,15 +3006,18 @@
         "score": "1-2",
         "top_3_scores": [
           {
-            "score": "1-2",
+            "home": 1,
+            "away": 2,
             "prob": 0.14
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.1
           },
           {
-            "score": "0-2",
+            "home": 0,
+            "away": 2,
             "prob": 0.09
           }
         ],
@@ -2660,15 +3042,18 @@
         "score": "2-0",
         "top_3_scores": [
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.14
           },
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "1-0",
+            "home": 1,
+            "away": 0,
             "prob": 0.09
           }
         ],
@@ -2693,15 +3078,18 @@
         "score": "1-1",
         "top_3_scores": [
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.14
           },
           {
-            "score": "1-0",
+            "home": 1,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "0-1",
+            "home": 0,
+            "away": 1,
             "prob": 0.09
           }
         ],
@@ -2726,15 +3114,18 @@
         "score": "1-2",
         "top_3_scores": [
           {
-            "score": "1-2",
+            "home": 1,
+            "away": 2,
             "prob": 0.14
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.1
           },
           {
-            "score": "0-2",
+            "home": 0,
+            "away": 2,
             "prob": 0.09
           }
         ],
@@ -2757,15 +3148,18 @@
         "score": "1-2",
         "top_3_scores": [
           {
-            "score": "1-2",
+            "home": 1,
+            "away": 2,
             "prob": 0.14
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.1
           },
           {
-            "score": "0-2",
+            "home": 0,
+            "away": 2,
             "prob": 0.09
           }
         ],
@@ -2784,15 +3178,18 @@
         "score": "1-1",
         "top_3_scores": [
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.14
           },
           {
-            "score": "1-0",
+            "home": 1,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "0-1",
+            "home": 0,
+            "away": 1,
             "prob": 0.09
           }
         ],
@@ -2809,7 +3206,23 @@
         "draw": 0.2178,
         "team_b_win": 0.1997,
         "score": "待定",
-        "top_3_scores": [],
+        "top_3_scores": [
+          {
+            "home": 3,
+            "away": 0,
+            "prob": 0.14
+          },
+          {
+            "home": 3,
+            "away": 0,
+            "prob": 0.1
+          },
+          {
+            "home": 2,
+            "away": 0,
+            "prob": 0.09
+          }
+        ],
         "date": "2026-07-04",
         "bracket_idx": 2,
         "winner": "法国"
@@ -2825,15 +3238,18 @@
         "score": "1-2",
         "top_3_scores": [
           {
-            "score": "1-2",
+            "home": 1,
+            "away": 2,
             "prob": 0.14
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.1
           },
           {
-            "score": "0-2",
+            "home": 0,
+            "away": 2,
             "prob": 0.09
           }
         ],
@@ -2852,15 +3268,18 @@
         "score": "2-1",
         "top_3_scores": [
           {
-            "score": "2-1",
+            "home": 2,
+            "away": 1,
             "prob": 0.14
           },
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.09
           }
         ],
@@ -2879,15 +3298,18 @@
         "score": "1-2",
         "top_3_scores": [
           {
-            "score": "1-2",
+            "home": 1,
+            "away": 2,
             "prob": 0.14
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.1
           },
           {
-            "score": "0-2",
+            "home": 0,
+            "away": 2,
             "prob": 0.09
           }
         ],
@@ -2906,15 +3328,18 @@
         "score": "1-2",
         "top_3_scores": [
           {
-            "score": "1-2",
+            "home": 1,
+            "away": 2,
             "prob": 0.14
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.1
           },
           {
-            "score": "0-2",
+            "home": 0,
+            "away": 2,
             "prob": 0.09
           }
         ],
@@ -2933,15 +3358,18 @@
         "score": "2-1",
         "top_3_scores": [
           {
-            "score": "2-1",
+            "home": 2,
+            "away": 1,
             "prob": 0.14
           },
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.09
           }
         ],
@@ -2962,15 +3390,18 @@
         "score": "1-2",
         "top_3_scores": [
           {
-            "score": "1-2",
+            "home": 1,
+            "away": 2,
             "prob": 0.14
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.1
           },
           {
-            "score": "0-2",
+            "home": 0,
+            "away": 2,
             "prob": 0.09
           }
         ],
@@ -2991,15 +3422,18 @@
         "score": "2-1",
         "top_3_scores": [
           {
-            "score": "2-1",
+            "home": 2,
+            "away": 1,
             "prob": 0.14
           },
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.09
           }
         ],
@@ -3020,15 +3454,18 @@
         "score": "0-2",
         "top_3_scores": [
           {
-            "score": "0-2",
+            "home": 0,
+            "away": 2,
             "prob": 0.14
           },
           {
-            "score": "0-1",
+            "home": 0,
+            "away": 1,
             "prob": 0.1
           },
           {
-            "score": "0-2",
+            "home": 0,
+            "away": 2,
             "prob": 0.09
           }
         ],
@@ -3049,15 +3486,18 @@
         "score": "2-1",
         "top_3_scores": [
           {
-            "score": "2-1",
+            "home": 2,
+            "away": 1,
             "prob": 0.14
           },
           {
-            "score": "2-0",
+            "home": 2,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.09
           }
         ],
@@ -3080,15 +3520,18 @@
         "score": "1-2",
         "top_3_scores": [
           {
-            "score": "1-2",
+            "home": 1,
+            "away": 2,
             "prob": 0.14
           },
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.1
           },
           {
-            "score": "0-2",
+            "home": 0,
+            "away": 2,
             "prob": 0.09
           }
         ],
@@ -3109,15 +3552,18 @@
         "score": "1-1",
         "top_3_scores": [
           {
-            "score": "1-1",
+            "home": 1,
+            "away": 1,
             "prob": 0.14
           },
           {
-            "score": "1-0",
+            "home": 1,
+            "away": 0,
             "prob": 0.1
           },
           {
-            "score": "0-1",
+            "home": 0,
+            "away": 1,
             "prob": 0.09
           }
         ],

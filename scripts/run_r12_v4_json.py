@@ -134,6 +134,18 @@ def get_elo(t_zh):
     en = TEAM_ZH2EN.get(t_zh, t_zh)
     return ELO.get(en) or ELO.get(t_zh) or 1500
 
+def _elo_top3(a_zh, b_zh):
+    """Elo-Poisson 推算 Top 3 比分 (ODDS 路径下用于补 top_3_scores)。格式: {home, away, prob}"""
+    ra, rb = get_elo(a_zh), get_elo(b_zh)
+    diff = (ra - rb) / 200
+    ga = max(0, round(1.4 + diff))
+    gb = max(0, round(1.4 - diff))
+    return [
+        {"home": ga, "away": gb, "prob": 0.14},
+        {"home": ga, "away": max(0, gb - 1), "prob": 0.10},
+        {"home": max(0, ga - 1), "away": gb, "prob": 0.09},
+    ]
+
 def predict_match(a_zh, b_zh):
     """Return (a_win, draw, b_win, score_str, top3)."""
     en_a = TEAM_ZH2EN.get(a_zh, a_zh)
@@ -151,7 +163,7 @@ def predict_match(a_zh, b_zh):
                 "draw": 1.0 if sa == sb else 0.0,
                 "b_win": 1.0 if sb > sa else 0.0,
                 "score": f"{sa}-{sb}",
-                "top3": [{"score": f"{sa}-{sb}", "prob": 1.0}],
+                "top3": [{"home": sa, "away": sb, "prob": 1.0}],
                 "source": "REAL",
             }
     # Check odds
@@ -163,16 +175,18 @@ def predict_match(a_zh, b_zh):
             d = odds_obj.get("draw_prob_norm")
             a = odds_obj.get("away_prob_norm")
             if h is not None and a is not None and d is not None:
+                # ODDS: 用 a_win/draw/b_win (DraftKings), 但 top3 用 Elo-Poisson 推算
+                elo_top3 = _elo_top3(a_zh, b_zh)
                 if o["team_a"] == en_a or o["team_a"] == a_zh:
                     return {
                         "a_win": h, "draw": d, "b_win": a,
-                        "score": "待定", "top3": [],
+                        "score": "待定", "top3": elo_top3,
                         "source": "ODDS",
                     }
                 else:
                     return {
                         "a_win": a, "draw": d, "b_win": h,
-                        "score": "待定", "top3": [],
+                        "score": "待定", "top3": elo_top3,
                         "source": "ODDS",
                     }
     # Elo-Poisson
@@ -191,9 +205,9 @@ def predict_match(a_zh, b_zh):
         "a_win": p_a, "draw": p_d, "b_win": p_b,
         "score": score,
         "top3": [
-            {"score": score, "prob": 0.14},
-            {"score": f"{goals_a}-{max(0,goals_b-1)}", "prob": 0.10},
-            {"score": f"{max(0,goals_a-1)}-{goals_b}", "prob": 0.09},
+            {"home": goals_a, "away": goals_b, "prob": 0.14},
+            {"home": goals_a, "away": max(0, goals_b - 1), "prob": 0.10},
+            {"home": max(0, goals_a - 1), "away": goals_b, "prob": 0.09},
         ],
         "source": "ELO",
     }
