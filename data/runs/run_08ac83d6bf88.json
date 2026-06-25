@@ -1,0 +1,151 @@
+{
+  "run_id": "run_08ac83d6bf88",
+  "created_at": "2026-06-25T17:17:51.718338",
+  "verdict": {
+    "prediction": "<think>The user wants me to translate a football prediction narrative from English to Chinese, keeping numbers, team names, person names, and percentages intact. Let me translate carefully.\n\nKey terms:\n- Argentina defeats France - 阿根廷击败法国\n- 2026 FIFA World Cup Final - 2026年国际足联世界杯决赛\n- MetLife Stadium - 大都会人寿体育场\n- approximately 54% title probability - 约54%的夺冠概率\n- Brazil, Spain, England - 巴西、西班牙、英格兰\n- second tier of contenders - 第二梯队的争夺者\n- highest-leverage upset risk - 最高杠杆的冷门风险\n- Ecuador eliminating France in the Round of 32 - 厄瓜多尔在32强赛(1/16决赛)中淘汰法国\n- bracket remains fluid - 淘汰赛对阵形势仍不明朗\n- bottom half - 下半区\n- tightly clustered - 紧密聚集\n- λ≈1.0 - λ≈1.0 (lambda约等于1.0)\n\nLet me compose the translation.</think>\n\n阿根廷在2026年国际足联世界杯决赛中于大都会人寿体育场击败法国,夺冠概率约为54%;巴西、西班牙和英格兰构成第二梯队的争夺者;最高杠杆的冷门风险是厄瓜多尔在1/16决赛中淘汰法国;淘汰赛对阵形势在下半区仍不明朗,西班牙/阿根廷/葡萄牙紧密聚集在λ≈1.0附近。",
+    "confidence": 0.58,
+    "key_dynamics": [
+      "<think>The user wants me to translate a football prediction narrative into fluent Chinese, preserving numbers, team names, person names, and percentages. Let me carefully translate this:\n\n\"Argentina installed as defending champion with 54% title probability, anchored by top-of-baseline Elo-Poisson λ and DraftKings 1X2 prior\"\n\nLet me break this down:\n- \"Argentina installed as defending champion\" - 阿根廷作为卫冕冠军被列为...\n- \"with 54% title probability\" - 拥有54%的夺冠概率\n- \"anchored by\" - 基于/由...支撑\n- \"top-of-baseline Elo-Poisson λ\" - 处于基线顶部的Elo-Poisson λ值\n- \"DraftKings 1X2 prior\" - DraftKings 1X2的先验概率\n\nLet me craft a fluent translation that reads naturally in Chinese while preserving all the technical elements.</think>\n\n阿根廷被列为卫冕冠军，夺冠概率达54%，这一概率由处于基线顶部的 Elo-Poisson λ 值以及 DraftKings 1X2 先验概率共同支撑。",
+      "<think>The user wants me to translate this football prediction narrative into Chinese, keeping numbers, team names, percentages, etc. accurate.\n\nLet me translate:\n- \"France projected as finalist despite Ecuador R32 upset risk\" - France projected as finalist... despite the risk of being upset by Ecuador in the Round of 32\n- \"bracket is vulnerable in top half where host-favorite paths intersect\" - the bracket is vulnerable in the top half where the host and favorite's paths intersect\n\nTranslation:\n法国被预测为决赛球队，尽管在16强（淘汰赛首轮）有被厄瓜多尔爆冷击败的风险；上半区赛程存在变数，东道主与热门球队的晋级路径在此交汇。</think>\n\n法国被预测为决赛球队，尽管在16强（淘汰赛首轮）有被厄瓜多尔爆冷的风险；上半区赛程存在变数，东道主与热门球队的晋级路径在此交汇。",
+      "<think>\nThe user wants me to translate a football prediction narrative into fluent Chinese, preserving numbers, team names, person names, and percentages. This appears to be the final part of a larger prediction analysis. Let me translate it carefully.\n\n\"Bottom half (Spain/Argentina/Portugal) tightly bunched near λ≈1.0, creating high knockout-stage variance and upset potential\"\n\nKey elements to preserve:\n- \"Bottom half\" \n- Team names: Spain, Argentina, Portugal\n- λ≈1.0 (lambda approximately 1.0)\n- \"knockout-stage\"\n- \"variance\"\n- \"upset potential\"\n\nLet me translate this naturally into Chinese:\n\n下半区(西班牙/阿根廷/葡萄牙)在 λ≈1.0 附近紧密聚集,制造了高淘汰赛阶段方差和冷门潜力\n\nLet me refine this to be more natural and fluent:\n\n\"下半区(西班牙/阿根廷/葡萄牙)队伍实力在 λ≈1.0 附近密集分布,使得淘汰赛阶段存在巨大变数和爆冷可能\"\n\nActually, let me think about \"variance\" - in football prediction context, this often refers to variability/uncertainty. \"淘汰赛阶段的不确定性和冷门可能\" might be better.\n\nLet me go with: 下半区(西班牙/阿根廷/葡萄牙)在 λ≈1.0 附近实力相近、密集分布,造就了淘汰赛阶段的高变异性和巨大冷门潜力\n\nOr more natural: 下半区(西班牙/阿根廷/葡萄牙)实力在 λ≈1.0 附近紧密聚集,导致淘汰赛阶段变数极大、冷门潜力突出\n</think>\n下半区(西班牙/阿根廷/葡萄牙)在 λ≈1.0 附近实力紧密聚集,导致淘汰赛阶段变数极大、冷门潜力突出",
+      "<think>\nThe user wants me to translate a football prediction narrative into Chinese, keeping numbers, team names, person names, and percentages intact. Let me translate this carefully.\n\nOriginal: \"Elo-Poisson baseline (μ=1.4) blended ~30% with DraftKings vig-removed prior and ~70% contextual reasoning, with zero social-media signal (0 posts, 0 interviews) reinforcing pure model-driven calibration\"\n\nLet me translate this into fluent Chinese while preserving technical terms, numbers, and percentages.\n\n- Elo-Poisson baseline → Elo-Poisson 基线\n- μ=1.4 → μ=1.4\n- blended ~30% with → 与...按约30%比例混合\n- DraftKings vig-removed prior → DraftKings 抽水剔除后的先验\n- ~70% contextual reasoning → 约70%上下文推理\n- zero social-media signal → 零社交媒体信号\n- 0 posts, 0 interviews → 0条帖子，0次采访\n- reinforcing pure model-driven calibration → 强化纯模型驱动的校准\n\nLet me put it together in a fluent way.\n</think>\nElo-Poisson 基线模型（μ=1.4）与 DraftKings 抽水剔除后的先验按约 30% 比例混合，并叠加约 70% 的上下文情境推理；社交媒体信号为零（0 条帖子、0 次采访），进一步强化了纯模型驱动的校准结果。",
+      "<think>\nThe user wants me to translate a football prediction narrative from English to Chinese, keeping numbers, team names, person names, and percentages intact. Let me translate this naturally into Chinese.\n\nOriginal: \"Brazil, England emerge as second-tier threats; Germany and Portugal sit at the dark-horse boundary based on group-stage dominance (e.g., Brazil 9-pt run, Germany 7-pt Group E top)\"\n\nLet me translate:\n- Brazil, England emerge as second-tier threats → 巴西、英格兰成为第二梯队的威胁\n- Germany and Portugal sit at the dark-horse boundary → 德国和葡萄牙处于黑马边界\n- based on group-stage dominance → 基于小组赛阶段的统治力\n- e.g., Brazil 9-pt run → 例如巴西 9 分连胜\n- Germany 7-pt Group E top → 德国 7 分 E 组头名\n\nLet me make this fluent in Chinese.\n</think>\n巴西、英格兰成为第二梯队的威胁力量；德国和葡萄牙则处于\"黑马\"临界位置，依据是各自在小组赛阶段展现出的统治力（例如巴西 9 分全胜晋级，德国以 7 分位列 E 组头名）。"
+    ],
+    "signals": [
+      {
+        "signal": "<think>\nThe user wants me to translate a football prediction narrative into fluent Chinese, preserving numbers, team names, person names, and percentages.\n\nLet me translate:\n\n\"Elo-Poisson baseline favorability toward Argentina (high λa vs group/run opponents) plus favorable knockout draw path\"\n\nTranslation:\n\"埃洛-泊松基线对阿根廷有利（对阵小组赛/赛程对手时 λa 值较高），加上有利的淘汰赛抽签路径\"\n\nLet me make sure this is natural and fluent Chinese:\n- Elo-Poisson = 埃洛-泊松 (Elo-Poisson model)\n- baseline favorability = 基线有利度\n- high λa = λa 较高 (lambda a is the attack parameter in Poisson model)\n- group/run opponents = 小组赛/赛事对手\n- favorable knockout draw path = 有利的淘汰赛抽签路径\n\nThis looks good. Let me refine it slightly.\n</think>\n埃洛-泊松（Elo-Poisson）基线模型对阿根廷更为有利（对阵小组赛/赛事进程中的对手时其进攻参数 λa 较高），加上淘汰赛抽签路径也较为友好。",
+        "direction": "positive",
+        "strength": 0.72
+      },
+      {
+        "signal": "<think>\nThe user wants me to translate a football prediction narrative from English to Chinese, keeping numbers, team names, percentages intact.\n\nLet me translate:\n\"DraftKings bookmaker prior for Argentina matches (e.g., 80.4% vs Jordan, 60.2% vs Austria) calibrates 1X2 probabilities upward\"\n\nTranslation:\n\"DraftKings博彩公司对阿根廷比赛的先验概率（例如，对阵约旦80.4%，对阵奥地利60.2%）将1X2（主胜平客负）赔率向上校准\"\n\nLet me make it more natural in Chinese:\n\"DraftKings博彩公司对阿根廷比赛的初始赔率（例如，对阵约旦为80.4%，对阵奥地利为60.2%），将1X2（三项让球）赔率向上校准\"\n\nActually \"1X2\" in football betting refers to home win/draw/away win (主胜/平局/客胜). Let me use a clearer translation.\n\n\"DraftKings博彩公司对阿根廷比赛的先验赔率（例如，对阵约旦80.4%，对阵奥地利60.2%），将1X2（即主胜/平/客胜）概率向上校准\"\n\nLet me refine this further for natural flow in Chinese.\n</think>\nDraftKings 博彩公司对阿根廷比赛的先验赔率（例如，对阵约旦 80.4%，对阵奥地利 60.2%），将 1X2（主胜/平/客胜）概率向上校准",
+        "direction": "positive",
+        "strength": 0.55
+      },
+      {
+        "signal": "<think>\nThe user wants me to translate a football prediction narrative from English to Chinese, keeping numbers, team names, person names, and percentages intact.\n\nLet me translate this carefully:\n\n\"France R32 matchup against potential Ecuador upset — Ecuador's DK 82.8% vs Curaçao suggests competitive ceiling, creating R32 fragility for France\"\n\nTranslation:\n法国R32对阵潜在厄瓜多尔的冷门——厄瓜多尔对阵库拉索的DK值82.8%表明其竞争力上限，从而为法国在R32制造了脆弱性\n\nLet me refine this to be more fluent in Chinese while keeping all the technical terms and numbers.\n</think>\n法国R32对阵潜在厄瓜多尔冷门——厄瓜多尔对阵库拉索的DK值82.8%显示其竞技上限有限,从而为法国在R32阶段制造了脆弱性",
+        "direction": "negative",
+        "strength": 0.48
+      },
+      {
+        "signal": "<think>\nThe user wants me to translate this English sentence about football/soccer predictions into fluent Chinese, while preserving numbers, team names, and percentages.\n\nLet me break down the sentence:\n- \"Bottom-half clustering\" - 下半区聚集\n- \"Spain/Argentina/Portugal\" - 西班牙/阿根廷/葡萄牙 (country names, preserve as is)\n- \"near λ≈1.0\" - 约在λ≈1.0附近 (preserve the lambda symbol and number)\n- \"produces high knockout variance\" - 产生高淘汰赛方差/差异\n- \"any of three could plausibly reach the final\" - 三者中任何一支都合理地可能进入决赛\n\nLet me translate this fluently into Chinese:\n\n\"西班牙/阿根廷/葡萄牙下半区聚集在λ≈1.0附近，这产生了较高的淘汰赛变数——三者中任何一支都有可能合理地闯入决赛。\"\n\nLet me refine this for better fluency:\n\n\"西班牙/阿根廷/葡萄牙在下半区聚集于λ≈1.0附近，这使得淘汰赛阶段变数极大——三支球队中任何一支都有合理机会闯入决赛。\"\n\nOr another version:\n\n\"西班牙、阿根廷和葡萄牙在下半区聚集于λ≈1.0附近，导致淘汰赛阶段方差较大——三队中任何一支都有合理概率进入决赛。\"\n\nI think the second one is more natural. Let me finalize.\n</think>\n西班牙、阿根廷和葡萄牙在下半区聚集于λ≈1.0附近，导致淘汰赛阶段方差较大——三队中任何一支都有合理概率闯入决赛。",
+        "direction": "mixed",
+        "strength": 0.6
+      },
+      {
+        "signal": "<think>\nThe user wants me to translate a football prediction narrative from English to Chinese. Let me carefully translate this while preserving the technical terms, numbers, and meaning.\n\nOriginal: \"Total absence of social-media/news signal (0 posts across 5 rounds) leaves model as sole calibrator, increasing uncertainty on injury/H2H/form adjustments\"\n\nLet me break this down:\n- \"Total absence of social-media/news signal\" = 完全没有社媒/新闻信号\n- \"(0 posts across 5 rounds)\" = (5轮比赛0篇帖子)\n- \"leaves model as sole calibrator\" = 使模型成为唯一的校准器\n- \"increasing uncertainty on\" = 增加...方面的不确定性\n- \"injury/H2H/form adjustments\" = 伤病/历史交锋/状态调整\n\nLet me craft a fluent Chinese translation.\n</think>\n完全没有社媒/新闻信号(5轮比赛0篇帖子),只能依靠模型单独校准,从而加大了伤病、历史交锋(H2H)及状态调整方面的不确定性。",
+        "direction": "negative",
+        "strength": 0.4
+      }
+    ]
+  },
+  "summary": {
+    "rounds": 5,
+    "node_count": 86,
+    "edge_count": 71,
+    "total_actions": 0,
+    "top_agents": []
+  },
+  "groups": {
+    "A": {
+      "letter": "A",
+      "teams": [
+        "Mexico City"
+      ],
+      "matches": [],
+      "standings": []
+    },
+    "B": {
+      "letter": "B",
+      "teams": [
+        "Vancouver"
+      ],
+      "matches": [],
+      "standings": []
+    },
+    "C": {
+      "letter": "C",
+      "teams": [
+        "Miami"
+      ],
+      "matches": [],
+      "standings": []
+    },
+    "D": {
+      "letter": "D",
+      "teams": [
+        "Kansas City"
+      ],
+      "matches": [],
+      "standings": []
+    },
+    "E": {
+      "letter": "E",
+      "teams": [
+        "Boston"
+      ],
+      "matches": [],
+      "standings": []
+    },
+    "F": {
+      "letter": "F",
+      "teams": [
+        "New York"
+      ],
+      "matches": [],
+      "standings": []
+    },
+    "G": {
+      "letter": "G",
+      "teams": [
+        "Houston"
+      ],
+      "matches": [],
+      "standings": []
+    },
+    "H": {
+      "letter": "H",
+      "teams": [],
+      "matches": [],
+      "standings": []
+    },
+    "I": {
+      "letter": "I",
+      "teams": [],
+      "matches": [],
+      "standings": []
+    },
+    "J": {
+      "letter": "J",
+      "teams": [],
+      "matches": [],
+      "standings": []
+    },
+    "K": {
+      "letter": "K",
+      "teams": [],
+      "matches": [],
+      "standings": []
+    },
+    "L": {
+      "letter": "L",
+      "teams": [],
+      "matches": [],
+      "standings": []
+    }
+  },
+  "best_thirds": [],
+  "bracket": {
+    "r32": [],
+    "r16": [],
+    "qf": [],
+    "sf": [],
+    "third_place": null
+  },
+  "final": {
+    "confidence": 0.58,
+    "champion": "Argentina"
+  },
+  "upset_risks": [],
+  "report_markdown": "# 2026 FIFA World Cup — Full Knockout-Stage Prediction Report\n\n## Executive Summary\n\nUsing the Elo-Poisson baseline (μ=1.4) blended ~30% with the DraftKings 1X2 prior and ~70% with contextual reasoning (form, H2H, host advantage, tactical matchups), I project **Argentina vs France in the Final at MetLife Stadium**, with **Argentina defending the trophy at 54% title probability**. Brazil, Spain, and England form the second tier; Germany and Portugal sit at the dark-horse boundary. The bracket remains fluid in the bottom half (Spain/Argentina/Portugal all clustered near λ≈1.0), and the single highest-leverage upset risk is **Ecuador eliminating France in the Round of 32**. Simulation social-media channels were silent across all five rounds (0 posts, 0 interviews), so all probability adjustments below are model-driven.\n\n---\n\n## 1. Group Stage — Final Standings & MD2/MD3 Match Predictions\n\nStandings predicted from combined Elo-Poisson + bookmaker calibration. Per-match: team_a_win / draw / team_b_win, most_likely_score, top_3_scores.\n\n### Group A (Mexico City)\n| Pos | Team | Pts |\n|---|---|---|\n| 1 | Mexico | 7 |\n| 2 | South Korea | 5 |\n| 3 | Czech Republic | 4 |\n| 4 | South Africa | 0 |\n\n**MD2 — South Korea vs Czech Republic** (6/19 implied): SK 39 / D 38 / CZE 23 · MLS 0-0 · top3: 0-0 (24.7%), 1-0 SK (20.5%), 0-1 CZE (14.1%)\n**MD2 — Mexico vs South Africa**: MEX 55 / D 34 / RSA 11 · MLS 1-0 · top3: 1-0 (26.6%), 0-0 (24.7%), 2-0 (14.3%)\n**MD3 — Mexico vs South Korea** (6/24 19:00 fix): MEX 41 / D 36 / SK 23 · MLS 1-0 · top3: 1-0 (22.0%), 0-0 (24.7%), 2-0 (10.8%)\n**MD3 — Czech Republic vs South Africa**: CZE 50 / D 35 / RSA 15 · MLS 1-0 · top3: 1-0 (24.5%), 0-0 (24.7%), 2-0 (12.2%)\n\n### Group B (Vancouver)\n| Pos | Team | Pts |\n|---|---|---|\n| 1 | Switzerland | 7 |\n| 2 | Canada (H) | 5 |\n| 3 | Bosnia | 4 |\n| 4 | Qatar | 0 |\n\n**MD2 — Canada vs Bosnia** (6/19 implied): CAN 34 / D 38 / BIH 28 · MLS 0-0 · top3: 0-0 (24.7%), 1-0 CAN (18.5%), 0-1 BIH (16.0%)\n**MD2 — Switzerland vs Qatar**: SUI 52 / D 36 / QAT 12 · MLS 1-0 · top3: 1-0 (25.7%), 0-0 (24.7%), 2-0 (13.4%)\n**MD3 — Canada vs Switzerland** (6/24 19:00 fix): CAN 27 / D 38 / SUI 35 (DK 29.9/30.9/39.1 → blended) · MLS 0-0 · top3: 0-0 (24.7%), 0-1 SUI (18.7%), 1-0 CAN (15.8%)\n**MD3 — Bosnia vs Qatar** (6/24 implied, DK 66.2): BIH 58 / D 26 / QAT 16 · MLS 1-0 · top3: 1-0 (24.0%), 0-0 (24.7%), 2-0 (12.4%)\n\n### Group C (Miami)\n| Pos | Team | Pts |\n|---|---|---|\n| 1 | Brazil | 9 |\n| 2 | Morocco | 6 |\n| 3 | Scotland | 3 |\n| 4 | Haiti | 0 |\n\n**MD2 — Brazil vs Haiti** (6/20 00:30 fix): BRA 67 / D 29 / HAI 4 · MLS 1-0 · top3: 1-0 (31.0%), 0-0 (24.7%), 2-0 (19.5%)\n**MD2 — Morocco vs Scotland** (6/20 implied): MAR 54 / D 34 / SCO 12 · MLS 0-1 · top3: 0-1 SCO (26.2%), 0-0 (24.7%), 0-2 (13.9%) — flipped because Scotland path requires wins; MAR wins at home advantage\n**MD3 — Brazil vs Scotland** (6/24 22:00 fix, DK BRA 68.8): BRA 65 / D 25 / SCO 10 · MLS 2-0 · top3: 2-0 (19.0%), 1-0 (26.0%), 0-0 (24.7%)\n**MD3 — Haiti vs Morocco** (6/24 22:00 fix, DK MAR 80.4): HAI 8 / D 16 / MAR 76 · MLS 0-2 · top3: 0-2 (17.0%), 0-1 (24.0%), 0-0 (24.7%)\n\n### Group D (Kansas City)\n| Pos | Team | Pts |\n|---|---|---|\n| 1 | USA (H) | 7 |\n| 2 | Paraguay | 5 |\n| 3 | Australia | 4 |\n| 4 | Turkey | 0 |\n\n**MD2 — Paraguay vs Turkey** (6/20 03:00 fix, DK PAR 32.1 / D 42.8 / TUR 25.0): PAR 35 / D 40 / TUR 25 · MLS 0-0 · top3: 0-0 (24.7%), 1-0 PAR (16.3%), 0-1 TUR (15.5%)\n**MD2 — USA vs Australia**: USA 47 / D 35 / AUS 18 · MLS 1-0 · top3: 1-0 (23.4%), 0-0 (24.7%), 2-0 (11.1%)\n**MD3 — USA vs Turkey**: USA 55 / D 30 / TUR 15 · MLS 2-0 · top3: 2-0 (15.5%), 1-0 (25.0%), 0-0 (24.7%)\n**MD3 — Paraguay vs Australia**: PAR 40 / D 35 / AUS 25 · MLS 1-0 · top3: 1-0 (20.0%), 0-0 (24.7%), 0-1 AUS (15.0%)\n\n### Group E (Boston)\n| Pos | Team | Pts |\n|---|---|---|\n| 1 | Germany | 7 |\n| 2 | Ecuador | 5 |\n| 3 | Ivory Coast | 3 |\n| 4 | Curaçao | 1 |\n\n**MD2 — Germany vs Ivory Coast** (6/20 20:00 fix): GER 47 / D 36 / CIV 17 · MLS 1-0 · top3: 1-0 (23.4%), 0-0 (24.7%), 2-0 (11.1%)\n**MD2 — Ecuador vs Curaçao** (6/21 00:00 fix, DK ECU 82.8): ECU 70 / D 20 / CUR 10 · MLS 2-0 · top3: 2-0 (18.0%), 1-0 (26.5%), 0-0 (24.7%)\n**MD3 — Germany vs Ecuador** (6/25 20:00 fix, DK GER 54.3): GER 50 / D 30 / ECU 20 · MLS 1-0 · top3: 1-0 (24.0%), 0-0 (24.7%), 2-0 (12.0%)\n**MD3 — Ivory Coast vs Curaçao** (6/25 20:00 fix, DK CIV 84.6): CIV 70 / D 20 / CUR 10 · MLS 2-0 · top3: 2-0 (18.5%), 1-0 (26.0%), 0-0 (24.7%)\n\n### Group F (New York)\n| Pos | Team | Pts |\n|---|---|---|\n| 1 | Netherlands | 7 |\n| 2 | Japan | 5 |\n| 3 | Sweden | 4 |\n| 4 | Tunisia | 0 |\n\n**MD2 — Netherlands vs Sweden** (6/20 17:00 fix): NED 50 / D 35 / SWE 15 · MLS 1-0 · top3: 1-0 (24.0%), 0-0 (24.7%), 2-0 (12.0%)\n**MD2 — Japan vs Tunisia** (6/21 04:00 fix, DK JPN 65.4): JPN 55 / D 28 / TUN 17 · MLS 1-0 · top3: 1-0 (25.5%), 0-0 (24.7%), 2-0 (13.5%)\n**MD3 — Netherlands vs Tunisia**: NED 60 / D 28 / TUN 12 · MLS 2-0 · top3: 2-0 (16.5%), 1-0 (26.5%), 0-0 (24.7%)\n**MD3 — Japan vs Sweden** (6/25 20:00 implied, DK JPN 45.9 / D 28.8 / SWE 25.4): JPN 44 / D 32 / SWE 24 · MLS 1-0 · top3: 1-0 (22.0%), 0-0 (24.7%), 1-1 (12.5%)\n\n### Group G (Houston)\n| Pos | Team | Pts |\n|---|---|---|\n| 1 | Belgium | 7 |\n| 2 | Iran | 5 |\n| 3 | Egypt | 4 |\n| 4 | New Zealand | 0 |\n\n**MD2 — Belgium vs Iran** (6/21 19:00 fix, DK BEL 67.2): BEL 58 / D 25 / IRI 17 · MLS 1-0 · top3: 1-0 (24.5%), 0-0 (24.7%), 2-0 (13.0%)\n**MD2 — Egypt vs New Zealand** (6/22"
+}

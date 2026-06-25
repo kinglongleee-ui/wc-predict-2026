@@ -1,105 +1,3220 @@
 {
   "run_id": "run_14dbeb45e10a",
-  "created_at": "2026-06-25T16:21:01.570452",
-  "verdict": {
-    "prediction": "<think>\nLet me carefully analyze this task. I need to produce a complete 9-section prediction report for the 2026 FIFA World Cup, with specific constraints:\n\n1. 12 groups (A-L) with 4 teams each\n2. 24 must-include matches for MD2/MD3 (6/20-6/25)\n3. R32 bracket (Match 73-88) fixed\n4. Must output 9 sections in order\n5. Each match needs probabilities\n6. JSON output at the end\n\nLet me work through this systematically.\n\n**STEP 1: Analyze the 24 must-include matches and determine group standings**\n\nThe numeric anchor provides baselines. Let me use these and the match schedule to figure out standings",
-    "confidence": 0.5,
-    "key_dynamics": [],
-    "signals": []
-  },
+  "created_at": "2026-06-25T17:30:00",
   "summary": {
-    "rounds": null,
-    "node_count": null,
-    "edge_count": null,
-    "total_actions": null,
-    "top_agents": []
+    "rounds": 5,
+    "total_actions": 0,
+    "fallback_source": "deterministic_v4"
   },
   "groups": {
     "A": {
       "letter": "A",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "墨西哥",
+        "韩国",
+        "捷克",
+        "南非"
+      ],
+      "standings": [
+        {
+          "team": "墨西哥",
+          "rank": 1,
+          "points": 9,
+          "wins": 3,
+          "draws": 0,
+          "losses": 0,
+          "gf": 6,
+          "ga": 0,
+          "goal_difference": 6
+        },
+        {
+          "team": "南非",
+          "rank": 2,
+          "points": 4,
+          "wins": 1,
+          "draws": 1,
+          "losses": 1,
+          "gf": 2,
+          "ga": 3,
+          "goal_difference": -1
+        },
+        {
+          "team": "韩国",
+          "rank": 3,
+          "points": 3,
+          "wins": 1,
+          "draws": 0,
+          "losses": 2,
+          "gf": 2,
+          "ga": 3,
+          "goal_difference": -1
+        },
+        {
+          "team": "捷克",
+          "rank": 4,
+          "points": 1,
+          "wins": 0,
+          "draws": 1,
+          "losses": 2,
+          "gf": 2,
+          "ga": 6,
+          "goal_difference": -4
+        }
+      ],
+      "matches": [
+        {
+          "group": "A",
+          "matchday": "MD1",
+          "date": "2026-06-11",
+          "team_a": "墨西哥",
+          "team_b": "韩国",
+          "team_a_seed": 1,
+          "team_b_seed": 2,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "1-0",
+          "top_3_scores": [
+            {
+              "score": "1-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "A",
+          "matchday": "MD1",
+          "date": "2026-06-11",
+          "team_a": "捷克",
+          "team_b": "南非",
+          "team_a_seed": 3,
+          "team_b_seed": 4,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "1-1",
+          "top_3_scores": [
+            {
+              "score": "1-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "A",
+          "matchday": "MD2",
+          "date": "2026-06-20",
+          "team_a": "墨西哥",
+          "team_b": "捷克",
+          "team_a_seed": 1,
+          "team_b_seed": 3,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "3-0",
+          "top_3_scores": [
+            {
+              "score": "3-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "A",
+          "matchday": "MD2",
+          "date": "2026-06-20",
+          "team_a": "韩国",
+          "team_b": "南非",
+          "team_a_seed": 2,
+          "team_b_seed": 4,
+          "team_a_win": 0.0,
+          "draw": 0.0,
+          "team_b_win": 1.0,
+          "most_likely_score": "0-1",
+          "top_3_scores": [
+            {
+              "score": "0-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "A",
+          "matchday": "MD3",
+          "date": "2026-06-25",
+          "team_a": "墨西哥",
+          "team_b": "南非",
+          "team_a_seed": 1,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "2-0",
+          "top_3_scores": [
+            {
+              "score": "2-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "A",
+          "matchday": "MD3",
+          "date": "2026-06-25",
+          "team_a": "韩国",
+          "team_b": "捷克",
+          "team_a_seed": 2,
+          "team_b_seed": 3,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "2-1",
+          "top_3_scores": [
+            {
+              "score": "2-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        }
+      ]
     },
     "B": {
       "letter": "B",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "加拿大",
+        "瑞士",
+        "卡塔尔",
+        "波黑"
+      ],
+      "standings": [
+        {
+          "team": "瑞士",
+          "rank": 1,
+          "points": 7,
+          "wins": 2,
+          "draws": 1,
+          "losses": 0,
+          "gf": 5,
+          "ga": 3,
+          "goal_difference": 2
+        },
+        {
+          "team": "加拿大",
+          "rank": 2,
+          "points": 6,
+          "wins": 2,
+          "draws": 0,
+          "losses": 1,
+          "gf": 9,
+          "ga": 3,
+          "goal_difference": 6
+        },
+        {
+          "team": "卡塔尔",
+          "rank": 3,
+          "points": 2,
+          "wins": 0,
+          "draws": 2,
+          "losses": 1,
+          "gf": 2,
+          "ga": 8,
+          "goal_difference": -6
+        },
+        {
+          "team": "波黑",
+          "rank": 4,
+          "points": 1,
+          "wins": 0,
+          "draws": 1,
+          "losses": 2,
+          "gf": 3,
+          "ga": 5,
+          "goal_difference": -2
+        }
+      ],
+      "matches": [
+        {
+          "group": "B",
+          "matchday": "MD1",
+          "date": "2026-06-12",
+          "team_a": "加拿大",
+          "team_b": "瑞士",
+          "team_a_seed": 1,
+          "team_b_seed": 2,
+          "team_a_win": 0.0,
+          "draw": 0.0,
+          "team_b_win": 1.0,
+          "most_likely_score": "1-2",
+          "top_3_scores": [
+            {
+              "score": "1-2",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "B",
+          "matchday": "MD1",
+          "date": "2026-06-12",
+          "team_a": "卡塔尔",
+          "team_b": "波黑",
+          "team_a_seed": 3,
+          "team_b_seed": 4,
+          "team_a_win": 0.38,
+          "draw": 0.27,
+          "team_b_win": 0.35,
+          "most_likely_score": "1-1",
+          "top_3_scores": [
+            {
+              "score": "1-1",
+              "prob": 0.14
+            },
+            {
+              "score": "1-0",
+              "prob": 0.1
+            },
+            {
+              "score": "0-1",
+              "prob": 0.09
+            }
+          ],
+          "source": "ELO"
+        },
+        {
+          "group": "B",
+          "matchday": "MD2",
+          "date": "2026-06-21",
+          "team_a": "加拿大",
+          "team_b": "卡塔尔",
+          "team_a_seed": 1,
+          "team_b_seed": 3,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "6-0",
+          "top_3_scores": [
+            {
+              "score": "6-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "B",
+          "matchday": "MD2",
+          "date": "2026-06-21",
+          "team_a": "瑞士",
+          "team_b": "波黑",
+          "team_a_seed": 2,
+          "team_b_seed": 4,
+          "team_a_win": 0.56,
+          "draw": 0.21,
+          "team_b_win": 0.23,
+          "most_likely_score": "2-1",
+          "top_3_scores": [
+            {
+              "score": "2-1",
+              "prob": 0.14
+            },
+            {
+              "score": "2-0",
+              "prob": 0.1
+            },
+            {
+              "score": "1-1",
+              "prob": 0.09
+            }
+          ],
+          "source": "ELO"
+        },
+        {
+          "group": "B",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "加拿大",
+          "team_b": "波黑",
+          "team_a_seed": 1,
+          "team_b_seed": 4,
+          "team_a_win": 0.44,
+          "draw": 0.25,
+          "team_b_win": 0.31,
+          "most_likely_score": "2-1",
+          "top_3_scores": [
+            {
+              "score": "2-1",
+              "prob": 0.14
+            },
+            {
+              "score": "2-0",
+              "prob": 0.1
+            },
+            {
+              "score": "1-1",
+              "prob": 0.09
+            }
+          ],
+          "source": "ELO"
+        },
+        {
+          "group": "B",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "瑞士",
+          "team_b": "卡塔尔",
+          "team_a_seed": 2,
+          "team_b_seed": 3,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "1-1",
+          "top_3_scores": [
+            {
+              "score": "1-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        }
+      ]
     },
     "C": {
       "letter": "C",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "巴西",
+        "苏格兰",
+        "摩洛哥",
+        "海地"
+      ],
+      "standings": [
+        {
+          "team": "巴西",
+          "rank": 1,
+          "points": 7,
+          "wins": 2,
+          "draws": 1,
+          "losses": 0,
+          "gf": 7,
+          "ga": 1,
+          "goal_difference": 6
+        },
+        {
+          "team": "摩洛哥",
+          "rank": 2,
+          "points": 7,
+          "wins": 2,
+          "draws": 1,
+          "losses": 0,
+          "gf": 6,
+          "ga": 3,
+          "goal_difference": 3
+        },
+        {
+          "team": "苏格兰",
+          "rank": 3,
+          "points": 3,
+          "wins": 1,
+          "draws": 0,
+          "losses": 2,
+          "gf": 1,
+          "ga": 4,
+          "goal_difference": -3
+        },
+        {
+          "team": "海地",
+          "rank": 4,
+          "points": 0,
+          "wins": 0,
+          "draws": 0,
+          "losses": 3,
+          "gf": 2,
+          "ga": 8,
+          "goal_difference": -6
+        }
+      ],
+      "matches": [
+        {
+          "group": "C",
+          "matchday": "MD1",
+          "date": "2026-06-13",
+          "team_a": "巴西",
+          "team_b": "苏格兰",
+          "team_a_seed": 1,
+          "team_b_seed": 2,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "3-0",
+          "top_3_scores": [
+            {
+              "score": "3-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "C",
+          "matchday": "MD1",
+          "date": "2026-06-13",
+          "team_a": "摩洛哥",
+          "team_b": "海地",
+          "team_a_seed": 3,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "4-2",
+          "top_3_scores": [
+            {
+              "score": "4-2",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "C",
+          "matchday": "MD2",
+          "date": "2026-06-22",
+          "team_a": "巴西",
+          "team_b": "摩洛哥",
+          "team_a_seed": 1,
+          "team_b_seed": 3,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "1-1",
+          "top_3_scores": [
+            {
+              "score": "1-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "C",
+          "matchday": "MD2",
+          "date": "2026-06-22",
+          "team_a": "苏格兰",
+          "team_b": "海地",
+          "team_a_seed": 2,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "1-0",
+          "top_3_scores": [
+            {
+              "score": "1-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "C",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "巴西",
+          "team_b": "海地",
+          "team_a_seed": 1,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "3-0",
+          "top_3_scores": [
+            {
+              "score": "3-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "C",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "苏格兰",
+          "team_b": "摩洛哥",
+          "team_a_seed": 2,
+          "team_b_seed": 3,
+          "team_a_win": 0.0,
+          "draw": 0.0,
+          "team_b_win": 1.0,
+          "most_likely_score": "0-1",
+          "top_3_scores": [
+            {
+              "score": "0-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        }
+      ]
     },
     "D": {
       "letter": "D",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "美国",
+        "巴拉圭",
+        "澳大利亚",
+        "土耳其"
+      ],
+      "standings": [
+        {
+          "team": "美国",
+          "rank": 1,
+          "points": 9,
+          "wins": 3,
+          "draws": 0,
+          "losses": 0,
+          "gf": 6,
+          "ga": 3,
+          "goal_difference": 3
+        },
+        {
+          "team": "巴拉圭",
+          "rank": 2,
+          "points": 4,
+          "wins": 1,
+          "draws": 1,
+          "losses": 1,
+          "gf": 3,
+          "ga": 3,
+          "goal_difference": 0
+        },
+        {
+          "team": "澳大利亚",
+          "rank": 3,
+          "points": 4,
+          "wins": 1,
+          "draws": 1,
+          "losses": 1,
+          "gf": 3,
+          "ga": 3,
+          "goal_difference": 0
+        },
+        {
+          "team": "土耳其",
+          "rank": 4,
+          "points": 0,
+          "wins": 0,
+          "draws": 0,
+          "losses": 3,
+          "gf": 3,
+          "ga": 6,
+          "goal_difference": -3
+        }
+      ],
+      "matches": [
+        {
+          "group": "D",
+          "matchday": "MD1",
+          "date": "2026-06-14",
+          "team_a": "美国",
+          "team_b": "巴拉圭",
+          "team_a_seed": 1,
+          "team_b_seed": 2,
+          "team_a_win": 0.55,
+          "draw": 0.21,
+          "team_b_win": 0.24,
+          "most_likely_score": "2-1",
+          "top_3_scores": [
+            {
+              "score": "2-1",
+              "prob": 0.14
+            },
+            {
+              "score": "2-0",
+              "prob": 0.1
+            },
+            {
+              "score": "1-1",
+              "prob": 0.09
+            }
+          ],
+          "source": "ELO"
+        },
+        {
+          "group": "D",
+          "matchday": "MD1",
+          "date": "2026-06-14",
+          "team_a": "澳大利亚",
+          "team_b": "土耳其",
+          "team_a_seed": 3,
+          "team_b_seed": 4,
+          "team_a_win": 0.46,
+          "draw": 0.24,
+          "team_b_win": 0.3,
+          "most_likely_score": "2-1",
+          "top_3_scores": [
+            {
+              "score": "2-1",
+              "prob": 0.14
+            },
+            {
+              "score": "2-0",
+              "prob": 0.1
+            },
+            {
+              "score": "1-1",
+              "prob": 0.09
+            }
+          ],
+          "source": "ELO"
+        },
+        {
+          "group": "D",
+          "matchday": "MD2",
+          "date": "2026-06-23",
+          "team_a": "美国",
+          "team_b": "澳大利亚",
+          "team_a_seed": 1,
+          "team_b_seed": 3,
+          "team_a_win": 0.48,
+          "draw": 0.24,
+          "team_b_win": 0.28,
+          "most_likely_score": "2-1",
+          "top_3_scores": [
+            {
+              "score": "2-1",
+              "prob": 0.14
+            },
+            {
+              "score": "2-0",
+              "prob": 0.1
+            },
+            {
+              "score": "1-1",
+              "prob": 0.09
+            }
+          ],
+          "source": "ELO"
+        },
+        {
+          "group": "D",
+          "matchday": "MD2",
+          "date": "2026-06-23",
+          "team_a": "巴拉圭",
+          "team_b": "土耳其",
+          "team_a_seed": 2,
+          "team_b_seed": 4,
+          "team_a_win": 0.39,
+          "draw": 0.27,
+          "team_b_win": 0.34,
+          "most_likely_score": "2-1",
+          "top_3_scores": [
+            {
+              "score": "2-1",
+              "prob": 0.14
+            },
+            {
+              "score": "2-0",
+              "prob": 0.1
+            },
+            {
+              "score": "1-1",
+              "prob": 0.09
+            }
+          ],
+          "source": "ELO"
+        },
+        {
+          "group": "D",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "美国",
+          "team_b": "土耳其",
+          "team_a_seed": 1,
+          "team_b_seed": 4,
+          "team_a_win": 0.58,
+          "draw": 0.2,
+          "team_b_win": 0.22,
+          "most_likely_score": "2-1",
+          "top_3_scores": [
+            {
+              "score": "2-1",
+              "prob": 0.14
+            },
+            {
+              "score": "2-0",
+              "prob": 0.1
+            },
+            {
+              "score": "1-1",
+              "prob": 0.09
+            }
+          ],
+          "source": "ELO"
+        },
+        {
+          "group": "D",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "巴拉圭",
+          "team_b": "澳大利亚",
+          "team_a_seed": 2,
+          "team_b_seed": 3,
+          "team_a_win": 0.3416,
+          "draw": 0.4251,
+          "team_b_win": 0.2333,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        }
+      ]
     },
     "E": {
       "letter": "E",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "德国",
+        "厄瓜多尔",
+        "科特迪瓦",
+        "库拉索"
+      ],
+      "standings": [
+        {
+          "team": "德国",
+          "rank": 1,
+          "points": 7,
+          "wins": 2,
+          "draws": 1,
+          "losses": 0,
+          "gf": 9,
+          "ga": 2,
+          "goal_difference": 7
+        },
+        {
+          "team": "科特迪瓦",
+          "rank": 2,
+          "points": 4,
+          "wins": 1,
+          "draws": 1,
+          "losses": 1,
+          "gf": 2,
+          "ga": 2,
+          "goal_difference": 0
+        },
+        {
+          "team": "厄瓜多尔",
+          "rank": 3,
+          "points": 2,
+          "wins": 0,
+          "draws": 2,
+          "losses": 1,
+          "gf": 0,
+          "ga": 1,
+          "goal_difference": -1
+        },
+        {
+          "team": "库拉索",
+          "rank": 4,
+          "points": 2,
+          "wins": 0,
+          "draws": 2,
+          "losses": 1,
+          "gf": 1,
+          "ga": 7,
+          "goal_difference": -6
+        }
+      ],
+      "matches": [
+        {
+          "group": "E",
+          "matchday": "MD1",
+          "date": "2026-06-15",
+          "team_a": "德国",
+          "team_b": "厄瓜多尔",
+          "team_a_seed": 1,
+          "team_b_seed": 2,
+          "team_a_win": 0.6268,
+          "draw": 0.1993,
+          "team_b_win": 0.1739,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        },
+        {
+          "group": "E",
+          "matchday": "MD1",
+          "date": "2026-06-15",
+          "team_a": "科特迪瓦",
+          "team_b": "库拉索",
+          "team_a_seed": 3,
+          "team_b_seed": 4,
+          "team_a_win": 0.8358,
+          "draw": 0.1135,
+          "team_b_win": 0.0508,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        },
+        {
+          "group": "E",
+          "matchday": "MD2",
+          "date": "2026-06-24",
+          "team_a": "德国",
+          "team_b": "科特迪瓦",
+          "team_a_seed": 1,
+          "team_b_seed": 3,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "2-1",
+          "top_3_scores": [
+            {
+              "score": "2-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "E",
+          "matchday": "MD2",
+          "date": "2026-06-24",
+          "team_a": "厄瓜多尔",
+          "team_b": "库拉索",
+          "team_a_seed": 2,
+          "team_b_seed": 4,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "0-0",
+          "top_3_scores": [
+            {
+              "score": "0-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "E",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "德国",
+          "team_b": "库拉索",
+          "team_a_seed": 1,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "7-1",
+          "top_3_scores": [
+            {
+              "score": "7-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "E",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "厄瓜多尔",
+          "team_b": "科特迪瓦",
+          "team_a_seed": 2,
+          "team_b_seed": 3,
+          "team_a_win": 0.0,
+          "draw": 0.0,
+          "team_b_win": 1.0,
+          "most_likely_score": "0-1",
+          "top_3_scores": [
+            {
+              "score": "0-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        }
+      ]
     },
     "F": {
       "letter": "F",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "荷兰",
+        "瑞典",
+        "日本",
+        "突尼斯"
+      ],
+      "standings": [
+        {
+          "team": "荷兰",
+          "rank": 1,
+          "points": 5,
+          "wins": 1,
+          "draws": 2,
+          "losses": 0,
+          "gf": 7,
+          "ga": 3,
+          "goal_difference": 4
+        },
+        {
+          "team": "日本",
+          "rank": 2,
+          "points": 5,
+          "wins": 1,
+          "draws": 2,
+          "losses": 0,
+          "gf": 6,
+          "ga": 2,
+          "goal_difference": 4
+        },
+        {
+          "team": "瑞典",
+          "rank": 3,
+          "points": 4,
+          "wins": 1,
+          "draws": 1,
+          "losses": 1,
+          "gf": 6,
+          "ga": 6,
+          "goal_difference": 0
+        },
+        {
+          "team": "突尼斯",
+          "rank": 4,
+          "points": 1,
+          "wins": 0,
+          "draws": 1,
+          "losses": 2,
+          "gf": 1,
+          "ga": 9,
+          "goal_difference": -8
+        }
+      ],
+      "matches": [
+        {
+          "group": "F",
+          "matchday": "MD1",
+          "date": "2026-06-16",
+          "team_a": "荷兰",
+          "team_b": "瑞典",
+          "team_a_seed": 1,
+          "team_b_seed": 2,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "5-1",
+          "top_3_scores": [
+            {
+              "score": "5-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "F",
+          "matchday": "MD1",
+          "date": "2026-06-16",
+          "team_a": "日本",
+          "team_b": "突尼斯",
+          "team_a_seed": 3,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "4-0",
+          "top_3_scores": [
+            {
+              "score": "4-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "F",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "荷兰",
+          "team_b": "日本",
+          "team_a_seed": 1,
+          "team_b_seed": 3,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "2-2",
+          "top_3_scores": [
+            {
+              "score": "2-2",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "F",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "瑞典",
+          "team_b": "突尼斯",
+          "team_a_seed": 2,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "5-1",
+          "top_3_scores": [
+            {
+              "score": "5-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "F",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "荷兰",
+          "team_b": "突尼斯",
+          "team_a_seed": 1,
+          "team_b_seed": 4,
+          "team_a_win": 0.8763,
+          "draw": 0.0869,
+          "team_b_win": 0.0368,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        },
+        {
+          "group": "F",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "瑞典",
+          "team_b": "日本",
+          "team_a_seed": 2,
+          "team_b_seed": 3,
+          "team_a_win": 0.2139,
+          "draw": 0.2712,
+          "team_b_win": 0.5149,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        }
+      ]
     },
     "G": {
       "letter": "G",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "比利时",
+        "伊朗",
+        "埃及",
+        "新西兰"
+      ],
+      "standings": [
+        {
+          "team": "埃及",
+          "rank": 1,
+          "points": 5,
+          "wins": 1,
+          "draws": 2,
+          "losses": 0,
+          "gf": 4,
+          "ga": 2,
+          "goal_difference": 2
+        },
+        {
+          "team": "伊朗",
+          "rank": 2,
+          "points": 3,
+          "wins": 0,
+          "draws": 3,
+          "losses": 0,
+          "gf": 2,
+          "ga": 2,
+          "goal_difference": 0
+        },
+        {
+          "team": "比利时",
+          "rank": 3,
+          "points": 3,
+          "wins": 0,
+          "draws": 3,
+          "losses": 0,
+          "gf": 1,
+          "ga": 1,
+          "goal_difference": 0
+        },
+        {
+          "team": "新西兰",
+          "rank": 4,
+          "points": 2,
+          "wins": 0,
+          "draws": 2,
+          "losses": 1,
+          "gf": 3,
+          "ga": 5,
+          "goal_difference": -2
+        }
+      ],
+      "matches": [
+        {
+          "group": "G",
+          "matchday": "MD1",
+          "date": "2026-06-17",
+          "team_a": "比利时",
+          "team_b": "伊朗",
+          "team_a_seed": 1,
+          "team_b_seed": 2,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "0-0",
+          "top_3_scores": [
+            {
+              "score": "0-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "G",
+          "matchday": "MD1",
+          "date": "2026-06-17",
+          "team_a": "埃及",
+          "team_b": "新西兰",
+          "team_a_seed": 3,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "3-1",
+          "top_3_scores": [
+            {
+              "score": "3-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "G",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "比利时",
+          "team_b": "埃及",
+          "team_a_seed": 1,
+          "team_b_seed": 3,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "1-1",
+          "top_3_scores": [
+            {
+              "score": "1-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "G",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "伊朗",
+          "team_b": "新西兰",
+          "team_a_seed": 2,
+          "team_b_seed": 4,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "2-2",
+          "top_3_scores": [
+            {
+              "score": "2-2",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "G",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "比利时",
+          "team_b": "新西兰",
+          "team_a_seed": 1,
+          "team_b_seed": 4,
+          "team_a_win": 0.8234,
+          "draw": 0.1201,
+          "team_b_win": 0.0565,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        },
+        {
+          "group": "G",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "伊朗",
+          "team_b": "埃及",
+          "team_a_seed": 2,
+          "team_b_seed": 3,
+          "team_a_win": 0.2529,
+          "draw": 0.3627,
+          "team_b_win": 0.3844,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        }
+      ]
     },
     "H": {
       "letter": "H",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "西班牙",
+        "乌拉圭",
+        "沙特",
+        "佛得角"
+      ],
+      "standings": [
+        {
+          "team": "西班牙",
+          "rank": 1,
+          "points": 5,
+          "wins": 1,
+          "draws": 2,
+          "losses": 0,
+          "gf": 4,
+          "ga": 0,
+          "goal_difference": 4
+        },
+        {
+          "team": "乌拉圭",
+          "rank": 2,
+          "points": 3,
+          "wins": 0,
+          "draws": 3,
+          "losses": 0,
+          "gf": 3,
+          "ga": 3,
+          "goal_difference": 0
+        },
+        {
+          "team": "佛得角",
+          "rank": 3,
+          "points": 3,
+          "wins": 0,
+          "draws": 3,
+          "losses": 0,
+          "gf": 2,
+          "ga": 2,
+          "goal_difference": 0
+        },
+        {
+          "team": "沙特",
+          "rank": 4,
+          "points": 2,
+          "wins": 0,
+          "draws": 2,
+          "losses": 1,
+          "gf": 1,
+          "ga": 5,
+          "goal_difference": -4
+        }
+      ],
+      "matches": [
+        {
+          "group": "H",
+          "matchday": "MD1",
+          "date": "2026-06-18",
+          "team_a": "西班牙",
+          "team_b": "乌拉圭",
+          "team_a_seed": 1,
+          "team_b_seed": 2,
+          "team_a_win": 0.6441,
+          "draw": 0.2282,
+          "team_b_win": 0.1278,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        },
+        {
+          "group": "H",
+          "matchday": "MD1",
+          "date": "2026-06-18",
+          "team_a": "沙特",
+          "team_b": "佛得角",
+          "team_a_seed": 3,
+          "team_b_seed": 4,
+          "team_a_win": 0.3319,
+          "draw": 0.2831,
+          "team_b_win": 0.385,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        },
+        {
+          "group": "H",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "西班牙",
+          "team_b": "沙特",
+          "team_a_seed": 1,
+          "team_b_seed": 3,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "4-0",
+          "top_3_scores": [
+            {
+              "score": "4-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "H",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "乌拉圭",
+          "team_b": "佛得角",
+          "team_a_seed": 2,
+          "team_b_seed": 4,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "2-2",
+          "top_3_scores": [
+            {
+              "score": "2-2",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "H",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "西班牙",
+          "team_b": "佛得角",
+          "team_a_seed": 1,
+          "team_b_seed": 4,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "0-0",
+          "top_3_scores": [
+            {
+              "score": "0-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "H",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "乌拉圭",
+          "team_b": "沙特",
+          "team_a_seed": 2,
+          "team_b_seed": 3,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "1-1",
+          "top_3_scores": [
+            {
+              "score": "1-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        }
+      ]
     },
     "I": {
       "letter": "I",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "法国",
+        "挪威",
+        "塞内加尔",
+        "伊拉克"
+      ],
+      "standings": [
+        {
+          "team": "法国",
+          "rank": 1,
+          "points": 7,
+          "wins": 2,
+          "draws": 1,
+          "losses": 0,
+          "gf": 6,
+          "ga": 1,
+          "goal_difference": 5
+        },
+        {
+          "team": "挪威",
+          "rank": 2,
+          "points": 7,
+          "wins": 2,
+          "draws": 1,
+          "losses": 0,
+          "gf": 7,
+          "ga": 3,
+          "goal_difference": 4
+        },
+        {
+          "team": "塞内加尔",
+          "rank": 3,
+          "points": 1,
+          "wins": 0,
+          "draws": 1,
+          "losses": 2,
+          "gf": 3,
+          "ga": 6,
+          "goal_difference": -3
+        },
+        {
+          "team": "伊拉克",
+          "rank": 4,
+          "points": 1,
+          "wins": 0,
+          "draws": 1,
+          "losses": 2,
+          "gf": 1,
+          "ga": 7,
+          "goal_difference": -6
+        }
+      ],
+      "matches": [
+        {
+          "group": "I",
+          "matchday": "MD1",
+          "date": "2026-06-19",
+          "team_a": "法国",
+          "team_b": "挪威",
+          "team_a_seed": 1,
+          "team_b_seed": 2,
+          "team_a_win": 0.5825,
+          "draw": 0.2178,
+          "team_b_win": 0.1997,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        },
+        {
+          "group": "I",
+          "matchday": "MD1",
+          "date": "2026-06-19",
+          "team_a": "塞内加尔",
+          "team_b": "伊拉克",
+          "team_a_seed": 3,
+          "team_b_seed": 4,
+          "team_a_win": 0.7834,
+          "draw": 0.1368,
+          "team_b_win": 0.0798,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        },
+        {
+          "group": "I",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "法国",
+          "team_b": "塞内加尔",
+          "team_a_seed": 1,
+          "team_b_seed": 3,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "3-1",
+          "top_3_scores": [
+            {
+              "score": "3-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "I",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "挪威",
+          "team_b": "伊拉克",
+          "team_a_seed": 2,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "4-1",
+          "top_3_scores": [
+            {
+              "score": "4-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "I",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "法国",
+          "team_b": "伊拉克",
+          "team_a_seed": 1,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "3-0",
+          "top_3_scores": [
+            {
+              "score": "3-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "I",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "挪威",
+          "team_b": "塞内加尔",
+          "team_a_seed": 2,
+          "team_b_seed": 3,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "3-2",
+          "top_3_scores": [
+            {
+              "score": "3-2",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        }
+      ]
     },
     "J": {
       "letter": "J",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "阿根廷",
+        "奥地利",
+        "阿尔及利亚",
+        "约旦"
+      ],
+      "standings": [
+        {
+          "team": "阿根廷",
+          "rank": 1,
+          "points": 7,
+          "wins": 2,
+          "draws": 1,
+          "losses": 0,
+          "gf": 5,
+          "ga": 0,
+          "goal_difference": 5
+        },
+        {
+          "team": "奥地利",
+          "rank": 2,
+          "points": 4,
+          "wins": 1,
+          "draws": 1,
+          "losses": 1,
+          "gf": 3,
+          "ga": 3,
+          "goal_difference": 0
+        },
+        {
+          "team": "阿尔及利亚",
+          "rank": 3,
+          "points": 4,
+          "wins": 1,
+          "draws": 1,
+          "losses": 1,
+          "gf": 2,
+          "ga": 4,
+          "goal_difference": -2
+        },
+        {
+          "team": "约旦",
+          "rank": 4,
+          "points": 1,
+          "wins": 0,
+          "draws": 1,
+          "losses": 2,
+          "gf": 2,
+          "ga": 5,
+          "goal_difference": -3
+        }
+      ],
+      "matches": [
+        {
+          "group": "J",
+          "matchday": "MD1",
+          "date": "2026-06-19",
+          "team_a": "阿根廷",
+          "team_b": "奥地利",
+          "team_a_seed": 1,
+          "team_b_seed": 2,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "2-0",
+          "top_3_scores": [
+            {
+              "score": "2-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "J",
+          "matchday": "MD1",
+          "date": "2026-06-19",
+          "team_a": "阿尔及利亚",
+          "team_b": "约旦",
+          "team_a_seed": 3,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "2-1",
+          "top_3_scores": [
+            {
+              "score": "2-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "J",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "阿根廷",
+          "team_b": "阿尔及利亚",
+          "team_a_seed": 1,
+          "team_b_seed": 3,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "3-0",
+          "top_3_scores": [
+            {
+              "score": "3-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "J",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "奥地利",
+          "team_b": "约旦",
+          "team_a_seed": 2,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "3-1",
+          "top_3_scores": [
+            {
+              "score": "3-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "J",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "阿根廷",
+          "team_b": "约旦",
+          "team_a_seed": 1,
+          "team_b_seed": 4,
+          "team_a_win": 0.794,
+          "draw": 0.1373,
+          "team_b_win": 0.0687,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        },
+        {
+          "group": "J",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "奥地利",
+          "team_b": "阿尔及利亚",
+          "team_a_seed": 2,
+          "team_b_seed": 3,
+          "team_a_win": 0.3308,
+          "draw": 0.4264,
+          "team_b_win": 0.2429,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        }
+      ]
     },
     "K": {
       "letter": "K",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "葡萄牙",
+        "哥伦比亚",
+        "刚果(金)",
+        "乌兹别克"
+      ],
+      "standings": [
+        {
+          "team": "哥伦比亚",
+          "rank": 1,
+          "points": 7,
+          "wins": 2,
+          "draws": 1,
+          "losses": 0,
+          "gf": 4,
+          "ga": 1,
+          "goal_difference": 3
+        },
+        {
+          "team": "葡萄牙",
+          "rank": 2,
+          "points": 5,
+          "wins": 1,
+          "draws": 2,
+          "losses": 0,
+          "gf": 6,
+          "ga": 1,
+          "goal_difference": 5
+        },
+        {
+          "team": "刚果(金)",
+          "rank": 3,
+          "points": 2,
+          "wins": 0,
+          "draws": 2,
+          "losses": 1,
+          "gf": 1,
+          "ga": 2,
+          "goal_difference": -1
+        },
+        {
+          "team": "乌兹别克",
+          "rank": 4,
+          "points": 1,
+          "wins": 0,
+          "draws": 1,
+          "losses": 2,
+          "gf": 1,
+          "ga": 8,
+          "goal_difference": -7
+        }
+      ],
+      "matches": [
+        {
+          "group": "K",
+          "matchday": "MD1",
+          "date": "2026-06-19",
+          "team_a": "葡萄牙",
+          "team_b": "哥伦比亚",
+          "team_a_seed": 1,
+          "team_b_seed": 2,
+          "team_a_win": 0.5145,
+          "draw": 0.2565,
+          "team_b_win": 0.229,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        },
+        {
+          "group": "K",
+          "matchday": "MD1",
+          "date": "2026-06-19",
+          "team_a": "刚果(金)",
+          "team_b": "乌兹别克",
+          "team_a_seed": 3,
+          "team_b_seed": 4,
+          "team_a_win": 0.5497,
+          "draw": 0.2278,
+          "team_b_win": 0.2225,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        },
+        {
+          "group": "K",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "葡萄牙",
+          "team_b": "刚果(金)",
+          "team_a_seed": 1,
+          "team_b_seed": 3,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "1-1",
+          "top_3_scores": [
+            {
+              "score": "1-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "K",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "哥伦比亚",
+          "team_b": "乌兹别克",
+          "team_a_seed": 2,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "3-1",
+          "top_3_scores": [
+            {
+              "score": "3-1",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "K",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "葡萄牙",
+          "team_b": "乌兹别克",
+          "team_a_seed": 1,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "5-0",
+          "top_3_scores": [
+            {
+              "score": "5-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "K",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "哥伦比亚",
+          "team_b": "刚果(金)",
+          "team_a_seed": 2,
+          "team_b_seed": 3,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "1-0",
+          "top_3_scores": [
+            {
+              "score": "1-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        }
+      ]
     },
     "L": {
       "letter": "L",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "英格兰",
+        "克罗地亚",
+        "加纳",
+        "巴拿马"
+      ],
+      "standings": [
+        {
+          "team": "英格兰",
+          "rank": 1,
+          "points": 5,
+          "wins": 1,
+          "draws": 2,
+          "losses": 0,
+          "gf": 4,
+          "ga": 2,
+          "goal_difference": 2
+        },
+        {
+          "team": "加纳",
+          "rank": 2,
+          "points": 5,
+          "wins": 1,
+          "draws": 2,
+          "losses": 0,
+          "gf": 1,
+          "ga": 0,
+          "goal_difference": 1
+        },
+        {
+          "team": "克罗地亚",
+          "rank": 3,
+          "points": 4,
+          "wins": 1,
+          "draws": 1,
+          "losses": 1,
+          "gf": 3,
+          "ga": 4,
+          "goal_difference": -1
+        },
+        {
+          "team": "巴拿马",
+          "rank": 4,
+          "points": 1,
+          "wins": 0,
+          "draws": 1,
+          "losses": 2,
+          "gf": 0,
+          "ga": 2,
+          "goal_difference": -2
+        }
+      ],
+      "matches": [
+        {
+          "group": "L",
+          "matchday": "MD1",
+          "date": "2026-06-19",
+          "team_a": "英格兰",
+          "team_b": "克罗地亚",
+          "team_a_seed": 1,
+          "team_b_seed": 2,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "4-2",
+          "top_3_scores": [
+            {
+              "score": "4-2",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "L",
+          "matchday": "MD1",
+          "date": "2026-06-19",
+          "team_a": "加纳",
+          "team_b": "巴拿马",
+          "team_a_seed": 3,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "1-0",
+          "top_3_scores": [
+            {
+              "score": "1-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "L",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "英格兰",
+          "team_b": "加纳",
+          "team_a_seed": 1,
+          "team_b_seed": 3,
+          "team_a_win": 0.0,
+          "draw": 1.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "0-0",
+          "top_3_scores": [
+            {
+              "score": "0-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "L",
+          "matchday": "MD2",
+          "date": "2026-06-25",
+          "team_a": "克罗地亚",
+          "team_b": "巴拿马",
+          "team_a_seed": 2,
+          "team_b_seed": 4,
+          "team_a_win": 1.0,
+          "draw": 0.0,
+          "team_b_win": 0.0,
+          "most_likely_score": "1-0",
+          "top_3_scores": [
+            {
+              "score": "1-0",
+              "prob": 1.0
+            }
+          ],
+          "source": "REAL"
+        },
+        {
+          "group": "L",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "英格兰",
+          "team_b": "巴拿马",
+          "team_a_seed": 1,
+          "team_b_seed": 4,
+          "team_a_win": 0.8163,
+          "draw": 0.1198,
+          "team_b_win": 0.0639,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        },
+        {
+          "group": "L",
+          "matchday": "MD3",
+          "date": "2026-06-26",
+          "team_a": "克罗地亚",
+          "team_b": "加纳",
+          "team_a_seed": 2,
+          "team_b_seed": 3,
+          "team_a_win": 0.5429,
+          "draw": 0.2825,
+          "team_b_win": 0.1746,
+          "most_likely_score": "待定",
+          "top_3_scores": [],
+          "source": "ODDS"
+        }
+      ]
     }
   },
-  "best_thirds": [],
+  "best_thirds": [
+    {
+      "team": "澳大利亚",
+      "group": "D",
+      "rank": 1,
+      "points": 4,
+      "goal_difference": 0,
+      "reason": "R12 v4 deterministic 第1名 (积分4, 净胜球+0)"
+    },
+    {
+      "team": "瑞典",
+      "group": "F",
+      "rank": 2,
+      "points": 4,
+      "goal_difference": 0,
+      "reason": "R12 v4 deterministic 第2名 (积分4, 净胜球+0)"
+    },
+    {
+      "team": "克罗地亚",
+      "group": "L",
+      "rank": 3,
+      "points": 4,
+      "goal_difference": -1,
+      "reason": "R12 v4 deterministic 第3名 (积分4, 净胜球-1)"
+    },
+    {
+      "team": "阿尔及利亚",
+      "group": "J",
+      "rank": 4,
+      "points": 4,
+      "goal_difference": -2,
+      "reason": "R12 v4 deterministic 第4名 (积分4, 净胜球-2)"
+    },
+    {
+      "team": "比利时",
+      "group": "G",
+      "rank": 5,
+      "points": 3,
+      "goal_difference": 0,
+      "reason": "R12 v4 deterministic 第5名 (积分3, 净胜球+0)"
+    },
+    {
+      "team": "佛得角",
+      "group": "H",
+      "rank": 6,
+      "points": 3,
+      "goal_difference": 0,
+      "reason": "R12 v4 deterministic 第6名 (积分3, 净胜球+0)"
+    },
+    {
+      "team": "韩国",
+      "group": "A",
+      "rank": 7,
+      "points": 3,
+      "goal_difference": -1,
+      "reason": "R12 v4 deterministic 第7名 (积分3, 净胜球-1)"
+    },
+    {
+      "team": "苏格兰",
+      "group": "C",
+      "rank": 8,
+      "points": 3,
+      "goal_difference": -3,
+      "reason": "R12 v4 deterministic 第8名 (积分3, 净胜球-3)"
+    }
+  ],
+  "upset_risks": [
+    {
+      "match": "法国 vs 阿根廷",
+      "date": "2026-07-19",
+      "upset_prob": 0.42,
+      "underdog": "阿根廷",
+      "reason": "决赛两队 Elo 接近, 弱队爆冷率高"
+    },
+    {
+      "match": "德国 vs 巴西",
+      "date": "2026-07-11",
+      "upset_prob": 0.5,
+      "underdog": "巴西",
+      "reason": "巴西防守脆弱"
+    },
+    {
+      "match": "比利时 vs 西班牙",
+      "date": "2026-07-12",
+      "upset_prob": 0.42,
+      "underdog": "西班牙",
+      "reason": "西班牙传控稳定"
+    },
+    {
+      "match": "墨西哥 vs 英格兰",
+      "date": "2026-07-03",
+      "upset_prob": 0.3,
+      "underdog": "墨西哥",
+      "reason": "主场优势"
+    },
+    {
+      "match": "澳大利亚 vs 伊朗",
+      "date": "2026-07-03",
+      "upset_prob": 0.3,
+      "underdog": "伊朗",
+      "reason": "西亚球队"
+    }
+  ],
   "bracket": {
-    "r32": [],
-    "r16": [],
-    "qf": [],
-    "sf": [],
-    "third_place": null
+    "r32": [
+      {
+        "match_num": 73,
+        "bracket_idx": 0,
+        "team_a": "南非",
+        "group_a": "A",
+        "seed_a": 2,
+        "team_b": "加拿大",
+        "group_b": "B",
+        "seed_b": 2,
+        "team_a_win": 0.28,
+        "draw": 0.24,
+        "team_b_win": 0.48,
+        "score": "1-2",
+        "top_3_scores": [
+          {
+            "score": "1-2",
+            "prob": 0.14
+          },
+          {
+            "score": "1-1",
+            "prob": 0.1
+          },
+          {
+            "score": "0-2",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "加拿大",
+        "date": "2026-06-28",
+        "source": "ELO"
+      },
+      {
+        "match_num": 74,
+        "bracket_idx": 1,
+        "team_a": "德国",
+        "group_a": "E",
+        "seed_a": 1,
+        "team_b": "澳大利亚",
+        "group_b": "D",
+        "seed_b": 3,
+        "team_a_win": 0.57,
+        "draw": 0.21,
+        "team_b_win": 0.22,
+        "score": "2-1",
+        "top_3_scores": [
+          {
+            "score": "2-1",
+            "prob": 0.14
+          },
+          {
+            "score": "2-0",
+            "prob": 0.1
+          },
+          {
+            "score": "1-1",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "德国",
+        "date": "2026-06-28",
+        "source": "ELO"
+      },
+      {
+        "match_num": 75,
+        "bracket_idx": 2,
+        "team_a": "荷兰",
+        "group_a": "F",
+        "seed_a": 1,
+        "team_b": "摩洛哥",
+        "group_b": "C",
+        "seed_b": 2,
+        "team_a_win": 0.36,
+        "draw": 0.28,
+        "team_b_win": 0.36,
+        "score": "1-1",
+        "top_3_scores": [
+          {
+            "score": "1-1",
+            "prob": 0.14
+          },
+          {
+            "score": "1-0",
+            "prob": 0.1
+          },
+          {
+            "score": "0-1",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "荷兰",
+        "date": "2026-06-29",
+        "source": "ELO"
+      },
+      {
+        "match_num": 76,
+        "bracket_idx": 3,
+        "team_a": "巴西",
+        "group_a": "C",
+        "seed_a": 1,
+        "team_b": "日本",
+        "group_b": "F",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.23,
+        "team_b_win": 0.27,
+        "score": "2-1",
+        "top_3_scores": [
+          {
+            "score": "2-1",
+            "prob": 0.14
+          },
+          {
+            "score": "2-0",
+            "prob": 0.1
+          },
+          {
+            "score": "1-1",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "巴西",
+        "date": "2026-06-29",
+        "source": "ELO"
+      },
+      {
+        "match_num": 77,
+        "bracket_idx": 4,
+        "team_a": "法国",
+        "group_a": "I",
+        "seed_a": 1,
+        "team_b": "瑞典",
+        "group_b": "F",
+        "seed_b": 3,
+        "team_a_win": 0.69,
+        "draw": 0.16,
+        "team_b_win": 0.15,
+        "score": "3-0",
+        "top_3_scores": [
+          {
+            "score": "3-0",
+            "prob": 0.14
+          },
+          {
+            "score": "3-0",
+            "prob": 0.1
+          },
+          {
+            "score": "2-0",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "法国",
+        "date": "2026-06-30",
+        "source": "ELO"
+      },
+      {
+        "match_num": 78,
+        "bracket_idx": 5,
+        "team_a": "科特迪瓦",
+        "group_a": "E",
+        "seed_a": 2,
+        "team_b": "挪威",
+        "group_b": "I",
+        "seed_b": 2,
+        "team_a_win": 0.34,
+        "draw": 0.26,
+        "team_b_win": 0.4,
+        "score": "1-2",
+        "top_3_scores": [
+          {
+            "score": "1-2",
+            "prob": 0.14
+          },
+          {
+            "score": "1-1",
+            "prob": 0.1
+          },
+          {
+            "score": "0-2",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "挪威",
+        "date": "2026-06-30",
+        "source": "ELO"
+      },
+      {
+        "match_num": 79,
+        "bracket_idx": 6,
+        "team_a": "墨西哥",
+        "group_a": "A",
+        "seed_a": 1,
+        "team_b": "佛得角",
+        "group_b": "H",
+        "seed_b": 3,
+        "team_a_win": 0.6,
+        "draw": 0.19,
+        "team_b_win": 0.21,
+        "score": "2-0",
+        "top_3_scores": [
+          {
+            "score": "2-0",
+            "prob": 0.14
+          },
+          {
+            "score": "2-0",
+            "prob": 0.1
+          },
+          {
+            "score": "1-0",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "墨西哥",
+        "date": "2026-07-01",
+        "source": "ELO"
+      },
+      {
+        "match_num": 80,
+        "bracket_idx": 7,
+        "team_a": "英格兰",
+        "group_a": "L",
+        "seed_a": 1,
+        "team_b": "阿尔及利亚",
+        "group_b": "J",
+        "seed_b": 3,
+        "team_a_win": 0.68,
+        "draw": 0.16,
+        "team_b_win": 0.16,
+        "score": "3-0",
+        "top_3_scores": [
+          {
+            "score": "3-0",
+            "prob": 0.14
+          },
+          {
+            "score": "3-0",
+            "prob": 0.1
+          },
+          {
+            "score": "2-0",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "英格兰",
+        "date": "2026-07-01",
+        "source": "ELO"
+      },
+      {
+        "match_num": 81,
+        "bracket_idx": 8,
+        "team_a": "美国",
+        "group_a": "D",
+        "seed_a": 1,
+        "team_b": "待定",
+        "group_b": null,
+        "seed_b": 3,
+        "team_a_win": 0.58,
+        "draw": 0.2,
+        "team_b_win": 0.22,
+        "score": "2-1",
+        "top_3_scores": [
+          {
+            "score": "2-1",
+            "prob": 0.14
+          },
+          {
+            "score": "2-0",
+            "prob": 0.1
+          },
+          {
+            "score": "1-1",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "美国",
+        "date": "2026-07-01",
+        "source": "ELO"
+      },
+      {
+        "match_num": 82,
+        "bracket_idx": 9,
+        "team_a": "埃及",
+        "group_a": "G",
+        "seed_a": 1,
+        "team_b": "韩国",
+        "group_b": "A",
+        "seed_b": 3,
+        "team_a_win": 0.35,
+        "draw": 0.28,
+        "team_b_win": 0.37,
+        "score": "1-1",
+        "top_3_scores": [
+          {
+            "score": "1-1",
+            "prob": 0.14
+          },
+          {
+            "score": "1-0",
+            "prob": 0.1
+          },
+          {
+            "score": "0-1",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "韩国",
+        "date": "2026-07-02",
+        "source": "ELO"
+      },
+      {
+        "match_num": 83,
+        "bracket_idx": 10,
+        "team_a": "葡萄牙",
+        "group_a": "K",
+        "seed_a": 2,
+        "team_b": "加纳",
+        "group_b": "L",
+        "seed_b": 2,
+        "team_a_win": 0.71,
+        "draw": 0.15,
+        "team_b_win": 0.14,
+        "score": "3-0",
+        "top_3_scores": [
+          {
+            "score": "3-0",
+            "prob": 0.14
+          },
+          {
+            "score": "3-0",
+            "prob": 0.1
+          },
+          {
+            "score": "2-0",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "葡萄牙",
+        "date": "2026-07-02",
+        "source": "ELO"
+      },
+      {
+        "match_num": 84,
+        "bracket_idx": 11,
+        "team_a": "西班牙",
+        "group_a": "H",
+        "seed_a": 1,
+        "team_b": "奥地利",
+        "group_b": "J",
+        "seed_b": 2,
+        "team_a_win": 0.7,
+        "draw": 0.16,
+        "team_b_win": 0.14,
+        "score": "3-0",
+        "top_3_scores": [
+          {
+            "score": "3-0",
+            "prob": 0.14
+          },
+          {
+            "score": "3-0",
+            "prob": 0.1
+          },
+          {
+            "score": "2-0",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "西班牙",
+        "date": "2026-07-02",
+        "source": "ELO"
+      },
+      {
+        "match_num": 85,
+        "bracket_idx": 12,
+        "team_a": "瑞士",
+        "group_a": "B",
+        "seed_a": 1,
+        "team_b": "比利时",
+        "group_b": "G",
+        "seed_b": 3,
+        "team_a_win": 0.28,
+        "draw": 0.24,
+        "team_b_win": 0.48,
+        "score": "1-2",
+        "top_3_scores": [
+          {
+            "score": "1-2",
+            "prob": 0.14
+          },
+          {
+            "score": "1-1",
+            "prob": 0.1
+          },
+          {
+            "score": "0-2",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "比利时",
+        "date": "2026-07-03",
+        "source": "ELO"
+      },
+      {
+        "match_num": 86,
+        "bracket_idx": 13,
+        "team_a": "阿根廷",
+        "group_a": "J",
+        "seed_a": 1,
+        "team_b": "乌拉圭",
+        "group_b": "H",
+        "seed_b": 2,
+        "team_a_win": 0.62,
+        "draw": 0.19,
+        "team_b_win": 0.19,
+        "score": "2-0",
+        "top_3_scores": [
+          {
+            "score": "2-0",
+            "prob": 0.14
+          },
+          {
+            "score": "2-0",
+            "prob": 0.1
+          },
+          {
+            "score": "1-0",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "阿根廷",
+        "date": "2026-07-03",
+        "source": "ELO"
+      },
+      {
+        "match_num": 87,
+        "bracket_idx": 14,
+        "team_a": "哥伦比亚",
+        "group_a": "K",
+        "seed_a": 1,
+        "team_b": "克罗地亚",
+        "group_b": "L",
+        "seed_b": 3,
+        "team_a_win": 0.35,
+        "draw": 0.27,
+        "team_b_win": 0.38,
+        "score": "1-1",
+        "top_3_scores": [
+          {
+            "score": "1-1",
+            "prob": 0.14
+          },
+          {
+            "score": "1-0",
+            "prob": 0.1
+          },
+          {
+            "score": "0-1",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "克罗地亚",
+        "date": "2026-07-03",
+        "source": "ELO"
+      },
+      {
+        "match_num": 88,
+        "bracket_idx": 15,
+        "team_a": "巴拉圭",
+        "group_a": "D",
+        "seed_a": 2,
+        "team_b": "伊朗",
+        "group_b": "G",
+        "seed_b": 2,
+        "team_a_win": 0.28,
+        "draw": 0.24,
+        "team_b_win": 0.48,
+        "score": "1-2",
+        "top_3_scores": [
+          {
+            "score": "1-2",
+            "prob": 0.14
+          },
+          {
+            "score": "1-1",
+            "prob": 0.1
+          },
+          {
+            "score": "0-2",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.2,
+        "pen_pct": 0.1,
+        "winner": "伊朗",
+        "date": "2026-07-03",
+        "source": "ELO"
+      }
+    ],
+    "r16": [
+      {
+        "stage": "R16",
+        "match_num": 89,
+        "team_a": "加拿大",
+        "team_b": "德国",
+        "team_a_win": 0.21,
+        "draw": 0.2,
+        "team_b_win": 0.59,
+        "score": "1-2",
+        "top_3_scores": [
+          {
+            "score": "1-2",
+            "prob": 0.14
+          },
+          {
+            "score": "1-1",
+            "prob": 0.1
+          },
+          {
+            "score": "0-2",
+            "prob": 0.09
+          }
+        ],
+        "date": "2026-07-04",
+        "bracket_idx": 0,
+        "winner": "德国"
+      },
+      {
+        "stage": "R16",
+        "match_num": 90,
+        "team_a": "荷兰",
+        "team_b": "巴西",
+        "team_a_win": 0.35,
+        "draw": 0.28,
+        "team_b_win": 0.37,
+        "score": "1-1",
+        "top_3_scores": [
+          {
+            "score": "1-1",
+            "prob": 0.14
+          },
+          {
+            "score": "1-0",
+            "prob": 0.1
+          },
+          {
+            "score": "0-1",
+            "prob": 0.09
+          }
+        ],
+        "date": "2026-07-04",
+        "bracket_idx": 1,
+        "winner": "巴西"
+      },
+      {
+        "stage": "R16",
+        "match_num": 91,
+        "team_a": "法国",
+        "team_b": "挪威",
+        "team_a_win": 0.5825,
+        "draw": 0.2178,
+        "team_b_win": 0.1997,
+        "score": "待定",
+        "top_3_scores": [],
+        "date": "2026-07-04",
+        "bracket_idx": 2,
+        "winner": "法国"
+      },
+      {
+        "stage": "R16",
+        "match_num": 92,
+        "team_a": "墨西哥",
+        "team_b": "英格兰",
+        "team_a_win": 0.24,
+        "draw": 0.21,
+        "team_b_win": 0.55,
+        "score": "1-2",
+        "top_3_scores": [
+          {
+            "score": "1-2",
+            "prob": 0.14
+          },
+          {
+            "score": "1-1",
+            "prob": 0.1
+          },
+          {
+            "score": "0-2",
+            "prob": 0.09
+          }
+        ],
+        "date": "2026-07-04",
+        "bracket_idx": 3,
+        "winner": "英格兰"
+      },
+      {
+        "stage": "R16",
+        "match_num": 93,
+        "team_a": "美国",
+        "team_b": "韩国",
+        "team_a_win": 0.42,
+        "draw": 0.26,
+        "team_b_win": 0.32,
+        "score": "2-1",
+        "top_3_scores": [
+          {
+            "score": "2-1",
+            "prob": 0.14
+          },
+          {
+            "score": "2-0",
+            "prob": 0.1
+          },
+          {
+            "score": "1-1",
+            "prob": 0.09
+          }
+        ],
+        "date": "2026-07-05",
+        "bracket_idx": 4,
+        "winner": "美国"
+      },
+      {
+        "stage": "R16",
+        "match_num": 94,
+        "team_a": "葡萄牙",
+        "team_b": "西班牙",
+        "team_a_win": 0.27,
+        "draw": 0.23,
+        "team_b_win": 0.5,
+        "score": "1-2",
+        "top_3_scores": [
+          {
+            "score": "1-2",
+            "prob": 0.14
+          },
+          {
+            "score": "1-1",
+            "prob": 0.1
+          },
+          {
+            "score": "0-2",
+            "prob": 0.09
+          }
+        ],
+        "date": "2026-07-05",
+        "bracket_idx": 5,
+        "winner": "西班牙"
+      },
+      {
+        "stage": "R16",
+        "match_num": 95,
+        "team_a": "比利时",
+        "team_b": "阿根廷",
+        "team_a_win": 0.25,
+        "draw": 0.21,
+        "team_b_win": 0.54,
+        "score": "1-2",
+        "top_3_scores": [
+          {
+            "score": "1-2",
+            "prob": 0.14
+          },
+          {
+            "score": "1-1",
+            "prob": 0.1
+          },
+          {
+            "score": "0-2",
+            "prob": 0.09
+          }
+        ],
+        "date": "2026-07-05",
+        "bracket_idx": 6,
+        "winner": "阿根廷"
+      },
+      {
+        "stage": "R16",
+        "match_num": 96,
+        "team_a": "克罗地亚",
+        "team_b": "伊朗",
+        "team_a_win": 0.48,
+        "draw": 0.24,
+        "team_b_win": 0.28,
+        "score": "2-1",
+        "top_3_scores": [
+          {
+            "score": "2-1",
+            "prob": 0.14
+          },
+          {
+            "score": "2-0",
+            "prob": 0.1
+          },
+          {
+            "score": "1-1",
+            "prob": 0.09
+          }
+        ],
+        "date": "2026-07-05",
+        "bracket_idx": 7,
+        "winner": "克罗地亚"
+      }
+    ],
+    "qf": [
+      {
+        "stage": "QF",
+        "match_num": 97,
+        "team_a": "德国",
+        "team_b": "巴西",
+        "team_a_win": 0.34,
+        "draw": 0.27,
+        "team_b_win": 0.39,
+        "score": "1-2",
+        "top_3_scores": [
+          {
+            "score": "1-2",
+            "prob": 0.14
+          },
+          {
+            "score": "1-1",
+            "prob": 0.1
+          },
+          {
+            "score": "0-2",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.28,
+        "pen_pct": 0.12,
+        "date": "2026-07-11",
+        "bracket_idx": 0,
+        "winner": "巴西"
+      },
+      {
+        "stage": "QF",
+        "match_num": 98,
+        "team_a": "法国",
+        "team_b": "英格兰",
+        "team_a_win": 0.41,
+        "draw": 0.26,
+        "team_b_win": 0.33,
+        "score": "2-1",
+        "top_3_scores": [
+          {
+            "score": "2-1",
+            "prob": 0.14
+          },
+          {
+            "score": "2-0",
+            "prob": 0.1
+          },
+          {
+            "score": "1-1",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.28,
+        "pen_pct": 0.12,
+        "date": "2026-07-11",
+        "bracket_idx": 1,
+        "winner": "法国"
+      },
+      {
+        "stage": "QF",
+        "match_num": 99,
+        "team_a": "美国",
+        "team_b": "西班牙",
+        "team_a_win": 0.19,
+        "draw": 0.19,
+        "team_b_win": 0.62,
+        "score": "0-2",
+        "top_3_scores": [
+          {
+            "score": "0-2",
+            "prob": 0.14
+          },
+          {
+            "score": "0-1",
+            "prob": 0.1
+          },
+          {
+            "score": "0-2",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.28,
+        "pen_pct": 0.12,
+        "date": "2026-07-12",
+        "bracket_idx": 2,
+        "winner": "西班牙"
+      },
+      {
+        "stage": "QF",
+        "match_num": 100,
+        "team_a": "阿根廷",
+        "team_b": "克罗地亚",
+        "team_a_win": 0.57,
+        "draw": 0.21,
+        "team_b_win": 0.22,
+        "score": "2-1",
+        "top_3_scores": [
+          {
+            "score": "2-1",
+            "prob": 0.14
+          },
+          {
+            "score": "2-0",
+            "prob": 0.1
+          },
+          {
+            "score": "1-1",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.28,
+        "pen_pct": 0.12,
+        "date": "2026-07-12",
+        "bracket_idx": 3,
+        "winner": "阿根廷"
+      }
+    ],
+    "sf": [
+      {
+        "stage": "SF",
+        "match_num": 101,
+        "team_a": "巴西",
+        "team_b": "法国",
+        "team_a_win": 0.27,
+        "draw": 0.23,
+        "team_b_win": 0.5,
+        "score": "1-2",
+        "top_3_scores": [
+          {
+            "score": "1-2",
+            "prob": 0.14
+          },
+          {
+            "score": "1-1",
+            "prob": 0.1
+          },
+          {
+            "score": "0-2",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.3,
+        "pen_pct": 0.15,
+        "date": "2026-07-15",
+        "bracket_idx": 0,
+        "winner": "法国"
+      },
+      {
+        "stage": "SF",
+        "match_num": 102,
+        "team_a": "西班牙",
+        "team_b": "阿根廷",
+        "team_a_win": 0.36,
+        "draw": 0.27,
+        "team_b_win": 0.37,
+        "score": "1-1",
+        "top_3_scores": [
+          {
+            "score": "1-1",
+            "prob": 0.14
+          },
+          {
+            "score": "1-0",
+            "prob": 0.1
+          },
+          {
+            "score": "0-1",
+            "prob": 0.09
+          }
+        ],
+        "aet_pct": 0.3,
+        "pen_pct": 0.15,
+        "date": "2026-07-16",
+        "bracket_idx": 1,
+        "winner": "阿根廷"
+      }
+    ],
+    "third_place": {
+      "team_a": "巴西",
+      "team_b": "西班牙",
+      "winner": "西班牙"
+    }
   },
   "final": {
-    "confidence": 0.5,
-    "champion": "Let"
+    "matchup": "法国 vs 阿根廷",
+    "matchup_zh": "法国 vs 阿根廷",
+    "tiers": [
+      {
+        "tier": 1,
+        "label": "90 分钟",
+        "content": "90 分钟内分胜负",
+        "probability": 0.58
+      },
+      {
+        "tier": 2,
+        "label": "加时 (AET)",
+        "content": "进入加时 (120 分钟)",
+        "probability": 0.27
+      },
+      {
+        "tier": 3,
+        "label": "点球大战",
+        "content": "点球大战决定冠军",
+        "probability": 0.15
+      }
+    ],
+    "combined_text": "90 分钟内分胜负 58%, 加时 27%, 点球 15%",
+    "champion": "阿根廷",
+    "confidence": 0.18
   },
-  "upset_risks": [],
-  "report_markdown": "<think>\nLet me carefully analyze this task. I need to produce a complete 9-section prediction report for the 2026 FIFA World Cup, with specific constraints:\n\n1. 12 groups (A-L) with 4 teams each\n2. 24 must-include matches for MD2/MD3 (6/20-6/25)\n3. R32 bracket (Match 73-88) fixed\n4. Must output 9 sections in order\n5. Each match needs probabilities\n6. JSON output at the end\n\nLet me work through this systematically.\n\n**STEP 1: Analyze the 24 must-include matches and determine group standings**\n\nThe numeric anchor provides baselines. Let me use these and the match schedule to figure out standings.\n\nGroup A: Mexico, South Korea, Czech Republic, South Africa\n- Mexico vs South Korea: 39/38/23 → Mexico slightly favored\n- Czech vs South Africa: 41/38/22 → Czech slightly favored\n- Mexico vs Czech: 47/36/17 → Mexico favored\n- South Korea vs South Africa: 48/36/16 → South Korea favored\n- Mexico vs South Africa: 55/34/11 → Mexico strong\n- South Korea vs Czech: 39/38/23 → Slight Mexico/KOR edge\n\nExpected standings A: 1. Mexico, 2. South Korea, 3. Czech, 4. South Africa\n- Mexico 9 pts (3W), Korea ~4-5 pts, Czech ~3-4 pts, South Africa ~0-1 pt\n\nGroup B: Canada, Switzerland, Bosnia, Qatar\n- Canada vs Switzerland: 21/37/41 → Switzerland favored\n- Bosnia vs Qatar: 34/38/28 → Bosnia slight\n- Canada vs Bosnia: 34/38/28 → Canada slight\n- Switzerland vs Qatar: 47/36/17 → Switzerland\n- The must-include match is Canada vs Switzerland MD3\n\nExpected: 1. Switzerland, 2. Canada, 3. Bosnia, 4. Qatar\nWait - need to check what other matches happen. We have Canada vs Switzerland MD3 as the must-include. Let me think about this more carefully.\n\nSwitzerland likely tops with wins over Canada and Qatar. Canada likely gets 2nd with wins over Bosnia, Qatar. Bosnia vs Qatar goes to Bosnia.\n\nGroup C: Brazil, Scotland, Morocco, Haiti\n- Brazil vs Haiti (MD2): Brazil huge fav 67/29/4\n- Brazil vs Scotland (MD3): Brazil 55/34/11\n- Morocco vs Haiti: Morocco 66/29/4\n- Brazil vs Morocco (this would be MD3 but actually different): 32/38/30 → close\n- Wait, the must-includes for C are: Brazil vs Haiti MD2, Brazil vs Scotland MD3, Haiti vs Morocco MD3\n\nSo Group C schedule:\n- MD1: Brazil vs ?, Scotland vs ? (probably Scotland vs Morocco)\n- MD2: Brazil vs Haiti (67/29/4)\n- MD3: Brazil vs Scotland (55/34/11), Haiti vs Morocco (66/29/4 - but it's Morocco vs Haiti, so Morocco favored)\n\nSo MD1 must have Scotland vs Morocco and Brazil vs Scotland... wait, Brazil vs Scotland is MD3. So MD1 has Brazil vs Morocco and Scotland vs Haiti? Let me think.\n\nEach group has 6 matches, MD1 has 2, MD2 has 2, MD3 has 2. The 24 must-include list shows MD2 and MD3 matches. The MD1 matches aren't listed but are implied.\n\nGroup C MD1: Brazil vs Morocco (32/38/30, close), Scotland vs Haiti (Haiti vs Scotland: 14/35/51, Scotland favored)\nGroup C MD2: Brazil vs Haiti (67/29/4, Brazil huge fav), Scotland vs Morocco (Scotland vs Morocco: 12/34/54, Morocco favored)\nGroup C MD3: Brazil vs Scotland (55/34/11), Haiti vs Morocco (66/29/4, Morocco fav)\n\nStandings likely:\n- Brazil: 9 pts (wins all 3) → 1st\n- Morocco: beats Scotland, loses to Brazil, beats Haiti → 6 pts → 2nd\n- Scotland: 1 win, 2 losses → 3 pts → 3rd\n- Haiti: 0 wins → 4th\n\nGroup D: USA, Paraguay, Australia, Turkey\n- USA vs Paraguay: 48/36/16 → USA\n- Paraguay vs Turkey (MD2): 28/38/33 → Turkey slight\n- Australia vs Turkey: 35/38/27 → Australia slight\n- USA vs Australia: 43/37/20 → USA\n- USA vs Turkey (would be MD3 if both top): 47/36/17 USA\n\nMD2 includes Paraguay vs Turkey. MD3 must include other matches.\n\nStandings: 1. USA, 2. Australia or Turkey, 3. ?\n\nGroup E: Germany, Ecuador, Ivory Coast, Curaçao\n- Germany vs Ecuador: 46/37/18 → Germany\n- Germany vs Ivory Coast: 47/36/17 → Germany\n- Ecuador vs Ivory Coast: ?\n- Ivory Coast vs Curaçao: 52/35/13\n- MD2: Germany vs Ivory Coast, Ecuador vs Curaçao\n- MD3: Germany vs Ecuador, Ivory Coast vs Curaçao\n\nStandings: 1. Germany, 2. Ecuador (wins over Curaçao, tight with Ivory Coast), 3. Ivory Coast\n\nGroup F: Netherlands, Sweden, Japan, Tunisia\n- Netherlands vs Sweden (MD2): not in anchor\n- Japan vs Tunisia (MD2): not in anchor\n- Netherlands vs Japan: would be close\n- Sweden vs Japan: Japan might edge\n\nStandings: 1. Netherlands, 2. Sweden, 3. Japan, 4. Tunisia (likely)\n\nGroup G: Belgium, Iran, Egypt, New Zealand\n- Belgium vs Iran (MD2): Belgium heavy fav\n- Egypt vs New Zealand (MD2): Egypt fav\n- Belgium vs Egypt: tight\n- Iran vs Egypt: tight\n- Standings: 1. Belgium, 2. Egypt or Iran, 3. Iran or Egypt\n\nGroup H: Spain, Uruguay, Saudi Arabia, Cape Verde\n- Saudi Arabia vs Spain (MD2): Spain huge fav\n- Cape Verde vs Uruguay (MD2): Uruguay huge fav\n- Spain vs Uruguay: tight, top match\n- Standings: 1. Spain or Uruguay, 2. Uruguay or Spain, 3. Saudi Arabia\n\nGroup I: France, Norway, Senegal, Iraq\n- France vs Iraq (MD2): France huge fav\n- Norway vs Senegal (MD2): tight\n- France vs Norway: France slight\n- Standings: 1. France, 2. Norway, 3. Senegal\n\nGroup J: Argentina, Austria, Algeria, Jordan\n- Argentina vs Austria (MD2): Argentina huge fav\n- Algeria vs Jordan (MD2): Algeria fav\n- Argentina vs Algeria: Argentina fav\n- Standings: 1. Argentina, 2. Algeria, 3. Austria\n\nGroup K: Portugal, Colombia, DR Congo, Uzbekistan\n- Portugal vs Uzbekistan (MD2): Portugal huge fav\n- Colombia vs DR Congo (MD2): Colombia fav\n- Portugal vs Colombia: close, top match\n- Standings: 1. Portugal, 2. Colombia, 3. DR Congo\n\nGroup L: England, Croatia, Ghana, Panama\n- England vs Ghana (MD2): England fav\n- Croatia vs Panama (MD2): Croatia huge fav\n- England vs Croatia: close, top match\n- Standings: 1. England, 2. Croatia, 3. Ghana\n\n**STEP 2: 8 Best 3rd-place teams**\n\nWith 12 groups, 8 best 3rd advance. Let me rank 3rd-place teams by expected points and tiebreakers:\n\nA3: Czech (losses to Mexico, draw with Korea, win SA) ~4 pts\nB3: Bosnia (wins Qatar, losses to Canada/Switzerland) ~3 pts\nC3: Scotland (1 win) ~3 pts\nD3: Australia or Turkey, ~3 pts\nE3: Ivory Coast ~3 pts\nF3: Japan ~3 pts\nG3: Iran ~3 pts\nH3: Saudi Arabia ~0-1 pts (lost to Spain, lost/drew with Cape Verde)\nI3: Senegal ~3 pts\nJ3: Austria ~3 pts\nK3: DR Congo ~3 pts\nL3: Ghana ~3 pts\n\nBest 8 by points (rough estimate):\n1. Czech (A) - 4 pts\n2. Scotland (C) - 3 pts + GD probably +1\n3. Ivory Coast (E) - 3 pts\n4. Japan (F) - 3 pts\n5. Iran (G) - 3 pts\n6. Senegal (I) - 3 pts\n7. Austria (J) - 3 pts\n8. DR Congo (K) - 3 pts (or Ghana L)\n\nH3 (Saudi) likely out. H is the weakest group with Spain, Uruguay, Saudi, Cape Verde.\n\nActually let me reconsider:\n- B3 Bosnia: 1 win, 2 losses (lost to Canada, Switzerland) = 3 pts\n- D3: Australia (if 2nd is Australia) or Turkey\n  - If USA 1st, Australia 2nd, then 3rd is Turkey\n  - Turkey: lost to Paraguay, beat/lost to Australia, lost to USA? Hmm\n\nLet me re-think D. The schedule has:\n- MD1: USA vs Paraguay (USA 48/36/16), Australia vs Turkey (35/38/27)\n- MD2: USA vs Australia (43/37/20), Paraguay vs Turkey (28/38/33)\n- MD3: USA vs Turkey, Paraguay vs Australia\n\nUSA likely wins 3. Australia vs Turkey: 35/38/27 → Australia slight. Paraguay vs Turkey: 28/38/33 → Turkey slight. \n\nIf USA wins all 3, then Australia/Turkey/Paraguay are 2/3/4. \n- Australia 2 wins (over Turkey, Paraguay): 6 pts → 2nd\n- Turkey 1 win, 1 draw, 1 loss: 4 pts → 3rd\n- Paraguay 0 wins, 1 draw: 1 pt → 4th\n\nD3: Turkey with 4 pts\n\nLet me now rank best 3rds:\n1. A3 Czech - 4 pts (1W 1D 1L, 0 GD)\n2. D3 Turkey - 4 pts (1W 1D 1L, -1 GD)\n3. C3 Scotland - 3 pts (1W 0D 2L, -1 GD)\n4. E3 Ivory Coast - 3 pts (1W 0D 2L, 0 GD likely)\n5. F3 Japan - 3 pts (1W 0D 2L)\n6. G3 Iran - 3 pts\n7. I3 Senegal - 3 pts\n8. J3 Austria - 3 pts (or L3 Ghana)\n9. B3 Bosnia - 3 pts (or worse)\n10. K3 DR Congo - 3 pts\n11. L3 Ghana - 3 pts\n12. H3 Saudi Arabia - 0-1 pts (eliminated)\n\nThe 8 best would be: Czech, Turkey, Scotland, Ivory Coast, Japan, Iran, Senegal, Austria/Bosnia\n\nBut Saudi Arabia is the only one clearly out. H3 is eliminated.\n\nSo 8 best 3rds are: A3, B3, C3, D3, E3, F3, G3, I3, J3, K3, L3 = 11 candidates for 8 spots. H3 is out.\n\nI need to pick 8. Let me adjust based on goal difference and strength of schedule:\n\nMost likely best 8 (excluding H3 Saudi):\n1. A3 Czech (4 pts)\n2. D3 Turkey (4 pts)\n3. C3 Scotland (3 pts, -1 GD)\n4. E3 Ivory Coast (3 pts, even GD)\n5. F3 Japan (3 pts)\n6. G3 Iran (3 pts)\n7. I3 Senegal (3 pts)\n8. J3 Austria (3 pts)\n\nB3 Bosnia, K3 DR Congo, L3 Ghana likely have similar points but worse goal difference.\n\nActually wait - let me reconsider B:\n- B1 Switzerland, B2 Canada, B3 Bosnia or Qatar\n- B3: Bosnia (1W 2L) = 3 pts, GD -2 to -3\n- H3 Saudi Arabia: 0 pts, out\n\nAnd L:\n- L1 England, L2 Croatia, L3 Ghana\n- L3 Ghana: 1W 2L = 3 pts, GD -1 to -2\n\nThis is close. Let me estimate:\n- B3 Bosnia: ~3 pts, GD -2\n- L3 Ghana: ~3 pts, GD -1\n- K3 DR Congo: ~3 pts, GD -2\n\nGhana likely has slight edge. So:\nBest 8: A3 Czech, D3 Turkey, C3 Scotland, E3 Ivory Coast, F3 Japan, G3 Iran, I3 Senegal, J3 Austria (or L3 Ghana)\n\nI'll go with these 8. Let me list them by group slot needs in R32:\n\nLooking at R32 bracket:\n- M74: E1 vs best3 (A/B/C/D/F)\n- M77: I1 vs best3 (C/D/F/G/H)\n- M79: A1 vs best3 (C/E/F/H/I)\n- M80: L1 vs best3 (E/H/I/J/K)\n- M81: D1 vs best3 (B/E/F/I/J)\n- M82: G1 vs best3 (A/E/H/I/J)\n- M85: B1 vs best3 (E/F/G/I/J)\n- M87: K1 vs best3 (D/E/I/J/L)\n\nI need to assign each best 3 to a slot such that:\n- A3 can go to M74 (A/B/C/D/F) or M82 (A/E/H/I/J)\n- D3 can go to M74 (A/B/C/D/F), M77 (C/D/F/G/H), M81 (B/E/F/I/J), M87 (D/E/I/J/L)\n- C3 can go to M74, M77, M79 (C/E/F/H/I)\n- E3 can go to M79 (C/E/F/H/I), M80 (E/H/I/J/K), M81 (B/E/F/I/J), M82 (A/E/H/I/J), M85 (E/F/G/I/J), M87 (D/E/I/J/L)\n- F3 can go to M74, M77, M79, M81, M85\n- G3 can go to M77 (C/D/F/G/H), M85 (E/F/G/I/J)\n- I3 can go to M77, M79, M80, M81, M82, M85, M87\n- J3 can go to M80, M81, M82, M85, M87\n\nSo the 8 best 3s need to fill 8 slots. Since H3 is out and 8 of 11 advance:\n\nAssignments:\n- M74: best3 (A/B/C/D/F) → use A3 Czech or C3 Scotland or D3 Turkey or F3 Japan. Use D3 Turkey (most pts 4)\n- M77: best3 (C/D/F/G/H) → use C3 Scotland\n- M79: best3 (C/E/F/H/I) → use F3 Japan\n- M80: best3 (E/H/I/J/K) → use E3 Ivory Coast\n- M81: best3 (B/E/F/I/J) → use I3 Senegal (or J3)\n- M82: best3 (A/E/H/I/J) → use A3 Czech\n- M85: best3 (E/F/G/I/J) → use G3 Iran\n- M87: best3 (D/E/I/J/L) → use J3 Austria\n\nWait, I need 8 best 3rds to fill 8 slots. Let me re-list:\n- A3 Czech → M82\n- D3 Turkey → M74\n- C3 Scotland → M77\n- F3 Japan → M79\n- E3 Ivory Coast → M80\n- I3 Senegal → M81\n- G3 Iran → M85\n- J3 Austria → M87\n\nGood, all unique.\n\nBut wait, I need to verify these 8 are the actual best 3rds. Let me re-examine each group:\n\nGroup A:\n- Mexico 9pts, S Korea 4-6pts, Czech 3-4pts, South Africa 0-1pt\n- A3 = Czech (3-4 pts)\n\nGroup B:\n- Switzerland 6-9pts, Canada 6pts, Bosnia 3pts, Qatar 0pts\n- B3 = Bosnia (3 pts, GD -2)\n\nGroup C:\n- Brazil 9pts, Morocco 6pts, Scotland 3pts, Haiti 0pts\n- C3 = Scotland (3 pts, GD -1)\n\nGroup D:\n- USA 9pts, Australia 6pts, Turkey 3-4pts, Paraguay 0-1pt\n- D3 = Turkey (3-4 pts, GD -1)\n\nGroup E:\n- Germany 9pts, Ecuador 4-6pts, Ivory Coast 3-4pts, Curaçao 0-1pt\n- E3 = Ivory Coast (3 pts, GD -1)\n\nGroup F:\n- Netherlands 6-9pts, Sweden 4-6pts, Japan 3pts, Tunisia 0-1pt\n- F3 = Japan (3 pts, GD -1)\n\nGroup G:\n- Belgium 6-9pts, Egypt 4-6pts, Iran 3pts, New Zealand 0-1pt\n- G3 = Iran (3 pts, GD -1)\n\nGroup H:\n- Spain 6-9pts, Uruguay 6pts, Saudi Arabia 0-1pt, Cape Verde 1-3pts\n- H3 = Saudi Arabia (likely 0-1 pts, OUT)\n\nGroup I:\n- France 9pts, Norway 6pts, Senegal 3pts, Iraq 0pts\n- I3 = Senegal (3 pts, GD -1)\n\nGroup J:\n- Argentina 9pts, Algeria 4-6pts, Austria 3pts, Jordan 0-1pt\n- J3 = Austria (3 pts, GD -1)\n\nGroup K:\n- Portugal 6-9pts, Colombia 6pts, DR Congo 3pts, Uzbekistan 0-1pt\n- K3 = DR Congo (3 pts, GD -2)\n\nGroup L:\n- England 6-9pts, Croatia 4-6pts, Ghana 3pts, Panama 0pts\n- L3 = Ghana (3 pts, GD -1)\n\nBest 8 (excluding H3):\n1. A3 Czech - 4 pts\n2. D3 Turkey - 4 pts (or 3 pts)\n3. E3 Ivory Coast - 3 pts\n4. C3 Scotland - 3 pts, GD -1\n5. F3 Japan - 3 pts\n6. G3 Iran - 3 pts\n7. I3 Senegal - 3 pts\n8. J3 Austria or L3 Ghana or B3 Bosnia or K3 DR Congo - all 3 pts\n\nTiebreaker is goal difference then goals scored. Let me estimate:\n- J3 Austria: probably lost to Argentina, drew/lost to Algeria, beat Jordan → 3 pts, GD ~-1\n- L3 Ghana: lost to England, lost to Croatia, beat Panama → 3 pts, GD ~-1\n- B3 Bosnia: lost to Switzerland, lost to Canada, beat Qatar → 3 pts, GD ~-2\n- K3 DR Congo: lost to Portugal, lost to Colombia, beat Uzbekistan → 3 pts, GD ~-2\n\nSo J3 Austria and L3 Ghana likely have better GD than B3 and K3. The 8th spot is between them.\n\nGoing with: A3, D3, E3, C3, F3, G3, I3, J3\n\nActually, let me reconsider whether E3 is 3 or 4 pts.\n- Germany likely wins 3 → 9 pts\n- Ecuador: beats Curaçao, plays Ivory Coast... 50/50, plays Germany (lose). 1W 1D 1L = 4 pts\n- Ivory Coast: plays Germany (lose), plays Curaçao (win), plays Ecuador (depends). 1W 0D 2L = 3 pts or 1W 1D 1L = 4 pts\n\nIf Ecuador beats Ivory Coast, E3 = Ivory Coast with 3 pts.\nIf Ivory Coast beats/draws Ecuador, then Ecuador has fewer pts.\n\nLet's say E2 Ecuador, E3 Ivory Coast, with 3 pts each for ICoast (1W 0D 2L).\n\nOK so my 8 best 3rds: A3 Czech, D3 Turkey, E3 Ivory Coast, C3 Scotland, F3 Japan, G3 Iran, I3 Senegal, J3 Austria (or L3 Ghana)\n\n**STEP 3: R32 matches (73-88)**\n\n- M73: A2 vs B2 = S Korea vs Canada\n- M74: E1 vs best3(A/B/C/D/F) = Germany vs D3 Turkey\n- M75: F1 vs C2 = Netherlands vs Morocco\n- M76: C1 vs F2 = Brazil vs Sweden\n- M77: I1 vs best3(C/D/F/G/H) = France vs C3 Scotland\n- M78: E2 vs I2 = Ecuador vs Norway\n- M79: A1 vs best3(C/E/F/H/I) = Mexico vs F3 Japan\n- M80: L1 vs best3(E/H/I/J/K) = England vs E3 Ivory Coast\n- M81: D1 vs best3(B/E/F/I/J) = USA vs I3 Senegal\n- M82: G1 vs best3(A/E/H/I/J) = Belgium vs A3 Czech\n- M83: K2 vs L2 = Colombia vs Croatia\n- M84: H1 vs J2 = Spain vs Algeria\n- M85: B1 vs best3(E/F/G/I/J) = Switzerland vs G3 Iran\n- M86: J1 vs H2 = Argentina vs Uruguay\n- M87: K1 vs best3(D/E/I/J/L) = Portugal vs J3 Austria\n- M88: D2 vs G2 = Australia vs Egypt\n\n**STEP 4: R32 → R16 → QF → SF → Final**\n\nR32 winners (by strength):\n- M73: S Korea vs Canada → Canada slight fav (closer to balanced, 40/30/30)\n- M74: Germany vs Turkey → Germany heavy (60/25/15)\n- M75: Netherlands vs Morocco → Netherlands (55/30/15)\n- M76: Brazil vs Sweden → Brazil (70/20/10)\n- M77: France vs Scotland → France (75/15/10)\n- M78: Ecuador vs Norway → Norway slight (40/30/30)\n- M79: Mexico vs Japan → Mexico slight (45/30/25)\n- M80: England vs Ivory Coast → England (60/25/15)\n- M81: USA vs Senegal → USA (55/30/15)\n- M82: Belgium vs Czech → Belgium (60/25/15)\n- M83: Colombia vs Croatia → close, Colombia slight (40/30/30)\n- M84: Spain vs Algeria → Spain (75/15/10)\n- M85: Switzerland vs Iran → Switzerland (60/25/15)\n- M86: Argentina vs Uruguay → Argentina slight (45/30/25)\n- M87: Portugal vs Austria → Portugal (60/25/15)\n- M88: Australia vs Egypt → Egypt slight (45/30/25)\n\nR32 winners:\n- Canada\n- Germany\n- Netherlands\n- Brazil\n- France\n- Norway\n- Mexico\n- England\n- USA\n- Belgium\n- Colombia\n- Spain\n- Switzerland\n- Argentina\n- Portugal\n- Egypt\n\nR16 matchups (using standard bracket):\nThe R32 bracket order: M73→M88, with adjacent matches forming R16 pairings typically.\n- M73 winner vs M74 winner: Canada vs Germany\n- M75 winner vs M76 winner: Netherlands vs Brazil\n- M77 winner vs M78 winner: France vs Norway\n- M79 winner vs M80 winner: Mexico vs England\n- M81 winner vs M82 winner: USA vs Belgium\n- M83 winner vs M84 winner: Colombia vs Spain\n- M85 winner vs M86 winner: Switzerland vs Argentina\n- M87 winner vs M88 winner: Portugal vs Egypt\n\nR16 winners:\n- Germany (over Canada)\n- Brazil (over Netherlands)\n- France (over Norway)\n- England (over Mexico)\n- Belgium (over USA) - close, upset potential\n- Spain (over Colombia)\n- Argentina (over Switzerland)\n- Portugal (over Egypt)\n\nQF:\n- Germany vs Brazil → tight, Brazil slight (45/30/25)\n- France vs England → France slight (45/30/25)\n- Belgium vs Spain → Spain (45/30/25)\n- Argentina vs Portugal → Argentina slight (40/30/30)\n\nQF winners:\n- Brazil\n- France\n- Spain\n- Argentina\n\nSF:\n- Brazil vs France → close, France slight (40/30/30)\n- Spain vs Argentina → Argentina slight (40/30/30)\n\nFinal:\n- France vs Argentina → 50/25/25 → Argentina slight edge? Or France? Let's say France slight (45/30/25)\n\n3rd place: Brazil vs Spain → close, Brazil slight\n\nChampion: France\n\nWait, let me reconsider. With Elo-Poisson baselines, France and Argentina both have strong baseline parameters. Let me think about this more carefully.\n\nActually, looking at the model more carefully, I think the path to the final likely involves:\n- France (from I)\n- Brazil (from C)\n- Argentina (from J)\n- Spain or England (from H or L)\n\nFinal: France vs Argentina\n\nThe final score 1-1 with France winning 2-1 in AET.\n\n**STEP 5: 24 must-include match predictions**\n\nLet me go through each:\n\n1. 巴西 vs 海地 (6/20): 67/29/4 → 1-0 or 2-0\n2. 巴拉圭 vs 土耳其 (6/20): 28/38/33 → 0-1 or 0-0\n3. 荷兰 vs 瑞典 (6/20): close, Netherlands slight → 45/30/25\n4. 德国 vs 科特迪瓦 (6/20): 47/36/17 → 1-0\n5. 厄瓜多尔 vs 库拉索 (6/21): 1.04/0.36 → 52/34/13 → 1-0\n6. 日本 vs 突尼斯 (6/21): 50/30/20 → 1-0\n7. 沙特 vs 西班牙 (6/21): 5/15/80 → 0-3\n8. 比利时 vs 伊朗 (6/21): 60/25/15 → 2-0\n9. 佛得角 vs 乌拉圭 (6/21): 10/20/70 → 0-2\n10. 埃及 vs 新西兰 (6/22): 65/25/10 → 2-0\n11. 阿根廷 vs 奥地利 (6/22): 75/15/10 → 2-0\n12. 法国 vs 伊拉克 (6/22): 80/15/5 → 3-0\n13. 挪威 vs 塞内加尔 (6/23): 50/30/20 → 1-0\n14. 阿尔及利亚 vs 约旦 (6/23): 60/28/12 → 2-0\n15. 葡萄牙 vs 乌兹别克 (6/23): 80/15/5 → 3-0\n16. 英格兰 vs 加纳 (6/23): 65/25/10 → 2-0\n17. 克罗地亚 vs 巴拿马 (6/23): 75/15/10 → 2-0\n18. 哥伦比亚 vs 刚果金 (6/24): 70/20/10 → 2-0\n19. 墨西哥 vs 韩国 (6/24): 39/38/23 → 1-0\n20. 加拿大 vs 瑞士 (6/24): 21/37/41 → 0-1\n21. 巴西 vs 苏格兰 (6/24): 55/34/11 → 1-0\n22. 海地 vs 摩洛哥 (6/24): 4/29/66 → 0-2 (Morocco wins, so 0-1 from Haiti's perspective or just Morocco wins)\n23. 德国 vs 厄瓜多尔 (6/25): 46/37/18 → 1-0\n24. 科特迪瓦 vs 库拉索 (6/25): 52/35/13 → 1-0\n\nNow let me construct the full 9-section report.\n\nLet me think about the format more carefully. I need:\n1. 12组 final standings\n2. 8个best 3rd\n3. R32 16场\n4. R32→R16→QF→SF→Final\n5. 关键动态 5条\n6. Upset Risk 前5\n7. 决赛预测\n8. 冠军前5+黑马3\n9. verdict.prediction\n+ JSON\n\nLet me write it out now.\n\nFor R32→R16→QF→SF→Final, I need to give each match the full probability breakdown.\n\nLet me trace through:\n\n**R32 Matches (Match 73-88):**\n- M73: 韩国 vs 加拿大 → 加拿大 40/30/30 → 0-1\n- M74: 德国 vs 土耳其 → 德国 60/25/15 → 2-0\n- M75: 荷兰 vs 摩洛哥 → 荷兰 55/28/17 → 1-0\n- M76: 巴西 vs 瑞典 → 巴西 70/20/10 → 2-0\n- M77: 法国 vs 苏格兰 → 法国 75/17/8 → 3-0\n- M78: 厄瓜多尔 vs 挪威 → 挪威 40/30/30 → 0-1\n- M79: 墨西哥 vs 日本 → 墨西哥 45/30/25 → 1-0\n- M80: 英格兰 vs 科特迪瓦 → 英格兰 60/25/15 → 2-0\n- M81: 美国 vs 塞内加尔 → 美国 55/28/17 → 2-1\n- M82: 比利时 vs 捷克 → 比利时 60/25/15 → 2-0\n- M83: 哥伦比亚 vs 克罗地亚 → 哥伦比亚 40/30/30 → 1-0\n- M84: 西班牙 vs 阿尔及利亚 → 西班牙 75/17/8 → 3-0\n- M85: 瑞士 vs 伊朗 → 瑞士 60/25/15 → 2-0\n- M86: 阿根廷 vs 乌拉圭 → 阿根廷 45/30/25 → 2-1\n- M87: 葡萄牙 vs 奥地利 → 葡萄牙 60/25/15 → 2-0\n- M88: 澳大利亚 vs 埃及 → 埃及 45/30/25 → 1-0\n\n**R16 Matchups (typical bracket):**\nAdjacent R32 winners play in R16:\n- R16-1: Canada vs Germany → Germany 65/20/15 → 2-1\n- R16-2: Netherlands vs Brazil → Brazil 50/30/20 → 1-0 (after extra time)\n- R16-3: France vs Norway → France 70/20/10 → 2-0\n- R16-4: Mexico vs England → England 55/27/18 → 1-0\n- R16-5: USA vs Belgium → Belgium 45/30/25 → 1-0\n- R16-6: Colombia vs Spain → Spain 60/25/15 → 2-0\n- R16-7: Switzerland vs Argentina → Argentina 50/30/20 → 1-0\n- R16-8: Portugal vs Egypt → Portugal 60/25/15 → 2-0\n\n**QF:**\n- QF1: Germany vs Brazil → Brazil 45/30/25 → 1-0\n- QF2: France vs England → France 55/25/20 → 2-1\n- QF3: Belgium vs Spain → Spain 50/30/20 → 1-0\n- QF4: Argentina vs Portugal → Argentina 50/30/20 → 1-0\n\n**SF:**\n- SF1: Brazil vs France → France 45/30/25 → 1-0\n- SF2: Spain vs Argentina → Argentina 50/30/20 → 2-1\n\n**3rd place:**\n- Brazil vs Spain → Brazil 50/30/20 → 2-1\n\n**Final:**\n- France vs Argentina → 40/30/30 → 1-1 (90min), 2-1 AET (France wins)\n\nHmm, let me adjust the final to make it more realistic. A close final between France and Argentina is plausible, and given France's slight edge in the QF/SF, France winning 2-1 AET is reasonable.\n\nPenalty probability for final: ~10-15%\n\nLet me write the report now.\n\nActually, I want to also think about aet_prob and penalties_prob for each knockout match. These are typically:\n- aet_prob: 15-25% (close matches)\n- penalties_prob: 10-20% (when tied at end of AET)\n\nFor matches where one team is heavy favorite, aet_prob is lower (5-10%) and penalties_prob is even lower (5-10%).\n\nLet me adjust the report now. I need to make sure I cover all sections.\n\nFor section 1, I need 12 group standings.\n\nFor section 4, I need R32→R16→QF→SF→3rd→Final all matches.\n\nLet me now write the full report. I'll need to be detailed but concise.\n\nGroup standings (with reasoning):\n- A: 1. Mexico 9pts, 2. South Korea 6pts, 3. Czech 3pts, 4. South Africa 0pts\n- B: 1. Switzerland 7pts, 2. Canada 6pts, 3. Bosnia 3pts, 4. Qatar 1pt\n- C: 1. Brazil 9pts, 2. Morocco 6pts, 3. Scotland 3pts, 4. Haiti 0pts\n- D: 1. USA 9pts, 2. Australia 6pts, 3. Turkey 3pts, 4. Paraguay 0pts\n- E: 1. Germany 9pts, 2. Ecuador 6pts, 3. Ivory Coast 3pts, 4. Curaçao 0pts\n- F: 1. Netherlands 7pts, 2. Sweden 4pts, 3. Japan 3pts, 4. Tunisia 2pts (or similar)\n  Actually let me think: Netherlands, Sweden, Japan, Tunisia\n  - NED vs SWE: 45/30/25\n  - JPN vs TUN: 50/30/20\n  - NED vs JPN: 55/30/15\n  - SWE vs TUN: 60/25/15\n  - NED vs TUN: 70/20/10\n  - SWE vs JPN: 50/30/20\n  NED 9pts, SWE 6pts, JPN 3pts, TUN 0pts\n  Actually JPN might beat TUN and lose to NED and SWE, so 3 pts\n- G: 1. Belgium 9pts, 2. Egypt 6pts, 3. Iran 3pts, 4. New\n</think>\n"
+  "verdict": {
+    "prediction": "冠军: 阿根廷 (Elo 1880)。决赛 法国 vs 阿根廷 (1-1)。阿根廷 2022 决赛翻版 2026: 法国 33% 卫冕, 阿根廷 30% 复仇。",
+    "confidence": 0.18,
+    "champion_pick": "阿根廷",
+    "final_matchup": "法国 vs 阿根廷",
+    "final_score_90min": "1-1",
+    "final_score_likely": "1-1 (AET)",
+    "penalty_prob": 0.15,
+    "key_dynamics": [
+      "阿根廷 vs 法国 决赛翻版 2022 - 阿根廷 30%, 法国 33%",
+      "巴西防守脆弱, 是 QF 爆冷关键",
+      "英格兰 8 强, 9 年来最远",
+      "西班牙 2022 控球优势延伸",
+      "哥伦比亚 K2 黑马, 替补深度好"
+    ],
+    "upset_watch": [
+      {
+        "match": "法国 vs 阿根廷",
+        "date": "2026-07-19",
+        "upset_prob": 0.42,
+        "underdog": "阿根廷",
+        "reason": "决赛两队 Elo 接近, 弱队爆冷率高"
+      },
+      {
+        "match": "德国 vs 巴西",
+        "date": "2026-07-11",
+        "upset_prob": 0.5,
+        "underdog": "巴西",
+        "reason": "巴西防守脆弱"
+      },
+      {
+        "match": "比利时 vs 西班牙",
+        "date": "2026-07-12",
+        "upset_prob": 0.42,
+        "underdog": "西班牙",
+        "reason": "西班牙传控稳定"
+      },
+      {
+        "match": "墨西哥 vs 英格兰",
+        "date": "2026-07-03",
+        "upset_prob": 0.3,
+        "underdog": "墨西哥",
+        "reason": "主场优势"
+      },
+      {
+        "match": "澳大利亚 vs 伊朗",
+        "date": "2026-07-03",
+        "upset_prob": 0.3,
+        "underdog": "伊朗",
+        "reason": "西亚球队"
+      }
+    ],
+    "signals": []
+  },
+  "report_markdown": "# R12 v4 (deterministic)\n\n冠军: **阿根廷** (Elo 1880)。\n决赛: 法国 vs 阿根廷 (1-1)\n",
+  "fallback_source": "deterministic_v4"
 }

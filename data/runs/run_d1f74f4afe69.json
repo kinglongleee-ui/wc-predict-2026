@@ -1,15 +1,15 @@
 {
   "run_id": "run_d1f74f4afe69",
-  "created_at": "2026-06-25T11:34:02.883212",
+  "created_at": "2026-06-25T17:42:19.217030",
   "verdict": {
-    "prediction": "Argentina edges France 51-49 in the 2026 FIFA World Cup Final, with the title likely decided in extra time or penalties, as top seeds (Spain, Portugal, Germany, Brazil, England) hold through the group stage but face stern knockout tests.",
+    "prediction": "阿根廷在 2026 世界杯决赛 51-49 险胜法国, 冠军几乎在 90 分钟 1-1 后通过点球大战决出。阿根廷通过 6/24 6 场 24% 提升夺冠概率, 凭借 6/25 6 场胜利锁定 A 组。",
     "confidence": 0.62,
     "key_dynamics": [
-      "Top seeds dominate group stage but seeding mismatches create dangerous R32 ties (e.g., Spain vs H2 Uruguay)",
-      "Elo-Poisson baseline calibrated on 6/22-6/23 results favors offensive teams (Portugal 5-0 UZB, France 3-0 IRQ)",
-      "Upset-risk clusters around Norway (G1), Cape Verde (best 3rd), Bosnia (B2), and South Korea (A2)",
-      "Argentina's J1 seeding secures a favorable R32 path, while France's I1 sets up a Spain/France QF blockbuster",
-      "Penalties/AET heavily featured in knockout projections due to compressed Elo margins among elite teams"
+      "阿根廷 51% 险胜法国 49%, 决赛点球决出",
+      "6/25 6 场胜利让阿根廷从 14% 跃至 38%",
+      "巴西 16% 因 6/24 防守失分跌出前 2",
+      "D 组 6/25 失分让 best 3rd 排序反复",
+      "6/24 后 73 场 R32 全锁, 模拟收敛"
     ],
     "signals": [
       {

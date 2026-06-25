@@ -1,6 +1,6 @@
 {
   "run_id": "run_905a0881175d",
-  "created_at": "2026-06-25T12:13:13.195581",
+  "created_at": "2026-06-25T17:42:19.290993",
   "verdict": {
     "prediction": "最可能终局: 阿根廷 vs 法国在决赛重演 2022 — 阿根廷卫冕概率 38%, 法国 33%。但半区信心受限于数据薄弱的 B/E/F/G/I 组以及若干 LLM 数据不一致, 佛得角 0-0 逼平西班牙和苏格兰 1-0 摩洛哥都暗示淘汰赛阶段冷门风险显著上升。",
     "confidence": 0.45,
@@ -13,32 +13,32 @@
     ],
     "signals": [
       {
-        "signal": "阿根廷卫冕概率 38%, 卫冕冠军仍被市场明显看好",
+        "signal": "Argentina repeat probability at 38% signals strong favoritism for defending champions",
         "direction": "positive",
         "strength": 0.65
       },
       {
-        "signal": "法国 33% + Camavinga 崛起为中场核心级球员",
+        "signal": "France at 33% with Camavinga emerging as a generational midfield anchor",
         "direction": "positive",
         "strength": 0.55
       },
       {
-        "signal": "巴西在安切洛蒂麾下防守脆弱, 虽预计 C 组头名",
+        "signal": "Brazil defensive vulnerability under Ancelotti despite expected group win",
         "direction": "negative",
         "strength": 0.6
       },
       {
-        "signal": "佛得角和苏格兰的冷门暗示淘汰赛波动性扩大",
+        "signal": "Cape Verde and Scotland upset results suggest expanded knockout volatility",
         "direction": "mixed",
         "strength": 0.5
       },
       {
-        "signal": "多项数据质量问题: 组数据缺失 / LLM 瑕疵 / 智能体误标, 削弱预测可靠性",
+        "signal": "Multiple data-quality issues: missing groups, LLM artifacts, agent misattributions reduce projection reliability",
         "direction": "negative",
         "strength": 0.7
       },
       {
-        "signal": "CONCACAF 东道主加成, 美/墨/加赛程优势叠加",
+        "signal": "CONCACAF host-nation boost compounds path advantage for USA/Mexico/Canada",
         "direction": "positive",
         "strength": 0.55
       }
@@ -220,9 +220,9 @@
           "matchday": 2,
           "team_a": "KOR",
           "team_b": "RSA",
-          "team_a_win": 0.5785,
-          "draw": 0.2408,
-          "team_b_win": 0.1807,
+          "team_a_win": 0.58,
+          "draw": 0.24,
+          "team_b_win": 0.18,
           "most_likely_score": {
             "raw": "2-0 KOR",
             "home": 2,
@@ -249,27 +249,7 @@
               "prob": 0.1175,
               "pct": 11.8
             }
-          ],
-          "odds": {
-            "provider": "DraftKings",
-            "kickoff_utc": "2026-06-25T01:00Z",
-            "is_played": false,
-            "home_odds_american": "-150",
-            "draw_odds_american": "+295",
-            "away_odds_american": "+425",
-            "home_prob_raw": 0.6,
-            "draw_prob_raw": 0.2532,
-            "away_prob_raw": 0.1905,
-            "overround": 1.0436,
-            "home_prob_norm": 0.5749,
-            "draw_prob_norm": 0.2426,
-            "away_prob_norm": 0.1825,
-            "blended_home": 0.5785,
-            "blended_draw": 0.2408,
-            "blended_away": 0.1807,
-            "weight": 0.3
-          },
-          "odds_overrode": true
+          ]
         },
         {
           "stage": "Group A",
@@ -312,9 +292,9 @@
           "matchday": 2,
           "team_a": "CZE",
           "team_b": "MEX",
-          "team_a_win": 0.2981,
-          "draw": 0.2718,
-          "team_b_win": 0.4301,
+          "team_a_win": 0.22,
+          "draw": 0.28,
+          "team_b_win": 0.5,
           "most_likely_score": {
             "raw": "2-0 MEX",
             "home": 2,
@@ -341,27 +321,7 @@
               "prob": 0.1114,
               "pct": 11.1
             }
-          ],
-          "odds": {
-            "provider": "DraftKings",
-            "kickoff_utc": "2026-06-25T01:00Z",
-            "is_played": false,
-            "home_odds_american": "+100",
-            "draw_odds_american": "+280",
-            "away_odds_american": "+260",
-            "home_prob_raw": 0.5,
-            "draw_prob_raw": 0.2632,
-            "away_prob_raw": 0.2778,
-            "overround": 1.0409,
-            "home_prob_norm": 0.4803,
-            "draw_prob_norm": 0.2528,
-            "away_prob_norm": 0.2669,
-            "blended_home": 0.2981,
-            "blended_draw": 0.2718,
-            "blended_away": 0.4301,
-            "weight": 0.3
-          },
-          "odds_overrode": true
+          ]
         }
       ],
       "standings": []
@@ -385,9 +345,9 @@
           "matchday": 2,
           "team_a": "SCO",
           "team_b": "BRA",
-          "team_a_win": 0.3118,
-          "draw": 0.2088,
-          "team_b_win": 0.4794,
+          "team_a_win": 0.15,
+          "draw": 0.22,
+          "team_b_win": 0.63,
           "most_likely_score": {
             "raw": "2-0 BRA",
             "home": 2,
@@ -414,36 +374,16 @@
               "prob": 0.1433,
               "pct": 14.3
             }
-          ],
-          "odds": {
-            "provider": "DraftKings",
-            "kickoff_utc": "2026-06-24T22:00Z",
-            "is_played": false,
-            "home_odds_american": "-255",
-            "draw_odds_american": "+425",
-            "away_odds_american": "+650",
-            "home_prob_raw": 0.7183,
-            "draw_prob_raw": 0.1905,
-            "away_prob_raw": 0.1333,
-            "overround": 1.0421,
-            "home_prob_norm": 0.6893,
-            "draw_prob_norm": 0.1828,
-            "away_prob_norm": 0.1279,
-            "blended_home": 0.3118,
-            "blended_draw": 0.2088,
-            "blended_away": 0.4794,
-            "weight": 0.3
-          },
-          "odds_overrode": true
+          ]
         },
         {
           "stage": "Group C",
           "matchday": 2,
           "team_a": "MAR",
           "team_b": "HAI",
-          "team_a_win": 0.5069,
-          "draw": 0.1671,
-          "team_b_win": 0.3259,
+          "team_a_win": 0.7,
+          "draw": 0.18,
+          "team_b_win": 0.12,
           "most_likely_score": {
             "raw": "3-0 MAR",
             "home": 3,
@@ -470,27 +410,7 @@
               "prob": 0.1931,
               "pct": 19.3
             }
-          ],
-          "odds": {
-            "provider": "DraftKings",
-            "kickoff_utc": "2026-06-24T22:00Z",
-            "is_played": false,
-            "home_odds_american": "+1600",
-            "draw_odds_american": "+600",
-            "away_odds_american": "-525",
-            "home_prob_raw": 0.0588,
-            "draw_prob_raw": 0.1429,
-            "away_prob_raw": 0.84,
-            "overround": 1.0417,
-            "home_prob_norm": 0.0565,
-            "draw_prob_norm": 0.1371,
-            "away_prob_norm": 0.8064,
-            "blended_home": 0.5069,
-            "blended_draw": 0.1671,
-            "blended_away": 0.3259,
-            "weight": 0.3
-          },
-          "odds_overrode": true
+          ]
         },
         {
           "stage": "Group C",
@@ -799,8 +719,8 @@
           "matchday": 3,
           "team_a": "ARG",
           "team_b": "JOR",
-          "team_a_win": 0.8358,
-          "draw": 0.1085,
+          "team_a_win": 0.8332,
+          "draw": 0.1112,
           "team_b_win": 0.0556,
           "most_likely_score": {
             "raw": "4-0 ARG",
@@ -833,18 +753,18 @@
             "provider": "DraftKings",
             "kickoff_utc": "2026-06-28T02:00Z",
             "is_played": false,
-            "home_odds_american": "-500",
-            "draw_odds_american": "+650",
+            "home_odds_american": "-475",
+            "draw_odds_american": "+600",
             "away_odds_american": "+1300",
-            "home_prob_raw": 0.8333,
-            "draw_prob_raw": 0.1333,
+            "home_prob_raw": 0.8261,
+            "draw_prob_raw": 0.1429,
             "away_prob_raw": 0.0714,
-            "overround": 1.0381,
-            "home_prob_norm": 0.8028,
-            "draw_prob_norm": 0.1284,
-            "away_prob_norm": 0.0688,
-            "blended_home": 0.8358,
-            "blended_draw": 0.1085,
+            "overround": 1.0404,
+            "home_prob_norm": 0.794,
+            "draw_prob_norm": 0.1373,
+            "away_prob_norm": 0.0687,
+            "blended_home": 0.8332,
+            "blended_draw": 0.1112,
             "blended_away": 0.0556,
             "weight": 0.3
           },
@@ -855,9 +775,9 @@
           "matchday": 3,
           "team_a": "AUT",
           "team_b": "ALG",
-          "team_a_win": 0.4136,
-          "draw": 0.34,
-          "team_b_win": 0.2465,
+          "team_a_win": 0.4142,
+          "draw": 0.3379,
+          "team_b_win": 0.2479,
           "most_likely_score": {
             "raw": "2-1 AUT",
             "home": 2,
@@ -890,18 +810,18 @@
             "kickoff_utc": "2026-06-28T02:00Z",
             "is_played": false,
             "home_odds_american": "+190",
-            "draw_odds_american": "+120",
-            "away_odds_american": "+300",
+            "draw_odds_american": "+125",
+            "away_odds_american": "+295",
             "home_prob_raw": 0.3448,
-            "draw_prob_raw": 0.4545,
-            "away_prob_raw": 0.25,
-            "overround": 1.0494,
-            "home_prob_norm": 0.3286,
-            "draw_prob_norm": 0.4332,
-            "away_prob_norm": 0.2382,
-            "blended_home": 0.4136,
-            "blended_draw": 0.34,
-            "blended_away": 0.2465,
+            "draw_prob_raw": 0.4444,
+            "away_prob_raw": 0.2532,
+            "overround": 1.0424,
+            "home_prob_norm": 0.3308,
+            "draw_prob_norm": 0.4264,
+            "away_prob_norm": 0.2429,
+            "blended_home": 0.4142,
+            "blended_draw": 0.3379,
+            "blended_away": 0.2479,
             "weight": 0.3
           },
           "odds_overrode": true
@@ -1030,7 +950,600 @@
     }
   ],
   "bracket": {
-    "r32": [],
+    "r32": [
+      {
+        "bracket_idx": 0,
+        "team_a": "A组次名(待定)",
+        "group_a": "A",
+        "seed_a": 2,
+        "team_b": "B组次名(待定)",
+        "group_b": "B",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-06-28",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 1,
+        "team_a": "E组头名(待定)",
+        "group_a": "E",
+        "seed_a": 1,
+        "team_b": "Scotland",
+        "group_b": "C",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-06-28",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 2,
+        "team_a": "F组头名(待定)",
+        "group_a": "F",
+        "seed_a": 1,
+        "team_b": "C组次名(待定)",
+        "group_b": "C",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-06-29",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 3,
+        "team_a": "C组头名(待定)",
+        "group_a": "C",
+        "seed_a": 1,
+        "team_b": "F组次名(待定)",
+        "group_b": "F",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-06-29",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 4,
+        "team_a": "I组头名(待定)",
+        "group_a": "I",
+        "seed_a": 1,
+        "team_b": "Cape Verde",
+        "group_b": "H",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-06-30",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 5,
+        "team_a": "E组次名(待定)",
+        "group_a": "E",
+        "seed_a": 2,
+        "team_b": "I组次名(待定)",
+        "group_b": "I",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-06-30",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 6,
+        "team_a": "A组头名(待定)",
+        "group_a": "A",
+        "seed_a": 1,
+        "team_b": "best3(待定)",
+        "group_b": null,
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-07-01",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 7,
+        "team_a": "L组头名(待定)",
+        "group_a": "L",
+        "seed_a": 1,
+        "team_b": "DR Congo",
+        "group_b": "K",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-07-01",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 8,
+        "team_a": "D组头名(待定)",
+        "group_a": "D",
+        "seed_a": 1,
+        "team_b": "Austria",
+        "group_b": "J",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-07-01",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 9,
+        "team_a": "G组头名(待定)",
+        "group_a": "G",
+        "seed_a": 1,
+        "team_b": "best3(待定)",
+        "group_b": null,
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-07-02",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 10,
+        "team_a": "K组次名(待定)",
+        "group_a": "K",
+        "seed_a": 2,
+        "team_b": "L组次名(待定)",
+        "group_b": "L",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-07-02",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 11,
+        "team_a": "H组头名(待定)",
+        "group_a": "H",
+        "seed_a": 1,
+        "team_b": "J组次名(待定)",
+        "group_b": "J",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-07-02",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 12,
+        "team_a": "B组头名(待定)",
+        "group_a": "B",
+        "seed_a": 1,
+        "team_b": "Iran",
+        "group_b": "G",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-07-03",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 13,
+        "team_a": "J组头名(待定)",
+        "group_a": "J",
+        "seed_a": 1,
+        "team_b": "H组次名(待定)",
+        "group_b": "H",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-07-03",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 14,
+        "team_a": "K组头名(待定)",
+        "group_a": "K",
+        "seed_a": 1,
+        "team_b": "Australia",
+        "group_b": "D",
+        "seed_b": 3,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-07-03",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      },
+      {
+        "bracket_idx": 15,
+        "team_a": "D组次名(待定)",
+        "group_a": "D",
+        "seed_a": 2,
+        "team_b": "G组次名(待定)",
+        "group_b": "G",
+        "seed_b": 2,
+        "team_a_win": 0.5,
+        "draw": 0.0,
+        "team_b_win": 0.5,
+        "score": "待定",
+        "aet_pct": null,
+        "pen_pct": null,
+        "winner": null,
+        "date": "2026-07-03",
+        "top_3_scores": [
+          {
+            "home": 0,
+            "away": 0,
+            "prob": 0.2466,
+            "pct": 24.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1726,
+            "pct": 17.3
+          },
+          {
+            "home": 1,
+            "away": 0,
+            "prob": 0.1726,
+            "pct": 17.3
+          }
+        ]
+      }
+    ],
     "r16": [],
     "qf": [],
     "sf": [],
@@ -1049,14 +1562,14 @@
       "match": "Cape Verde vs Spain (Group H MD3)",
       "stage": "—",
       "upset_probability": null,
-      "rationale": "佛得角已 0-0 逼平过西班牙, MD3 再爆冷有机会"
+      "rationale": "1"
     },
     {
       "rank": 2,
       "match": "Scotland vs Brazil (Group C MD2)",
       "stage": "—",
       "upset_probability": null,
-      "rationale": "苏格兰赢摩洛哥已经爆冷, 状态正盛"
+      "rationale": "1"
     },
     {
       "rank": 3,
@@ -1070,7 +1583,7 @@
       "match": "USA vs Brazil (potential R16)",
       "stage": "—",
       "upset_probability": null,
-      "rationale": "若美国 B 组头名, 巴西 R16 潜在对手, 美国东道主优势难缠"
+      "rationale": "4"
     },
     {
       "rank": 5,

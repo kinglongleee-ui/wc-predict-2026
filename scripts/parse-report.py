@@ -2028,6 +2028,21 @@ def parse_run(run_id: str, run_dir: Path) -> dict:
                         entry[k] = mf[k]
         bracket["r32"] = real_r32
 
+    # 134+ 兜底 #2: MiroFish R32 完全没输出 (0 场) 但 groups+best3 都解析到了
+    # → 直接按 FIFA 真实 Match 73-88 配对表建 16 场 R32 (用 Elo top_3 填概率)
+    if not needs_override and not r6_style and not bracket["r32"] and len(groups) == 12 and len(best_thirds) >= 7:
+        from datetime import datetime as _dt, timedelta as _td
+        real_r32 = build_real_r32(groups, best_thirds, preserve_probs=False)
+        # R32 日期 (按 FIFA 真实 6/28-7/3 排)
+        r32_dates = ["2026-06-28","2026-06-28","2026-06-29","2026-06-29","2026-06-30","2026-06-30",
+                     "2026-07-01","2026-07-01","2026-07-01","2026-07-02","2026-07-02","2026-07-02",
+                     "2026-07-03","2026-07-03","2026-07-03","2026-07-03"]
+        for i, m in enumerate(real_r32):
+            if i < len(r32_dates):
+                m["date"] = r32_dates[i]
+        bracket["r32"] = real_r32
+        print(f"  [134-new] MiroFish R32 缺失, build_real_r32 生成 16 场 (best3={len(best_thirds)})")
+
     # R6 风格补救 (与 needs_override 互斥): MiroFish R32 配对正确, 但 markdown 不带 (A1)/(B3) 标签
     # → group/seed 全空. 尝试按 FIFA 规则只补 group/seed (不动 MiroFish 的 team/score/probs).
     # 补到 <16/32 = 配对错位 → 走 needs_override 路径 full override.
