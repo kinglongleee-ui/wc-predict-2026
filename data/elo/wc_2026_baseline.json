@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-25T03:13:59Z",
+    "generated_at": "2026-06-25T05:00:19Z",
     "mu": 1.4,
     "max_goals": 6,
     "model": "Elo-Poisson (independent, μ=1.4, neutral venue, no home adv)",
