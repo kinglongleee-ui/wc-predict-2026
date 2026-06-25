@@ -36,12 +36,33 @@ const ALIAS_TO_TEAM: Record<string, string> = {
   "IR Iran": "Iran",
   "UAE": "UAE",                  // 不在本届
 };
+// R13 deterministic_v4 fallback 把 MiroFish 报告渲染时跑了 teamNameZh, 把
+// team_a/team_b 都写成中文 ("巴拿马" / "英格兰"), 跟 realKeys ("Panama"/"England")
+// 对不上导致 dedup 失效, 把已比赛的 54 场也当成 upcoming 显示。建反向表:
+// 中文 → ESPN 真实全称, 让 normalizeTeam 双向都归一。
+const ZH_TO_TEAM: Record<string, string> = {
+  "墨西哥": "Mexico", "韩国": "South Korea", "捷克": "Czech Republic", "南非": "South Africa",
+  "瑞士": "Switzerland", "卡塔尔": "Qatar", "波黑": "Bosnia", "加拿大": "Canada",
+  "巴西": "Brazil", "摩洛哥": "Morocco", "苏格兰": "Scotland", "海地": "Haiti",
+  "美国": "USA", "巴拉圭": "Paraguay", "澳大利亚": "Australia", "土耳其": "Turkey",
+  "德国": "Germany", "厄瓜多尔": "Ecuador", "科特迪瓦": "Ivory Coast", "库拉索": "Curaçao",
+  "荷兰": "Netherlands", "瑞典": "Sweden", "日本": "Japan", "突尼斯": "Tunisia",
+  "比利时": "Belgium", "伊朗": "Iran", "埃及": "Egypt", "新西兰": "New Zealand",
+  "西班牙": "Spain", "乌拉圭": "Uruguay", "沙特": "Saudi Arabia", "佛得角": "Cape Verde",
+  "法国": "France", "挪威": "Norway", "塞内加尔": "Senegal", "伊拉克": "Iraq",
+  "阿根廷": "Argentina", "阿尔及利亚": "Algeria", "奥地利": "Austria", "约旦": "Jordan",
+  "葡萄牙": "Portugal", "哥伦比亚": "Colombia", "刚果(金)": "DR Congo",
+  "乌兹别克": "Uzbekistan", "乌兹别克斯坦": "Uzbekistan",
+  "英格兰": "England", "克罗地亚": "Croatia", "加纳": "Ghana", "巴拿马": "Panama",
+};
 function normalizeTeam(t: string): string {
   const trimmed = t.trim();
   // 三字代码 → 全称
   if (CODE_TO_TEAM[trimmed]) return CODE_TO_TEAM[trimmed];
-  // MiroFish 变体全名 → ESPN 全称
+  // MiroFish 变体全名 → ESPN 真实全称
   if (ALIAS_TO_TEAM[trimmed]) return ALIAS_TO_TEAM[trimmed];
+  // R13 fallback 中文 → ESPN 全称 (修复 dedup)
+  if (ZH_TO_TEAM[trimmed]) return ZH_TO_TEAM[trimmed];
   return trimmed; // ESPN 全称 / MiroFish 一致全称 → 原样
 }
 
