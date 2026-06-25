@@ -2,43 +2,43 @@
   "run_id": "run_905a0881175d",
   "created_at": "2026-06-25T12:13:13.195581",
   "verdict": {
-    "prediction": "The most likely outcome is an Argentina vs. France rematch in the final — Argentina favored 38% to repeat, France at 33% — though bracket confidence is constrained by data-limited groups (B, E, F, G, I) and several LLM-artifact data inconsistencies, with Cape Verde's historic 0-0 vs Spain and Scotland's disciplined win over Morocco signaling potential upsets.",
+    "prediction": "最可能终局: 阿根廷 vs 法国在决赛重演 2022 — 阿根廷卫冕概率 38%, 法国 33%。但半区信心受限于数据薄弱的 B/E/F/G/I 组以及若干 LLM 数据不一致, 佛得角 0-0 逼平西班牙和苏格兰 1-0 摩洛哥都暗示淘汰赛阶段冷门风险显著上升。",
     "confidence": 0.45,
     "key_dynamics": [
-      "Argentina-France rematch as most likely final (repeat of 2022)",
-      "Host nation advantage concentrating in CONCACAF teams (USA, Mexico, Canada)",
-      "Brazil defensive fragility exposed under Ancelotti despite topping Group C",
-      "Underdog surprises: Cape Verde 0-0 vs Spain and Scotland 1-0 vs Morocco",
-      "Data-limited groups (B, E, F, G, I) and LLM-artifact inconsistencies constrain full bracket projection"
+      "阿根廷-法国重演 2022 决赛, 是本届最可能的终局",
+      "东道主优势集中在 CONCACAF 三队 (美国/墨西哥/加拿大)",
+      "巴西在安切洛蒂麾下防守脆弱, 虽能 C 组头名但上限有限",
+      "冷门苗头: 佛得角 0-0 逼平西班牙 + 苏格兰 1-0 摩洛哥",
+      "数据薄弱组 (B/E/F/G/I) + LLM 数据瑕疵限制了全半区预测可靠性"
     ],
     "signals": [
       {
-        "signal": "Argentina repeat probability at 38% signals strong favoritism for defending champions",
+        "signal": "阿根廷卫冕概率 38%, 卫冕冠军仍被市场明显看好",
         "direction": "positive",
         "strength": 0.65
       },
       {
-        "signal": "France at 33% with Camavinga emerging as a generational midfield anchor",
+        "signal": "法国 33% + Camavinga 崛起为中场核心级球员",
         "direction": "positive",
         "strength": 0.55
       },
       {
-        "signal": "Brazil defensive vulnerability under Ancelotti despite expected group win",
+        "signal": "巴西在安切洛蒂麾下防守脆弱, 虽预计 C 组头名",
         "direction": "negative",
         "strength": 0.6
       },
       {
-        "signal": "Cape Verde and Scotland upset results suggest expanded knockout volatility",
+        "signal": "佛得角和苏格兰的冷门暗示淘汰赛波动性扩大",
         "direction": "mixed",
         "strength": 0.5
       },
       {
-        "signal": "Multiple data-quality issues: missing groups, LLM artifacts, agent misattributions reduce projection reliability",
+        "signal": "多项数据质量问题: 组数据缺失 / LLM 瑕疵 / 智能体误标, 削弱预测可靠性",
         "direction": "negative",
         "strength": 0.7
       },
       {
-        "signal": "CONCACAF host-nation boost compounds path advantage for USA/Mexico/Canada",
+        "signal": "CONCACAF 东道主加成, 美/墨/加赛程优势叠加",
         "direction": "positive",
         "strength": 0.55
       }
@@ -1049,14 +1049,14 @@
       "match": "Cape Verde vs Spain (Group H MD3)",
       "stage": "—",
       "upset_probability": null,
-      "rationale": "1"
+      "rationale": "佛得角已 0-0 逼平过西班牙, MD3 再爆冷有机会"
     },
     {
       "rank": 2,
       "match": "Scotland vs Brazil (Group C MD2)",
       "stage": "—",
       "upset_probability": null,
-      "rationale": "1"
+      "rationale": "苏格兰赢摩洛哥已经爆冷, 状态正盛"
     },
     {
       "rank": 3,
@@ -1070,7 +1070,7 @@
       "match": "USA vs Brazil (potential R16)",
       "stage": "—",
       "upset_probability": null,
-      "rationale": "4"
+      "rationale": "若美国 B 组头名, 巴西 R16 潜在对手, 美国东道主优势难缠"
     },
     {
       "rank": 5,
