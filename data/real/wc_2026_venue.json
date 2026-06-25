@@ -1,0 +1,409 @@
+{
+  "fetched_at": "2026-06-25T16:53:13.064468+00:00",
+  "source": "Wikipedia:Venues + Open-Meteo:forecast",
+  "match_count": 16,
+  "found_count": 16,
+  "missing_count": 0,
+  "matches": [
+    {
+      "match_key": "M73",
+      "match_id": 73,
+      "team_a": "Runner-up A",
+      "team_b": "Runner-up B",
+      "venue": {
+        "name": "MetLife Stadium",
+        "city": "East Rutherford",
+        "country": "USA",
+        "lat": 40.8136,
+        "lon": -74.0746,
+        "capacity": 82500,
+        "roof": false
+      },
+      "kickoff_utc": "2026-06-28T20:00",
+      "kickoff_local": "06-29 04:00 CST",
+      "weather": {
+        "temp_c": 29.3,
+        "rain_mm": 0.0,
+        "humidity_pct": 41,
+        "wind_kph": 6.1,
+        "weather_code": 0,
+        "forecast_time": "2026-06-28T17:00"
+      }
+    },
+    {
+      "match_key": "M74",
+      "match_id": 74,
+      "team_a": "Winner E",
+      "team_b": "Best 3rd A/B/C/D/F",
+      "venue": {
+        "name": "AT&T Stadium",
+        "city": "Arlington",
+        "country": "USA",
+        "lat": 32.7473,
+        "lon": -97.0945,
+        "capacity": 80000,
+        "roof": true
+      },
+      "kickoff_utc": "2026-06-28T23:00",
+      "kickoff_local": "06-29 07:00 CST",
+      "weather": {
+        "temp_c": 33.0,
+        "rain_mm": 0.0,
+        "humidity_pct": 46,
+        "wind_kph": 21.9,
+        "weather_code": 0,
+        "forecast_time": "2026-06-28T17:00"
+      }
+    },
+    {
+      "match_key": "M75",
+      "match_id": 75,
+      "team_a": "Winner F",
+      "team_b": "Runner-up C",
+      "venue": {
+        "name": "SoFi Stadium",
+        "city": "Inglewood",
+        "country": "USA",
+        "lat": 33.9536,
+        "lon": -118.3387,
+        "capacity": 70240,
+        "roof": true
+      },
+      "kickoff_utc": "2026-06-29T01:00",
+      "kickoff_local": "06-29 09:00 CST",
+      "weather": {
+        "temp_c": 20.3,
+        "rain_mm": 0.0,
+        "humidity_pct": 59,
+        "wind_kph": 12.9,
+        "weather_code": 0,
+        "forecast_time": "2026-06-29T17:00"
+      }
+    },
+    {
+      "match_key": "M76",
+      "match_id": 76,
+      "team_a": "Winner C",
+      "team_b": "Runner-up F",
+      "venue": {
+        "name": "Mercedes-Benz Stadium",
+        "city": "Atlanta",
+        "country": "USA",
+        "lat": 33.7553,
+        "lon": -84.4006,
+        "capacity": 71000,
+        "roof": true
+      },
+      "kickoff_utc": "2026-06-29T20:00",
+      "kickoff_local": "06-30 04:00 CST",
+      "weather": {
+        "temp_c": 33.9,
+        "rain_mm": 0.0,
+        "humidity_pct": 39,
+        "wind_kph": 7.3,
+        "weather_code": 3,
+        "forecast_time": "2026-06-29T17:00"
+      }
+    },
+    {
+      "match_key": "M77",
+      "match_id": 77,
+      "team_a": "Winner I",
+      "team_b": "Best 3rd C/D/F/G/H",
+      "venue": {
+        "name": "NRG Stadium",
+        "city": "Houston",
+        "country": "USA",
+        "lat": 29.6847,
+        "lon": -95.4107,
+        "capacity": 72220,
+        "roof": true
+      },
+      "kickoff_utc": "2026-06-29T23:00",
+      "kickoff_local": "06-30 07:00 CST",
+      "weather": {
+        "temp_c": 33.7,
+        "rain_mm": 0.0,
+        "humidity_pct": 49,
+        "wind_kph": 12.1,
+        "weather_code": 95,
+        "forecast_time": "2026-06-29T17:00"
+      }
+    },
+    {
+      "match_key": "M78",
+      "match_id": 78,
+      "team_a": "Runner-up E",
+      "team_b": "Runner-up I",
+      "venue": {
+        "name": "Hard Rock Stadium",
+        "city": "Miami Gardens",
+        "country": "USA",
+        "lat": 25.958,
+        "lon": -80.2389,
+        "capacity": 65326,
+        "roof": false
+      },
+      "kickoff_utc": "2026-06-30T01:00",
+      "kickoff_local": "06-30 09:00 CST",
+      "weather": {
+        "temp_c": 33.6,
+        "rain_mm": 0.0,
+        "humidity_pct": 44,
+        "wind_kph": 6.8,
+        "weather_code": 3,
+        "forecast_time": "2026-06-30T17:00"
+      }
+    },
+    {
+      "match_key": "M79",
+      "match_id": 79,
+      "team_a": "Winner A",
+      "team_b": "Best 3rd C/E/F/H/I",
+      "venue": {
+        "name": "Lincoln Financial Field",
+        "city": "Philadelphia",
+        "country": "USA",
+        "lat": 39.9008,
+        "lon": -75.1675,
+        "capacity": 69596,
+        "roof": false
+      },
+      "kickoff_utc": "2026-06-30T20:00",
+      "kickoff_local": "07-01 04:00 CST",
+      "weather": {
+        "temp_c": 31.1,
+        "rain_mm": 0.0,
+        "humidity_pct": 39,
+        "wind_kph": 11.0,
+        "weather_code": 1,
+        "forecast_time": "2026-06-30T17:00"
+      }
+    },
+    {
+      "match_key": "M80",
+      "match_id": 80,
+      "team_a": "Winner L",
+      "team_b": "Best 3rd E/H/I/J/K",
+      "venue": {
+        "name": "GEHA Field at Arrowhead",
+        "city": "Kansas City",
+        "country": "USA",
+        "lat": 39.0489,
+        "lon": -94.4839,
+        "capacity": 76416,
+        "roof": false
+      },
+      "kickoff_utc": "2026-06-30T23:00",
+      "kickoff_local": "07-01 07:00 CST",
+      "weather": {
+        "temp_c": 31.2,
+        "rain_mm": 0.0,
+        "humidity_pct": 60,
+        "wind_kph": 23.2,
+        "weather_code": 0,
+        "forecast_time": "2026-06-30T17:00"
+      }
+    },
+    {
+      "match_key": "M81",
+      "match_id": 81,
+      "team_a": "Winner D",
+      "team_b": "Best 3rd B/E/F/I/J",
+      "venue": {
+        "name": "Levi's Stadium",
+        "city": "Santa Clara",
+        "country": "USA",
+        "lat": 37.4032,
+        "lon": -121.969,
+        "capacity": 68500,
+        "roof": false
+      },
+      "kickoff_utc": "2026-07-01T01:00",
+      "kickoff_local": "07-01 09:00 CST",
+      "weather": {
+        "temp_c": 19.0,
+        "rain_mm": 0.0,
+        "humidity_pct": 51,
+        "wind_kph": 7.9,
+        "weather_code": 1,
+        "forecast_time": "2026-07-01T17:00"
+      }
+    },
+    {
+      "match_key": "M82",
+      "match_id": 82,
+      "team_a": "Winner G",
+      "team_b": "Best 3rd A/E/H/I/J",
+      "venue": {
+        "name": "BC Place",
+        "city": "Vancouver",
+        "country": "Canada",
+        "lat": 49.2768,
+        "lon": -123.1119,
+        "capacity": 54500,
+        "roof": true
+      },
+      "kickoff_utc": "2026-07-01T20:00",
+      "kickoff_local": "07-02 04:00 CST",
+      "weather": {
+        "temp_c": 12.5,
+        "rain_mm": 0.4,
+        "humidity_pct": 96,
+        "wind_kph": 7.4,
+        "weather_code": 51,
+        "forecast_time": "2026-07-01T17:00"
+      }
+    },
+    {
+      "match_key": "M83",
+      "match_id": 83,
+      "team_a": "Runner-up K",
+      "team_b": "Runner-up L",
+      "venue": {
+        "name": "Estadio Azteca",
+        "city": "Mexico City",
+        "country": "Mexico",
+        "lat": 19.3028,
+        "lon": -99.1505,
+        "capacity": 87523,
+        "roof": false
+      },
+      "kickoff_utc": "2026-07-01T23:00",
+      "kickoff_local": "07-02 07:00 CST",
+      "weather": {
+        "temp_c": 20.3,
+        "rain_mm": 0.0,
+        "humidity_pct": 53,
+        "wind_kph": 4.1,
+        "weather_code": 0,
+        "forecast_time": "2026-07-01T17:00"
+      }
+    },
+    {
+      "match_key": "M84",
+      "match_id": 84,
+      "team_a": "Winner H",
+      "team_b": "Runner-up J",
+      "venue": {
+        "name": "Estadio BBVA",
+        "city": "Guadalajara",
+        "country": "Mexico",
+        "lat": 25.6433,
+        "lon": -100.153,
+        "capacity": 46603,
+        "roof": false
+      },
+      "kickoff_utc": "2026-07-02T01:00",
+      "kickoff_local": "07-02 09:00 CST",
+      "weather": {
+        "temp_c": 29.0,
+        "rain_mm": 0.0,
+        "humidity_pct": 58,
+        "wind_kph": 9.6,
+        "weather_code": 3,
+        "forecast_time": "2026-07-02T17:00"
+      }
+    },
+    {
+      "match_key": "M85",
+      "match_id": 85,
+      "team_a": "Winner B",
+      "team_b": "Best 3rd E/F/G/I/J",
+      "venue": {
+        "name": "Estadio Akron",
+        "city": "Zapopan",
+        "country": "Mexico",
+        "lat": 20.6817,
+        "lon": -103.4627,
+        "capacity": 46232,
+        "roof": false
+      },
+      "kickoff_utc": "2026-07-02T20:00",
+      "kickoff_local": "07-03 04:00 CST",
+      "weather": {
+        "temp_c": 22.5,
+        "rain_mm": 0.1,
+        "humidity_pct": 60,
+        "wind_kph": 1.5,
+        "weather_code": 51,
+        "forecast_time": "2026-07-02T17:00"
+      }
+    },
+    {
+      "match_key": "M86",
+      "match_id": 86,
+      "team_a": "Winner J",
+      "team_b": "Runner-up H",
+      "venue": {
+        "name": "Bmo Field",
+        "city": "Toronto",
+        "country": "Canada",
+        "lat": 43.6332,
+        "lon": -79.4187,
+        "capacity": 30991,
+        "roof": false
+      },
+      "kickoff_utc": "2026-07-02T23:00",
+      "kickoff_local": "07-03 07:00 CST",
+      "weather": {
+        "temp_c": 33.1,
+        "rain_mm": 0.0,
+        "humidity_pct": 53,
+        "wind_kph": 7.2,
+        "weather_code": 95,
+        "forecast_time": "2026-07-02T17:00"
+      }
+    },
+    {
+      "match_key": "M87",
+      "match_id": 87,
+      "team_a": "Winner K",
+      "team_b": "Best 3rd D/E/I/J/L",
+      "venue": {
+        "name": "Gillette Stadium",
+        "city": "Foxborough",
+        "country": "USA",
+        "lat": 42.0909,
+        "lon": -71.2643,
+        "capacity": 65878,
+        "roof": false
+      },
+      "kickoff_utc": "2026-07-03T01:00",
+      "kickoff_local": "07-03 09:00 CST",
+      "weather": {
+        "temp_c": 33.0,
+        "rain_mm": 0.0,
+        "humidity_pct": 48,
+        "wind_kph": 6.8,
+        "weather_code": 95,
+        "forecast_time": "2026-07-03T17:00"
+      }
+    },
+    {
+      "match_key": "M88",
+      "match_id": 88,
+      "team_a": "Runner-up D",
+      "team_b": "Runner-up G",
+      "venue": {
+        "name": "Lumen Field",
+        "city": "Seattle",
+        "country": "USA",
+        "lat": 47.5952,
+        "lon": -122.3316,
+        "capacity": 69000,
+        "roof": true
+      },
+      "kickoff_utc": "2026-07-03T20:00",
+      "kickoff_local": "07-04 04:00 CST",
+      "weather": {
+        "temp_c": 18.3,
+        "rain_mm": 0.0,
+        "humidity_pct": 54,
+        "wind_kph": 13.3,
+        "weather_code": 2,
+        "forecast_time": "2026-07-03T17:00"
+      }
+    }
+  ]
+}

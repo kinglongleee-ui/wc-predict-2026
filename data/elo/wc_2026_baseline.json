@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-06-25T05:00:19Z",
+    "generated_at": "2026-06-25T16:52:17Z",
     "mu": 1.4,
     "max_goals": 6,
     "model": "Elo-Poisson (independent, μ=1.4, neutral venue, no home adv)",
     "source_run": "run_d7c8d02bf376.json",
     "elo_source": "wc_2026_elo.json",
-    "match_count": 89
+    "match_count": 93
   },
   "matches": [
     {
@@ -15,8 +15,8 @@
       "group": "A",
       "team_a": "Mexico",
       "team_b": "South Korea",
-      "lambda_a": 0.829,
-      "lambda_b": 0.571,
+      "lambda_a": 0.834,
+      "lambda_b": 0.566,
       "top_3": [
         {
           "home": 0,
@@ -27,19 +27,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2045,
-          "pct": 20.5
+          "prob": 0.2057,
+          "pct": 20.6
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1407,
-          "pct": 14.1
+          "prob": 0.1395,
+          "pct": 14.0
         }
       ],
-      "win_a": 0.3886,
-      "draw": 0.3779,
-      "win_b": 0.2335
+      "win_a": 0.3917,
+      "draw": 0.3775,
+      "win_b": 0.2308
     },
     {
       "key": "Group A|Czech Republic|South Africa",
@@ -79,8 +79,8 @@
       "group": "A",
       "team_a": "Mexico",
       "team_b": "Czech Republic",
-      "lambda_a": 0.95,
-      "lambda_b": 0.45,
+      "lambda_a": 0.955,
+      "lambda_b": 0.445,
       "top_3": [
         {
           "home": 0,
@@ -91,19 +91,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2344,
-          "pct": 23.4
+          "prob": 0.2354,
+          "pct": 23.5
         },
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1114,
-          "pct": 11.1
+          "prob": 0.1124,
+          "pct": 11.2
         }
       ],
-      "win_a": 0.4665,
-      "draw": 0.3638,
-      "win_b": 0.1697
+      "win_a": 0.4693,
+      "draw": 0.3631,
+      "win_b": 0.1675
     },
     {
       "key": "Group A|South Korea|South Africa",
@@ -143,14 +143,14 @@
       "group": "A",
       "team_a": "Mexico",
       "team_b": "South Africa",
-      "lambda_a": 1.078,
-      "lambda_b": 0.322,
+      "lambda_a": 1.082,
+      "lambda_b": 0.318,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2659,
-          "pct": 26.6
+          "prob": 0.2667,
+          "pct": 26.7
         },
         {
           "home": 0,
@@ -161,13 +161,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1433,
-          "pct": 14.3
+          "prob": 0.1443,
+          "pct": 14.4
         }
       ],
-      "win_a": 0.5501,
-      "draw": 0.3399,
-      "win_b": 0.1099
+      "win_a": 0.5524,
+      "draw": 0.3391,
+      "win_b": 0.1084
     },
     {
       "key": "Group A|South Korea|Czech Republic",
@@ -219,7 +219,7 @@
         {
           "home": 0,
           "away": 1,
-          "prob": 0.214,
+          "prob": 0.2141,
           "pct": 21.4
         },
         {
@@ -229,7 +229,7 @@
           "pct": 13.1
         }
       ],
-      "win_a": 0.2125,
+      "win_a": 0.2124,
       "draw": 0.3743,
       "win_b": 0.4132
     },
@@ -325,9 +325,73 @@
           "pct": 11.3
         }
       ],
-      "win_a": 0.4722,
+      "win_a": 0.4723,
       "draw": 0.3624,
       "win_b": 0.1653
+    },
+    {
+      "key": "Group B|Switzerland|Bosnia",
+      "stage": "Group B",
+      "group": "B",
+      "team_a": "Switzerland",
+      "team_b": "Bosnia",
+      "lambda_a": 0.915,
+      "lambda_b": 0.485,
+      "top_3": [
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 1,
+          "away": 0,
+          "prob": 0.2255,
+          "pct": 22.6
+        },
+        {
+          "home": 0,
+          "away": 1,
+          "prob": 0.1197,
+          "pct": 12.0
+        }
+      ],
+      "win_a": 0.4433,
+      "draw": 0.3688,
+      "win_b": 0.1878
+    },
+    {
+      "key": "Group B|Canada|Qatar",
+      "stage": "Group B",
+      "group": "B",
+      "team_a": "Canada",
+      "team_b": "Qatar",
+      "lambda_a": 0.8,
+      "lambda_b": 0.6,
+      "top_3": [
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 1,
+          "away": 0,
+          "prob": 0.1973,
+          "pct": 19.7
+        },
+        {
+          "home": 0,
+          "away": 1,
+          "prob": 0.1479,
+          "pct": 14.8
+        }
+      ],
+      "win_a": 0.3701,
+      "draw": 0.3799,
+      "win_b": 0.25
     },
     {
       "key": "Group C|Brazil|Scotland",
@@ -335,13 +399,13 @@
       "group": "C",
       "team_a": "Brazil",
       "team_b": "Scotland",
-      "lambda_a": 1.078,
-      "lambda_b": 0.322,
+      "lambda_a": 1.079,
+      "lambda_b": 0.321,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2659,
+          "prob": 0.2662,
           "pct": 26.6
         },
         {
@@ -353,13 +417,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1433,
-          "pct": 14.3
+          "prob": 0.1436,
+          "pct": 14.4
         }
       ],
-      "win_a": 0.5501,
-      "draw": 0.3399,
-      "win_b": 0.1099
+      "win_a": 0.5509,
+      "draw": 0.3396,
+      "win_b": 0.1094
     },
     {
       "key": "Group C|Morocco|Haiti",
@@ -390,7 +454,7 @@
         }
       ],
       "win_a": 0.6618,
-      "draw": 0.2947,
+      "draw": 0.2946,
       "win_b": 0.0432
     },
     {
@@ -405,8 +469,8 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.3104,
-          "pct": 31.0
+          "prob": 0.3106,
+          "pct": 31.1
         },
         {
           "home": 0,
@@ -417,13 +481,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1954,
-          "pct": 19.5
+          "prob": 0.1956,
+          "pct": 19.6
         }
       ],
-      "win_a": 0.6665,
-      "draw": 0.2924,
-      "win_b": 0.0408
+      "win_a": 0.6669,
+      "draw": 0.2922,
+      "win_b": 0.0405
     },
     {
       "key": "Group C|Scotland|Morocco",
@@ -450,12 +514,12 @@
           "home": 0,
           "away": 2,
           "prob": 0.1395,
-          "pct": 13.9
+          "pct": 14.0
         }
       ],
       "win_a": 0.1162,
       "draw": 0.343,
-      "win_b": 0.5406
+      "win_b": 0.5407
     },
     {
       "key": "Group C|Brazil|Morocco",
@@ -463,8 +527,8 @@
       "group": "C",
       "team_a": "Brazil",
       "team_b": "Morocco",
-      "lambda_a": 0.72,
-      "lambda_b": 0.68,
+      "lambda_a": 0.722,
+      "lambda_b": 0.678,
       "top_3": [
         {
           "home": 0,
@@ -475,19 +539,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1776,
+          "prob": 0.178,
           "pct": 17.8
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1677,
-          "pct": 16.8
+          "prob": 0.1673,
+          "pct": 16.7
         }
       ],
-      "win_a": 0.3206,
+      "win_a": 0.3216,
       "draw": 0.3829,
-      "win_b": 0.2964
+      "win_b": 0.2955
     },
     {
       "key": "Group C|Haiti|Scotland",
@@ -527,8 +591,8 @@
       "group": "D",
       "team_a": "USA",
       "team_b": "Paraguay",
-      "lambda_a": 0.976,
-      "lambda_b": 0.424,
+      "lambda_a": 0.978,
+      "lambda_b": 0.422,
       "top_3": [
         {
           "home": 0,
@@ -539,19 +603,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2407,
+          "prob": 0.2413,
           "pct": 24.1
         },
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1175,
+          "prob": 0.118,
           "pct": 11.8
         }
       ],
-      "win_a": 0.4834,
-      "draw": 0.3597,
-      "win_b": 0.1568
+      "win_a": 0.4848,
+      "draw": 0.3593,
+      "win_b": 0.1558
     },
     {
       "key": "Group D|Australia|Turkey",
@@ -591,8 +655,8 @@
       "group": "D",
       "team_a": "USA",
       "team_b": "Australia",
-      "lambda_a": 0.887,
-      "lambda_b": 0.513,
+      "lambda_a": 0.889,
+      "lambda_b": 0.511,
       "top_3": [
         {
           "home": 0,
@@ -603,19 +667,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2187,
+          "prob": 0.2192,
           "pct": 21.9
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1266,
-          "pct": 12.7
+          "prob": 0.126,
+          "pct": 12.6
         }
       ],
-      "win_a": 0.4253,
-      "draw": 0.3723,
-      "win_b": 0.2024
+      "win_a": 0.4268,
+      "draw": 0.372,
+      "win_b": 0.2012
     },
     {
       "key": "Group D|Paraguay|Turkey",
@@ -655,8 +719,8 @@
       "group": "E",
       "team_a": "Germany",
       "team_b": "Ecuador",
-      "lambda_a": 0.933,
-      "lambda_b": 0.467,
+      "lambda_a": 0.925,
+      "lambda_b": 0.475,
       "top_3": [
         {
           "home": 0,
@@ -667,19 +731,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.23,
-          "pct": 23.0
+          "prob": 0.2281,
+          "pct": 22.8
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1153,
-          "pct": 11.5
+          "prob": 0.1171,
+          "pct": 11.7
         }
       ],
-      "win_a": 0.455,
-      "draw": 0.3664,
-      "win_b": 0.1786
+      "win_a": 0.45,
+      "draw": 0.3674,
+      "win_b": 0.1825
     },
     {
       "key": "Group E|Ivory Coast|Curaçao",
@@ -719,8 +783,8 @@
       "group": "E",
       "team_a": "Germany",
       "team_b": "Ivory Coast",
-      "lambda_a": 0.95,
-      "lambda_b": 0.45,
+      "lambda_a": 0.943,
+      "lambda_b": 0.457,
       "top_3": [
         {
           "home": 0,
@@ -731,19 +795,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2344,
-          "pct": 23.4
+          "prob": 0.2325,
+          "pct": 23.3
         },
         {
-          "home": 2,
-          "away": 0,
-          "prob": 0.1114,
-          "pct": 11.1
+          "home": 0,
+          "away": 1,
+          "prob": 0.1127,
+          "pct": 11.3
         }
       ],
-      "win_a": 0.4665,
-      "draw": 0.3638,
-      "win_b": 0.1697
+      "win_a": 0.4616,
+      "draw": 0.3649,
+      "win_b": 0.1734
     },
     {
       "key": "Group E|Ecuador|Curaçao",
@@ -783,14 +847,14 @@
       "group": "E",
       "team_a": "Germany",
       "team_b": "Curaçao",
-      "lambda_a": 1.194,
-      "lambda_b": 0.206,
+      "lambda_a": 1.189,
+      "lambda_b": 0.211,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2944,
-          "pct": 29.4
+          "prob": 0.2933,
+          "pct": 29.3
         },
         {
           "home": 0,
@@ -801,13 +865,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1757,
-          "pct": 17.6
+          "prob": 0.1744,
+          "pct": 17.4
         }
       ],
-      "win_a": 0.6251,
-      "draw": 0.3112,
-      "win_b": 0.0635
+      "win_a": 0.6223,
+      "draw": 0.3123,
+      "win_b": 0.0651
     },
     {
       "key": "Group E|Ivory Coast|Ecuador",
@@ -847,8 +911,8 @@
       "group": "F",
       "team_a": "Netherlands",
       "team_b": "Japan",
-      "lambda_a": 0.887,
-      "lambda_b": 0.513,
+      "lambda_a": 0.881,
+      "lambda_b": 0.519,
       "top_3": [
         {
           "home": 0,
@@ -859,19 +923,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2187,
-          "pct": 21.9
+          "prob": 0.2173,
+          "pct": 21.7
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1266,
-          "pct": 12.7
+          "prob": 0.128,
+          "pct": 12.8
         }
       ],
-      "win_a": 0.4253,
-      "draw": 0.3723,
-      "win_b": 0.2024
+      "win_a": 0.4217,
+      "draw": 0.3729,
+      "win_b": 0.2054
     },
     {
       "key": "Group F|Sweden|Tunisia",
@@ -911,14 +975,14 @@
       "group": "F",
       "team_a": "Netherlands",
       "team_b": "Tunisia",
-      "lambda_a": 1.026,
-      "lambda_b": 0.374,
+      "lambda_a": 1.023,
+      "lambda_b": 0.377,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2529,
-          "pct": 25.3
+          "prob": 0.2523,
+          "pct": 25.2
         },
         {
           "home": 0,
@@ -929,13 +993,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1297,
-          "pct": 13.0
+          "prob": 0.1291,
+          "pct": 12.9
         }
       ],
-      "win_a": 0.5156,
-      "draw": 0.3508,
-      "win_b": 0.1335
+      "win_a": 0.5142,
+      "draw": 0.3512,
+      "win_b": 0.1345
     },
     {
       "key": "Group F|Japan|Sweden",
@@ -943,8 +1007,8 @@
       "group": "F",
       "team_a": "Japan",
       "team_b": "Sweden",
-      "lambda_a": 0.81,
-      "lambda_b": 0.59,
+      "lambda_a": 0.813,
+      "lambda_b": 0.587,
       "top_3": [
         {
           "home": 0,
@@ -955,19 +1019,83 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1997,
+          "prob": 0.2005,
           "pct": 20.0
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1455,
-          "pct": 14.6
+          "prob": 0.1448,
+          "pct": 14.5
         }
       ],
-      "win_a": 0.3763,
-      "draw": 0.3793,
-      "win_b": 0.2444
+      "win_a": 0.3782,
+      "draw": 0.3791,
+      "win_b": 0.2427
+    },
+    {
+      "key": "Group F|Netherlands|Sweden",
+      "stage": "Group F",
+      "group": "F",
+      "team_a": "Netherlands",
+      "team_b": "Sweden",
+      "lambda_a": 0.982,
+      "lambda_b": 0.418,
+      "top_3": [
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 1,
+          "away": 0,
+          "prob": 0.2422,
+          "pct": 24.2
+        },
+        {
+          "home": 2,
+          "away": 0,
+          "prob": 0.119,
+          "pct": 11.9
+        }
+      ],
+      "win_a": 0.4874,
+      "draw": 0.3586,
+      "win_b": 0.1539
+    },
+    {
+      "key": "Group F|Tunisia|Japan",
+      "stage": "Group F",
+      "group": "F",
+      "team_a": "Tunisia",
+      "team_b": "Japan",
+      "lambda_a": 0.539,
+      "lambda_b": 0.861,
+      "top_3": [
+        {
+          "home": 0,
+          "away": 0,
+          "prob": 0.2466,
+          "pct": 24.7
+        },
+        {
+          "home": 0,
+          "away": 1,
+          "prob": 0.2124,
+          "pct": 21.2
+        },
+        {
+          "home": 1,
+          "away": 0,
+          "prob": 0.1328,
+          "pct": 13.3
+        }
+      ],
+      "win_a": 0.216,
+      "draw": 0.375,
+      "win_b": 0.409
     },
     {
       "key": "Group G|Belgium|Egypt",
@@ -975,8 +1103,8 @@
       "group": "G",
       "team_a": "Belgium",
       "team_b": "Egypt",
-      "lambda_a": 0.959,
-      "lambda_b": 0.441,
+      "lambda_a": 0.954,
+      "lambda_b": 0.446,
       "top_3": [
         {
           "home": 0,
@@ -987,19 +1115,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2365,
-          "pct": 23.7
+          "prob": 0.2353,
+          "pct": 23.5
         },
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1134,
-          "pct": 11.3
+          "prob": 0.1123,
+          "pct": 11.2
         }
       ],
-      "win_a": 0.4722,
-      "draw": 0.3624,
-      "win_b": 0.1653
+      "win_a": 0.4691,
+      "draw": 0.3632,
+      "win_b": 0.1677
     },
     {
       "key": "Group G|Iran|New Zealand",
@@ -1007,13 +1135,13 @@
       "group": "G",
       "team_a": "Iran",
       "team_b": "New Zealand",
-      "lambda_a": 1.119,
-      "lambda_b": 0.281,
+      "lambda_a": 1.118,
+      "lambda_b": 0.282,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2759,
+          "prob": 0.2758,
           "pct": 27.6
         },
         {
@@ -1025,13 +1153,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1544,
+          "prob": 0.1542,
           "pct": 15.4
         }
       ],
-      "win_a": 0.5767,
-      "draw": 0.3305,
-      "win_b": 0.0927
+      "win_a": 0.5764,
+      "draw": 0.3306,
+      "win_b": 0.0929
     },
     {
       "key": "Group G|Belgium|Iran",
@@ -1039,8 +1167,8 @@
       "group": "G",
       "team_a": "Belgium",
       "team_b": "Iran",
-      "lambda_a": 0.942,
-      "lambda_b": 0.458,
+      "lambda_a": 0.937,
+      "lambda_b": 0.463,
       "top_3": [
         {
           "home": 0,
@@ -1051,19 +1179,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2322,
-          "pct": 23.2
+          "prob": 0.2311,
+          "pct": 23.1
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1131,
-          "pct": 11.3
+          "prob": 0.1141,
+          "pct": 11.4
         }
       ],
-      "win_a": 0.4608,
-      "draw": 0.3651,
-      "win_b": 0.1741
+      "win_a": 0.458,
+      "draw": 0.3657,
+      "win_b": 0.1762
     },
     {
       "key": "Group G|Egypt|New Zealand",
@@ -1109,7 +1237,7 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.3095,
+          "prob": 0.3094,
           "pct": 30.9
         },
         {
@@ -1125,8 +1253,8 @@
           "pct": 19.4
         }
       ],
-      "win_a": 0.6642,
-      "draw": 0.2935,
+      "win_a": 0.664,
+      "draw": 0.2936,
       "win_b": 0.042
     },
     {
@@ -1135,14 +1263,14 @@
       "group": "H",
       "team_a": "Uruguay",
       "team_b": "Cape Verde",
-      "lambda_a": 1.026,
-      "lambda_b": 0.374,
+      "lambda_a": 1.022,
+      "lambda_b": 0.378,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2529,
-          "pct": 25.3
+          "prob": 0.2521,
+          "pct": 25.2
         },
         {
           "home": 0,
@@ -1153,13 +1281,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1297,
-          "pct": 13.0
+          "prob": 0.1289,
+          "pct": 12.9
         }
       ],
-      "win_a": 0.5156,
-      "draw": 0.3508,
-      "win_b": 0.1335
+      "win_a": 0.5136,
+      "draw": 0.3514,
+      "win_b": 0.1349
     },
     {
       "key": "Group H|Spain|Uruguay",
@@ -1167,14 +1295,14 @@
       "group": "H",
       "team_a": "Spain",
       "team_b": "Uruguay",
-      "lambda_a": 1.064,
-      "lambda_b": 0.336,
+      "lambda_a": 1.066,
+      "lambda_b": 0.334,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2623,
-          "pct": 26.2
+          "prob": 0.2629,
+          "pct": 26.3
         },
         {
           "home": 0,
@@ -1185,13 +1313,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1395,
-          "pct": 13.9
+          "prob": 0.1401,
+          "pct": 14.0
         }
       ],
-      "win_a": 0.5406,
-      "draw": 0.343,
-      "win_b": 0.1162
+      "win_a": 0.5422,
+      "draw": 0.3425,
+      "win_b": 0.1152
     },
     {
       "key": "Group H|Saudi Arabia|Cape Verde",
@@ -1237,7 +1365,7 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.3095,
+          "prob": 0.3094,
           "pct": 30.9
         },
         {
@@ -1253,8 +1381,8 @@
           "pct": 19.4
         }
       ],
-      "win_a": 0.6642,
-      "draw": 0.2935,
+      "win_a": 0.664,
+      "draw": 0.2936,
       "win_b": 0.042
     },
     {
@@ -1263,14 +1391,14 @@
       "group": "H",
       "team_a": "Saudi Arabia",
       "team_b": "Uruguay",
-      "lambda_a": 0.374,
-      "lambda_b": 1.026,
+      "lambda_a": 0.378,
+      "lambda_b": 1.022,
       "top_3": [
         {
           "home": 0,
           "away": 1,
-          "prob": 0.2529,
-          "pct": 25.3
+          "prob": 0.2521,
+          "pct": 25.2
         },
         {
           "home": 0,
@@ -1281,13 +1409,13 @@
         {
           "home": 0,
           "away": 2,
-          "prob": 0.1297,
-          "pct": 13.0
+          "prob": 0.1289,
+          "pct": 12.9
         }
       ],
-      "win_a": 0.1335,
-      "draw": 0.3508,
-      "win_b": 0.5156
+      "win_a": 0.1349,
+      "draw": 0.3514,
+      "win_b": 0.5136
     },
     {
       "key": "Group I|France|Senegal",
@@ -1295,13 +1423,13 @@
       "group": "I",
       "team_a": "France",
       "team_b": "Senegal",
-      "lambda_a": 1.041,
-      "lambda_b": 0.359,
+      "lambda_a": 1.044,
+      "lambda_b": 0.356,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2567,
+          "prob": 0.2573,
           "pct": 25.7
         },
         {
@@ -1313,13 +1441,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1336,
+          "prob": 0.1343,
           "pct": 13.4
         }
       ],
-      "win_a": 0.5258,
-      "draw": 0.3477,
-      "win_b": 0.1263
+      "win_a": 0.5275,
+      "draw": 0.3472,
+      "win_b": 0.1252
     },
     {
       "key": "Group I|Norway|Iraq",
@@ -1365,8 +1493,8 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.3104,
-          "pct": 31.0
+          "prob": 0.3105,
+          "pct": 31.1
         },
         {
           "home": 0,
@@ -1377,13 +1505,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1954,
-          "pct": 19.5
+          "prob": 0.1955,
+          "pct": 19.6
         }
       ],
-      "win_a": 0.6665,
-      "draw": 0.2924,
-      "win_b": 0.0408
+      "win_a": 0.6668,
+      "draw": 0.2923,
+      "win_b": 0.0406
     },
     {
       "key": "Group I|Senegal|Norway",
@@ -1391,8 +1519,8 @@
       "group": "I",
       "team_a": "Senegal",
       "team_b": "Norway",
-      "lambda_a": 0.79,
-      "lambda_b": 0.61,
+      "lambda_a": 0.788,
+      "lambda_b": 0.612,
       "top_3": [
         {
           "home": 0,
@@ -1403,19 +1531,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1949,
-          "pct": 19.5
+          "prob": 0.1944,
+          "pct": 19.4
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1504,
-          "pct": 15.0
+          "prob": 0.1508,
+          "pct": 15.1
         }
       ],
-      "win_a": 0.3639,
-      "draw": 0.3805,
-      "win_b": 0.2556
+      "win_a": 0.3627,
+      "draw": 0.3806,
+      "win_b": 0.2566
     },
     {
       "key": "Group J|Argentina|Austria",
@@ -1423,14 +1551,14 @@
       "group": "J",
       "team_a": "Argentina",
       "team_b": "Austria",
-      "lambda_a": 1.167,
-      "lambda_b": 0.233,
+      "lambda_a": 1.164,
+      "lambda_b": 0.236,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2878,
-          "pct": 28.8
+          "prob": 0.2871,
+          "pct": 28.7
         },
         {
           "home": 0,
@@ -1441,13 +1569,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.168,
-          "pct": 16.8
+          "prob": 0.1671,
+          "pct": 16.7
         }
       ],
-      "win_a": 0.608,
-      "draw": 0.3183,
-      "win_b": 0.0735
+      "win_a": 0.606,
+      "draw": 0.3191,
+      "win_b": 0.0747
     },
     {
       "key": "Group J|Algeria|Jordan",
@@ -1487,14 +1615,14 @@
       "group": "J",
       "team_a": "Argentina",
       "team_b": "Jordan",
-      "lambda_a": 1.273,
-      "lambda_b": 0.127,
+      "lambda_a": 1.271,
+      "lambda_b": 0.129,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.3139,
-          "pct": 31.4
+          "prob": 0.3134,
+          "pct": 31.3
         },
         {
           "home": 0,
@@ -1505,13 +1633,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1997,
-          "pct": 20.0
+          "prob": 0.1991,
+          "pct": 19.9
         }
       ],
-      "win_a": 0.6753,
-      "draw": 0.2882,
-      "win_b": 0.0362
+      "win_a": 0.6741,
+      "draw": 0.2887,
+      "win_b": 0.0368
     },
     {
       "key": "Group J|Austria|Algeria",
@@ -1551,14 +1679,14 @@
       "group": "J",
       "team_a": "Argentina",
       "team_b": "Algeria",
-      "lambda_a": 1.189,
-      "lambda_b": 0.211,
+      "lambda_a": 1.186,
+      "lambda_b": 0.214,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2931,
-          "pct": 29.3
+          "prob": 0.2924,
+          "pct": 29.2
         },
         {
           "home": 0,
@@ -1569,13 +1697,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1742,
-          "pct": 17.4
+          "prob": 0.1734,
+          "pct": 17.3
         }
       ],
-      "win_a": 0.6218,
-      "draw": 0.3126,
-      "win_b": 0.0654
+      "win_a": 0.62,
+      "draw": 0.3133,
+      "win_b": 0.0664
     },
     {
       "key": "Group J|Austria|Jordan",
@@ -1615,8 +1743,8 @@
       "group": "K",
       "team_a": "Portugal",
       "team_b": "Colombia",
-      "lambda_a": 0.839,
-      "lambda_b": 0.561,
+      "lambda_a": 0.838,
+      "lambda_b": 0.562,
       "top_3": [
         {
           "home": 0,
@@ -1627,19 +1755,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2069,
+          "prob": 0.2067,
           "pct": 20.7
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1383,
-          "pct": 13.8
+          "prob": 0.1385,
+          "pct": 13.9
         }
       ],
-      "win_a": 0.3948,
-      "draw": 0.377,
-      "win_b": 0.2281
+      "win_a": 0.3942,
+      "draw": 0.3771,
+      "win_b": 0.2287
     },
     {
       "key": "Group K|DR Congo|Uzbekistan",
@@ -1679,14 +1807,14 @@
       "group": "K",
       "team_a": "Portugal",
       "team_b": "Uzbekistan",
-      "lambda_a": 1.156,
-      "lambda_b": 0.244,
+      "lambda_a": 1.153,
+      "lambda_b": 0.247,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.285,
-          "pct": 28.5
+          "prob": 0.2844,
+          "pct": 28.4
         },
         {
           "home": 0,
@@ -1697,13 +1825,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1647,
-          "pct": 16.5
+          "prob": 0.164,
+          "pct": 16.4
         }
       ],
-      "win_a": 0.6006,
-      "draw": 0.3213,
-      "win_b": 0.0779
+      "win_a": 0.599,
+      "draw": 0.3219,
+      "win_b": 0.0789
     },
     {
       "key": "Group K|Colombia|DR Congo",
@@ -1711,14 +1839,14 @@
       "group": "K",
       "team_a": "Colombia",
       "team_b": "DR Congo",
-      "lambda_a": 1.033,
-      "lambda_b": 0.367,
+      "lambda_a": 1.031,
+      "lambda_b": 0.369,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2548,
-          "pct": 25.5
+          "prob": 0.2542,
+          "pct": 25.4
         },
         {
           "home": 0,
@@ -1729,13 +1857,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1317,
-          "pct": 13.2
+          "prob": 0.131,
+          "pct": 13.1
         }
       ],
-      "win_a": 0.5208,
-      "draw": 0.3493,
-      "win_b": 0.1299
+      "win_a": 0.5191,
+      "draw": 0.3498,
+      "win_b": 0.131
     },
     {
       "key": "Group K|Portugal|DR Congo",
@@ -1743,14 +1871,14 @@
       "group": "K",
       "team_a": "Portugal",
       "team_b": "DR Congo",
-      "lambda_a": 1.132,
-      "lambda_b": 0.268,
+      "lambda_a": 1.129,
+      "lambda_b": 0.271,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2791,
-          "pct": 27.9
+          "prob": 0.2784,
+          "pct": 27.8
         },
         {
           "home": 0,
@@ -1761,13 +1889,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1579,
-          "pct": 15.8
+          "prob": 0.1571,
+          "pct": 15.7
         }
       ],
-      "win_a": 0.585,
-      "draw": 0.3274,
-      "win_b": 0.0875
+      "win_a": 0.5832,
+      "draw": 0.328,
+      "win_b": 0.0886
     },
     {
       "key": "Group K|Uzbekistan|Colombia",
@@ -1775,13 +1903,13 @@
       "group": "K",
       "team_a": "Uzbekistan",
       "team_b": "Colombia",
-      "lambda_a": 0.336,
-      "lambda_b": 1.064,
+      "lambda_a": 0.339,
+      "lambda_b": 1.061,
       "top_3": [
         {
           "home": 0,
           "away": 1,
-          "prob": 0.2623,
+          "prob": 0.2617,
           "pct": 26.2
         },
         {
@@ -1793,13 +1921,13 @@
         {
           "home": 0,
           "away": 2,
-          "prob": 0.1395,
+          "prob": 0.1389,
           "pct": 13.9
         }
       ],
-      "win_a": 0.1162,
-      "draw": 0.343,
-      "win_b": 0.5406
+      "win_a": 0.1173,
+      "draw": 0.3435,
+      "win_b": 0.539
     },
     {
       "key": "Group L|England|Ghana",
@@ -1807,14 +1935,14 @@
       "group": "L",
       "team_a": "England",
       "team_b": "Ghana",
-      "lambda_a": 1.227,
-      "lambda_b": 0.173,
+      "lambda_a": 1.225,
+      "lambda_b": 0.175,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.3025,
-          "pct": 30.3
+          "prob": 0.3021,
+          "pct": 30.2
         },
         {
           "home": 0,
@@ -1825,13 +1953,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1855,
-          "pct": 18.6
+          "prob": 0.185,
+          "pct": 18.5
         }
       ],
-      "win_a": 0.6462,
-      "draw": 0.3019,
-      "win_b": 0.0516
+      "win_a": 0.6451,
+      "draw": 0.3024,
+      "win_b": 0.0522
     },
     {
       "key": "Group L|Croatia|Panama",
@@ -1845,7 +1973,7 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2821,
+          "prob": 0.282,
           "pct": 28.2
         },
         {
@@ -1861,7 +1989,7 @@
           "pct": 16.1
         }
       ],
-      "win_a": 0.5929,
+      "win_a": 0.5928,
       "draw": 0.3243,
       "win_b": 0.0826
     },
@@ -1871,8 +1999,8 @@
       "group": "L",
       "team_a": "England",
       "team_b": "Croatia",
-      "lambda_a": 0.924,
-      "lambda_b": 0.476,
+      "lambda_a": 0.92,
+      "lambda_b": 0.48,
       "top_3": [
         {
           "home": 0,
@@ -1883,19 +2011,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2278,
-          "pct": 22.8
+          "prob": 0.2269,
+          "pct": 22.7
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1175,
-          "pct": 11.7
+          "prob": 0.1183,
+          "pct": 11.8
         }
       ],
-      "win_a": 0.4491,
-      "draw": 0.3676,
-      "win_b": 0.1832
+      "win_a": 0.4469,
+      "draw": 0.3681,
+      "win_b": 0.1849
     },
     {
       "key": "Group L|Ghana|Panama",
@@ -1948,7 +2076,7 @@
           "home": 0,
           "away": 1,
           "prob": 0.1875,
-          "pct": 18.7
+          "pct": 18.8
         },
         {
           "home": 1,
@@ -1957,7 +2085,7 @@
           "pct": 15.8
         }
       ],
-      "win_a": 0.2728,
+      "win_a": 0.2727,
       "draw": 0.3819,
       "win_b": 0.3453
     },
@@ -1967,8 +2095,8 @@
       "group": null,
       "team_a": "Germany",
       "team_b": "Japan",
-      "lambda_a": 0.858,
-      "lambda_b": 0.542,
+      "lambda_a": 0.847,
+      "lambda_b": 0.553,
       "top_3": [
         {
           "home": 0,
@@ -1979,19 +2107,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2117,
-          "pct": 21.2
+          "prob": 0.2089,
+          "pct": 20.9
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1336,
-          "pct": 13.4
+          "prob": 0.1363,
+          "pct": 13.6
         }
       ],
-      "win_a": 0.4071,
-      "draw": 0.3753,
-      "win_b": 0.2176
+      "win_a": 0.3999,
+      "draw": 0.3763,
+      "win_b": 0.2237
     },
     {
       "key": "R32|Netherlands|Morocco",
@@ -1999,8 +2127,8 @@
       "group": null,
       "team_a": "Netherlands",
       "team_b": "Morocco",
-      "lambda_a": 0.7,
-      "lambda_b": 0.7,
+      "lambda_a": 0.697,
+      "lambda_b": 0.703,
       "top_3": [
         {
           "home": 0,
@@ -2011,19 +2139,19 @@
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1726,
+          "prob": 0.1734,
           "pct": 17.3
         },
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1726,
-          "pct": 17.3
+          "prob": 0.1719,
+          "pct": 17.2
         }
       ],
-      "win_a": 0.3085,
+      "win_a": 0.3066,
       "draw": 0.3831,
-      "win_b": 0.3085
+      "win_b": 0.3103
     },
     {
       "key": "R32|Brazil|Japan",
@@ -2031,8 +2159,8 @@
       "group": null,
       "team_a": "Brazil",
       "team_b": "Japan",
-      "lambda_a": 0.905,
-      "lambda_b": 0.495,
+      "lambda_a": 0.904,
+      "lambda_b": 0.496,
       "top_3": [
         {
           "home": 0,
@@ -2043,19 +2171,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2233,
+          "prob": 0.2229,
           "pct": 22.3
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.122,
+          "prob": 0.1223,
           "pct": 12.2
         }
       ],
-      "win_a": 0.4373,
-      "draw": 0.37,
-      "win_b": 0.1926
+      "win_a": 0.4364,
+      "draw": 0.3702,
+      "win_b": 0.1933
     },
     {
       "key": "R32|Norway|Uruguay",
@@ -2063,8 +2191,8 @@
       "group": null,
       "team_a": "Norway",
       "team_b": "Uruguay",
-      "lambda_a": 0.63,
-      "lambda_b": 0.77,
+      "lambda_a": 0.634,
+      "lambda_b": 0.766,
       "top_3": [
         {
           "home": 0,
@@ -2075,19 +2203,19 @@
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1899,
-          "pct": 19.0
+          "prob": 0.189,
+          "pct": 18.9
         },
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1553,
-          "pct": 15.5
+          "prob": 0.1562,
+          "pct": 15.6
         }
       ],
-      "win_a": 0.267,
-      "draw": 0.3815,
-      "win_b": 0.3515
+      "win_a": 0.2692,
+      "draw": 0.3817,
+      "win_b": 0.3491
     },
     {
       "key": "R32|Ecuador|Senegal",
@@ -2095,8 +2223,8 @@
       "group": null,
       "team_a": "Ecuador",
       "team_b": "Senegal",
-      "lambda_a": 0.571,
-      "lambda_b": 0.829,
+      "lambda_a": 0.572,
+      "lambda_b": 0.828,
       "top_3": [
         {
           "home": 0,
@@ -2107,19 +2235,19 @@
         {
           "home": 0,
           "away": 1,
-          "prob": 0.2045,
-          "pct": 20.5
+          "prob": 0.2041,
+          "pct": 20.4
         },
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1407,
+          "prob": 0.1411,
           "pct": 14.1
         }
       ],
-      "win_a": 0.2335,
-      "draw": 0.3779,
-      "win_b": 0.3886
+      "win_a": 0.2345,
+      "draw": 0.378,
+      "win_b": 0.3875
     },
     {
       "key": "R32|Mexico|France",
@@ -2127,14 +2255,14 @@
       "group": null,
       "team_a": "Mexico",
       "team_b": "France",
-      "lambda_a": 0.359,
-      "lambda_b": 1.041,
+      "lambda_a": 0.362,
+      "lambda_b": 1.038,
       "top_3": [
         {
           "home": 0,
           "away": 1,
-          "prob": 0.2567,
-          "pct": 25.7
+          "prob": 0.2561,
+          "pct": 25.6
         },
         {
           "home": 0,
@@ -2145,13 +2273,13 @@
         {
           "home": 0,
           "away": 2,
-          "prob": 0.1336,
-          "pct": 13.4
+          "prob": 0.1329,
+          "pct": 13.3
         }
       ],
-      "win_a": 0.1263,
-      "draw": 0.3477,
-      "win_b": 0.5258
+      "win_a": 0.1276,
+      "draw": 0.3483,
+      "win_b": 0.524
     },
     {
       "key": "R32|England|Colombia",
@@ -2171,19 +2299,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2344,
+          "prob": 0.2342,
           "pct": 23.4
         },
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1114,
+          "prob": 0.1112,
           "pct": 11.1
         }
       ],
-      "win_a": 0.4665,
-      "draw": 0.3638,
-      "win_b": 0.1697
+      "win_a": 0.4661,
+      "draw": 0.3639,
+      "win_b": 0.1699
     },
     {
       "key": "R32|USA|Ecuador",
@@ -2191,8 +2319,8 @@
       "group": null,
       "team_a": "USA",
       "team_b": "Ecuador",
-      "lambda_a": 0.8,
-      "lambda_b": 0.6,
+      "lambda_a": 0.802,
+      "lambda_b": 0.598,
       "top_3": [
         {
           "home": 0,
@@ -2203,19 +2331,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1973,
-          "pct": 19.7
+          "prob": 0.1979,
+          "pct": 19.8
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1479,
-          "pct": 14.8
+          "prob": 0.1473,
+          "pct": 14.7
         }
       ],
-      "win_a": 0.3701,
-      "draw": 0.3799,
-      "win_b": 0.25
+      "win_a": 0.3716,
+      "draw": 0.3798,
+      "win_b": 0.2486
     },
     {
       "key": "R32|Belgium|Ivory Coast",
@@ -2223,8 +2351,8 @@
       "group": null,
       "team_a": "Belgium",
       "team_b": "Ivory Coast",
-      "lambda_a": 0.959,
-      "lambda_b": 0.441,
+      "lambda_a": 0.954,
+      "lambda_b": 0.446,
       "top_3": [
         {
           "home": 0,
@@ -2235,19 +2363,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2365,
-          "pct": 23.7
+          "prob": 0.2353,
+          "pct": 23.5
         },
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1134,
-          "pct": 11.3
+          "prob": 0.1123,
+          "pct": 11.2
         }
       ],
-      "win_a": 0.4722,
-      "draw": 0.3624,
-      "win_b": 0.1653
+      "win_a": 0.4691,
+      "draw": 0.3632,
+      "win_b": 0.1677
     },
     {
       "key": "R32|Colombia|Croatia",
@@ -2255,8 +2383,8 @@
       "group": null,
       "team_a": "Colombia",
       "team_b": "Croatia",
-      "lambda_a": 0.67,
-      "lambda_b": 0.73,
+      "lambda_a": 0.667,
+      "lambda_b": 0.733,
       "top_3": [
         {
           "home": 0,
@@ -2267,19 +2395,19 @@
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1801,
-          "pct": 18.0
+          "prob": 0.1808,
+          "pct": 18.1
         },
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1652,
-          "pct": 16.5
+          "prob": 0.1644,
+          "pct": 16.4
         }
       ],
-      "win_a": 0.2904,
-      "draw": 0.3828,
-      "win_b": 0.3268
+      "win_a": 0.2886,
+      "draw": 0.3827,
+      "win_b": 0.3286
     },
     {
       "key": "R32|Spain|Austria",
@@ -2293,7 +2421,7 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2864,
+          "prob": 0.2863,
           "pct": 28.6
         },
         {
@@ -2305,13 +2433,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1663,
+          "prob": 0.1662,
           "pct": 16.6
         }
       ],
-      "win_a": 0.6043,
-      "draw": 0.3198,
-      "win_b": 0.0757
+      "win_a": 0.6041,
+      "draw": 0.3199,
+      "win_b": 0.0758
     },
     {
       "key": "R32|Canada|Egypt",
@@ -2351,13 +2479,13 @@
       "group": null,
       "team_a": "Argentina",
       "team_b": "Saudi Arabia",
-      "lambda_a": 1.259,
-      "lambda_b": 0.141,
+      "lambda_a": 1.257,
+      "lambda_b": 0.143,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.3104,
+          "prob": 0.3099,
           "pct": 31.0
         },
         {
@@ -2369,13 +2497,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1954,
+          "prob": 0.1947,
           "pct": 19.5
         }
       ],
-      "win_a": 0.6665,
-      "draw": 0.2924,
-      "win_b": 0.0408
+      "win_a": 0.6652,
+      "draw": 0.293,
+      "win_b": 0.0414
     },
     {
       "key": "R32|Portugal|best3(待定)",
@@ -2415,8 +2543,8 @@
       "group": null,
       "team_a": "Australia",
       "team_b": "Iran",
-      "lambda_a": 0.61,
-      "lambda_b": 0.79,
+      "lambda_a": 0.611,
+      "lambda_b": 0.789,
       "top_3": [
         {
           "home": 0,
@@ -2427,19 +2555,19 @@
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1949,
+          "prob": 0.1946,
           "pct": 19.5
         },
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1504,
-          "pct": 15.0
+          "prob": 0.1506,
+          "pct": 15.1
         }
       ],
-      "win_a": 0.2556,
-      "draw": 0.3805,
-      "win_b": 0.3639
+      "win_a": 0.2561,
+      "draw": 0.3806,
+      "win_b": 0.3633
     },
     {
       "key": "R16|Mexico|Senegal",
@@ -2447,8 +2575,8 @@
       "group": null,
       "team_a": "Mexico",
       "team_b": "Senegal",
-      "lambda_a": 0.7,
-      "lambda_b": 0.7,
+      "lambda_a": 0.707,
+      "lambda_b": 0.693,
       "top_3": [
         {
           "home": 0,
@@ -2457,21 +2585,21 @@
           "pct": 24.7
         },
         {
-          "home": 0,
-          "away": 1,
-          "prob": 0.1726,
-          "pct": 17.3
-        },
-        {
           "home": 1,
           "away": 0,
-          "prob": 0.1726,
-          "pct": 17.3
+          "prob": 0.1743,
+          "pct": 17.4
+        },
+        {
+          "home": 0,
+          "away": 1,
+          "prob": 0.1709,
+          "pct": 17.1
         }
       ],
-      "win_a": 0.3085,
-      "draw": 0.3831,
-      "win_b": 0.3085
+      "win_a": 0.3126,
+      "draw": 0.383,
+      "win_b": 0.3043
     },
     {
       "key": "R16|Canada|Germany",
@@ -2479,14 +2607,14 @@
       "group": null,
       "team_a": "Canada",
       "team_b": "Germany",
-      "lambda_a": 0.374,
-      "lambda_b": 1.026,
+      "lambda_a": 0.381,
+      "lambda_b": 1.019,
       "top_3": [
         {
           "home": 0,
           "away": 1,
-          "prob": 0.2529,
-          "pct": 25.3
+          "prob": 0.2512,
+          "pct": 25.1
         },
         {
           "home": 0,
@@ -2497,13 +2625,13 @@
         {
           "home": 0,
           "away": 2,
-          "prob": 0.1297,
-          "pct": 13.0
+          "prob": 0.128,
+          "pct": 12.8
         }
       ],
-      "win_a": 0.1335,
-      "draw": 0.3508,
-      "win_b": 0.5156
+      "win_a": 0.1366,
+      "draw": 0.3521,
+      "win_b": 0.5112
     },
     {
       "key": "R16|Netherlands|Switzerland",
@@ -2511,8 +2639,8 @@
       "group": null,
       "team_a": "Netherlands",
       "team_b": "Switzerland",
-      "lambda_a": 0.905,
-      "lambda_b": 0.495,
+      "lambda_a": 0.903,
+      "lambda_b": 0.497,
       "top_3": [
         {
           "home": 0,
@@ -2523,19 +2651,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2233,
+          "prob": 0.2226,
           "pct": 22.3
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.122,
-          "pct": 12.2
+          "prob": 0.1227,
+          "pct": 12.3
         }
       ],
-      "win_a": 0.4373,
-      "draw": 0.37,
-      "win_b": 0.1926
+      "win_a": 0.4355,
+      "draw": 0.3704,
+      "win_b": 0.1941
     },
     {
       "key": "R16|Spain|Norway",
@@ -2549,7 +2677,7 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2743,
+          "prob": 0.2742,
           "pct": 27.4
         },
         {
@@ -2561,13 +2689,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1526,
-          "pct": 15.3
+          "prob": 0.1525,
+          "pct": 15.2
         }
       ],
-      "win_a": 0.5725,
-      "draw": 0.332,
-      "win_b": 0.0953
+      "win_a": 0.5722,
+      "draw": 0.3321,
+      "win_b": 0.0955
     },
     {
       "key": "R16|Argentina|Belgium",
@@ -2607,14 +2735,14 @@
       "group": null,
       "team_a": "England",
       "team_b": "DR Congo",
-      "lambda_a": 1.199,
-      "lambda_b": 0.201,
+      "lambda_a": 1.197,
+      "lambda_b": 0.203,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2956,
-          "pct": 29.6
+          "prob": 0.2951,
+          "pct": 29.5
         },
         {
           "home": 0,
@@ -2625,13 +2753,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1772,
+          "prob": 0.1766,
           "pct": 17.7
         }
       ],
-      "win_a": 0.6283,
-      "draw": 0.3098,
-      "win_b": 0.0616
+      "win_a": 0.6271,
+      "draw": 0.3103,
+      "win_b": 0.0624
     },
     {
       "key": "R16|Portugal|Austria",
@@ -2639,14 +2767,14 @@
       "group": null,
       "team_a": "Portugal",
       "team_b": "Austria",
-      "lambda_a": 1.018,
-      "lambda_b": 0.382,
+      "lambda_a": 1.014,
+      "lambda_b": 0.386,
       "top_3": [
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2509,
-          "pct": 25.1
+          "prob": 0.2501,
+          "pct": 25.0
         },
         {
           "home": 0,
@@ -2657,13 +2785,13 @@
         {
           "home": 2,
           "away": 0,
-          "prob": 0.1277,
-          "pct": 12.8
+          "prob": 0.1268,
+          "pct": 12.7
         }
       ],
-      "win_a": 0.5104,
-      "draw": 0.3523,
-      "win_b": 0.1372
+      "win_a": 0.5082,
+      "draw": 0.353,
+      "win_b": 0.1388
     },
     {
       "key": "QF|Mexico|Germany",
@@ -2671,8 +2799,8 @@
       "group": null,
       "team_a": "Mexico",
       "team_b": "Germany",
-      "lambda_a": 0.59,
-      "lambda_b": 0.81,
+      "lambda_a": 0.603,
+      "lambda_b": 0.797,
       "top_3": [
         {
           "home": 0,
@@ -2683,19 +2811,19 @@
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1997,
-          "pct": 20.0
+          "prob": 0.1965,
+          "pct": 19.6
         },
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1455,
-          "pct": 14.6
+          "prob": 0.1488,
+          "pct": 14.9
         }
       ],
-      "win_a": 0.2444,
-      "draw": 0.3793,
-      "win_b": 0.3763
+      "win_a": 0.2519,
+      "draw": 0.3802,
+      "win_b": 0.3679
     },
     {
       "key": "QF|Brazil|Netherlands",
@@ -2703,8 +2831,8 @@
       "group": null,
       "team_a": "Brazil",
       "team_b": "Netherlands",
-      "lambda_a": 0.72,
-      "lambda_b": 0.68,
+      "lambda_a": 0.725,
+      "lambda_b": 0.675,
       "top_3": [
         {
           "home": 0,
@@ -2715,19 +2843,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1776,
-          "pct": 17.8
+          "prob": 0.1787,
+          "pct": 17.9
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1677,
-          "pct": 16.8
+          "prob": 0.1665,
+          "pct": 16.7
         }
       ],
-      "win_a": 0.3206,
+      "win_a": 0.3234,
       "draw": 0.3829,
-      "win_b": 0.2964
+      "win_b": 0.2937
     },
     {
       "key": "QF|Spain|Argentina",
@@ -2735,8 +2863,8 @@
       "group": null,
       "team_a": "Spain",
       "team_b": "Argentina",
-      "lambda_a": 0.69,
-      "lambda_b": 0.71,
+      "lambda_a": 0.695,
+      "lambda_b": 0.705,
       "top_3": [
         {
           "home": 0,
@@ -2747,19 +2875,19 @@
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1751,
-          "pct": 17.5
+          "prob": 0.1739,
+          "pct": 17.4
         },
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1701,
-          "pct": 17.0
+          "prob": 0.1713,
+          "pct": 17.1
         }
       ],
-      "win_a": 0.3024,
-      "draw": 0.383,
-      "win_b": 0.3145
+      "win_a": 0.3054,
+      "draw": 0.3831,
+      "win_b": 0.3116
     },
     {
       "key": "QF|England|Portugal",
@@ -2779,19 +2907,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.2021,
+          "prob": 0.2022,
           "pct": 20.2
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1431,
+          "prob": 0.143,
           "pct": 14.3
         }
       ],
-      "win_a": 0.3824,
+      "win_a": 0.3827,
       "draw": 0.3786,
-      "win_b": 0.2389
+      "win_b": 0.2387
     },
     {
       "key": "SF|Germany|Brazil",
@@ -2799,8 +2927,8 @@
       "group": null,
       "team_a": "Germany",
       "team_b": "Brazil",
-      "lambda_a": 0.65,
-      "lambda_b": 0.75,
+      "lambda_a": 0.64,
+      "lambda_b": 0.76,
       "top_3": [
         {
           "home": 0,
@@ -2811,19 +2939,19 @@
         {
           "home": 0,
           "away": 1,
-          "prob": 0.185,
-          "pct": 18.5
+          "prob": 0.1875,
+          "pct": 18.8
         },
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1602,
-          "pct": 16.0
+          "prob": 0.1577,
+          "pct": 15.8
         }
       ],
-      "win_a": 0.2786,
-      "draw": 0.3823,
-      "win_b": 0.3391
+      "win_a": 0.2727,
+      "draw": 0.3819,
+      "win_b": 0.3454
     },
     {
       "key": "SF|Argentina|England",
@@ -2831,8 +2959,8 @@
       "group": null,
       "team_a": "Argentina",
       "team_b": "England",
-      "lambda_a": 0.8,
-      "lambda_b": 0.6,
+      "lambda_a": 0.799,
+      "lambda_b": 0.601,
       "top_3": [
         {
           "home": 0,
@@ -2843,19 +2971,19 @@
         {
           "home": 1,
           "away": 0,
-          "prob": 0.1973,
+          "prob": 0.1969,
           "pct": 19.7
         },
         {
           "home": 0,
           "away": 1,
-          "prob": 0.1479,
+          "prob": 0.1483,
           "pct": 14.8
         }
       ],
-      "win_a": 0.3701,
-      "draw": 0.3799,
-      "win_b": 0.25
+      "win_a": 0.3691,
+      "draw": 0.38,
+      "win_b": 0.2508
     }
   ]
 }
