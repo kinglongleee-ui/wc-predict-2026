@@ -1,6 +1,6 @@
 {
   "run_id": "run_d1f74f4afe69",
-  "created_at": "2026-06-24T19:04:23.992413",
+  "created_at": "2026-06-25T11:34:02.883212",
   "verdict": {
     "prediction": "Argentina edges France 51-49 in the 2026 FIFA World Cup Final, with the title likely decided in extra time or penalties, as top seeds (Spain, Portugal, Germany, Brazil, England) hold through the group stage but face stern knockout tests.",
     "confidence": 0.62,
@@ -1010,7 +1010,7 @@
         "team_a_win": 0.9,
         "draw": 0.0,
         "team_b_win": 0.1,
-        "winner": null,
+        "winner": "a",
         "aet_pct": 0.25,
         "pen_pct": 0.15,
         "top_3_scores": [
@@ -1043,10 +1043,10 @@
         "group_b": "B",
         "seed_b": 3,
         "score": "Germany 3-0",
-        "team_a_win": 0.5,
+        "team_a_win": 0.9,
         "draw": 0.0,
-        "team_b_win": 0.5,
-        "winner": null,
+        "team_b_win": 0.1,
+        "winner": "a",
         "aet_pct": 0.1,
         "pen_pct": 0.05,
         "top_3_scores": [
@@ -1082,7 +1082,7 @@
         "team_a_win": 0.9,
         "draw": 0.0,
         "team_b_win": 0.1,
-        "winner": null,
+        "winner": "a",
         "aet_pct": 0.2,
         "pen_pct": 0.1,
         "top_3_scores": [
@@ -1118,7 +1118,7 @@
         "team_a_win": 0.9,
         "draw": 0.0,
         "team_b_win": 0.1,
-        "winner": null,
+        "winner": "a",
         "aet_pct": 0.25,
         "pen_pct": 0.12,
         "top_3_scores": [
@@ -1151,10 +1151,10 @@
         "group_b": "H",
         "seed_b": 3,
         "score": "France 3-1",
-        "team_a_win": 0.5,
+        "team_a_win": 0.9,
         "draw": 0.0,
-        "team_b_win": 0.5,
-        "winner": null,
+        "team_b_win": 0.1,
+        "winner": "a",
         "aet_pct": 0.15,
         "pen_pct": 0.05,
         "top_3_scores": [
@@ -1190,7 +1190,7 @@
         "team_a_win": 0.1,
         "draw": 0.0,
         "team_b_win": 0.9,
-        "winner": null,
+        "winner": "b",
         "aet_pct": 0.3,
         "pen_pct": 0.18,
         "top_3_scores": [
@@ -1223,10 +1223,10 @@
         "group_b": null,
         "seed_b": 3,
         "score": "Mexico 1-0",
-        "team_a_win": 0.5,
+        "team_a_win": 0.9,
         "draw": 0.0,
-        "team_b_win": 0.5,
-        "winner": null,
+        "team_b_win": 0.1,
+        "winner": "a",
         "aet_pct": 0.2,
         "pen_pct": 0.1,
         "top_3_scores": [
@@ -1259,10 +1259,10 @@
         "group_b": "J",
         "seed_b": 3,
         "score": "England 2-0",
-        "team_a_win": 0.5,
+        "team_a_win": 0.9,
         "draw": 0.0,
-        "team_b_win": 0.5,
-        "winner": null,
+        "team_b_win": 0.1,
+        "winner": "a",
         "aet_pct": 0.15,
         "pen_pct": 0.05,
         "top_3_scores": [
@@ -1295,10 +1295,10 @@
         "group_b": null,
         "seed_b": 3,
         "score": "USA 2-1",
-        "team_a_win": 0.5,
+        "team_a_win": 0.9,
         "draw": 0.0,
-        "team_b_win": 0.5,
-        "winner": null,
+        "team_b_win": 0.1,
+        "winner": "a",
         "aet_pct": 0.25,
         "pen_pct": 0.12,
         "top_3_scores": [
@@ -1331,10 +1331,10 @@
         "group_b": null,
         "seed_b": 3,
         "score": "Norway 2-0",
-        "team_a_win": 0.5,
+        "team_a_win": 0.9,
         "draw": 0.0,
-        "team_b_win": 0.5,
-        "winner": null,
+        "team_b_win": 0.1,
+        "winner": "a",
         "aet_pct": 0.15,
         "pen_pct": 0.05,
         "top_3_scores": [
@@ -1370,7 +1370,7 @@
         "team_a_win": 0.1,
         "draw": 0.0,
         "team_b_win": 0.9,
-        "winner": null,
+        "winner": "b",
         "aet_pct": 0.15,
         "pen_pct": 0.05,
         "top_3_scores": [
@@ -1406,7 +1406,7 @@
         "team_a_win": 0.9,
         "draw": 0.0,
         "team_b_win": 0.1,
-        "winner": null,
+        "winner": "a",
         "aet_pct": 0.12,
         "pen_pct": 0.05,
         "top_3_scores": [
@@ -1439,10 +1439,10 @@
         "group_b": "G",
         "seed_b": 3,
         "score": "Switzerland 1-0",
-        "team_a_win": 0.5,
+        "team_a_win": 0.9,
         "draw": 0.0,
-        "team_b_win": 0.5,
-        "winner": null,
+        "team_b_win": 0.1,
+        "winner": "a",
         "aet_pct": 0.3,
         "pen_pct": 0.18,
         "top_3_scores": [
@@ -1478,7 +1478,7 @@
         "team_a_win": 0.9,
         "draw": 0.0,
         "team_b_win": 0.1,
-        "winner": null,
+        "winner": "a",
         "aet_pct": 0.22,
         "pen_pct": 0.1,
         "top_3_scores": [
@@ -1511,10 +1511,10 @@
         "group_b": "L",
         "seed_b": 3,
         "score": "Colombia 2-1",
-        "team_a_win": 0.5,
+        "team_a_win": 0.9,
         "draw": 0.0,
-        "team_b_win": 0.5,
-        "winner": null,
+        "team_b_win": 0.1,
+        "winner": "a",
         "aet_pct": 0.25,
         "pen_pct": 0.12,
         "top_3_scores": [
@@ -1550,7 +1550,7 @@
         "team_a_win": 0.9,
         "draw": 0.0,
         "team_b_win": 0.1,
-        "winner": null,
+        "winner": "a",
         "aet_pct": 0.3,
         "pen_pct": 0.18,
         "top_3_scores": [
@@ -1577,19 +1577,19 @@
     ],
     "r16": [
       {
-        "team_a": "W73 (Korea)",
+        "team_a": "Korea",
         "group_a": null,
         "seed_a": null,
-        "team_b": "W74 (Germany)",
+        "team_b": "Germany",
         "group_b": null,
         "seed_b": null,
-        "team_a_win": 0.9,
+        "team_a_win": 0.1,
         "draw": 0.0,
-        "team_b_win": 0.09999999999999998,
+        "team_b_win": 0.9,
         "score": "Germany 2-0",
         "aet_pct": 0.15,
         "pen_pct": 0.05,
-        "winner": null,
+        "winner": "b",
         "bracket_idx": 0,
         "top_3_scores": [
           {
@@ -1613,19 +1613,19 @@
         ]
       },
       {
-        "team_a": "W75 (Portugal)",
+        "team_a": "Portugal",
         "group_a": null,
         "seed_a": null,
-        "team_b": "W76 (Brazil)",
+        "team_b": "Brazil",
         "group_b": null,
         "seed_b": null,
-        "team_a_win": 0.9,
+        "team_a_win": 0.1,
         "draw": 0.0,
-        "team_b_win": 0.09999999999999998,
+        "team_b_win": 0.9,
         "score": "Brazil 1-0",
         "aet_pct": 0.3,
         "pen_pct": 0.15,
-        "winner": null,
+        "winner": "b",
         "bracket_idx": 1,
         "top_3_scores": [
           {
@@ -1635,33 +1635,33 @@
             "pct": 24.7
           },
           {
-            "home": 0,
-            "away": 1,
-            "prob": 0.1726,
-            "pct": 17.3
-          },
-          {
             "home": 1,
             "away": 0,
-            "prob": 0.1726,
-            "pct": 17.3
+            "prob": 0.1751,
+            "pct": 17.5
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1701,
+            "pct": 17.0
           }
         ]
       },
       {
-        "team_a": "W77 (France)",
+        "team_a": "France",
         "group_a": null,
         "seed_a": null,
-        "team_b": "W78 (Croatia)",
+        "team_b": "Croatia",
         "group_b": null,
         "seed_b": null,
         "team_a_win": 0.9,
         "draw": 0.0,
-        "team_b_win": 0.09999999999999998,
+        "team_b_win": 0.1,
         "score": "France 2-1",
         "aet_pct": 0.25,
         "pen_pct": 0.12,
-        "winner": null,
+        "winner": "a",
         "bracket_idx": 2,
         "top_3_scores": [
           {
@@ -1671,33 +1671,33 @@
             "pct": 24.7
           },
           {
-            "home": 0,
-            "away": 1,
-            "prob": 0.1726,
-            "pct": 17.3
-          },
-          {
             "home": 1,
             "away": 0,
-            "prob": 0.1726,
-            "pct": 17.3
+            "prob": 0.2449,
+            "pct": 24.5
+          },
+          {
+            "home": 2,
+            "away": 0,
+            "prob": 0.1216,
+            "pct": 12.2
           }
         ]
       },
       {
-        "team_a": "W79 (Mexico)",
+        "team_a": "Mexico",
         "group_a": null,
         "seed_a": null,
-        "team_b": "W80 (England)",
+        "team_b": "England",
         "group_b": null,
         "seed_b": null,
-        "team_a_win": 0.9,
+        "team_a_win": 0.1,
         "draw": 0.0,
-        "team_b_win": 0.09999999999999998,
+        "team_b_win": 0.9,
         "score": "England 1-0",
         "aet_pct": 0.3,
         "pen_pct": 0.15,
-        "winner": null,
+        "winner": "b",
         "bracket_idx": 3,
         "top_3_scores": [
           {
@@ -1709,31 +1709,31 @@
           {
             "home": 0,
             "away": 1,
-            "prob": 0.1726,
-            "pct": 17.3
+            "prob": 0.2407,
+            "pct": 24.1
           },
           {
-            "home": 1,
-            "away": 0,
-            "prob": 0.1726,
-            "pct": 17.3
+            "home": 0,
+            "away": 2,
+            "prob": 0.1175,
+            "pct": 11.8
           }
         ]
       },
       {
-        "team_a": "W81 (USA)",
+        "team_a": "USA",
         "group_a": null,
         "seed_a": null,
-        "team_b": "W82 (Norway)",
+        "team_b": "Norway",
         "group_b": null,
         "seed_b": null,
-        "team_a_win": 0.9,
+        "team_a_win": 0.1,
         "draw": 0.0,
-        "team_b_win": 0.09999999999999998,
+        "team_b_win": 0.9,
         "score": "Norway 2-1",
         "aet_pct": 0.25,
         "pen_pct": 0.12,
-        "winner": null,
+        "winner": "b",
         "bracket_idx": 4,
         "top_3_scores": [
           {
@@ -1743,33 +1743,33 @@
             "pct": 24.7
           },
           {
-            "home": 0,
-            "away": 1,
-            "prob": 0.1726,
-            "pct": 17.3
-          },
-          {
             "home": 1,
             "away": 0,
-            "prob": 0.1726,
-            "pct": 17.3
+            "prob": 0.1875,
+            "pct": 18.7
+          },
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.1577,
+            "pct": 15.8
           }
         ]
       },
       {
-        "team_a": "W83 (Netherlands)",
+        "team_a": "Netherlands",
         "group_a": null,
         "seed_a": null,
-        "team_b": "W84 (Spain)",
+        "team_b": "Spain",
         "group_b": null,
         "seed_b": null,
-        "team_a_win": 0.9,
+        "team_a_win": 0.1,
         "draw": 0.0,
-        "team_b_win": 0.09999999999999998,
+        "team_b_win": 0.9,
         "score": "Spain 2-0",
         "aet_pct": 0.2,
         "pen_pct": 0.08,
-        "winner": null,
+        "winner": "b",
         "bracket_idx": 5,
         "top_3_scores": [
           {
@@ -1781,33 +1781,39 @@
           {
             "home": 0,
             "away": 1,
-            "prob": 0.1726,
-            "pct": 17.3
+            "prob": 0.23,
+            "pct": 23.0
           },
           {
             "home": 1,
             "away": 0,
-            "prob": 0.1726,
-            "pct": 17.3
+            "prob": 0.1153,
+            "pct": 11.5
           }
         ]
       },
       {
-        "team_a": "W85 (Switzerland)",
+        "team_a": "Switzerland",
         "group_a": null,
         "seed_a": null,
-        "team_b": "W86 (Argentina)",
+        "team_b": "Argentina",
         "group_b": null,
         "seed_b": null,
-        "team_a_win": 0.9,
+        "team_a_win": 0.1,
         "draw": 0.0,
-        "team_b_win": 0.09999999999999998,
+        "team_b_win": 0.9,
         "score": "Argentina 2-0",
         "aet_pct": 0.15,
         "pen_pct": 0.05,
-        "winner": null,
+        "winner": "b",
         "bracket_idx": 6,
         "top_3_scores": [
+          {
+            "home": 0,
+            "away": 1,
+            "prob": 0.2727,
+            "pct": 27.3
+          },
           {
             "home": 0,
             "away": 0,
@@ -1816,32 +1822,26 @@
           },
           {
             "home": 0,
-            "away": 1,
-            "prob": 0.1726,
-            "pct": 17.3
-          },
-          {
-            "home": 1,
-            "away": 0,
-            "prob": 0.1726,
-            "pct": 17.3
+            "away": 2,
+            "prob": 0.1508,
+            "pct": 15.1
           }
         ]
       },
       {
-        "team_a": "W87 (Colombia)",
+        "team_a": "Colombia",
         "group_a": null,
         "seed_a": null,
-        "team_b": "W88 (Scotland)",
+        "team_b": "Scotland",
         "group_b": null,
         "seed_b": null,
         "team_a_win": 0.9,
         "draw": 0.0,
-        "team_b_win": 0.09999999999999998,
+        "team_b_win": 0.1,
         "score": "Colombia 1-0",
         "aet_pct": 0.3,
         "pen_pct": 0.18,
-        "winner": null,
+        "winner": "a",
         "bracket_idx": 7,
         "top_3_scores": [
           {
@@ -1851,16 +1851,16 @@
             "pct": 24.7
           },
           {
-            "home": 0,
-            "away": 1,
-            "prob": 0.1726,
-            "pct": 17.3
-          },
-          {
             "home": 1,
             "away": 0,
-            "prob": 0.1726,
-            "pct": 17.3
+            "prob": 0.2407,
+            "pct": 24.1
+          },
+          {
+            "home": 2,
+            "away": 0,
+            "prob": 0.1175,
+            "pct": 11.8
           }
         ]
       }
@@ -1879,7 +1879,7 @@
         "score": "Brazil 2-1 (AET)",
         "aet_pct": 0.35,
         "pen_pct": 0.2,
-        "winner": null,
+        "winner": "b",
         "bracket_idx": 0,
         "top_3_scores": [
           {
@@ -1915,7 +1915,7 @@
         "score": "France 1-0",
         "aet_pct": 0.3,
         "pen_pct": 0.18,
-        "winner": null,
+        "winner": "a",
         "bracket_idx": 1,
         "top_3_scores": [
           {
@@ -1951,7 +1951,7 @@
         "score": "Spain 2-1",
         "aet_pct": 0.28,
         "pen_pct": 0.15,
-        "winner": null,
+        "winner": "b",
         "bracket_idx": 2,
         "top_3_scores": [
           {
@@ -1987,7 +1987,7 @@
         "score": "Argentina 2-0",
         "aet_pct": 0.2,
         "pen_pct": 0.1,
-        "winner": null,
+        "winner": "a",
         "bracket_idx": 3,
         "top_3_scores": [
           {
@@ -2011,40 +2011,7 @@
         ]
       }
     ],
-    "sf": [
-      {
-        "bracket_idx": 0,
-        "team_a": "Brazil",
-        "team_b": "France",
-        "group_a": null,
-        "seed_a": null,
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.1,
-        "draw": 0.0,
-        "team_b_win": 0.9,
-        "score": "France 2-1 (AET)",
-        "aet_pct": null,
-        "pen_pct": null,
-        "winner": "b"
-      },
-      {
-        "bracket_idx": 1,
-        "team_a": "Spain",
-        "team_b": "Argentina",
-        "group_a": null,
-        "seed_a": null,
-        "group_b": null,
-        "seed_b": null,
-        "team_a_win": 0.1,
-        "draw": 0.0,
-        "team_b_win": 0.9,
-        "score": "Argentina 2-1",
-        "aet_pct": null,
-        "pen_pct": null,
-        "winner": "b"
-      }
-    ],
+    "sf": [],
     "third_place": null
   },
   "final": {
@@ -2052,69 +2019,21 @@
     "tiers": [
       {
         "tier": 1,
-        "label": "90 分钟 (阿根廷胜)",
-        "content": "阿根廷在 90 分钟内取胜",
+        "label": "90 min (阿根廷胜)",
+        "content": "90 分钟内阿根廷取胜",
         "probability": 0.28
       },
       {
         "tier": 2,
-        "label": "90 分钟 (法国胜)",
-        "content": "法国在 90 分钟内取胜",
+        "label": "90 min (法国胜)",
+        "content": "90 分钟内法国取胜",
         "probability": 0.22
-      },
-      {
-        "tier": 3,
-        "label": "加时赛",
-        "content": "进入加时赛 (120 分钟内分胜负)",
-        "probability": 0.3
-      },
-      {
-        "tier": 4,
-        "label": "点球大战",
-        "content": "120 分钟战平, 通过点球大战决出冠军",
-        "probability": 0.2
       }
     ],
     "combined_text": null,
     "champion": "Argentina",
     "confidence": 0.62
   },
-  "upset_risks": [
-    {
-      "rank": 1,
-      "match": "R32 — Norway (G1) vs Ecuador (best 3rd)",
-      "stage": "R32",
-      "upset_probability": 0.15,
-      "rationale": "Norway's Haaland-led attack vs Ecuador's high-press style. Australia's tweet flagged Norway as upset-risk, and Senegal was the highest-Elo African side to fall in the sim"
-    },
-    {
-      "rank": 2,
-      "match": "R32 — USA vs Cape Verde",
-      "stage": "R32",
-      "upset_probability": 0.18,
-      "rationale": "Cape Verde's \"debut energy\" (Cape Verde's own interview) gives them belief against a US side whose progression depends on Pulisic carrying creative load"
-    },
-    {
-      "rank": 3,
-      "match": "Group A MD3 — South Korea vs Mexico",
-      "stage": "Group A",
-      "upset_probability": 0.35,
-      "rationale": "Australia's tweet: \"South Korea's pace may trouble Mexico.\" Could flip A1/A2"
-    },
-    {
-      "rank": 4,
-      "match": "R32 — DR Congo vs Netherlands",
-      "stage": "R32",
-      "upset_probability": 0.12,
-      "rationale": "DR Congo's physical profile in transition; Netherlands' 6 points in group stage could mask squad fatigue"
-    },
-    {
-      "rank": 5,
-      "match": "Group B — Switzerland vs Bosnia",
-      "stage": "Group B",
-      "upset_probability": 0.25,
-      "rationale": "Australia's tweet: \"Bosnia (FIFA 26) could shock Switzerland.\" Could flip B1/B2 seeding"
-    }
-  ],
+  "upset_risks": [],
   "report_markdown": "# 2026 FIFA World Cup — Full Tournament Prediction Report\n\n**Executive Summary:** Using the Elo-Poisson baseline calibrated on the 6/22–6/23 results (NZ 1-3 EGY, ARG 2-0 AUT, FRA 3-0 IRQ, NOR 3-2 SEN, ALG 2-1 JOR, POR 5-0 UZB, ENG 0-0 GHA), this report projects every remaining group match, the 8 best third-place qualifiers, the R32 (M73–M88) under strict FIFA bracket rules, the R16, QF, SF, and a Final between Argentina and France. Top seeds hold but upset-risk clusters around Norway, Cape Verde, Bosnia, and South Korea. Argentina edges France 51–49 in the final, with the title likely decided in AET or penalties.\n\n---\n\n## Group Stage Projections (MD2 + MD3) — All 12 Groups\n\n### Group A (Mexico, South Korea, South Africa, Czech Republic)\n- **MD2 — Mexico 1-1 South Korea** (35/30/35): Tight, low-block affair. Son's pace troubles Sánchez. Most likely 1-1.\n- **MD2 — South Africa 0-2 Czech Republic** (25/25/50): Czech recovery after the South Korea loss.\n- **MD3 — South Korea 1-0 South Africa** (60/20/20): Son drags Taeguk Warriors through.\n- **MD3 — Mexico 1-0 Czech Republic** (55/25/20): Hosts top the group.\n- **Final standings:** 1) Mexico 7, 2) South Korea 6, 3) Czech Republic 3, 4) South Africa 0.\n\n### Group B (Canada, Bosnia, Switzerland, Qatar)\n- **MD2 — Canada 1-2 Switzerland** (35/25/40): Xhaka-Embolo axis edges host.\n- **MD2 — Bosnia 2-0 Qatar** (60/20/20): Džeko-led experience dominates.\n- **MD3 — Switzerland 1-1 Bosnia** (40/30/30): Dampens both into tight finish.\n- **MD3 — Canada 2-0 Qatar** (60/20/20): Host pride on MD3.\n- **Final standings:** 1) Switzerland 7, 2) Bosnia 4, 3) Canada 4 (advances on GD), 4) Qatar 0.\n\n### Group C (Brazil, Morocco, Croatia, Haiti)\n- **MD2 — Brazil 2-0 Croatia** (55/25/20): Despite Ancelotti's \"system unstable\" caveat, Rodrygo-Vinicius superiority holds.\n- **MD2 — Morocco 3-1 Haiti** (65/20/15): Achraf & En-Nesyri class shows.\n- **MD3 — Brazil 3-1 Morocco** (60/20/20): Round-16 seeding secured.\n- **MD3 — Croatia 2-0 Haiti** (70/15/15): Modrić farewell goal.\n- **Final standings:** 1) Brazil 9, 2) Morocco 6, 3) Croatia 3, 4) Haiti 0.\n\n### Group D (USA, Australia, Scotland, Panama)\n- **MD2 — USA 2-1 Australia** (45/30/25): Pulisic decisive.\n- **MD2 — Scotland 2-0 Panama** (60/25/15): McGinn-McTominay midfield runs game.\n- **MD3 — Australia 1-0 Panama** (55/25/20): Socceroos salvage.\n- **MD3 — USA 1-1 Scotland** (35/30/35): Pulisic-McGinn duel; both qualify.\n- **Final standings:** 1) USA 7, 2) Scotland 5, 3) Australia 3, 4) Panama 1.\n\n### Group E (Germany, Ecuador, Curaçao, Ivory Coast)\n- **MD2 — Germany 3-0 Ecuador** (75/15/10): Musiala-Wirtz axis too sharp.\n- **MD2 — Curaçao 1-1 Ivory Coast** (30/35/35): Debut fairytale continues.\n- **MD3 — Germany 2-0 Curaçao** (80/12/8): Confirms seeded E1 status.\n- **MD3 — Ecuador 2-1 Ivory Coast** (45/30/25): La Tri rebounds.\n- **Final standings:** 1) Germany 9, 2) Ecuador 4, 3) Curaçao 2, 4) Ivory Coast 1.\n\n### Group F (Portugal, Belgium, Iran, Uzbekistan)\n- **MD2 — Portugal 3-0 Iran** (75/15/10): CR7 climbs all-time scorers.\n- **MD2 — Belgium 4-0 Uzbekistan** (80/12/8): De Bruyne-Lukaku golden-gen last dance.\n- **MD3 — Portugal 2-1 Belgium** (45/30/25): Depay's \"strong run\" view holds.\n- **MD3 — Iran 2-0 Uzbekistan** (55/25/20): Taremi sends off.\n- **Final standings:** 1) Portugal 9, 2) Belgium 6, 3) Iran 3, 4) Uzbekistan 0.\n\n### Group G (Norway, Senegal, Egypt, New Zealand)\n- **MD2 — Egypt 3-1 New Zealand** (60/20/20) — already played; Salah extends.\n- **MD2 — Norway 3-2 Senegal** (45/30/25) — already played; Haaland brace.\n- **MD3 — Norway 2-1 Egypt** (50/25/25): Haaland vs Salah decides G1.\n- **MD3 — Senegal 3-0 New Zealand** (75/15/10): Mane bounces back.\n- **Final standings:** 1) Norway 9, 2) Egypt 4, 3) Senegal 3 (qualifies on GD over 3rd-placed pool tiebreakers), 4) New Zealand 0.\n\n### Group H (Spain, Uruguay, Saudi Arabia, Cape Verde)\n- **MD2 — Spain 2-0 Cape Verde** (70/18/12): Pedri-Yamal creative differential.\n- **MD2 — Uruguay 2-0 Saudi Arabia** (65/20/15): Núñez-Valverde in form.\n- **MD3 — Spain 1-0 Uruguay** (45/30/25): Decisive for H1 seeding.\n- **MD3 — Cape Verde 2-1 Saudi Arabia** (40/30/30): Cape Verde's \"debut energy\" pays off per Australia's upset-risk note.\n- **Final standings:** 1) Spain 9, 2) Uruguay 6, 3) Cape Verde 3 (qualifies as best 3rd), 4) Saudi Arabia 0.\n\n### Group I (France, Croatia, Iraq, ?)\n- **MD2 — France 3-0 Iraq** (75/15/10) — already played; Mbappé brace.\n- **MD2 — Croatia 1-0 (4th team)** (60/25/15).\n- **MD3 — France 2-1 Croatia** (50/30/20): Camavinga-Zaëre-Emery midfield tips it.\n- **MD3 — Iraq 2-0 (4th team)** (50/25/25).\n- **Final standings:** 1) France 9, 2) Croatia 6, 3) Iraq 3, 4) 0.\n\n### Group J (Argentina, Austria, Algeria, Jordan)\n- **MD2 — Argentina 2-0 Austria** (70/18/12) — already played; Messi assist.\n- **MD2 — Algeria 2-1 Jordan** (55/25/20) — already played.\n- **MD3 — Argentina 2-0 Jordan** (80/12/8): Confirms J1 seeding (M86 vs H2).\n- **MD3 — Austria 1-0 Algeria** (40/30/30): Salzburg core edges North Africans.\n- **Final standings:** 1) Argentina 9, 2) Austria 3, 3) Algeria 3 (qualifies — best 3rd), 4) Jordan 0.\n\n### Group K (Colombia, DR Congo, Japan, ?)\n- **MD2 — Colombia 2-1 Japan** (50/30/20): Díaz decisive.\n- **MD2 — DR Congo 1-0 (4th team)** (50/25/25).\n- **MD3 — Colombia 1-1 DR Congo** (40/30/30): Both qualify.\n- **MD3 — Japan 2-0 (4th team)** (65/20/15).\n- **Final standings:** 1) Colombia 7, 2) DR Congo 4, 3) Japan 3 (qualifies on 3rd pool), 4) 0.\n\n### Group L (England, Netherlands, Ghana, ?)\n- **MD2 — England 0-0 Ghana** (60/25/15) — already played; Bellingham post-mortem moment.\n- **MD2 — Netherlands 2-0 (4th team)** (70/18/12): Depay caps milestone.\n- **MD3 — England 1-0 Netherlands** (45/30/25): Bellingham winner; L1 confirmed.\n- **MD3 — Ghana 2-0 (4th team)** (60/25/15).\n- **Final standings:** 1) England 7, 2) Netherlands 6, 3) Ghana 3 (best 3rd), 4) 0.\n\n---\n\n## 8 Best Third-Place Teams (advancing per FIFA rules)\n\nBased on the 8 highest combined point totals/GD among 3rd-placed teams, the projected qualifiers are:\n\n1. **Cape Verde (H, 3 pts, +1 GD)** — debut on stage.\n2. **Algeria (J, 3 pts, +0 GD)**\n3. **Ghana (L, 3 pts, +0 GD)**\n4. **Japan (K, 3 pts, +0 GD)**\n5. **Ecuador (E, 2 pts, -1 GD — sneaks in on coefficient tiebreak)**\n6. **Egypt (G, 3 pts, -1 GD)** — wait, G2 is Egypt, not 3rd. Re-check: Senegal 3rd with 3 pts, +1 GD.\n7. **Senegal (G, 3 pts, +1 GD)**\n8. **Bosnia (B, 4 pts, +1 GD)**\n\nRevised top 8 best 3rd: **Bosnia (B), Cape Verde (H), Algeria (J), Senegal (G), Japan (K), Ghana (L), Morocco (C 3rd if Croatia drops, but C is Croatia 3 pts), Ecuador (E)**. Final 8 = **Bosnia, Cape Verde, Algeria, Senegal, Japan, Ghana, Croatia, Ecuador**.\n\n---\n\n## Round of 32 (M73–M88, FIFA bracket rules)\n\n| Match | Fixture | Most Likely | AET% | Pen% |\n|---|---|---|---|---|\n| **M73** | A2 South Korea vs B2 Bosnia | **South Korea 2-1** | 25% | 15% |\n| **M74** | E1 Germany vs Bosnia (best 3rd) — see note | **Germany 3-0** | 10% | 5% |\n| **M75** | F1 Portugal vs C2 Morocco | **Portugal 2-1** | 20% | 10% |\n| **M76** | C1 Brazil vs F2 Belgium | **Brazil 2-1** | 25% | 12% |\n| **M77** | I1 France vs Ghana (best 3rd) | **France 3-1** | 15% | 5% |\n| **M78** | E2 Ecuador vs I2 Croatia | **Croatia 1-0** | 30% | 18% |\n| **M79** | A1 Mexico vs Croatia (best 3rd) | **Mexico 1-0** | 20% | 10% |\n| **M80** | L1 England vs Algeria (best 3rd) | **England 2-0** | 15% | 5% |\n| **M81** | D1 USA vs Cape Verde (best 3rd) | **USA 2-1** | 25% | 12% |\n| **M82** | G1 Norway vs Ecuador (best 3rd) | **Norway 2-0** | 15% | 5% |\n| **M83** | K2 DR Congo vs L2 Netherlands | **Netherlands 2-0** | 15% | 5% |\n| **M84** | H1 Spain vs J2 Austria | **Spain 3-1** | 12% | 5% |\n| **M85** | B1 Switzerland vs Japan (best 3rd) | **Switzerland 1-0** | 30% | 18% |\n| **M86** | J1 Argentina vs H2 Uruguay | **Argentina 2-1** | 22% | 10% |\n| **M87** | K1 Colombia vs Senegal (best 3rd) | **Colombia 2-1** | 25% | 12% |\n| **M88** | D2 Scotland vs G2 Egypt | **Scotland 1-0** | 30% | 18% |\n\n*Bracket reconciliation: M74 slot draws from the best 3rd eligible pool (A/B/C/D/F). With Croatia going through as C3, Germany meets Bosnia (B3) here. M77 pulls from C/D/F/G/H 3rd, slotting Ghana.*\n\n---\n\n## Round of 16 (8 matches)\n\n| Match | Fixture | Most Likely | AET% | Pen% |\n|---|---|---|---|---|\n| **R16-1** | W73 (Korea) vs W74 (Germany) | **Germany 2-0** | 15% | 5% |\n| **R16-2** | W75 (Portugal) vs W76 (Brazil) | **Brazil 1-0** | 30% | 15% |\n| **R16-3** | W77 (France) vs W78 (Croatia) | **France 2-1** | 25% | 12% |\n| **R16-4** | W79 (Mexico) vs W80 (England) | **England 1-0** | 30% | 15% |\n| **R16-5** | W81 (USA) vs W82 (Norway) | **Norway 2-1** | 25% | 12% |\n| **R16-6** | W83 (Netherlands) vs W84 (Spain) | **Spain 2-0** | 20% | 8% |\n| **R16-7** | W85 (Switzerland) vs W86 (Argentina) | **Argentina 2-0** | 15% | 5% |\n| **R16-8** | W87 (Colombia) vs W88 (Scotland) | **Colombia 1-0** | 30% | 18% |\n\n---\n\n## Quarterfinals (4 matches)\n\n| Match | Fixture | Most Likely | AET% | Pen% |\n|---|---|---|---|---|\n| **QF1** | Germany vs Brazil | **Brazil 2-1 (AET)** | 35% | 20% |\n| **QF2** | France vs England | **France 1-0** | 30% | 18% |\n| **QF3** | Norway vs Spain | **Spain 2-1** | 28% | 15% |\n| **QF4** | Argentina vs Colombia | **Argentina 2-0** | 20% | 10% |\n\nAncelotti warned that Brazil \"has historical vulnerabilities\" in knockout matches against organized blocks — yet Rodrygo-Vinicius's transition quality tips QF1 in extra time. Mbappé's interview: \"the mindset has to be: respect the opponent's journey, impose our quality from the first minute\" — France handles England's high press.\n\n---\n\n## Semifinals (2 matches)\n\n| Match | Fixture | Most Likely |\n|---|---|---|\n| **SF1** | Brazil vs France | **France 2-1 (AET)** |\n| **SF2** | Spain vs Argentina | **Argentina 2-1** |\n\nMbappé's pace against Brazil's high line (echoed in his own interview: \"push us to invert our wingers, overload the half-spaces\") unlocks a route past the Seleção. The Argentina–Spain SF is tighter; Scaloni's tactical maturity and Messi's orchestration in the half-spaces edge La Albiceleste through.\n\n---\n\n## Final — Argentina vs France (MetLife Stadium, 7/19)\n\n**3-tier outcome probabilities:**\n\n| Outcome | Probability |\n|---|---|\n| Argentina win in 90 minutes (e.g., 2-1) | **28%** |\n| France win in 90 minutes (e.g., 2-1) | **22%** |\n| **AET** (Argentina or France) | **30%** |\n| **Penalties** | **20%** |\n\n**Aggregate title probability:** Argentina 51% / France 49% (per Bellingham's post).\n\nThe decisive battle is central midfield — Camavinga + Zaïre-Emery vs De Paul + Mac Allister. Mbappé against Argentina's high line is France's most reliable route, but Argentina's compact block forces transitions onto Tchouaméni rather than creative zones. Set-pieces are the likely tiebreaker (both sides aerial-strong), giving the title to **Argentina 1-1 (4-3 pens)** or **Argentina 2-1 AET**.\n\n---\n\n## Top 5 Upset-Risk Matches\n\n1. **R32 — Norway (G1) vs Ecuador (best 3rd)** (M82): Norway's Haaland-led attack vs Ecuador's high-press style. Australia's tweet flagged Norway as upset-risk, and Senegal was the highest-Elo African side to fall in the sim. **Upset probability: 15% Ecuador win.**\n2. **R32 — USA vs Cape Verde** (M81): Cape Verde's \"debut energy\" (Cape Verde's own interview) gives them belief against a US side whose progression depends on Pulisic carrying creative load. **Upset probability: 18%.**\n3. **Group A MD3 — South Korea vs Mexico** (group decider): Australia's tweet: \"South Korea's pace may trouble Mexico.\" Could flip A1/A2. **Upset probability: 35%.**\n4. **R32 — DR Congo vs Netherlands** (M83): DR Congo's physical profile in transition; Netherlands' 6 points in group stage could mask squad fatigue. **Upset probability: 12%.**\n5. **Group B — Switzerland vs Bosnia**: Australia's tweet: \"Bosnia (FIFA 26) could shock Switzerland.\" Could flip B1/B2 seeding. **Upset probability: 25%.**\n\n---\n\n## Risks & Opportunities\n\n**Model Limitations.** Ancelotti and Mbappé both stressed the limits of pre-tournament Elo: \"Elo is a starting hypothesis, not a verdict.\" The Norway-Senegal and Algeria-Jordan results already show ratings underweighting in-tournament form. Cape Verde's interview distilled the lesson: \"ratings are a starting point, not a verdict.\"\n\n**Format Volatility.** FIFA's account noted that the 48-team expansion \"increases variance further\" and validated results like Norway 3-2 Senegal as \"healthy competitive depth.\" Expect 1–2 R32 upsets beyond the 5 listed risks.\n\n**Bracket Geography.** Argentina's J1 → H2 path (M86) is more favorable than the alternative, but Mbappé's interview highlighted central midfield as the decisive battle. A France-England QF would be the tournament's most likely QF upset-swing, and a France-Brazil SF is the most likely \"generational\" matchup.\n\n**Tactical Asymmetries.** France's historical vulnerability against organized South American sides (Ancelotti noted: \"physical battles in midfield\") is the single largest title-path risk for Les Bleus. Argentina's 51% edge reflects (a) Messi's continued orchestration, (b) Scaloni's structural cohesion, and (c) a QF/SF path that avoids France until the final.\n\n**Cape Verde / Debut Factor.** Cape Verde explicitly cited: \"the emotional weight of a first World Cup, the pride of a national anthem playing for the first time\" — intangibles the Elo system cannot price. Watch for a Round-of-32 moment that the model rates as a formality but that Cape Verde's tactical discipline + set-piece maximization (per their interview) can flip.\n\n**Final Word.** Bellingham's tweet captured the stakes: \"This rematch of the 2022 final would be the ultimate Messi vs Mbappé generational showdown.\" Both agents in the simulation agree: **the title is decided in the middle third, and Argentina's 51–49 edge holds — but only at the margins.**"
 }

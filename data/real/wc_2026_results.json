@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-06-24T00:25:44Z",
-  "source": "ESPN scoreboard (fifa.world, dates=20260611-20260719, 46 played)",
-  "match_count": 46,
+  "fetched_at": "2026-06-25T03:25:43Z",
+  "source": "ESPN scoreboard (fifa.world, dates=20260611-20260719, 54 played)",
+  "match_count": 54,
   "matches": [
     {
       "group": "A",
@@ -40,6 +40,24 @@
       "source_wiki_page": "ESPN:fifa.world:760441"
     },
     {
+      "group": "A",
+      "team_a": "Czech Republic",
+      "score_a": 0,
+      "team_b": "Mexico",
+      "score_b": 3,
+      "date": "2026-06-25",
+      "source_wiki_page": "ESPN:fifa.world:760467"
+    },
+    {
+      "group": "A",
+      "team_a": "South Africa",
+      "score_a": 1,
+      "team_b": "South Korea",
+      "score_b": 0,
+      "date": "2026-06-25",
+      "source_wiki_page": "ESPN:fifa.world:760466"
+    },
+    {
       "group": "B",
       "team_a": "Canada",
       "score_a": 1,
@@ -76,6 +94,24 @@
       "source_wiki_page": "ESPN:fifa.world:760440"
     },
     {
+      "group": "B",
+      "team_a": "Bosnia",
+      "score_a": 3,
+      "team_b": "Qatar",
+      "score_b": 1,
+      "date": "2026-06-24",
+      "source_wiki_page": "ESPN:fifa.world:760462"
+    },
+    {
+      "group": "B",
+      "team_a": "Switzerland",
+      "score_a": 2,
+      "team_b": "Canada",
+      "score_b": 1,
+      "date": "2026-06-24",
+      "source_wiki_page": "ESPN:fifa.world:760463"
+    },
+    {
       "group": "C",
       "team_a": "Brazil",
       "score_a": 1,
@@ -110,6 +146,24 @@
       "score_b": 0,
       "date": "2026-06-20",
       "source_wiki_page": "ESPN:fifa.world:760444"
+    },
+    {
+      "group": "C",
+      "team_a": "Morocco",
+      "score_a": 4,
+      "team_b": "Haiti",
+      "score_b": 2,
+      "date": "2026-06-24",
+      "source_wiki_page": "ESPN:fifa.world:760464"
+    },
+    {
+      "group": "C",
+      "team_a": "Scotland",
+      "score_a": 0,
+      "team_b": "Brazil",
+      "score_b": 3,
+      "date": "2026-06-24",
+      "source_wiki_page": "ESPN:fifa.world:760465"
     },
     {
       "group": "D",
@@ -391,6 +445,15 @@
       "source_wiki_page": "ESPN:fifa.world:760461"
     },
     {
+      "group": "K",
+      "team_a": "Colombia",
+      "score_a": 1,
+      "team_b": "DR Congo",
+      "score_b": 0,
+      "date": "2026-06-24",
+      "source_wiki_page": "ESPN:fifa.world:760459"
+    },
+    {
       "group": "L",
       "team_a": "England",
       "score_a": 4,
@@ -416,6 +479,15 @@
       "score_b": 0,
       "date": "2026-06-23",
       "source_wiki_page": "ESPN:fifa.world:760458"
+    },
+    {
+      "group": "L",
+      "team_a": "Panama",
+      "score_a": 0,
+      "team_b": "Croatia",
+      "score_b": 1,
+      "date": "2026-06-23",
+      "source_wiki_page": "ESPN:fifa.world:760460"
     }
   ]
 }

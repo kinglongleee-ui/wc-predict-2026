@@ -437,17 +437,29 @@ export function PlayedVsPredicted() {
           <div className="text-xs uppercase tracking-widest text-gray-500 mb-1">
             🗓 即将开赛 · ✅ 已比赛 vs 🔮 MiroFish 预测 (A+B Top-3 比分模型)
           </div>
-          <h2 className="text-xl font-bold">
-            Top-1 比分命中 {top1Hits} / {simulatedRows.length} ({formatPct(top1Pct, 1)})
-            <span className="text-sm font-normal text-gray-500 ml-2">
-              · Top-3 内 {top3Hits} 场 ({formatPct(top3Pct, 1)}) · 胜方命中 {hits} 场
+          {/* D 改展示口径: 胜方命中放最大 (最容易达, 最贴近博彩市场), Top-3 比分次之,
+              Top-1 比分精确最难. 三层命中率从"胜方→Top3→Top1" 升序展示. */}
+          <h2 className="text-xl font-bold flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="text-emerald-700 dark:text-emerald-400">
+              胜方命中 {hits} / {simulatedRows.length} ({formatPct(hitPct, 1)})
+            </span>
+            <span className="text-base font-normal text-gray-600 dark:text-gray-400">
+              · Top-3 比分内 {top3Hits} ({formatPct(top3Pct, 1)})
+            </span>
+            <span className="text-base font-normal text-gray-500">
+              · Top-1 完全 {top1Hits} ({formatPct(top1Pct, 1)})
             </span>
             {unSimulatedCount > 0 && (
-              <span className="text-sm font-normal text-gray-500 ml-2">
-                + {unSimulatedCount} 场 MiroFish 未模拟
+              <span className="text-sm font-normal text-gray-500">
+                + {unSimulatedCount} 未模拟
               </span>
             )}
           </h2>
+          <div className="text-[11px] text-gray-500 mt-1">
+            <span className="font-semibold">胜方</span> = 1X2 命中 ·{" "}
+            <span className="font-semibold">Top-3</span> = 真实比分在 3 个候选中 ·{" "}
+            <span className="font-semibold">Top-1</span> = 完全精确比分 (难度最高)
+          </div>
         </div>
         <div className="text-xs text-gray-500">
           抓取时间: {isoToCstLabel(real.fetched_at)}

@@ -808,8 +808,11 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
             # Extract team_a_win/draw/team_b_win from "TeamA N-M" (no A/D/B pcts in R8).
             # MiroFish score 习惯只写赢家 ("South Korea 2-1"), 不写输家, 所以不能用
             # "输家在 score 字符串" 判断, 只看 group/seed 是否有 + 比分反推或 name-in-score。
+            # 修 2026-06-24: 去掉 `group_a and group_b` 限制 (R8 MiroFish R32 markdown 没写
+            # (A1)/(B3) 标签, group_a/group_b 都是 None → 走 0.5/0.5 else 分支, R32 全部 confidence
+            # 错位. 现在只要 sm 存在就反推 confidence + winner.)
             sm = re.search(r"(\d+)\s*[-:]\s*(\d+)", score_clean)
-            if sm and group_a and group_b:
+            if sm:
                 h, a_ = int(sm.group(1)), int(sm.group(2))
                 if h == a_:
                     team_a_win, draw, team_b_win = 0.0, 1.0, 0.0
@@ -818,12 +821,17 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
                     # 优先 name-in-score (R8 写 "South Korea 2-1" 这种赢家名+比分)
                     if team_a_clean and team_a_clean in score_clean:
                         team_a_win, team_b_win = 0.9, 0.1
+                        winner_hint = winner_hint or "a"
                     elif team_b_clean and team_b_clean in score_clean:
                         team_a_win, team_b_win = 0.1, 0.9
+                        winner_hint = winner_hint or "b"
                     else:
                         # MiroFish 分数习惯高分=赢家, 用比分反推
                         team_a_win = 0.5 + (0.4 if h > a_ else -0.4)
                         team_b_win = 1.0 - team_a_win
+                        # 反推 winner (按 a 在前/后判)
+                        if not winner_hint:
+                            winner_hint = "a" if h > a_ else "b"
             else:
                 team_a_win, draw, team_b_win = 0.5, 0.0, 0.5
             matches.append({
@@ -991,12 +999,19 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
             label, team_a_raw, team_b_raw, score, aet_pct, pen_pct = (
                 m_label.group(1), team_a_raw, team_b_raw, score, aet_pct, pen_pct
             )
-            # Strip "(W73)" winner-ref from team names
-            team_a_clean = re.sub(r"\s*\(W\d+\)\s*", "", team_a_raw).strip()
-            team_b_clean = re.sub(r"\s*\(W\d+\)\s*", "", team_b_raw).strip()
+            # Strip "W73 (Korea)" winner-ref → leaves "Korea" (R16 raw format)
+            # R16 raw: "W73 (Korea) vs W74 (Germany)" — strip prefix "W\d+ \(" + ")"
+            team_a_clean = re.sub(r"^W\d+\s*\(([^)]+)\)\s*", r"\1", team_a_raw).strip()
+            team_b_clean = re.sub(r"^W\d+\s*\(([^)]+)\)\s*", r"\1", team_b_raw).strip()
+            # Also handle plain "W73 Germany" (no parens) for safety
+            if team_a_clean.startswith("W"):
+                team_a_clean = re.sub(r"^W\d+\s*", "", team_a_clean).strip()
+            if team_b_clean.startswith("W"):
+                team_b_clean = re.sub(r"^W\d+\s*", "", team_b_clean).strip()
             team_a_clean = re.sub(r"\s*\(.*?best 3rd.*?\)\s*", "", team_a_clean, flags=re.IGNORECASE).strip()
             team_b_clean = re.sub(r"\s*\(.*?best 3rd.*?\)\s*", "", team_b_clean, flags=re.IGNORECASE).strip()
             score_clean = score.strip()
+            winner_hint = _extract_winner_from_score(score_clean, team_a_clean, team_b_clean)
             sm = re.search(r"(\d+)\s*[-:]\s*(\d+)", score_clean)
             if sm:
                 h, a_ = int(sm.group(1)), int(sm.group(2))
@@ -1007,12 +1022,16 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
                     # 优先 name-in-score (R8 "Germany 2-0" 这种赢家名+比分)
                     if team_a_clean and team_a_clean in score_clean:
                         team_a_win, team_b_win = 0.9, 0.1
+                        winner_hint = winner_hint or "a"
                     elif team_b_clean and team_b_clean in score_clean:
                         team_a_win, team_b_win = 0.1, 0.9
+                        winner_hint = winner_hint or "b"
                     else:
                         # MiroFish 习惯高分=赢家, 比分反推
                         team_a_win = 0.5 + (0.4 if h > a_ else -0.4)
                         team_b_win = 1.0 - team_a_win
+                        if not winner_hint:
+                            winner_hint = "a" if h > a_ else "b"
             else:
                 team_a_win, draw, team_b_win = 0.5, 0.0, 0.5
             matches.append({
@@ -1028,7 +1047,10 @@ def _parse_bracket_table(md_text: str, section_start: int, with_index: bool) -> 
                 "score": score_clean,
                 "aet_pct": parse_pct(aet_pct + "%") if aet_pct else None,
                 "pen_pct": parse_pct(pen_pct + "%") if pen_pct else None,
-                "winner": _extract_winner_from_score(score_clean, team_a_clean, team_b_clean),
+                # 修 2026-06-24: 用我们反推的 winner_hint (含 name-in-score + 比分反推),
+                # 不是只调用 _extract_winner_from_score (它只认 ( ) 内的赢家名, 不认
+                # MiroFish R8 写的 "Germany 2-0" 格式)
+                "winner": winner_hint or _extract_winner_from_score(score_clean, team_a_clean, team_b_clean),
             })
         for i, m in enumerate(matches):
             m["bracket_idx"] = i
@@ -1649,9 +1671,25 @@ def _enrich_with_odds(matches, odds_index) -> tuple:
 
     Returns (matches, n_enriched).
     """
-    if not matches or not odds_index:
+    if not matches:
         return matches, 0
     n = 0
+    # 兜底: 给无 odds 的预比赛注入 Elo-Poisson outcome (R32+ 阶段常用,
+    # MiroFish 常输出 0.5/0/0.5 占位; Elo-Poisson 比 LLM hallucinate 准)
+    elo_helper = None
+    elo_ratings = None
+    def _get_elo():
+        nonlocal elo_helper, elo_ratings
+        if elo_helper is not None:
+            return elo_helper, elo_ratings
+        try:
+            import elo_poisson  # type: ignore
+            elo_helper = elo_poisson
+            elo_ratings = elo_poisson.load_elo_ratings()
+        except (ImportError, OSError):
+            elo_helper = False
+        return elo_helper, elo_ratings
+
     for m in matches:
         if m.get("is_played"):
             continue
@@ -1677,6 +1715,9 @@ def _enrich_with_odds(matches, odds_index) -> tuple:
         od_home = o.get("away_prob_norm" if swap else "home_prob_norm")
         od_draw = o.get("draw_prob_norm")
         od_away = o.get("home_prob_norm" if swap else "away_prob_norm")
+        bh = _blend(mf_home, od_home)
+        bd = _blend(mf_draw, od_draw)
+        bw = _blend(mf_away, od_away)
         m["odds"] = {
             "provider": o.get("provider"),
             "kickoff_utc": odds_match.get("kickoff_utc"),
@@ -1691,12 +1732,43 @@ def _enrich_with_odds(matches, odds_index) -> tuple:
             "home_prob_norm": od_home,
             "draw_prob_norm": od_draw,
             "away_prob_norm": od_away,
-            "blended_home": _blend(mf_home, od_home),
-            "blended_draw": _blend(mf_draw, od_draw),
-            "blended_away": _blend(mf_away, od_away),
+            "blended_home": bh,
+            "blended_draw": bd,
+            "blended_away": bw,
             "weight": ODDS_BLEND_WEIGHT,
         }
+        # ★ B: 把 blended 概率作为新的 source-of-truth, 覆盖 MiroFish 原始概率.
+        # 之前只写到 m["odds"], 前端继续用 m.team_a_win/draw/team_b_win 渲染 — blended 没用上.
+        # 现在直接覆写, PlayedVsPredicted 渲染的就是"30%赔率+70%LLM"的混合预测.
+        m["team_a_win"] = bh
+        m["draw"] = bd
+        m["team_b_win"] = bw
+        m["odds_overrode"] = True  # marker for audit (frontend 可选择性显示)
         n += 1
+        continue
+
+        # ----- 兜底: 无 odds 的未比赛, 用 Elo-Poisson 校准 outcome -----
+        # MiroFish R32+ 经常输出 0.5/0/0.5 占位 — Elo-Poisson 基于 Elo 差
+        # + Poisson 进球分布, 比 LLM hallucinate 准. 不动 most_likely_score (那是 MiroFish 的).
+        mf_home = m.get("team_a_win")
+        mf_draw = m.get("draw")
+        mf_away = m.get("team_b_win")
+        # 只在 MiroFish 输出不确定 (0.5/0/0.5) 或全 0 时用 Elo 兜底
+        if (mf_home is not None and mf_draw is not None and mf_away is not None
+                and not (mf_home == 0.5 and mf_draw == 0.0 and mf_away == 0.5)
+                and not (mf_home == 0.0 and mf_draw == 0.0 and mf_away == 0.0)):
+            continue
+        helper, ratings = _get_elo()
+        if helper and ratings:
+            try:
+                pred = helper.predict_one(a, b, ratings)
+                m["team_a_win"] = pred["win_a"]
+                m["draw"] = pred["draw"]
+                m["team_b_win"] = pred["win_b"]
+                m["elo_overrode"] = True
+                n += 1
+            except Exception:
+                pass
     return matches, n
 
 
