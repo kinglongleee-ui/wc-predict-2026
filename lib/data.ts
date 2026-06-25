@@ -280,23 +280,18 @@ export function loadRun(runId: string): RunData | null {
 export function getLatestRound3Run(): RunData | null {
   // Round 3 is the canonical detailed report. Cron updates this daily; we
   // pick the most recently created run whose id is NOT the pinned Round 2
-  // baseline (run_a18431af48fd) and whose file is large enough to be a full
-  // Round 3 (>20 KB; Round 2's parsed JSON is ~13 KB).
+  // baseline (run_a18431af48fd) and whose file has both `final` and `groups`.
   //
-  // Selection rule (2026-06-19): prefer the latest run by created_at; if
-  // its bracket is empty (parser failure), fall back to the latest run
-  // whose bracket is populated. R4 reports list "12 Matchups" instead of
-  // 16, so we no longer require r32.length >= 16 — that was preventing R4
-  // from ever becoming the canonical run.
+  // 2026-06-25 update: pick newest by created_at, no bracket fallback.
+  // Previously we preferred runs with bracket.r32 > 0, but that locks us to
+  // R9 d1f74f (which has 134-fallback bracket) instead of newer R10 905a0
+  // which has 16 fresh MD2/MD3 group matches but no bracket yet.
+  // Bracket is rendered with 134 fallback at runtime anyway, so any run works.
   const all = listRuns().filter(
     (r) => r.run_id !== "run_a18431af48fd" && r.final && r.groups,
   );
   if (all.length === 0) return null;
-  if (all[0].bracket?.r32 && all[0].bracket.r32.length > 0) return all[0];
-  const withBracket = all.find(
-    (r) => r.bracket && r.bracket.r32 && r.bracket.r32.length > 0,
-  );
-  return withBracket || all[0];
+  return all[0];
 }
 
 export function getRound2Run(): RunData | null {

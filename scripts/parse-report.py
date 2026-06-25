@@ -140,6 +140,27 @@ def parse_group_table(md_text: str, group_letter: str) -> list:
     if matches:
         return matches
 
+    # R10 style: | TEAM_A vs TEAM_B (MDx) | A% | D% | B% | Score |
+    # 5-col, NO bold, with % suffix. Score can be "1-1 / 2-1 MEX" — pick the first H-A.
+    for row in re.finditer(
+        r"\|\s*([^|*]+?)\s+vs\s+([^|*]+?)\s*\(MD(\d+)(?:,\s*prior)?\)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*(\d+%)\s*\|\s*([^|]+?)\s*\|",
+        section_text,
+    ):
+        team_a_full, team_b_full, md, a_pct, draw_pct, b_pct, score_raw = row.groups()
+        matches.append({
+            "stage": f"Group {group_letter}",
+            "matchday": int(md),
+            "team_a": team_a_full.strip(),
+            "team_b": team_b_full.strip(),
+            "team_a_win": parse_pct(a_pct),
+            "draw": parse_pct(draw_pct),
+            "team_b_win": parse_pct(b_pct),
+            "most_likely_score": parse_score(score_raw),
+        })
+
+    if matches:
+        return matches
+
     # R5 style: | MD | Match | A% | D% | B% | MLS |  (numeric MD col, plain numbers w/o %)
     # Skip header rows where col1 is "MD" or "---"
     for row in re.finditer(
@@ -1635,6 +1656,8 @@ ODDS_BLEND_WEIGHT = 0.30  # 30% bookmaker + 70% MiroFish
 def load_odds() -> dict:
     """Returns {(team_a_lc, team_b_lc): odds_match, ...} keyed by both orderings.
     Empty dict on missing file or invalid JSON.
+    Also keys by 3-letter FIFA code (MEX/KOR) since R10 MiroFish output uses codes
+    while odds file uses full names.
     """
     if not ODDS_PATH.exists():
         return {}
@@ -1643,15 +1666,36 @@ def load_odds() -> dict:
     except (json.JSONDecodeError, OSError):
         return {}
     out: dict = {}
+    # 3-letter FIFA code ↔ canonical full name (lowercase)
+    CODE_TO_TEAM = {
+        "mex": "mexico", "kor": "south korea", "cze": "czech republic", "rsa": "south africa",
+        "sui": "switzerland", "qat": "qatar", "bih": "bosnia", "can": "canada",
+        "bra": "brazil", "mar": "morocco", "sco": "scotland", "hai": "haiti",
+        "usa": "usa", "par": "paraguay", "aus": "australia", "tur": "turkey",
+        "ger": "germany", "ecu": "ecuador", "civ": "ivory coast", "cuw": "curaçao",
+        "ned": "netherlands", "swe": "sweden", "jpn": "japan", "tun": "tunisia",
+        "bel": "belgium", "irn": "iran", "egy": "egypt", "nzl": "new zealand",
+        "esp": "spain", "uru": "uruguay", "ksa": "saudi arabia", "cpv": "cape verde",
+        "fra": "france", "nor": "norway", "sen": "senegal", "irq": "iraq",
+        "arg": "argentina", "alg": "algeria", "aut": "austria", "jor": "jordan",
+        "por": "portugal", "col": "colombia", "cod": "dr congo", "uzb": "uzbekistan",
+        "eng": "england", "cro": "croatia", "gha": "ghana", "pan": "panama",
+    }
+    TEAM_TO_CODE = {v: k for k, v in CODE_TO_TEAM.items()}
     for m in data.get("matches", []):
         a = (m.get("team_a") or "").strip().lower()
         b = (m.get("team_b") or "").strip().lower()
         if not a or not b:
             continue
-        # Book on ESPN lists team_a = home, team_b = away. MiroFish may list in
-        # reverse. Store both orderings.
+        # Original (full name) keys
         out[(a, b)] = m
         out[(b, a)] = {**m, "team_a": m["team_b"], "team_b": m["team_a"]}
+        # 3-letter code keys — both directions
+        a_code = TEAM_TO_CODE.get(a)
+        b_code = TEAM_TO_CODE.get(b)
+        if a_code and b_code:
+            out[(a_code, b_code)] = {**m, "team_a": m["team_a"], "team_b": m["team_b"]}
+            out[(b_code, a_code)] = {**m, "team_a": m["team_b"], "team_b": m["team_a"]}
     return out
 
 
