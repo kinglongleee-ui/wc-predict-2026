@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-06-25T16:53:21Z",
-  "source": "ESPN scoreboard (fifa.world, dates=20260611-20260719, 54 played)",
-  "match_count": 54,
+  "fetched_at": "2026-06-26T05:27:29Z",
+  "source": "ESPN scoreboard (fifa.world, dates=20260611-20260719, 60 played)",
+  "match_count": 60,
   "matches": [
     {
       "group": "A",
@@ -10,7 +10,7 @@
       "team_b": "South Africa",
       "score_b": 0,
       "date": "2026-06-11",
-      "source_wiki_page": "ESPN:fifa.world:760415"
+      "source_url": "ESPN:fifa.world:760415"
     },
     {
       "group": "A",
@@ -19,7 +19,7 @@
       "team_b": "Czech Republic",
       "score_b": 1,
       "date": "2026-06-12",
-      "source_wiki_page": "ESPN:fifa.world:760414"
+      "source_url": "ESPN:fifa.world:760414"
     },
     {
       "group": "A",
@@ -28,7 +28,7 @@
       "team_b": "South Africa",
       "score_b": 1,
       "date": "2026-06-18",
-      "source_wiki_page": "ESPN:fifa.world:760438"
+      "source_url": "ESPN:fifa.world:760438"
     },
     {
       "group": "A",
@@ -37,7 +37,7 @@
       "team_b": "South Korea",
       "score_b": 0,
       "date": "2026-06-19",
-      "source_wiki_page": "ESPN:fifa.world:760441"
+      "source_url": "ESPN:fifa.world:760441"
     },
     {
       "group": "A",
@@ -46,7 +46,7 @@
       "team_b": "Mexico",
       "score_b": 3,
       "date": "2026-06-25",
-      "source_wiki_page": "ESPN:fifa.world:760467"
+      "source_url": "ESPN:fifa.world:760467"
     },
     {
       "group": "A",
@@ -55,7 +55,7 @@
       "team_b": "South Korea",
       "score_b": 0,
       "date": "2026-06-25",
-      "source_wiki_page": "ESPN:fifa.world:760466"
+      "source_url": "ESPN:fifa.world:760466"
     },
     {
       "group": "B",
@@ -64,7 +64,7 @@
       "team_b": "Bosnia",
       "score_b": 1,
       "date": "2026-06-12",
-      "source_wiki_page": "ESPN:fifa.world:760416"
+      "source_url": "ESPN:fifa.world:760416"
     },
     {
       "group": "B",
@@ -73,7 +73,7 @@
       "team_b": "Switzerland",
       "score_b": 1,
       "date": "2026-06-13",
-      "source_wiki_page": "ESPN:fifa.world:760420"
+      "source_url": "ESPN:fifa.world:760420"
     },
     {
       "group": "B",
@@ -82,7 +82,7 @@
       "team_b": "Bosnia",
       "score_b": 1,
       "date": "2026-06-18",
-      "source_wiki_page": "ESPN:fifa.world:760439"
+      "source_url": "ESPN:fifa.world:760439"
     },
     {
       "group": "B",
@@ -91,7 +91,7 @@
       "team_b": "Qatar",
       "score_b": 0,
       "date": "2026-06-18",
-      "source_wiki_page": "ESPN:fifa.world:760440"
+      "source_url": "ESPN:fifa.world:760440"
     },
     {
       "group": "B",
@@ -100,7 +100,7 @@
       "team_b": "Qatar",
       "score_b": 1,
       "date": "2026-06-24",
-      "source_wiki_page": "ESPN:fifa.world:760462"
+      "source_url": "ESPN:fifa.world:760462"
     },
     {
       "group": "B",
@@ -109,7 +109,7 @@
       "team_b": "Canada",
       "score_b": 1,
       "date": "2026-06-24",
-      "source_wiki_page": "ESPN:fifa.world:760463"
+      "source_url": "ESPN:fifa.world:760463"
     },
     {
       "group": "C",
@@ -118,7 +118,7 @@
       "team_b": "Morocco",
       "score_b": 1,
       "date": "2026-06-13",
-      "source_wiki_page": "ESPN:fifa.world:760419"
+      "source_url": "ESPN:fifa.world:760419"
     },
     {
       "group": "C",
@@ -127,7 +127,7 @@
       "team_b": "Scotland",
       "score_b": 1,
       "date": "2026-06-14",
-      "source_wiki_page": "ESPN:fifa.world:760418"
+      "source_url": "ESPN:fifa.world:760418"
     },
     {
       "group": "C",
@@ -136,7 +136,7 @@
       "team_b": "Morocco",
       "score_b": 1,
       "date": "2026-06-19",
-      "source_wiki_page": "ESPN:fifa.world:760445"
+      "source_url": "ESPN:fifa.world:760445"
     },
     {
       "group": "C",
@@ -145,7 +145,7 @@
       "team_b": "Haiti",
       "score_b": 0,
       "date": "2026-06-20",
-      "source_wiki_page": "ESPN:fifa.world:760444"
+      "source_url": "ESPN:fifa.world:760444"
     },
     {
       "group": "C",
@@ -154,7 +154,7 @@
       "team_b": "Haiti",
       "score_b": 2,
       "date": "2026-06-24",
-      "source_wiki_page": "ESPN:fifa.world:760464"
+      "source_url": "ESPN:fifa.world:760464"
     },
     {
       "group": "C",
@@ -163,7 +163,7 @@
       "team_b": "Brazil",
       "score_b": 3,
       "date": "2026-06-24",
-      "source_wiki_page": "ESPN:fifa.world:760465"
+      "source_url": "ESPN:fifa.world:760465"
     },
     {
       "group": "D",
@@ -172,7 +172,7 @@
       "team_b": "Paraguay",
       "score_b": 1,
       "date": "2026-06-13",
-      "source_wiki_page": "ESPN:fifa.world:760417"
+      "source_url": "ESPN:fifa.world:760417"
     },
     {
       "group": "D",
@@ -181,7 +181,7 @@
       "team_b": "Turkey",
       "score_b": 0,
       "date": "2026-06-14",
-      "source_wiki_page": "ESPN:fifa.world:760421"
+      "source_url": "ESPN:fifa.world:760421"
     },
     {
       "group": "D",
@@ -190,7 +190,7 @@
       "team_b": "Australia",
       "score_b": 0,
       "date": "2026-06-19",
-      "source_wiki_page": "ESPN:fifa.world:760442"
+      "source_url": "ESPN:fifa.world:760442"
     },
     {
       "group": "D",
@@ -199,7 +199,25 @@
       "team_b": "Paraguay",
       "score_b": 1,
       "date": "2026-06-20",
-      "source_wiki_page": "ESPN:fifa.world:760443"
+      "source_url": "ESPN:fifa.world:760443"
+    },
+    {
+      "group": "D",
+      "team_a": "Paraguay",
+      "score_a": 0,
+      "team_b": "Australia",
+      "score_b": 0,
+      "date": "2026-06-26",
+      "source_url": "ESPN:fifa.world:760469"
+    },
+    {
+      "group": "D",
+      "team_a": "Turkey",
+      "score_a": 3,
+      "team_b": "USA",
+      "score_b": 2,
+      "date": "2026-06-26",
+      "source_url": "ESPN:fifa.world:760470"
     },
     {
       "group": "E",
@@ -208,7 +226,7 @@
       "team_b": "Curaçao",
       "score_b": 1,
       "date": "2026-06-14",
-      "source_wiki_page": "ESPN:fifa.world:760422"
+      "source_url": "ESPN:fifa.world:760422"
     },
     {
       "group": "E",
@@ -217,7 +235,7 @@
       "team_b": "Ecuador",
       "score_b": 0,
       "date": "2026-06-14",
-      "source_wiki_page": "ESPN:fifa.world:760423"
+      "source_url": "ESPN:fifa.world:760423"
     },
     {
       "group": "E",
@@ -226,7 +244,7 @@
       "team_b": "Ivory Coast",
       "score_b": 1,
       "date": "2026-06-20",
-      "source_wiki_page": "ESPN:fifa.world:760448"
+      "source_url": "ESPN:fifa.world:760448"
     },
     {
       "group": "E",
@@ -235,7 +253,25 @@
       "team_b": "Curaçao",
       "score_b": 0,
       "date": "2026-06-21",
-      "source_wiki_page": "ESPN:fifa.world:760446"
+      "source_url": "ESPN:fifa.world:760446"
+    },
+    {
+      "group": "E",
+      "team_a": "Curaçao",
+      "score_a": 0,
+      "team_b": "Ivory Coast",
+      "score_b": 2,
+      "date": "2026-06-25",
+      "source_url": "ESPN:fifa.world:760473"
+    },
+    {
+      "group": "E",
+      "team_a": "Ecuador",
+      "score_a": 2,
+      "team_b": "Germany",
+      "score_b": 1,
+      "date": "2026-06-25",
+      "source_url": "ESPN:fifa.world:760468"
     },
     {
       "group": "F",
@@ -244,7 +280,7 @@
       "team_b": "Japan",
       "score_b": 2,
       "date": "2026-06-14",
-      "source_wiki_page": "ESPN:fifa.world:760425"
+      "source_url": "ESPN:fifa.world:760425"
     },
     {
       "group": "F",
@@ -253,7 +289,7 @@
       "team_b": "Tunisia",
       "score_b": 1,
       "date": "2026-06-15",
-      "source_wiki_page": "ESPN:fifa.world:760424"
+      "source_url": "ESPN:fifa.world:760424"
     },
     {
       "group": "F",
@@ -262,7 +298,7 @@
       "team_b": "Sweden",
       "score_b": 1,
       "date": "2026-06-20",
-      "source_wiki_page": "ESPN:fifa.world:760447"
+      "source_url": "ESPN:fifa.world:760447"
     },
     {
       "group": "F",
@@ -271,7 +307,25 @@
       "team_b": "Japan",
       "score_b": 4,
       "date": "2026-06-21",
-      "source_wiki_page": "ESPN:fifa.world:760449"
+      "source_url": "ESPN:fifa.world:760449"
+    },
+    {
+      "group": "F",
+      "team_a": "Japan",
+      "score_a": 1,
+      "team_b": "Sweden",
+      "score_b": 1,
+      "date": "2026-06-25",
+      "source_url": "ESPN:fifa.world:760471"
+    },
+    {
+      "group": "F",
+      "team_a": "Tunisia",
+      "score_a": 1,
+      "team_b": "Netherlands",
+      "score_b": 3,
+      "date": "2026-06-25",
+      "source_url": "ESPN:fifa.world:760472"
     },
     {
       "group": "G",
@@ -280,7 +334,7 @@
       "team_b": "Egypt",
       "score_b": 1,
       "date": "2026-06-15",
-      "source_wiki_page": "ESPN:fifa.world:760426"
+      "source_url": "ESPN:fifa.world:760426"
     },
     {
       "group": "G",
@@ -289,7 +343,7 @@
       "team_b": "New Zealand",
       "score_b": 2,
       "date": "2026-06-16",
-      "source_wiki_page": "ESPN:fifa.world:760427"
+      "source_url": "ESPN:fifa.world:760427"
     },
     {
       "group": "G",
@@ -298,7 +352,7 @@
       "team_b": "Iran",
       "score_b": 0,
       "date": "2026-06-21",
-      "source_wiki_page": "ESPN:fifa.world:760451"
+      "source_url": "ESPN:fifa.world:760451"
     },
     {
       "group": "G",
@@ -307,7 +361,7 @@
       "team_b": "Egypt",
       "score_b": 3,
       "date": "2026-06-22",
-      "source_wiki_page": "ESPN:fifa.world:760452"
+      "source_url": "ESPN:fifa.world:760452"
     },
     {
       "group": "H",
@@ -316,7 +370,7 @@
       "team_b": "Cape Verde",
       "score_b": 0,
       "date": "2026-06-15",
-      "source_wiki_page": "ESPN:fifa.world:760428"
+      "source_url": "ESPN:fifa.world:760428"
     },
     {
       "group": "H",
@@ -325,7 +379,7 @@
       "team_b": "Uruguay",
       "score_b": 1,
       "date": "2026-06-15",
-      "source_wiki_page": "ESPN:fifa.world:760429"
+      "source_url": "ESPN:fifa.world:760429"
     },
     {
       "group": "H",
@@ -334,7 +388,7 @@
       "team_b": "Saudi Arabia",
       "score_b": 0,
       "date": "2026-06-21",
-      "source_wiki_page": "ESPN:fifa.world:760453"
+      "source_url": "ESPN:fifa.world:760453"
     },
     {
       "group": "H",
@@ -343,7 +397,7 @@
       "team_b": "Cape Verde",
       "score_b": 2,
       "date": "2026-06-21",
-      "source_wiki_page": "ESPN:fifa.world:760450"
+      "source_url": "ESPN:fifa.world:760450"
     },
     {
       "group": "I",
@@ -352,7 +406,7 @@
       "team_b": "Senegal",
       "score_b": 1,
       "date": "2026-06-16",
-      "source_wiki_page": "ESPN:fifa.world:760432"
+      "source_url": "ESPN:fifa.world:760432"
     },
     {
       "group": "I",
@@ -361,7 +415,7 @@
       "team_b": "Norway",
       "score_b": 4,
       "date": "2026-06-16",
-      "source_wiki_page": "ESPN:fifa.world:760430"
+      "source_url": "ESPN:fifa.world:760430"
     },
     {
       "group": "I",
@@ -370,7 +424,7 @@
       "team_b": "Iraq",
       "score_b": 0,
       "date": "2026-06-22",
-      "source_wiki_page": "ESPN:fifa.world:760457"
+      "source_url": "ESPN:fifa.world:760457"
     },
     {
       "group": "I",
@@ -379,7 +433,7 @@
       "team_b": "Senegal",
       "score_b": 2,
       "date": "2026-06-23",
-      "source_wiki_page": "ESPN:fifa.world:760454"
+      "source_url": "ESPN:fifa.world:760454"
     },
     {
       "group": "J",
@@ -388,7 +442,7 @@
       "team_b": "Algeria",
       "score_b": 0,
       "date": "2026-06-17",
-      "source_wiki_page": "ESPN:fifa.world:760433"
+      "source_url": "ESPN:fifa.world:760433"
     },
     {
       "group": "J",
@@ -397,7 +451,7 @@
       "team_b": "Jordan",
       "score_b": 1,
       "date": "2026-06-17",
-      "source_wiki_page": "ESPN:fifa.world:760431"
+      "source_url": "ESPN:fifa.world:760431"
     },
     {
       "group": "J",
@@ -406,7 +460,7 @@
       "team_b": "Austria",
       "score_b": 0,
       "date": "2026-06-22",
-      "source_wiki_page": "ESPN:fifa.world:760456"
+      "source_url": "ESPN:fifa.world:760456"
     },
     {
       "group": "J",
@@ -415,7 +469,7 @@
       "team_b": "Algeria",
       "score_b": 2,
       "date": "2026-06-23",
-      "source_wiki_page": "ESPN:fifa.world:760455"
+      "source_url": "ESPN:fifa.world:760455"
     },
     {
       "group": "K",
@@ -424,7 +478,7 @@
       "team_b": "DR Congo",
       "score_b": 1,
       "date": "2026-06-17",
-      "source_wiki_page": "ESPN:fifa.world:760435"
+      "source_url": "ESPN:fifa.world:760435"
     },
     {
       "group": "K",
@@ -433,7 +487,7 @@
       "team_b": "Colombia",
       "score_b": 3,
       "date": "2026-06-18",
-      "source_wiki_page": "ESPN:fifa.world:760436"
+      "source_url": "ESPN:fifa.world:760436"
     },
     {
       "group": "K",
@@ -442,7 +496,7 @@
       "team_b": "Uzbekistan",
       "score_b": 0,
       "date": "2026-06-23",
-      "source_wiki_page": "ESPN:fifa.world:760461"
+      "source_url": "ESPN:fifa.world:760461"
     },
     {
       "group": "K",
@@ -451,7 +505,7 @@
       "team_b": "DR Congo",
       "score_b": 0,
       "date": "2026-06-24",
-      "source_wiki_page": "ESPN:fifa.world:760459"
+      "source_url": "ESPN:fifa.world:760459"
     },
     {
       "group": "L",
@@ -460,7 +514,7 @@
       "team_b": "Croatia",
       "score_b": 2,
       "date": "2026-06-17",
-      "source_wiki_page": "ESPN:fifa.world:760437"
+      "source_url": "ESPN:fifa.world:760437"
     },
     {
       "group": "L",
@@ -469,7 +523,7 @@
       "team_b": "Panama",
       "score_b": 0,
       "date": "2026-06-17",
-      "source_wiki_page": "ESPN:fifa.world:760434"
+      "source_url": "ESPN:fifa.world:760434"
     },
     {
       "group": "L",
@@ -478,7 +532,7 @@
       "team_b": "Ghana",
       "score_b": 0,
       "date": "2026-06-23",
-      "source_wiki_page": "ESPN:fifa.world:760458"
+      "source_url": "ESPN:fifa.world:760458"
     },
     {
       "group": "L",
@@ -487,7 +541,7 @@
       "team_b": "Croatia",
       "score_b": 1,
       "date": "2026-06-23",
-      "source_wiki_page": "ESPN:fifa.world:760460"
+      "source_url": "ESPN:fifa.world:760460"
     }
   ]
 }

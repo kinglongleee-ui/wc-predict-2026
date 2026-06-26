@@ -1,15 +1,17 @@
 {
   "run_id": "run_a18431af48fd",
-  "created_at": "2026-06-25T17:42:19.350915",
+  "created_at": "",
+  "round": 2,
+  "format": "inline-list",
   "verdict": {
-    "prediction": "阿根廷夺得 2026 世界杯冠军 (概率 22%), 决赛常规 90 分钟 2-1 击败法国; 巴西 (18%) 与英格兰 (12%) 为其次热门, 前 7 强概率紧密聚集, 整体竞争极度开放。",
+    "prediction": "Argentina wins the 2026 FIFA World Cup (22% champion probability), defeating France 2-1 in 90 minutes in the final, with Brazil (18%) and England (12%) as the next most likely champions in a tournament where the top 7 teams cluster tightly.",
     "confidence": 0.22,
     "key_dynamics": [
-      "阿根廷凭 J 组最易出线路径 + 梅西告别叙事被看好, 但仅 22% 冠军概率反映竞争极度开放",
-      "法国定位头号挑战者 (19%), 姆巴佩预计进 5+ 球并深入淘汰赛",
-      "强强高度集中: 阿、法、巴、英、西五国合计占 82% 冠军概率",
-      "三大东道主 (美、加、墨) 均预计小组出线, 但夺冠概率低 (美国仅 2%)",
-      "决赛预计胶着, 末段决出: 常规 39%, 加时 31%, 点球 30%"
+      "Argentina favored via easiest projected path (Group J) and Messi's farewell narrative, despite only 22% title probability indicating high parity",
+      "France positioned as primary challenger (19%) with Mbappé projected for 5+ goals and deep knockout run",
+      "Top-heavy competitive landscape: Argentina, France, Brazil, England, and Spain collectively hold 82% of title probability",
+      "Host nations (USA, Canada, Mexico) all projected to advance from groups but with low championship odds (USA 2%)",
+      "Final likely tight and decisive late: 39% in 90 min, 31% in extra time, 30% on penalties"
     ],
     "signals": [
       {
@@ -44,220 +46,308 @@
       }
     ]
   },
-  "summary": {
-    "rounds": 5,
-    "node_count": 83,
-    "edge_count": 42,
-    "total_actions": 34,
-    "top_agents": [
-      {
-        "agent_id": 25,
-        "agent_name": "FIFA",
-        "total_actions": 6,
-        "twitter_actions": 3,
-        "reddit_actions": 3,
-        "action_types": {
-          "CREATE_POST": 6
-        },
-        "first_action_time": "2026-06-18T00:46:08.405717",
-        "last_action_time": "2026-06-18T00:46:08.751287"
-      },
-      {
-        "agent_id": 12,
-        "agent_name": "Carlo Ancelotti",
-        "total_actions": 4,
-        "twitter_actions": 2,
-        "reddit_actions": 2,
-        "action_types": {
-          "CREATE_POST": 4
-        },
-        "first_action_time": "2026-06-18T00:46:08.406472",
-        "last_action_time": "2026-06-18T00:46:08.751186"
-      },
-      {
-        "agent_id": 0,
-        "agent_name": "Algeria",
-        "total_actions": 2,
-        "twitter_actions": 1,
-        "reddit_actions": 1,
-        "action_types": {
-          "CREATE_POST": 2
-        },
-        "first_action_time": "2026-06-18T00:46:08.405787",
-        "last_action_time": "2026-06-18T00:46:08.750526"
-      },
-      {
-        "agent_id": 1,
-        "agent_name": "Argentina",
-        "total_actions": 2,
-        "twitter_actions": 1,
-        "reddit_actions": 1,
-        "action_types": {
-          "CREATE_POST": 2
-        },
-        "first_action_time": "2026-06-18T00:46:08.405849",
-        "last_action_time": "2026-06-18T00:46:08.750584"
-      },
-      {
-        "agent_id": 3,
-        "agent_name": "Australia",
-        "total_actions": 2,
-        "twitter_actions": 1,
-        "reddit_actions": 1,
-        "action_types": {
-          "CREATE_POST": 2
-        },
-        "first_action_time": "2026-06-18T00:46:08.405908",
-        "last_action_time": "2026-06-18T00:46:08.750634"
-      },
-      {
-        "agent_id": 4,
-        "agent_name": "Austria",
-        "total_actions": 2,
-        "twitter_actions": 1,
-        "reddit_actions": 1,
-        "action_types": {
-          "CREATE_POST": 2
-        },
-        "first_action_time": "2026-06-18T00:46:08.405966",
-        "last_action_time": "2026-06-18T00:46:08.750681"
-      },
-      {
-        "agent_id": 5,
-        "agent_name": "Belgium",
-        "total_actions": 2,
-        "twitter_actions": 1,
-        "reddit_actions": 1,
-        "action_types": {
-          "CREATE_POST": 2
-        },
-        "first_action_time": "2026-06-18T00:46:08.406024",
-        "last_action_time": "2026-06-18T00:46:08.750727"
-      },
-      {
-        "agent_id": 6,
-        "agent_name": "Bosnia and Herzegovina",
-        "total_actions": 2,
-        "twitter_actions": 1,
-        "reddit_actions": 1,
-        "action_types": {
-          "CREATE_POST": 2
-        },
-        "first_action_time": "2026-06-18T00:46:08.406087",
-        "last_action_time": "2026-06-18T00:46:08.750779"
-      },
-      {
-        "agent_id": 8,
-        "agent_name": "Brazil",
-        "total_actions": 2,
-        "twitter_actions": 1,
-        "reddit_actions": 1,
-        "action_types": {
-          "CREATE_POST": 2
-        },
-        "first_action_time": "2026-06-18T00:46:08.406146",
-        "last_action_time": "2026-06-18T00:46:08.750826"
-      },
-      {
-        "agent_id": 10,
-        "agent_name": "Canada",
-        "total_actions": 2,
-        "twitter_actions": 1,
-        "reddit_actions": 1,
-        "action_types": {
-          "CREATE_POST": 2
-        },
-        "first_action_time": "2026-06-18T00:46:08.406203",
-        "last_action_time": "2026-06-18T00:46:08.750870"
-      }
-    ]
+  "champion_table": {
+    "Argentina": 0.22,
+    "France": 0.19,
+    "Brazil": 0.18,
+    "England": 0.12,
+    "Spain": 0.11,
+    "Germany": 0.09,
+    "Netherlands": 0.05,
+    "Portugal": 0.04,
+    "USA": 0.02
   },
   "groups": {
     "A": {
       "letter": "A",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "Mexico",
+        "South Korea",
+        "Czech Republic",
+        "South Africa"
+      ],
+      "matches": [
+        {
+          "stage": "Group A",
+          "matchday": 2,
+          "team_a": "Mexico",
+          "team_b": "South Korea",
+          "team_a_win": 0.64,
+          "draw": 0.22,
+          "team_b_win": 0.14,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group A",
+          "matchday": 3,
+          "team_a": "Mexico",
+          "team_b": "Czech Republic",
+          "team_a_win": 0.71,
+          "draw": 0.18,
+          "team_b_win": 0.11,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ]
     },
     "B": {
       "letter": "B",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "Switzerland",
+        "Qatar",
+        "Bosnia & Herzegovina",
+        "Canada"
+      ],
+      "matches": [
+        {
+          "stage": "Group B",
+          "matchday": 2,
+          "team_a": "Switzerland",
+          "team_b": "Bosnia",
+          "team_a_win": 0.58,
+          "draw": 0,
+          "team_b_win": 0.18,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group B",
+          "matchday": 3,
+          "team_a": "Switzerland",
+          "team_b": "Qatar",
+          "team_a_win": 0.66,
+          "draw": 0,
+          "team_b_win": 0.12,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ]
     },
     "C": {
       "letter": "C",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "Brazil",
+        "Morocco",
+        "Scotland",
+        "Haiti"
+      ],
+      "matches": [
+        {
+          "stage": "Group C",
+          "matchday": 2,
+          "team_a": "Brazil",
+          "team_b": "Haiti",
+          "team_a_win": 0.85,
+          "draw": 0,
+          "team_b_win": 0.05,
+          "most_likely_score": {
+            "raw": "3-0",
+            "home": 3,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group C",
+          "matchday": 3,
+          "team_a": "Brazil",
+          "team_b": "Morocco",
+          "team_a_win": 0.52,
+          "draw": 0,
+          "team_b_win": 0.22,
+          "most_likely_score": {
+            "raw": "2-1",
+            "home": 2,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ]
     },
     "D": {
       "letter": "D",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "USA",
+        "Paraguay",
+        "Australia",
+        "Turkey"
+      ],
+      "matches": [
+        {
+          "stage": "Group D",
+          "matchday": 2,
+          "team_a": "USA",
+          "team_b": "Australia",
+          "team_a_win": 0.56,
+          "draw": 0,
+          "team_b_win": 0.19,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group D",
+          "matchday": 3,
+          "team_a": "USA",
+          "team_b": "Turkey",
+          "team_a_win": 0.48,
+          "draw": 0,
+          "team_b_win": 0.24,
+          "most_likely_score": {
+            "raw": "1-0",
+            "home": 1,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ]
     },
     "E": {
       "letter": "E",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "Germany",
+        "Ecuador",
+        "Ivory Coast",
+        "Curaçao"
+      ],
+      "matches": [
+        {
+          "stage": "Group E",
+          "matchday": 2,
+          "team_a": "Germany",
+          "team_b": "Ecuador",
+          "team_a_win": 0.68,
+          "draw": 0,
+          "team_b_win": 0.12,
+          "most_likely_score": {
+            "raw": "3-0",
+            "home": 3,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group E",
+          "matchday": 3,
+          "team_a": "Germany",
+          "team_b": "Curaçao",
+          "team_a_win": 0.88,
+          "draw": 0,
+          "team_b_win": 0.04,
+          "most_likely_score": {
+            "raw": "4-0",
+            "home": 4,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ]
     },
     "F": {
       "letter": "F",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "Netherlands",
+        "Sweden",
+        "Japan",
+        "Tunisia"
+      ],
+      "matches": [
+        {
+          "stage": "Group F",
+          "matchday": 2,
+          "team_a": "Netherlands",
+          "team_b": "Japan",
+          "team_a_win": 0.58,
+          "draw": 0,
+          "team_b_win": 0.18,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        },
+        {
+          "stage": "Group F",
+          "matchday": 3,
+          "team_a": "Netherlands",
+          "team_b": "Sweden",
+          "team_a_win": 0.56,
+          "draw": 0,
+          "team_b_win": 0.2,
+          "most_likely_score": {
+            "raw": "2-1",
+            "home": 2,
+            "away": 1,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ]
     },
     "G": {
       "letter": "G",
-      "teams": [],
-      "matches": [],
-      "standings": []
-    },
-    "H": {
-      "letter": "H",
-      "teams": [],
-      "matches": [],
-      "standings": []
-    },
-    "I": {
-      "letter": "I",
-      "teams": [],
-      "matches": [],
-      "standings": []
-    },
-    "J": {
-      "letter": "J",
-      "teams": [],
-      "matches": [],
-      "standings": []
-    },
-    "K": {
-      "letter": "K",
-      "teams": [],
-      "matches": [],
-      "standings": []
-    },
-    "L": {
-      "letter": "L",
-      "teams": [],
-      "matches": [],
-      "standings": []
+      "teams": [
+        "Belgium",
+        "Iran",
+        "Egypt",
+        "New Zealand"
+      ],
+      "matches": [
+        {
+          "stage": "Group G",
+          "matchday": 2,
+          "team_a": "Belgium",
+          "team_b": "Egypt",
+          "team_a_win": 0.6,
+          "draw": 0,
+          "team_b_win": 0.16,
+          "most_likely_score": {
+            "raw": "2-0",
+            "home": 2,
+            "away": 0,
+            "aet": false,
+            "pens": false
+          }
+        }
+      ]
     }
   },
-  "best_thirds": [],
-  "bracket": {
-    "r32": [],
-    "r16": [],
-    "qf": [],
-    "sf": [],
-    "third_place": null
-  },
   "final": {
-    "confidence": 0.22,
-    "champion": "Argentina"
+    "matchup": "Argentina 2-1 France (90 minutes).",
+    "champion": "Argentina",
+    "confidence": 0.22
   },
-  "upset_risks": [],
   "report_markdown": "# 2026 FIFA World Cup Prediction Report\n## *Argentina's Farewell Tour: A 22% Confident Title Defense*\n\n---\n\n## Section 1 — Executive Summary & Champion Verdict\n\nAfter running a 10,000-iteration Monte Carlo simulation across all 48 group-stage matches, the Round of 32, Round of 16, Quarterfinals, Semifinals, and the Final, the 2026 FIFA World Cup title probabilities converge sharply at the top of the distribution. As FIFA's official simulation account posted: *\"📊 CHAMPION CONFIDENCE LEVELS: 🇦🇷 Argentina 22%, 🇫🇷 France 19%, 🇧🇷 Brazil 18%, 🏴󠁧󠁢󠁥󠁮󠁧󠁿 England 12%, 🇪🇸 Spain 11%, 🇩🇪 Germany 9%, 🇳🇱 Netherlands 5%, 🇵🇹 Portugal 4%, 🇺🇸 USA 2%.\"*\n\n**Champion Pick: Argentina (22% confidence).** Projected final: **Argentina 2-1 France (90 minutes).** Messi's farewell narrative, squad depth across all three lines, and the easiest projected path (Group J vs Algeria, Austria, Jordan in Dallas) tilt the expected-value calculation in La Albiceleste's favor. France, with Mbappé \"in his absolute prime\" (per Bukayo Saka's scouting post: *\"Projected to score 5+ goals, lead France to a probable SF/Final run\"*), is the most credible challenger at 19%. The Final scenarios break down as follows: 39% decided in 90 minutes, 31% in extra time, 30% on penalties.\n\n---\n\n## Section 2 — Group Stage MD2+MD3 Predictions (All 12 Groups)\n\n### Group A — Mexico, South Korea, Czech Republic, South Africa (Mexico City)\n- **MD1 confirmed:** Czech Republic 1-2 South Korea. *Czech entity record: \"lost 1-2 to South Korea on 6/11, 0 points, -1 GD.\"*\n- **MD2 — Mexico 2-0 South Korea** (MEX 64% / Draw 22% / KOR 14%) | **South Africa 1-1 Czech Republic** (RSA 28% / Draw 30% / CZE 42%)\n- **MD3 — Mexico 2-0 Czech Republic** (MEX 71% / Draw 18% / CZE 11%) | **South Korea 2-0 South Africa** (KOR 70% / Draw 18% / RSA 12%)\n- **Final standings:** MEX 9, KOR 6, CZE 1, RSA 1\n\n### Group B — Switzerland, Qatar, Bosnia & Herzegovina, Canada (host) (Vancouver/Toronto)\n- **MD2 — Switzerland 2-0 Bosnia** (SUI 58% / 24% / 18%) | **Canada 2-1 Qatar** (CAN 52% / 25% / 23%)\n- **MD3 — Switzerland 1-0 Qatar** (SUI 66% / 22% / 12%) | **Canada 1-1 Bosnia** (CAN 38% / 30% / 32%)\n- **Final standings:** SUI 7, CAN 5, BIH 3, QAT 1\n\n### Group C — Brazil, Morocco, Scotland, Haiti (Miami)\n- **MD2 — Brazil 3-0 Haiti** (BRA 85% / 10% / 5%) | **Morocco 1-0 Scotland** (MAR 45% / 30% / 25%)\n- **MD3 — Brazil 2-1 Morocco** (BRA 52% / 26% / 22%) — *flagged as upset-risk, see Section 4* | **Scotland 2-0 Haiti** (SCO 60% / 24% / 16%)\n- **Final standings:** BRA 9, MAR 6, SCO 3, HAI 0\n\n### Group D — USA, Paraguay, Australia, Turkey (Kansas City)\nPer Austria's account: *\"USA... most likely group finish: 5 points (W-D-W). Tough opener vs Paraguay, must-win vs Australia, defining match vs Turkey.\"*\n- **MD2 — USA 1-0 Australia** (USA 56% / 25% / 19%) | **Paraguay 1-1 Turkey** (PAR 40% / 30% / 30%)\n- **MD3 — USA 1-0 Turkey** (USA 48% / 28% / 24%) | **Paraguay 2-1 Australia** (PAR 55% / 24% / 21%)\n- **Final standings:** USA 7, PAR 5, TUR 3, AUS 1\n\n### Group E — Germany, Ecuador, Ivory Coast, Curaçao (Boston)\n- **MD1 confirmed:** Germany 7-1 Ivory Coast. *Brazil agent confirms: \"7-1 thrashing of CIV in MD1.\"*\n- **MD2 — Germany 3-0 Ecuador** (GER 68% / 20% / 12%) | **Ivory Coast 2-0 Curaçao** (CIV 58% / 24% / 18%)\n- **MD3 — Germany 4-0 Curaçao** (GER 88% / 8% / 4%) | **Ecuador 1-0 Ivory Coast** (ECU 44% / 30% / 26%)\n- **Final standings:** GER 9, ECU 6, CIV 3, CUR 0\n\n### Group F — Netherlands, Sweden, Japan, Tunisia (New York/NJ)\n- **MD2 — Netherlands 2-0 Japan** (NED 58% / 24% / 18%) | **Sweden 1-0 Tunisia** (SWE 55% / 25% / 20%)\n- **MD3 — Netherlands 2-1 Sweden** (NED 56% / 24% / 20%) | **Japan 2-0 Tunisia** (JPN 64% / 22% / 14%)\n- **Final standings:** NED 7, JPN 6, SWE 3, TUN 1\n\n### Group G — Belgium, Iran, Egypt, New Zealand (Houston)\n- **MD2 — Belgium 2-0 Egypt** (BEL 60% / 24% / 16%) | **Iran 1-0 New Zealand** (IRN 52% / 26% / 22%)\n- **MD3"
 }

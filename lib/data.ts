@@ -16,7 +16,9 @@ export type RealMatch = {
   team_b: string;
   score_b: number;
   date: string | null;
-  source_wiki_page: string;
+  source_url: string;
+  /** @deprecated kept for backward-compat with old run JSONs. Use source_url. */
+  source_wiki_page?: string;
 };
 
 export type RealResults = {

@@ -61,6 +61,16 @@ echo "===== daily-update started at $TS ====="
 
 cd "$WCP"
 
+# ---------- Step 0.45: Refresh Elo rankings (eloratings.net, Playwright-rendered) ----------
+# Updates data/elo/wc_2026_elo.json with fresher Elo ratings. Idempotent.
+# 2026-06-26: switched from Wikipedia to eloratings.net (Slick-grid SPA via Playwright).
+echo "[0.45/5] Refresh Elo rankings (eloratings.net /World)..."
+if timeout 60 "$PYTHON" "$WCP/scripts/fetch_elo_ranking.py" 2>&1 | tail -3; then
+  echo "[0.45/5] ✓ rankings refreshed"
+else
+  echo "[0.45/5] ⚠️ fetch_elo_ranking failed — keeping existing elo"
+fi
+
 # ---------- Step 0.5: Elo-Poisson baseline (must run before MiroFish) ----------
 # Generates data/elo/wc_2026_baseline.{json,md} — a math-based score-distribution
 # baseline (μ=1.4, neutral venue, independent Poisson on each side). The .md
@@ -113,6 +123,87 @@ else
   echo "[0.7/5] ⚠️  fetch_odds failed — proceeding without bookmaker context"
 fi
 
+# ---------- Step 0.75: Correct-score market (Flashscore, Playwright) ----------
+# Generates data/real/wc_2026_correct_score.json — exact-score implied probs
+# (multi-bookmaker consensus: Bet365 + 6 others). Injected into MiroFish
+# prompt as a numeric anchor for top_3_scores (LLM should bias toward
+# scores with highest market consensus).
+# NOTE: Playwright headless Chromium — slower than HTTP APIs (~2-4 min for
+# 73 matches). Failures are silent (skip step, MiroFish proceeds without).
+echo "[0.75/5] Correct-score market (Flashscore)..."
+if [[ -f "$WCP/.venv/bin/python" ]]; then
+  PVENV="$WCP/.venv/bin/python"
+elif command -v playwright >/dev/null 2>&1; then
+  PVENV="$(command -v playwright | xargs dirname | xargs dirname)/bin/python"
+else
+  PVENV="$PYTHON"
+fi
+if timeout 360 "$PVENV" "$WCP/scripts/fetch_correct_score.py" 2>&1 | tail -5; then
+  if [[ -f "$WCP/data/real/wc_2026_correct_score.json" ]]; then
+    # Build MD: top score per match with prob
+    CS_MD=$("$PVENV" -c "
+import json
+d = json.load(open('$WCP/data/real/wc_2026_correct_score.json'))
+rows = ['| UTC date | Group | Matchup | Top score | Prob | #books |',
+        '|---|---|---|---|---|---|']
+for m in d.get('matches', []):
+    cs = m.get('correct_score', {})
+    scores = cs.get('scores', [])
+    if not scores:
+        continue
+    top = scores[0]
+    rows.append(f\"| {m.get('date','')} | {m.get('group','-')} | {m['team_a']} vs {m['team_b']} | {top['home']}-{top['away']} | {top['prob_norm']*100:.1f}% | {top['n_bookmakers']} |\")
+print('\n'.join(rows))
+" 2>/dev/null)
+    CS_COUNT=$(echo "$CS_MD" | grep -c '^| [0-9]')
+    echo "[0.75/5] ✓ correct-score built ($CS_COUNT matches)"
+  else
+    CS_MD=""
+    echo "[0.75/5] ⚠️  correct_score.json missing — proceeding without"
+  fi
+else
+  CS_MD=""
+  echo "[0.75/5] ⚠️ fetch_correct_score failed/timeout — proceeding without"
+fi
+
+# ---------- Step 0.78 (REMOVED 2026-06-26): Head-to-head history (Wikipedia SOCKS5) ----------
+# Wikipedia banned as data source per wc-predict-wiki-ban. fetch_h2h.py disabled.
+# H2H removed from MiroFish prompt — LLM relies on Elo + form + odds + venue instead.
+H2H_MD=""
+echo "[0.78/5] ⏭  h2h removed (Wikipedia ban) — proceeding without"
+
+# ---------- Step 0.8: Venue + weather for R32 (open-meteo) ----------
+
+
+# Generates data/real/wc_2026_venue.json — 16 R32 venues + open-meteo forecast.
+# Injected into MiroFish prompt as a "knockout venue context" — temperature,
+# rain, humidity, wind for the 16 R32 matches. Group stage skips (not enough
+# marginal value; open-meteo free-tier rate limits).
+echo "[0.8/5] Venue + weather (R32 open-meteo)..."
+if timeout 90 "$PYTHON" "$WCP/scripts/fetch_venue.py" 2>&1 | tail -3; then
+  if [[ -f "$WCP/data/real/wc_2026_venue.json" ]]; then
+    VENUE_MD=$("$PYTHON" -c "
+import json
+d = json.load(open('$WCP/data/real/wc_2026_venue.json'))
+rows = ['| Match | Venue | City | Kickoff (CST) | Temp | Rain | Wind |',
+        '|---|---|---|---|---|---|---|']
+for m in d.get('matches', []):
+    w = m.get('weather') or {}
+    v = m['venue']
+    rows.append(f\"| M{m['match_id']} ({m['team_a']} vs {m['team_b']}) | {v['name']} | {v['city']} | {m['kickoff_local']} | {w.get('temp_c','-')}°C | {w.get('rain_mm','-')}mm | {w.get('wind_kph','-')}km/h |\")
+print('\n'.join(rows))
+" 2>/dev/null)
+    VENUE_COUNT=$(echo "$VENUE_MD" | grep -c '^| M[0-9]')
+    echo "[0.8/5] ✓ venue+weather built ($VENUE_COUNT R32 matches)"
+  else
+    VENUE_MD=""
+    echo "[0.8/5] ⚠️  venue.json missing — proceeding without"
+  fi
+else
+  VENUE_MD=""
+  echo "[0.8/5] ⚠️ fetch_venue failed — proceeding without"
+fi
+
 # ---------- Step 1: MiroFish re-run ----------
 NEW_RUN_ID=""
 if [[ "${SKIP_MIROFISH:-0}" == "1" ]]; then
@@ -153,7 +244,7 @@ R6/R7 已知问题修复 (R8 MUST COMPLETE ALL SECTIONS):
 | 6/25 01:00 | A | Czech Republic vs South Africa | 0-3 | CZE A 3 分 (输球), RSA A 3 分 (赢球). A: MEX 9, KOR 3, RSA 3, CZE 3 — KOR/RSA/CZE 算 GD 决 2nd, CZE GD -1, RSA GD 0, KOR GD 0 (KOR/RSA 决) |
 | 6/25 01:00 | A | South Korea vs South Africa | 0-1 | RSA A 6 分 (2nd, locked, GD+1), KOR A 3 分 (3rd). A 终: MEX 9, RSA 6, KOR 3, CZE 0 |
 
-校准: France I 9 分 (1st, locked), Senegal I 3 分, Norway I 3 分, Iraq I 0. I: France 1st, Norway/Senegal 2nd 算 H2H/GD.
+校准: France I 9 分 (1st, locked), Senegal I 3 分, Norway I 3 分, Iraq I 0. I: France 1st, Norway/Senegal 2nd 算 GD.
 Argentina J 9 分 (1st, locked). Austria 0 分 → 4th. Algeria J 3, Jordan J 0.
 England L 4 分 (赢 Ghana 0-0 + 之前赢 Croatia), Ghana 1 分, Croatia 0 分, Panama 0 分. England 1st locked, Ghana 2nd locked.
 Portugal K 9 分 (1st, locked). Colombia K 6 (赢 1-0 + 之前 5-0 vs Uzb), DR Congo K 1, Uzbekistan K 0. 2nd = Colombia.
@@ -272,7 +363,15 @@ NUMERIC ANCHOR (Elo-Poisson baseline, μ=1.4, neutral venue) — use this to set
 ${BASELINE_MD}
 
 BOOKMAKER PRIOR (DraftKings via ESPN, 1X2 vig-removed, 30% weight calibration) — use as a market consensus reference for 1X2 probability. Treat as a soft prior (do not blindly follow if your reasoning strongly disagrees, e.g. lineup news); blend ~30% bookmaker + ~70% LLM reasoning. Only available for matches with published odds (pre-round matches 6/20-7/19).
-${ODDS_MD}" \
+${ODDS_MD}
+
+CORRECT-SCORE MARKET (Flashscore via Bet365 + 6 books, exact-score implied prob) — use as a numeric anchor for top_3_scores. The market consensus top score (with highest prob_norm) is what the betting market thinks is most likely; your top_3_scores list should include it. n_bookmakers ≥ 3 = strong consensus; n_bookmakers = 1-2 = weak, treat as soft prior.
+${CS_MD}
+
+VENUE + WEATHER (open-meteo, R32 only) — temperature / rain / wind for the 16 R32 matches. Adjust score projections modestly: high temp (>30°C) + high humidity favors under (fewer late goals), rain favors defensive draws, strong wind favors home team in low-scoring games. Group stage skips (venue marginal at most).
+${VENUE_MD}
+
+(H2H history removed 2026-06-26 per wc-predict-wiki-ban — no Wikipedia data sources.)" \
     --json 2>&1 | tail -200) || true
 
   NEW_RUN_ID=$(echo "$MF_OUT" | grep -oE '"run_id"[[:space:]]*:[[:space:]]*"run_[a-f0-9]+"' | head -1 | grep -oE 'run_[a-f0-9]+')
@@ -284,7 +383,7 @@ ${ODDS_MD}" \
   cd "$WCP"
 fi
 
-# ---------- Step 1.5: refresh real WC results (ESPN scoreboard primary, Wikipedia fallback) ----------
+# ---------- Step 1.5: refresh real WC results (ESPN scoreboard, single source) ----------
 # Runs unconditionally (no MiroFish needed). Fetches 28-100 matches from ESPN's
 # public scoreboard endpoint (no API key) into data/real/wc_2026_results.json.
 # This keeps the PlayedVsPredicted banner + /groups/[letter] "真实 X-Y" badges

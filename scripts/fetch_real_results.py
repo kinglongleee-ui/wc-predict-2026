@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Fetch real 2026 WC results from ESPN (primary) + Wikipedia (fallback).
+"""Fetch real 2026 WC results from ESPN scoreboard (single source).
 
-Data sources (tried in order):
+Data source:
   1. ESPN scoreboard `site.api.espn.com/.../fifa.world/scoreboard?dates=YYYYMMDD-YYYYMMDD`
      - 100 events across the WC window (06-11 to 07-19), all 12 groups.
      - Filter state='post' (completed). Group label in `altGameNote='... Group X'`.
@@ -9,12 +9,8 @@ Data sources (tried in order):
      - Team displayNames mapped via ESPN_TO_MIROFISH to MiroFish canonical names
        (matches R3 full names + R4 3-letter codes after CODE_TO_TEAM).
 
-  2. Wikipedia wikitext action=parse (fallback if ESPN unreachable / rate-limited).
-     - Uses {{#invoke:football box|main ...}} Lua template (team1/team2=3-letter code,
-       score={{score link|...|X–Y}}). Old free-text regex no longer matches.
-
 Output: data/real/wc_2026_results.json
-  { matches: [{group, team_a, score_a, team_b, score_b, date, source_wiki_page}],
+  { matches: [{group, team_a, score_a, team_b, score_b, date, source_url}],
     fetched_at, source }
 """
 from __future__ import annotations
@@ -30,7 +26,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'data' / 'real' / 'wc_2026_results.json'
 ESPN_API = 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard'
-WIKI_API = 'https://en.wikipedia.org/w/api.php'
 GROUPS = 'ABCDEFGHIJKL'
 UA = 'wc-predict-ecru/1.0 (https://github.com/kinglongleee-ui/wc-predict-2026)'
 
@@ -82,9 +77,6 @@ def _http_get(url: str, headers: dict | None = None, proxy: str | None = None, t
     return urllib.request.urlopen(req, timeout=timeout).read()
 
 
-# ---------------------------------------------------------------------------
-# ESPN (primary)
-# ---------------------------------------------------------------------------
 def espn_date_window() -> str:
     """YYYYMMDD-YYYYMMDD covering WC 2026 kickoff (06-11) through R32 (~07-19).
     Must start at 2026-06-11, NOT today, so completed group-stage matches
@@ -146,7 +138,7 @@ def fetch_espn() -> tuple[list[dict], str]:
             'team_b': team_b,
             'score_b': score_b,
             'date': (ev.get('date', '') or '')[:10] or None,
-            'source_wiki_page': f'ESPN:fifa.world:{ev.get("id", "")}',
+            'source_url': f'ESPN:fifa.world:{ev.get("id", "")}',
         })
     # de-dupe
     seen = set()
@@ -163,115 +155,13 @@ def fetch_espn() -> tuple[list[dict], str]:
 
 
 # ---------------------------------------------------------------------------
-# Wikipedia (fallback)
-# ---------------------------------------------------------------------------
-def fetch_wiki_group(letter: str) -> list[dict]:
-    page = f'2026_FIFA_World_Cup_Group_{letter}'
-    url = f'{WIKI_API}?action=parse&page={page}&format=json&prop=wikitext'
-    raw = _http_get(url, headers={'User-Agent': UA}, timeout=15)
-    data = json.loads(raw)
-    wt = data.get('parse', {}).get('wikitext', {}).get('*', '') or ''
-    return parse_wiki_group(letter, wt)
-
-
-def _extract_boxes(wt: str) -> list[str]:
-    boxes = []
-    i = 0
-    while True:
-        j = wt.find('#invoke:football box', i)
-        if j < 0:
-            break
-        start = wt.rfind('{{', max(0, j - 30), j)
-        if start < 0:
-            i = j + 1
-            continue
-        depth = 0
-        k = start
-        while k < len(wt):
-            if wt[k:k + 2] == '{{':
-                depth += 1; k += 2; continue
-            if wt[k:k + 2] == '}}':
-                depth -= 1; k += 2
-                if depth == 0:
-                    boxes.append(wt[start:k])
-                    break
-                continue
-            k += 1
-        i = j + 1
-    return boxes
-
-
-def parse_wiki_group(letter: str, wt: str) -> list[dict]:
-    out: list[dict] = []
-    for box in _extract_boxes(wt):
-        m_date = re.search(r'\{\{Start date\|(\d{4})\|(\d{1,2})\|(\d{1,2})\}\}', box)
-        if not m_date:
-            continue
-        date = f"{m_date.group(1)}-{int(m_date.group(2)):02d}-{int(m_date.group(3)):02d}"
-        m_t1 = re.search(r'team1\s*=\s*\{\{#invoke:flag\|fb-rt\|([A-Z]{3})\}\}', box)
-        m_t2 = re.search(r'team2\s*=\s*\{\{#invoke:flag\|fb(?:\|rt)?\|([A-Z]{3})\}\}', box)
-        if not m_t1 or not m_t2:
-            continue
-        m_score = re.search(r'score\s*=\s*\{\{score link\|[^|]+\|([^}]+)\}\}', box)
-        if not m_score:
-            m_score = re.search(r'score\s*=\s*([0-9]+)\s*[–—\-]\s*([0-9]+)', box)
-            if not m_score:
-                continue
-            sa, sb = m_score.group(1), m_score.group(2)
-        else:
-            mn = re.search(r'([0-9]+)\s*[–—\-]\s*([0-9]+)', m_score.group(1).strip())
-            if not mn:
-                continue
-            sa, sb = mn.group(1), mn.group(2)
-        out.append({
-            'group': letter,
-            'team_a': CODE_TO_TEAM.get(m_t1.group(1), m_t1.group(1)),
-            'score_a': int(sa),
-            'team_b': CODE_TO_TEAM.get(m_t2.group(1), m_t2.group(1)),
-            'score_b': int(sb),
-            'date': date,
-            'source_wiki_page': f'2026_FIFA_World_Cup_Group_{letter}',
-        })
-    # de-dupe
-    seen = set()
-    uniq = []
-    for m in out:
-        key = (m['group'], m['team_a'], m['team_b'], m['date'])
-        if key in seen:
-            continue
-        seen.add(key)
-        uniq.append(m)
-    return uniq
-
-
-def fetch_wiki_all() -> tuple[list[dict], str]:
-    all_m: list[dict] = []
-    failed = 0
-    for letter in GROUPS:
-        try:
-            ms = fetch_wiki_group(letter)
-            print(f"  Wiki Group {letter}: {len(ms)} match(es)")
-            all_m.extend(ms)
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, KeyError) as e:
-            print(f"  Wiki Group {letter}: SKIP ({e})", file=sys.stderr)
-            failed += 1
-    all_m.sort(key=lambda m: (m['group'], m['date'] or ''))
-    src = f'Wikipedia wikitext action=parse (Module:Football box, {len(GROUPS) - failed}/{len(GROUPS)} groups)'
-    return all_m, src
-
-
-# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 def main() -> int:
-    print("Source 1: ESPN scoreboard...")
+    print("Source: ESPN scoreboard...")
     matches, src = fetch_espn()
     if not matches:
-        print("  ESPN failed, falling back to Wikipedia...")
-        matches, src = fetch_wiki_all()
-
-    if not matches:
-        print("ERROR: no data from any source", file=sys.stderr)
+        print("ERROR: ESPN returned no data — wc_2026_results.json not updated", file=sys.stderr)
         return 1
 
     payload = {

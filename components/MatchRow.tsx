@@ -94,7 +94,7 @@ export function MatchRow({ match, played }: Props) {
                   ? "bg-emerald-600 text-white"
                   : "bg-orange-600 text-white"
               }`}
-              title={`ESPN 公开赛事 API · ${played.source_wiki_page} · 非 FIFA 官方`}
+              title={`ESPN 公开赛事 API · ${played.source_url ?? played.source_wiki_page} · 非 FIFA 官方`}
             >
               真实: {played.score_a}-{played.score_b}
             </div>
